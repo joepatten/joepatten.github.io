@@ -1,0 +1,260 @@
+%------------------------------------------------------------
+%	FILENAME: final_exam.tex
+%	 PROJECT: mathbootcamp
+%	  AUTHOR: Brett R. Devine
+%	   EMAIL: brett.devine@wsu.edu
+%------------------------------------------------------------
+\documentclass[a4paper, 11pt]{article}
+\usepackage{final_exam_style}
+\newcounter{problem}
+\newenvironment{problem}[1][]{%
+	\refstepcounter{problem}\par \medskip
+	\noindent \textbf{Problem~\theproblem.#1 \rmfamily}{\medskip}
+}
+
+\newenvironment{solution}{ \noindent \textbf{Solution: \medskip}}{}
+% To make solutions not visible use the command \excludecomment{solution} %
+%\excludecomment{solution}
+
+\title{ Final Exam 2016 \\ \vspace{1em }
+	\large WSU Economics PhD Mathematics Bootcamp
+}
+
+\begin{document}
+\maketitle
+
+\begin{problem}\\
+	Consider the market for commodity $x$.
+	The quantity demanded in this market depends on the market price for $x$, $p$, and the value of an external unpriced factor, $r$, such as the ``status symbol'' value of owning commodity $x$ which increases quantity demanded at any price.
+	Given a known constant $b_D$ we have the demand function:
+	\[
+		q = b_D - 2p + r
+	\]
+	The supply of $x$ to the market increases with market price and we assume for some reason that higher values of $r$, the status symbol value, decrease the willingness to supply at any given price.
+	Important cost factors faced by suppliers result in a known constant $b_S$ and we have the supply function:
+	\[
+		q = b_S + 2p - r
+	\]
+	Finally, the status symbol value $r$ increases the more expensive the commodity is and it decreases as more of the commodity is supplied because it becomes more common.
+	Given some known constant value $b_r$, the status symbol value is determined by the function:
+	\[
+		r = 2b_r + 4p - 2q
+	\]
+	\begin{enumerate}[(a)]
+		\item Using the functions provided, construct a proper system of linear equations to represent the market for commodity $x$.
+		\item Derive a matrix expression for the system in part (a) that takes the form $A\mathbf{x} = \mathbf{b}$.
+		\item The system of equations describing the market for commodity $x$ has three equations in three unknowns.
+		The system either has no solution, infinitely many solutions or a unique solution.
+		Perform a test on the matrix $A$ (show your process and results) from part(b) that can tell you whether there is a unique solution and interpret the result.
+		\item Find the inverse matrix of $A$ (show it) and use it to solve the system for the equilibrium values of $q,p,r$ when we have the constants
+		\[
+			\begin{bmatrix}
+				b_D \\
+				b_S \\
+				b_r
+			\end{bmatrix} = 
+			\begin{bmatrix}
+				10 \\
+				8 \\
+				2
+			\end{bmatrix}
+		\]
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	\begin{enumerate}[(a)]
+		\item The system of linear equations is
+		\begin{align}
+			q + 2p - r &= b_D \nonumber \\
+			q - 2p + r &= b_S \nonumber \\
+			q - 2p + \frac{1}{2}r &= b_r \nonumber
+		\end{align}
+		\item
+		\begin{align}
+			\begin{bmatrix}
+				1 & 2 & -1 \\
+				1 & -2 & 1 \\
+				1 & -2 & \frac{1}{2}
+			\end{bmatrix}
+			\begin{bmatrix}
+				q \\
+				p \\
+				r
+			\end{bmatrix} &= 
+			\begin{bmatrix}
+				b_D \\
+				b_S \\
+				b_r
+			\end{bmatrix} \nonumber \\
+			A\mathbf{x} &= \mathbf{b} \nonumber
+		\end{align}
+		\item $\det A = 2 \neq 0$ so $A$ is invertible and there exists a unique solution to the system.
+		\item \begin{align}
+			A^{-1} &=
+			\begin{bmatrix}
+				\frac{1}{2} & \frac{1}{2} & 0 \\
+				\frac{1}{4} & \frac{3}{4} & -1 \\
+				0 & 2 & -2
+			\end{bmatrix} \nonumber
+		\end{align}
+		and the solution is found as $\mathbf{x} = (p,q,r) = A^{-1}\mathbf{b}$ where $b=(10,8,2)$.
+		The solution is $(p,q,r) = (9, \frac{13}{2}, 12)$.
+	\end{enumerate}
+\end{solution}
+
+
+
+\begin{problem}\\
+	Consider the market for another commodity, $y$, with the following demand and supply functions where $b_D$ and $b_S$ are constants.
+	\begin{align}
+		\text{Supply} \; q_S &= b_S e^{p} \nonumber \\
+		\text{Demand} \; q_D &= b_D e^{-p} \nonumber
+	\end{align}
+	\begin{enumerate}[(a)]
+		\item Find the equilibrium price function $p^*:\mathbb{R}^2_{++} \rightarrow \mathbb{R}_{++}$ such that for some values $(b_D,b_S)$ the equilibrium price for $y$ will be $p^*(b_D,b_S)$.
+		\item Derive the gradient function $\nabla p^*$.
+		\item We are interested in the behavior of the equilibrium price in the market for commodity $y$ as structural aspects, $b_D$ and $b_S$ change.
+		Suppose through econometric analysis it is determined that the current values are $(b_D, b_S) = (5,1)$.
+		Calculate the total differential of equilibrium price $p^*$ as the values of $b_D$ and $b_S$ change slightly $(db_D, db_S) = (1/9, -1/7)$.
+		\item Using the values from part (c), calculate a linear approximation of the equilibrium market price as the structural parameters change as in part (c).
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	\begin{enumerate}[(a)]
+		\item $p^*(b_D,b_S) = (1/2)\ln(b_D) - (1/2)\ln(b_S)$.
+		\item $\nabla p^* = (1/(2b_D), -1/(2b_S))$.
+		\item $dp^* = \frac{26}{315}$
+		\item $p^*(5,1) + dp^* = (1/2)\ln(5) - (1/2)\ln(1) + \frac{26}{315} = \frac{26}{315} + \frac{1}{2}\ln(5)$.
+	\end{enumerate}
+\end{solution}
+
+\begin{problem}\\
+	Let $F:\mathbb{R}^n \rightarrow \mathbb{R}$ be a continuously differentiable function.
+	Let $V = \{ \mathbf{v} \in \mathbb{R}^n : \| \mathbf{v} \| = 1\}$ be the set of all vectors in $\mathbb{R}^n$ of unit length.
+	Also, let $\mathbf{x}_0 \in \mathbb{R}^n$ such that $\nabla F(\mathbf{x}_0) \neq \mathbf{0}$.
+	Prove that over the set $V$, the direction $\mathbf{v}$ in which $F$ increases most rapidly at the point $\mathbf{x}_0$ is the direction of $\nabla F(\mathbf{x}_0)$.
+\end{problem}
+\begin{solution}\\
+	Let $F:\mathbb{R}^n \rightarrow \mathbb{R}$ and let $\mathbf{x}_0 \in \mathbb{R}^n$ such that $\nabla F(\mathbf{x}_0) \neq \mathbf{0}$. 
+	Furthermore, let $V$ be the set of $n$-dimensional unit vectors.
+	For unit vectors $\mathbf{v} \in V$, the derivative of $F$ at $\mathbf{x}_0$ in the direction $\mathbf{v}$ is
+	\[
+		D_{v}F(\mathbf{x}_0) = \nabla F(\mathbf{x}_0) \cdot \mathbf{v}
+	\]
+	The dot product can be expressed in terms of the norms of the vectors and the angle between them.
+	\[
+		\nabla F(\mathbf{x}_0)\cdot \mathbf{v} = \| \nabla F(\mathbf{x}_0)\| \| \mathbf{v} \| \cos \theta
+	\]
+	where $\theta$ is the angle between the vectors $\nabla F(\mathbf{x}_0)$ and $\mathbf{v}$.
+	Since $\mathbf{v}$ is a unit vector $\| \mathbf{v} \| = 1$ so we have
+	\[
+		D_{v}F(\mathbf{x}_0) = \| \nabla F(\mathbf{x}_0) \| \cos \theta
+	\]
+	As we vary $\mathbf{v}$ over $V$, the value of $\cos \theta$ changes.
+	It takes its greatest value when $\theta = 0$ meaning that $\mathbf{v}$ and $\nabla F$ will be coincident and point in the same direction.
+	Thus, $D_vF(\mathbf{x}_0)$ is greatest when taken in the direction $\mathbf{v} = \nabla F(\mathbf{x}_0)$. \qedsymbol
+\end{solution}
+
+\begin{problem}
+	Prove or disprove the following statement.
+	\emph{There is no largest integer}.
+\end{problem}
+\begin{solution}\\
+	Let $N \in \mathbb{Z}$ and assume to the contrary that $N$ is the largest integer.
+	Now let $n = N + 1$.
+	Since for any integer $z \in \mathbb{Z}$ we know that $z + 1 \in \mathbb{Z}$, we know that $n + 1$ is an integer.
+	But $n > N$ which contradicts our assumption that $N$ is the largest integer.
+	Therefore, there is no largest integer. \qedsymbol
+	
+\end{solution}
+
+\begin{problem}\\
+	Consider two firms engaging in Cournot competition in a market $M$.
+	Both firms face an inverse demand curve $P(Q,\mu)$ where $P$ is the market price when total market quantity is $Q$ and consumer taste intensity is $\mu > 0$.
+	Furthermore $P(Q,\mu)$ follows the law of demand so that $P_Q(Q,\mu) < 0$ and more intense preferences increase demand $P_{\mu}(Q,\mu) > 0$.
+	
+	Firm 1 has total production costs $C_1(q_1)$ when it produces $q_1$ units.
+	Firm 2 has total production costs $C_2(q_2)$ when it produces $q_2$ units.
+	For both firms costs increase in $q$, so that $C_i'(q_i) > 0$.
+	Total market output $Q = q_1 + q_2$.
+	The firm's profits are as follows
+	\begin{align}
+		\pi_1(q_1,q_2,\mu) &= P(q_1 + q_2; \mu)q_1 - C_1(q_1) \nonumber \\
+		\pi_2(q_1,q_2,\mu) &= P(q_1 + q_2; \mu)q_2 - C_2(q_2) \nonumber
+	\end{align}
+	Each firm wants to choose its output quantity $q_i$ to maximize its profit $\pi_i$ given the output decision of the other firm.
+	The solution to this maximization problem yields a \emph{best response} function $R_i(q_{-i},\mu)$ which has the interpretation that, for example, firm 1 will choose its output $q_1 = R_1(q_2,\mu)$.
+	So $R$ is a function that takes firm 2's output as an argument and tells firm 1 what output, $q_1$ will maximize its own profit.
+	Firm 2 has a similar function $q_2 = R_2(q_1,\mu)$.
+	
+	Using $q_1 = R_1(q_2,\mu)$ and $q_2 = R_2(q_1,\mu)$ we can create a composite function
+	\[
+		q' = R_1( R_2(q_1,\mu), \mu) = F(q,\mu)
+	\]
+	An equilibrium will be a \emph{fixed point} of this composite function, which means that if you put a $q$ in for some fixed $\mu$ and you get the same $q$ back out, then that $q$ is a Nash Equilibrium.
+	Let $q_e$ represent such values.
+	\begin{enumerate}[(a)]
+		\item Calculate the partial derivative $\pi_{q_1\mu}$ for firm 1's profit function.
+		\item Calculate the partial derivative $\pi_{q_1q_2}$ for firm 1's profit function.
+		\item For the identity $q_e = F(q_e, \mu) = R_1(R_2(q_e,\mu),\mu)$, calculate the derivative $\frac{d q_e}{d \mu}$, telling us how the Nash equilibrium quantity changes as consumer taste intensity changes.
+		[Hint: Consider the use of total differentials and um...the chain rule.]
+	\item (Bonus) Can you sign the derivative in part (a)? i.e., does the equilibrium output increase or decrease as $\mu$ increases?
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	\begin{enumerate}[(a)]
+		\item \begin{align}
+			\frac{\partial \pi_1}{\partial q_1} &= P_Q(q_1 + q_2;\mu)q_1 + P(q_1+q_2;\mu) - C_1'(q_1) \nonumber \\
+			\frac{\partial^2 \pi_1}{\partial q_1 \partial \mu } &=  P_{Q\mu}(q_1+q_2;\mu)q_1 + P_{\mu}(q_1+q_2;\mu) \nonumber 
+		\end{align}
+		\item \begin{align}
+			\pi_{q_1,q_2} &= P_{QQ}(q_1 + q_2;\mu)q_1 + P_Q(q_1+q_2;\mu) \nonumber
+		\end{align}
+		\item So because its an identity, the total change on one side has to equal the total change on the other side.
+		\begin{align}
+			dq_e &= \frac{\partial R_1}{\partial R_2}\frac{\partial R_2}{\partial q_e}d q_e + \frac{\partial R_1}{\partial R_2}\frac{\partial R_2}{\partial \mu}d\mu + \frac{\partial R_1}{\partial \mu}d\mu \nonumber \\
+			dq_e \left[1 - \frac{\partial R_1}{\partial R_2}\frac{\partial R_2}{\partial q_e}\right] &=  \left[\frac{\partial R_1}{\partial R_2}\frac{\partial R_2}{\partial \mu} + \frac{\partial R_1}{\partial \mu} \right] d\mu \nonumber
+		\end{align}
+		Finally we have
+		\begin{align}
+			\frac{d q_e}{d \mu} &= \frac{\left[\frac{\partial R_1}{\partial R_2}\frac{\partial R_2}{\partial \mu} + \frac{\partial R_1}{\partial \mu} \right]}{\left[1 - \frac{\partial R_1}{\partial R_2}\frac{\partial R_2}{\partial q_e}\right]} \nonumber
+		\end{align}
+	\end{enumerate}
+\end{solution}
+
+
+\paragraph{True, False or Uncertain}
+For the following problems, determine whether the statement, as given, is true, false or if its uncertain.
+If you determine the statement is false or uncertain, provide an explanation.
+
+\begin{problem}\\
+	\textbf{True, False or Uncertain}: Suppose $f(x,y)$ is defined on a set $D$ that contains a point $(a,b)$.
+	If the partial derivative functions $f_{xy}$ and $f_{yx}$ are both continuous on $D$, then $f_{xy}(a,b) = f_{yx}(a,b)$.
+\end{problem}
+\begin{solution}
+	True
+\end{solution}
+
+\begin{problem}\\
+	\textbf{True, False or Uncertain}: For a function $f(x,y)$ if the partial derivatives $f_x$ and $f_y$ exist near a point $(a,b)$ then $f$ is differentiable at $(a,b)$.
+\end{problem}
+\begin{solution}\\
+	False: The implication isn't true because even though $f_x$ and $f_y$ exist near $(a,b)$ if they are not continuous then it is possible for discontinuities to prevent the existence of a limiting value for the rate of change of the function.
+	Also, note that differentiability is sufficient for continuity.
+	The implication is true if $f_x$ and $f_y$ exist and are continuous near $(a,b)$.
+	This is an important result.
+	For very general functions such as $F:\mathbb{R}^n \rightarrow \mathbb{R}^m$ we can know that this function is differentiable at some point $\mathbf{x}$ if all the partial derivatives of $F$ (the Jacobian Matrix) exist and are continuous around $\mathbf{x}$.
+\end{solution}
+
+\begin{problem}\\
+	\textbf{True, False or Uncertain}: If $f$ is a differentiable function of $x$ and $y$, then $f$ has a directional derivative in the direction of any vector $\mathbf{v}$ and 
+	\[
+		D_v f(x,y) = \nabla f \cdot \mathbf{v}
+	\]
+\end{problem}
+\begin{solution}\\
+	False or Uncertain: Generally, this requires $\mathbf{v}$ to be a unit vector i.e., $\| \mathbf{v} \| = 1$.
+	Some people don't require this, but we lose some of the meaning as when it is a unit vector the expression represents a projection of $\nabla f$ onto vectors in the same direction as $\mathbf{v}$.
+\end{solution}
+
+\end{document}

@@ -1,0 +1,373 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{assignment_style}
+
+\newcounter{problem}
+\newenvironment{problem}[1][]{%
+	\refstepcounter{problem}\par \medskip
+	\noindent \textbf{Problem~\theproblem.#1 \rmfamily}{\medskip}
+}
+
+\newenvironment{solution}{ \noindent \textbf{Solution: \medskip}}{}
+% To make solutions not visible use the command \excludecomment{solution} %
+\excludecomment{solution}
+
+\title{Assignment 3 \\
+	\vspace{1em} \large WSU PhD Economic Math Bootcamp 2016
+}
+\date{}
+\begin{document}
+\maketitle
+
+
+\begin{problem}
+%steward calculus chapter 14 page 827
+	If $f(x,y) = \frac{xy}{x^2 + y^2}$, does $\lim_{(x,y)\rightarrow (0,0)} f(x,y)$ exist?
+\end{problem}
+\begin{solution}
+	If $y=0$, then $f(x,0) = 0/x^2 = 0$.
+	Therefore we know $f(x,y)\rightarrow 0$ as $(x,y)\rightarrow (0,0)$ along the $x$-axis.
+	If $x=0$, then $f(0,y) = 0/y^2 = 0$ so we see again that $f(x,y) \rightarrow 0$ as $(x,y)\rightarrow (0,0)$ along the $y$-axis.
+	But what happens when we approach $(0,0)$ from some path that isn't along an axis?  Say the line $x=y$?
+	For all $x\neq 0$  we have
+	\[
+		f(x,x) = \frac{x^2}{x^2 + x^2} = \frac{1}{2}
+	\]
+	This implies that $f(x,y) \rightarrow \frac{1}{2}$ as we let $(x,y)\rightarrow (0,0)$ along the path $x=y$.
+	The fact that following different paths to the point $(0,0)$ leads to different limiting values of $f(x,y)$ is evidence that \textbf{the limit does not exist}.
+\end{solution}
+
+\begin{problem}
+	For the function $f(x,y) = 3xy^4 + x^3y^4$; find the partial derivatives $f_{xxy}$ and $f_{yyy}$.
+\end{problem}
+\begin{solution}
+	$24xy^3$ and $24x^3y + 72xy$.
+\end{solution}
+
+\begin{problem}
+	For $w = \frac{x}{y + 2z}$ find the partial derivatives $\frac{\partial^3 w}{\partial z \partial y \partial x}$ and $\frac{\partial^3 w}{\partial x^2 \partial y}$.
+\end{problem}
+\begin{solution}
+	$4/(y + 2z)^3$ and $0$.
+\end{solution}
+
+\begin{problem}
+%stewart chapter 14.4 page 893
+Find the tangent plane to the elliptic paraboloid $z = 2x^2 + y^2$ at the point $(x=1,y=1,z=3)$.
+\end{problem}
+\begin{solution}
+Let $f(x,y) = 2x^2 + y^2$ then $f_x = 4x$ and $f_y = 2y$ and evaluated at $(1,1,3)$ we have $f_x = 4$ and $f_y = 2$ so the equation of the plane is
+\begin{align}
+	z - 3 &= 4(x-1) + 2(y-1) \nonumber \\
+	z &= 4x + 2y - 3 \nonumber
+\end{align}
+\end{solution}
+
+\begin{problem}
+	Find the equation of the tangent plane to the surface $z = \sqrt{xy}$ at the point $(1,1,1)$.
+\end{problem}
+\begin{solution}
+	$x + y - 2z = 0$.
+\end{solution}
+
+\begin{problem}
+	Show that $f(x,y)=xe^{xy}$ is differentiable at the point $(1,0)$. (Hint: use properties of the partial derivatives to make an argument)
+\end{problem}
+\begin{solution}
+	Calculate the partial derivatives
+	\begin{align}
+		f_x = e^{xy} + xye^{xy} &\qquad f_y = x^2e^{xy} \nonumber \\
+		f_x(1,0) = 1 &\quad f_y(1,0) = 1 \nonumber
+	\end{align}
+	The key here is the relationship between the partial derivatives of a function and the differentiability of the entire function.
+	Essentially differentiable functions are those which can be well approximated by a linear approximation, or tangent plane.
+	Partial derivatives can exist even when the function as a whole doesn't fit this description, but certain properties of the partial derivatives will tell us when it will.
+	In particular \emph{If the partial derivatives $f_x$ and $f_y$ exist near a point $(a,b)$ and are continuous at the point $f(a,b)$ then the function $f$ is differentiable at the point $(a,b)$}.
+	Since we see the partial derivatives exist and are continuous at $(1,0)$ we know $f$ is differentiable at $(1,0)$.
+\end{solution}
+
+\begin{problem}
+	Suppose that $u$ is a differentiable function of the $n$ variables $x_1,x_2,\dots, x_n$ and each $x_j$ is a differentiable function of the $m$ variables $t_1,t_2,\dots, t_m$.
+	\begin{enumerate}[(i)]
+		\item Express the value of $\frac{\partial u}{\partial t_i}$.
+		\item Assume the partial derivative is evaluated for vectors $\mathbf{x}_0 \in \mathbb{R}^n$ and $\mathbf{t}_0 \in \mathbb{R}^m$.
+		Express the partial derivative in part (i) as the dot-product of two vectors and identify and discuss what those vectors are.
+		\item Note that $f$ maps $\mathbb{R}^n \rightarrow \mathbb{R}$ and $\mathbf{x}=(x_1(\mathbf{t}),\dots x_n(\mathbf{t}))$, as a function of $\mathbf{t}$ maps $\mathbb{R}^m$ into $\mathbb{R}^n$.
+		Hence, considering $f$ as a composition it is a map from $\mathbb{R}^m$ into $\mathbb{R}$.
+		As a function $\mathbf{t}$ express the gradient of $f$ denoted $\nabla f$.
+		(The \LaTeX  code for $\nabla$ is \verb|\nabla|)
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	\begin{enumerate}[(i)]
+		\item \begin{align}
+			\frac{du}{dt_i} &= \frac{\partial u}{\partial x_1}\frac{\partial x_1}{\partial t_i} + \cdots + \frac{\partial u}{\partial x_n}\frac{\partial x_n}{\partial t_i} \nonumber
+		\end{align}
+		\item I apologize for not making this clearer in the problem, but $\mathbf{x}_0 = \mathbf{x}(\mathbf{t}_0)$.
+		So we have 
+		\begin{align}
+			\frac{\partial u}{\partial t_i}|_{\mathbf{x}(\mathbf{t}_0)} &= \nabla u(\mathbf{x}(\mathbf{t}_0)) \cdot \left(\frac{\partial x_1}{\partial t_i}(\mathbf{t}_0), \dots, \frac{\partial x_n}{\partial t_i}(\mathbf{t}_0) \right) \nonumber
+		\end{align}
+		The first term is the gradient of $u$ and the second term is a vector of partial derivatives of the mapping $\mathbf{t} \mapsto \mathbf{x}$ which is a mapping from $\mathbb{R}^m$ into $\mathbb{R}^n$.
+		The Jacobian of this mapping will be a $n \times m$ matrix of partial derivatives of the form $\partial x_k / \partial t_j$.
+		The second vector in the dot product above is just one column of this matrix.
+		\item Let $D_i \mathbf{x}$ represent the vector of partial derivatives $\left(\frac{\partial x_1}{\partial t_i},\dots, \frac{\partial x_n}{\partial t_i}\right)$.
+		Then the gradient of the composite function evaluated as some point will be a $m$-dimensional vector which has the form
+		\begin{align}
+			\nabla f = \left( \nabla u \cdot D_1 \mathbf{x}, \; \nabla u \cdot D_2 \mathbf{x}, \; \dots, \; \nabla u \cdot D_m \mathbf{x} \right) \nonumber
+		\end{align}
+	\end{enumerate}
+\end{solution}
+
+\begin{problem}
+	Consider the following equation $F(x,y) = 0, \forall x,y$.
+	We might be interested (\emph{in the future you will be wink, wink, nudge, nudge, know what I mean?}) in knowing if and when there is some function $f:\mathbb{R}\rightarrow \mathbb{R}$ that implicitly defines $y$ in terms of $x$ for the equation $F(x,y)=0$ such that we can re-express the equation as $F(x,f(x))=0$.
+	\begin{enumerate}[(i)]
+		\item Use the chain rule to differentiate both sides of equation $F(x,y(x)) = 0$.
+		\item Under what conditions on the partial derivatives can we solve the result of (i) for $dy/dx$?
+		\item Solve for $dy/dx$.
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	\begin{enumerate}[(i)]
+		\item \begin{align}
+			\frac{ d (F(x,y(x)) = 0) }{ d x } &= \frac{\partial F}{\partial x} + \frac{\partial F}{\partial y}\frac{d y}{d x} \nonumber 
+		\end{align}
+		Since $F(x,y(x))$ always equal zero, there is no change in the value of $F$ so its derivative is zero and we have
+		\begin{align}
+			\frac{\partial F}{\partial x} + \frac{\partial F}{\partial y}\frac{d y}{d x} &= 0 \nonumber
+		\end{align}
+		\item We want to solve the previous expression for $dy/dx$.
+		\begin{align}
+			\frac{\partial F}{\partial x} + \frac{\partial F}{\partial y}\frac{d y}{d x} &= 0 \nonumber \\
+			\frac{\partial F}{\partial y}\frac{d y}{d x} &= - \frac{\partial F}{\partial x} \nonumber \\
+			\frac{dy}{dx} &= -\frac{ \frac{\partial F}{\partial x} }{ \frac{\partial F}{\partial y} } = -\frac{F_x}{F_y} \nonumber
+		\end{align}
+		We can only find $dy/dx$ if $\partial F / \partial y \neq 0$.
+		Please understand this result and keep it in mind as you will see it again in higher dimensions.
+		For example $F(x_1,x_2, \dots, x_n, y(x_1,\dots, x_n))$.
+		This is \emph{implicit differentiation} which is an important method to finding comparative statics.
+		\item This has already been done above.
+	\end{enumerate}
+\end{solution}
+
+\begin{problem}
+	Find $y'$ if $x^3 + y^3 - 6xy = 0$.
+\end{problem}
+\begin{solution}
+	\begin{align}
+		F(x,y) = x^3 + y^3 - 6xy &= 0 \nonumber \\
+		\frac{dy}{dx} &= -\frac{F_x}{F_y} = - \frac{x^2 - 2y}{y^2 - 2x} \nonumber
+	\end{align}
+\end{solution}
+
+\begin{problem}
+	For a function $f(x,y)$, when is the directional derivative of $f$ at $(x_0,y_0)$ the same as the partial derivatives of $f$ at $(x_0,y_0)$?
+\end{problem}
+\begin{solution}\\
+	The directional derivative expresses the change in $f$ as move in some direction $\mathbf{h}$ from the point $(x_0, y_0)$.
+	When the direction the vector $\mathbf{h}$ is in the direction of an axis, (i.e, $\mathbf{h} = (1,0)$ or $\mathbf{h} = (0,1)$) then it is a partial derivative at the point $(x_0,y_0)$.
+	This is to show that partial derivatives are special cases of directional derivatives (which have analogues in far more general, abstract spaces) and that partial derivatives only give you information about function changes in ``slices'' along an axis.
+\end{solution}
+
+\begin{problem}
+	Given the function $f(\mathbf{x})$ for all $x\in \mathbb{R}^n$ under what conditions will $\nabla f(\mathbf{c})\cdot \mathbf{h}$ be the directional derivative of $f$ in the direction of $\mathbf{h}$?
+\end{problem}
+\begin{solution}\\
+	It is required that $\mathbf{h}$ be a unit vector, i.e., $\| \mathbf{h} \| = 1$.
+	Essentially the directional derivative is the \emph{projection} of the gradient at $\mathbf{c}$, $\nabla f(\mathbf{c})$ onto some unit vector $\mathbf{u}$.
+	So if you have some particular vector of interest in an economic problem, say $\mathbf{p}$ and you have calculated the gradient at some point, $\nabla f(\mathbf{c})$ and you want to know how $f$ changes at $\mathbf{c}$ when you move in the relevant direction $\mathbf{p}$ you need to \emph{normalize} the vector so that it becomes a unit vector $\hat{\mathbf{p}}$.
+	\[
+		\hat{\mathbf{p}} = \frac{1}{\| \mathbf{p} \|} \mathbf{p}
+	\]
+	so you can use
+	\[
+		\nabla f(\mathbf{c}) \cdot \hat{\mathbf{p}}
+	\]
+	as the directional derivative.
+\end{solution}
+
+
+
+\begin{problem}
+	Consider the function $f:\mathbb{R}^3 \rightarrow \mathbb{R}$ defined as $z = f(p,q,r)$.
+	Derive the total differential about the point $\mathbf{c} \in \mathbb{R}^3$ and show that the gradient $\nabla f$ evaluated at $\mathbf{c}$ is a linear functional of the form $\mathbf{a}\cdot \mathbf{x}$ over the set $\mathbb{R}^3$.
+	What about when $\nabla f$ isn't evaluated at a given point?
+	Is it still a mapping $\mathbb{R}^3 \mapsto \mathbb{R}$?
+\end{problem}
+\begin{solution}
+
+	\noindent \textbf{Derive the total differential}\\	
+	Denote the partial derivatives of $f$ as $f_k(p,q,r)$ for $k = p,q,r$.
+	The total differential about the point $\mathbf{c}$ is
+	\[
+		dz = f_p(\mathbf{c})dp + f_q(\mathbf{c})dq + f_r(\mathbf{c})dr
+	\]
+	\textbf{Show its a linear function}\\
+	The gradient at $\mathbf{c}$, is $\nabla f(\mathbf{c}) = \left( f_p(\mathbf{c}), f_q(\mathbf{c}), f_r(\mathbf{c}) \right)$ and represents a particular vector in $\mathbb{R}^3$.
+	Similarly we have a vector of values $\mathbf{x} = (dp,dq,dr)$ representing the changes in the values of $p,q$ and $r$.
+	Given the two vectors $\nabla f(\mathbf{c})$ and $\mathbf{x}$ the dot product is well defined and by the form of the total differential, it should be clear that 
+	\[
+		dz = \nabla f(\mathbf{c}) \cdot \mathbf{x}
+	\]
+	Evaluated at the fixed vector $\mathbf{c}$, the change vector $\mathbf{x}$ can vary.
+	Since any vector in $\mathbb{R}^3$ can represent the changes in $p,q$ and $r$ if we let $\mathbf{a} = \nabla f(\mathbf{c})$ we have a function, $g(x)=\mathbf{a}\cdot \mathbf{x}$ for all $\mathbf{x}\in \mathbb{R}^3$.
+	This function, $g$ maps vectors in $\mathbb{R}^3$ into $\mathbb{R}$.\\
+	
+	\noindent \textbf{What happens when $\nabla f$ isn't evaluated at a certain point?}\\
+	Consider some function $h$ that takes $x$ as an input and its derivative $h'$.
+	If the derivative of a function is its slope, or rate of change, is it always the same for all values of $x$?
+	Obviously, in general it isn't.
+	The value of the derivative depends on the value of $x$.
+	This might sound weird but remember that $h$ is not the same as $h(x)$.
+	If $X$ is the domain and $Y$ the codomain of $h : X \rightarrow Y$ then $h \subset X \times Y$, while $h(x) \in Y$.
+	Similarly, $h'$ is also a function that takes $x$ as an input and spits out a change in values (rate of change) in $Y$.
+	So $h' \subset X \times Y$ while $h'(x) \in Y$.
+	
+	Returning to the function $f$ the partial derivatives $f_p, f_q, f_r$ are each functions, but when evaluated at some point $\mathbf{c}$ they become real numbers.
+	So the gradient function $(f_p, f_q, f_r)$ is a vector of functions which is not in $\mathbb{R}^3$.
+	Instead $(f_p(\mathbf{c}), f_q(\mathbf{c}), f_r(\mathbf{c}))$ is a vector of real numbers and is a vector in $\mathbb{R}^3$.
+	So if we let $\nabla f = (f_p,f_q,f_r)$ then $\nabla f: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ because if we feed a vector $\mathbf{c} = (c_1,c_2,c_3)$ into $\nabla f$ we feed it into each partial derivative function, resulting in a 3-dimensional vector. 
+\end{solution}
+
+\begin{problem}
+Consider three functions $f_1,f_2,f_3$ such that for each $i=1,2,3$, $f_i: \mathbb{R}^3 \rightarrow \mathbb{R}$.
+\begin{align}
+	z_1 &= f_1(p,q,r) \nonumber \\
+	z_2 &= f_2(p,q,r) \nonumber \\
+	z_3 &= f_3(p,q,r) \nonumber
+\end{align}
+Can you derive the total differential for this ``system'' of functions at a point $\mathbf{c} \in \mathbb{R}^3$?
+\end{problem}
+\begin{solution}
+It is important to realize that this ``system'' is just a bigger function that takes a single vector $\mathbf{x}=(p,q,r)$ and maps it to three real numbers $\mathbf{z}=(z_1,z_2,z_3)$.
+Clearly $\mathbf{z}\in \mathbb{R}^3$ so the ``system'' $\mathbb{R}^3 \mapsto \mathbb{R}^3$.
+We know that for $i=1,2,3$ we will have $dz_i = \nabla f_i(\mathbf{c})\cdot d\mathbf{x}$ where $d\mathbf{x} = (dp,dq,dr)$.
+\begin{align}
+	d\mathbf{z} &= \left[\begin{matrix}
+		\nabla f_1 (\mathbf{c}) \\
+		\nabla f_2 (\mathbf{c}) \\
+		\nabla f_3 (\mathbf{c})
+	\end{matrix}\right]
+	\left[\begin{matrix}
+		dp \\
+		dq \\
+		dr
+	\end{matrix}\right] \nonumber \\
+	&= \left[\begin{matrix}
+		f_{1p}(\mathbf{c}) & f_{1q}(\mathbf{c}) & f_{1r}(\mathbf{c}) \\
+		f_{2p}(\mathbf{c}) & f_{2q}(\mathbf{c}) & f_{2r}(\mathbf{c}) \\
+		f_{3p}(\mathbf{c}) & f_{3q}(\mathbf{c}) & f_{3r}(\mathbf{c})
+	\end{matrix}\right]
+	\left[ \begin{matrix}
+		dp \\
+		dq \\
+		dr
+	\end{matrix} \right] \nonumber
+\end{align}
+The matrix of partial derivatives represents the ``Jacobian'' matrix of the mapping $\mathbb{R}^3 \rightarrow \mathbb{R}^3$ and notice that the Jacobian matrix which represents the ``gradient'' or derivative of the function from $\mathbb{R}^3$ into $\mathbb{R}^3$ is a $3\times 3$ real matrix which is a linear mapping that takes differential vectors $d\mathbf{x} = (dp,dq,dr)$ and maps them into changes in $\mathbf{z}$, $d\mathbf{z}=(dz_1,dz_2,dz_3)$.
+\end{solution}
+
+\begin{problem}
+	Let $C = \mathbb{R}^n$ be the space of consumption bundles and $u:C \rightarrow \mathbb{R}$ be a continuously differentiable utility function representing a rational preference relation $\succsim$.
+	If $u_0 \in \mathbb{R}$ we define $L = \{ \mathbf{x} \in C: u(\mathbf{x}) = u_0 \}$ as an \emph{indifference curve} (level set).
+	Let $\mathbf{r}(t) = \mathbf{x}(t) = (x_1(t),x_2(t),\dots, x_n(t))$ such that $\forall t, \mathbf{r}(t) \in L$.
+	This means that for all $t$, $\mathbf{r}(t)$ is a point on the indifference curve $u_0$.
+	Furthermore we call $\mathbf{r}'(t) = (dx_1/dt,\dots dx_n/dt)$ evaluated at some $t_0$ the \emph{tangent vector} to the curve at the point $t_0$.
+	
+	Show that for any point $\mathbf{x}_0 \in L$, the gradient $\nabla u$ at $\mathbf{x}_0$ and the tangent vector of the indifference curve at $\mathbf{x}_0$ are orthogonal, i.e, $\nabla u(\mathbf{x}_0) \cdot \mathbf{r}'(t_0) = 0$ where $\mathbf{r}(t_0) = \mathbf{x}_0$.
+\end{problem}
+\begin{solution}
+	First we have the equation generating the indifference curve
+	\begin{align}
+		u(x_1,\dots, x_n) &= u_0 \nonumber \\
+		u(x_1(t),\dots,x_n(t)) &= u_0 \nonumber
+	\end{align}
+	Differentiating both sides with respect to $t$ we get
+	\begin{align}
+		\frac{\partial u}{\partial x_1}\frac{dx_1}{dt} + \cdots + \frac{\partial u}{\partial x_n}\frac{dx_n}{dt} &= 0 \nonumber \\
+		\nabla u (\mathbf{x}(t)) \cdot \mathbf{x}'(t) &= 0 \nonumber
+	\end{align}
+\end{solution}
+
+\begin{problem}
+	Consider the production function $F(K,L) = K^{\alpha}L^{\beta}$ and the profit maximization problem
+	\[
+		\max_{K,L} \; \pi(K,L) = pF(K,L) - wL - rK \nonumber
+	\]
+	\begin{enumerate}[(i)]
+		\item Find the Jacobian matrix of the profit function $\pi(K,L)$.
+		\item Find the critical points of the profit function $\pi(K,L)$.
+		\item Find the Hessian matrix of the profit function $\pi(K,L)$.
+		\item Find the determinate of the Hessian matrix from part (iii).
+		\item If the determinate of the Hessian matrix were evaluated at the critical points from part (ii), what would the value of the determinate tell you about those critical points?
+	\end{enumerate}
+	\begin{solution} \textbf{Actually Just Hints ... }
+	\begin{enumerate}[(i)]
+		\item Recognize that the Jacobian matrix of a function $f$ is its derivative and consists of the matrix of partial derivatives of the function.
+		However, in this case since $\pi$ is a linear functional ($\mathbb{R}^2 \rightarrow \mathbb{R}$) we have a special case where the derivative will only a vector of partial derivatives (the gradient) $D\pi(K,L) = \nabla \pi(K,L) = (\pi_K(K,L), \pi_L(K,L))$.
+		\item Critical points are those points are those points $(K^*,L^*)$ such that $\nabla \pi(K^*,L^*) = (0,0) = \mathbf{0}$.
+		Which basically means those points that satisfy the \emph{first order conditions} for an optimum.
+		As you likely know, to find them solve the system below for $K$ and $L$.
+		\begin{align}
+			\pi_K(K,L) &= 0 \nonumber \\
+			\pi_L(K,L) &= 0 \nonumber
+		\end{align}
+		\item The Hessian matrix is the matrix of second partials and cross partial derivatives.
+		Recall that unevaluated $\nabla \pi$ is a function of $K$ and $L$ so we can ask how $\nabla \pi$ changes over $K$ and $L$, in other words, take the derivative.
+		\begin{align}
+			D(\nabla \pi) &= \left[\begin{matrix}
+								\frac{\partial \nabla \pi}{\partial K} & \frac{\partial \nabla \pi}{\partial L}
+							\end{matrix}\right] = 
+							\left[\begin{matrix}
+								\frac{\partial^2 \pi}{\partial K^2} & \frac{\partial^2 \pi}{\partial K \partial L} \\
+								\frac{\partial^2 \pi}{\partial L \partial K} & \frac{\partial^2 \pi}{\partial L^2}
+							\end{matrix}\right] \nonumber \\
+						&= \left[\begin{matrix}
+							\pi_{KK} & \pi_{KL} \\
+							\pi_{LK} & \pi_{LL}
+						\end{matrix}\right] \nonumber
+		\end{align}
+		\item The determinate of the Hessian is hopefully quite simple since its only a $2\times 2$ matrix.
+		\begin{align}
+			\det H &= \pi_{KK} \pi_{LL} - \pi_{LK}\pi_{KL} \nonumber \\
+			&= \pi_{KK} \pi_{LL} - \pi_{KL}^2 \nonumber 
+		\end{align}
+		Note that $\det H = 0$ if and only if $\pi_{KK}\pi_{LL} = \pi_{KL}^2$.
+		And $\det H > 0$ requires $\pi_{KK}\pi_{LL} > \pi_{KL}^2$ while $\det H < 0$ requires $\pi_{KK}\pi_{LL} < \pi_{KL}^2$.
+		This sets up the beginnings of a relationship between the sign of $\det H$ and the relative magnitudes of ``main effects'' (i.e., $\pi_{KK}$ and $\pi_{LL}$) and ``cross effects'' which shape $f$ at some point of evaluation.
+		\item If $\det H = 0$ at a critical point, the main effects and cross effects compensate each other and we can't say whether the critical point is a maximum, minimum or saddle point.
+		If we find $\det H < 0$ then we can know the critical point is a saddle point.
+		If $\det H > 0$ then the point is likely a maximum or a minimum.
+		If the first principal minor $\pi_{KK} > 0$ when $\det H > 0$ then we say the matrix $H$ is \emph{positive definite} and the critical point is a local minimum.
+		On the other hand if $\pi_{KK} < 0$ when $\det H > 0$ then we say the matrix $H$ is \emph{negative definite} and the critical point is a local maximum.
+		The concept of positive and negative definiteness is a concept you will see come up a lot in constrained optimization in EconS 506 and also in microeconomic concepts such as Slutsky matrices (describing the multi-dimensional version of the Slutsky equation from undergraduate micro).
+	\end{enumerate}
+	\end{solution}
+\end{problem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

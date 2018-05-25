@@ -1,7 +1,7 @@
 ---
 layout: page
 title: PhD Math Bootcamp
-sidebar_link: false
+sidebar_link: False
 permalink: /teaching/math_bootcamp
 ---
 <!--make new sidebar with reading, syllabus, etc-->
@@ -9,6 +9,83 @@ permalink: /teaching/math_bootcamp
 ### Syllabus 
 
 [Click here for syllabus]({{ site.baseurl }}/teaching/math_bootcamp/syllabus)
+
+<a name="assign"></a>
+
+### Assignments
+
+
+Assignments will be posted here at the beginning of each week. I will also post solutions.
+
+
+
+<!--
+<table class="table table-striped">
+{% for assignment in site.data.math_bootcamp.assignments %}
+<tr>
+    <td>
+    <a class="btn btn-default" href="{{page.assets}}{{assignment.link}}">
+        <i class="fa fa-download"></i>&nbsp; {{assignment.name}}</a>&nbsp;
+    <span style="color:red; font-weight:bold;">Due: {{assignment.due}}</span>
+    <p>{{assignment.descrip}}</p>
+   {% for link in assignment.keys %} 
+    <a style="background-color:#b0b0b0;" class="btn btn-default btn-sm" href="{{page.assets}}{{link.link}}"><i class="fa fa-key">&nbsp; {{link.name}}</i></a> 
+   {% endfor %}
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+
+<table class="table table-striped">
+{% for assignment in site.data.math_bootcamp.assignments %}
+<tr>
+    <td>
+    <a class="btn btn-default" href="{{page.assets}}{{assignment.link}}">
+        <i class="fa fa-download"></i>&nbsp; {{assignment.name}}</a>&nbsp;
+    <span style="color:red; font-weight:bold;">Due: {{assignment.due}}</span>
+    <p>{{assignment.descrip}}</p>
+   {% for link in assignment.keys %} 
+    <a style="background-color:#b0b0b0;" class="btn btn-default btn-sm" href="{{page.assets}}{{link.link}}"><i class="fa fa-key">&nbsp; {{link.name}}</i></a> 
+   {% endfor %}
+    </td>
+</tr>
+{% endfor %}
+</table>
+-->
+<!--
+<table style="width:100%">
+  <tr>
+    <th>Description</th>
+    <th>Due Date</th> 
+    <th>Link</th>
+  </tr>
+  {% for assignment in site.data.math_bootcamp.assignments %}
+  <tr>
+    <td>{{assignment.descrip}}</td>
+    <td>{{assignment.due}}</td> 
+    <td> [here]({{ url }}/assets/pdfs/math_bootcamp/assignments/{{assignment.link}}) </td>
+  </tr>
+  {% endfor %}
+</table>
+
+-->
+
+
+| Description  | Due Date | Link |  
+| :--- | :---   | ---: |{% for assignment in site.data.math_bootcamp.assignments %}
+  | {{assignment.descrip}} | {{assignment.due}} | {% if assignment.upload != 'none' %} [{{assignment.name}}]({{ url }}/assets/pdfs/math_bootcamp/assignments/{{assignment.link}})  {% endif %}  {% endfor %}
+
+
+<!--
+| Description  | Due Date | Link |
+| :--- | :---: | :---: |
+| **Univariate calculus, sets, and logic** | --- | <button name="button">Problem Set 0</button> |
+| **Linear Systems and Matrix Algebra** | July 27 | <button name="button">Problem Set 1</button> |
+| **Set Theory and Proofs and Real Analysis** | August 3 | <button name="button">Problem Set 2</button> |
+| **Multivariate Calculus and Miscellaneous Topics** | August 10 | <button name="button">Problem Set 3</button> |
+-->
+Note: The material in assignment 0 is fair game for the final exam. You should complete these problems to refresh old topics and learn some new ones. However, you do not need to turn this assignment in to me. I will assume your understanding and familiarity with the material during the mathcamp, so please complete your study no later than July 23rd
 
 <a name="read"></a>
 
@@ -20,7 +97,7 @@ Below I have provided a *tentative* schedule. Dates as well as topics are subjec
 
 | Date  | Topics | Readings | Assignments |
 | :--- | :---   | :--- | :--- |
-| Prereqs | Univariate Calculus & Logic | S&B 2-5; Provided notes | Prerequisite assignment to be completed early in the course.|
+| Prereqs | Univariate Calculus | S&B 2-5 | Prerequisite assignment to be completed early in the course.|
 
 #### Week 1 (July 23-July 27)
 
@@ -40,7 +117,7 @@ Below I have provided a *tentative* schedule. Dates as well as topics are subjec
 | 31 | Proofs and Real Analysis | S&B 12; Appendix A1; Provided Notes |  |
 | 1 | Proofs and Real Analysis | S&B 12; Appendix A1; Provided Notes |  |
 | 2 | Proofs and Multivariate Calculus | S&B 13-15, 30 |  |
-| 3 | Weekly Review |  | **Assignment 2 due** |
+| 3 | Weekly Review |  | **Assignment 2 due**  |
 
 #### Week 3 (August 6-August 10)
 
@@ -50,33 +127,15 @@ Below I have provided a *tentative* schedule. Dates as well as topics are subjec
 | 7 | Multivariate Calculus | S&B 13-15, 30 |  |
 | 8 | Miscellaneous Topics | TBA |  |
 | 9 | Introduction to Programming | Optional |  |
-| 10 | Weekly Review |  | **Assignment 3 due** |
+| 10 | Weekly Review |  | **Assignment 3 due**  |
 
 #### Week 4 (August 15)
 
+| Date  | Topics | Readings | Assignments |
+| :--- | :---   | :--- | :--- |
 | 15 | Final Exam | No Notes | **On Campus August 15** |
 
 *S&B ~ Simon & Blume text*
 
 
-<a name="assign"></a>
-
-### Assignments
-
-Assignments will be posted here at the beginning of the week. I will also post solutions.
-
-<table class="table table-striped">
-{% for assignment in site.data.math_bootcamp.assignments %}
-<tr>
-    <td>
-    <a class="btn btn-default" href="{{page.assets}}{{assignment.link}}">
-        <i class="fa fa-download"></i>&nbsp; {{assignment.name}}</a>&nbsp;
-    <span style="color:red; font-weight:bold;">Due: {{assignment.due}}</span>
-    <p>{{assignment.descrip}}</p>
-   {% for link in assignment.keys %} 
-    <a style="background-color:#b0b0b0;" class="btn btn-default btn-sm" href="{{page.assets}}{{link.link}}"><i class="fa fa-key">&nbsp; {{link.name}}</i></a> 
-   {% endfor %}
-    </td>
-</tr>
-{% endfor %}
-</table>
+[Assignment 0]({{ site.page }}assignment_0.pdf)

@@ -1,0 +1,68 @@
+---
+readings:
+  - name: Before Bootcamp Reading
+    simonblume: Chapters 1-5
+    notes:
+      - name: Sets & Logic (Chapters 1 & 2 from Chartrand, Polimeni and Zhang)
+        link: Assignment_0_logic_reading.pdf
+
+  - name: Week 1
+    simonblume: Chapters 6, 7, 8, 9
+
+  - name: Week 2
+    simonblume: Chapters 10, 11, 27
+
+  - name: Week 3
+    simonblume: Appendix A1
+    notes:
+      - name: <i>Book of Proof</i> by Richard Hammack - Chapters 4-9, 11, 12
+        link: BookOfProof.pdf
+    ext_links:
+      - link: https://www.ma.utexas.edu/users/nrauh/teaching/m408d/limits.pdf
+      - link: https://www.ocf.berkeley.edu/~yosenl/math/epsilon-delta.pdf
+      - link: http://www.milefoot.com/math/calculus/limits/
+      - link: https://www.khanacademy.org/math/differential-calculus/limits-topic/epsilon-delta/v/limit-intuition-review
+
+  - name: Week 4
+    simonblume: Chapters 13, 14
+
+assignments:
+  - name: Assignment 0
+    link: assignment_0.pdf
+    descrip: Univariate calculus
+    due: ---
+    upload: 
+    keys:
+      - link: assignment_0_key.pdf
+        name: Assignment 0 Key
+    #  - link: sets_and_logic_answers.pdf
+    #    name: Set & Logic Key
+
+  - name: Assignment 1
+    link: assignment_1.pdf
+    descrip: Linear Systems and Matrix Algebra
+    due: July 27
+    upload: none
+    keys:
+      - link: assignment_1_key.pdf
+        name: Assignment 1 Key
+
+  - name: Assignment 2
+    link: assignment_2.pdf
+    descrip: Set Theory and Proofs and Real Analysis
+    due: August 3
+    upload: none
+    keys:
+      - link: assignment_2_key.pdf
+        name: Assignment 2 Key
+      - link: sets_and_logic_answers.pdf
+        name: Sets & Logic Key
+
+  - name: Assignment 3
+    link: assignment_3.pdf
+    descrip: Multivariate Calculus and Miscellaneous Topics
+    due: August 10
+    upload: none
+    keys:
+      - link: assignment_3_key.pdf
+        name: Assignment 3 Key
