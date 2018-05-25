@@ -1,0 +1,66 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+# Setup
+title:            'Joe Patten'
+#to change the title font go to _includes/font-includes.html
+tagline:          'Economist'
+description:      'Economics PhD Student'
+url:              https://joepatten.github.io
+baseurl:          "/" # the optional subpath of your site, e.g. "/blog"
+                  # NB: This applies to all pages in your Jekyll site.
+                  # If you want to move just the blog index pages but keep
+                  # other pages at root, see the paginate_path and
+                  # sidebar_blog_link below.
+
+author:
+  name:           'Joe Patten'
+  url:            https://twitter.com/crispyjoey
+
+paginate:         5
+# paginate_path:    '/page:num'
+                    # Or '/blog/page:num' if you want to move your index pages
+
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+
+#for git:
+#(git init)
+#(git checkout -b gh-pages)
+#git status
+#git add .
+#git commit -m "comment"
+##git remote -v             #see all origins
+#git remote add origin https://github.com/soccerjoe/test3.git
+#git push origin gh-pages      #NOT underscore
+#git push origin HEAD:gh-pages
+#
+#
+#
+#
+#git remote add origin ssh://login@IP/path/to/repository
+#$ git add .
+#$ git status // to see what changes are going to be commited
+#$ git commit -m 'Some descriptive commit message'
+#$ git push origin master
+
+#$ git checkout gh-pages // go to the gh-pages branch
+#$ git rebase master // bring gh-pages up to date with master
+#$ git push origin gh-pages // commit the changes
+#$ git checkout master // return to the master branch
+
+# Custom vars
+version:            3.6.0
+sidebar_home_link:  true
+# sidebar_blog_link:  '/blog'   # By default, your home page is your blog
+                                # page. If you change your paginate_path,
+                                # set this to the root of the paginate_path
+                                # to enable a separate blog link.
+github:
+  repo:             https://github.com/joepatten/tree/gh-pages
+
+
+#_layout.scss to change text colors and hover such for navigation

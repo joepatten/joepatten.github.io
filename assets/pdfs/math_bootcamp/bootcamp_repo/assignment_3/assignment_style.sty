@@ -1,0 +1,79 @@
+%-----------------------------------------------------------------------------------------------------
+%|	FILENAME: assignment_4_style.sty}
+%|	  AUTHOR: Brett R. Devine
+%|	 PROJECT: assignment_4
+%|	FILETYPE: Latex style file for the assignment_4 project root.tex
+%-----------------------------------------------------------------------------------------------------
+%|	CONTACT INFORMATION 																			 |
+%|	ADDRESS: 323B Hulbert Hall, Washington State University; Wilson Rd. Pullman, WA 99162 (ON CAMPUS)|
+%|	WEBSITE: brettdevine.com 																	 	 |
+%|	  EMAIL: brett.devine@wsu.edu 																	 |
+%-----------------------------------------------------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{assignment_4_style}[2015/09/23 Custom Package]
+
+%-----------------------------------------------------------------------------------------------------
+%	REQUIRED PACKAGES - List required packages that you would normally import with \usepackage{}
+%-----------------------------------------------------------------------------------------------------
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage[margin=2in, left=45pt, marginparwidth=123pt, top=75pt, bottom=75pt]{geometry}
+\RequirePackage{pxfonts}
+\RequirePackage{enumerate}
+\RequirePackage{tikz}
+\RequirePackage{float}
+\RequirePackage{natbib}
+\RequirePackage{setspace}
+\RequirePackage[colorinlistoftodos, color=cyan]{todonotes}
+\RequirePackage{soul}
+\RequirePackage{xcolor}
+\RequirePackage{comment}
+
+%\linespread{2.0}
+%-----------------------------------------------------------------------------------------------------
+%	NEW THEOREMS, DEFINITIONS, AND PROOF STUFF
+%-----------------------------------------------------------------------------------------------------
+%\theoremstyle{mypropstyle}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+%-----------------------------------------------------------------------------------------------------
+%	TODO NOTES COMMANDS
+%-----------------------------------------------------------------------------------------------------
+\makeatletter
+\renewcommand{\todo}[2][]{%
+    \@todo[caption={#2}, #1]{\begin{spacing}{0.5}#2\end{spacing}}%
+} 
+\makeatother 
+
+%Define Colors
+\definecolor{err_red}{RGB}{240,170,170}
+\definecolor{com_blue}{RGB}{160,200,255}
+\definecolor{ins_green}{RGB}{170,240,170}
+
+%Define Highlights
+\newcommand{\hlred}[2][err_red]{{\sethlcolor{#1}\hl{#2}}}
+\newcommand{\hlblue}[2][com_blue]{{\sethlcolor{#1}\hl{#2}}}
+
+%Define TODO Commands
+\newcommand{\hlfix}[2]{\hlred{#1} \todo[size=\small, color=err_red]{#2}}
+\newcommand{\hlcom}[2]{\hlblue{#1} \todo[size=\small, color=com_blue]{#2}}
+\newcommand{\insblock}[2]{\todo[inline, color=ins_green]{\textbf{#1:} #2}}
+
+
+%-----------------------------------------------------------------------------------------------------
+%	NEW COMMANDS AND/OR OPERATORS
+%-----------------------------------------------------------------------------------------------------
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+%-----------------------------------------------------------------------------------------------------
+%	END STYLE FILE
+%-----------------------------------------------------------------------------------------------------
+\endinput

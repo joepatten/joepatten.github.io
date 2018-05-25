@@ -1,0 +1,388 @@
+%------------------------------------------------
+% FILENAME: assignment_0.tex
+%  PROJECT: mathbootcamp
+%   AUTHOR: Brett R. Devine
+%    EMAIL: brett.devine@wsu.edu
+%  WEBSITE: http://brettdevine.github.io
+%------------------------------------------------
+\documentclass[a4paper, 11pt]{article}
+\usepackage{assignment_0_style}
+
+\title{ Mathematics Bootcamp Assignment 0 }
+
+\begin{document}
+\maketitle
+
+There are 79 problems in this assignment.
+Take a deep breath.
+That is a lot, but many are quite quick if you have taken courses in calculus and had any exposure to sets.
+
+The 43 calculus based questions are not meant to be exhaustive of all important topics in univariate calculus.
+Instead, they are intended to \emph{nudge} you to remember things you likely once learned, but forgot.
+For example, the rules of limits, l'Hopital's rule, continuity, the product rule, the chain rule, the fundamental theorem of calculus, taylor series, integration, the intermediate value theorem, the mean value theorem, inverse functions, implicit differentiation, etc.
+
+The remaining 36 questions come from a posted reading covering sets and logic.
+Set theory and logic are important components of gaining ``mathematical maturity'' and you will need to be comfortable with this more formal side of mathematics to digest the textbooks for micro and macro as well as EconS 506.
+Furthermore, this mathematical formality shows up everywhere in journal articles in economics (yes, even in mostly empirical papers).
+
+We will use sets and logic to practice doing mathematical proofs.
+Formal proofs are unfamiliar to many students who have not taken courses in real analysis ( or a proofs course).
+Many first year PhD students have commented that they struggled with proofs in EconS 506 and their micro, macro, stats courses.
+We will use the concepts covered in sets and logic to practice doing proofs in the first week.
+The remaining weeks of the course will continue to use your newly gained mathematical maturity in reviewing both computational and more formal problems in linear algebra and multivariate calculus.
+Mathematics and economic analysis are often more about \emph{argument} than \emph{computation}.
+
+
+\section{Calculus}
+
+\paragraph{Problem 1} Compute
+\begin{align}
+    \lim_{x\rightarrow 3} \frac{5x^2 - 8x -13}{x^2-5}  \nonumber
+\end{align}
+
+\paragraph{Problem 2} Compute
+\begin{align}
+    \lim_{x\rightarrow 3} \frac{x^4 - 81}{2x^2-5x-3}  \nonumber
+\end{align}
+
+\paragraph{Problem 3}
+Compute
+\begin{align}
+    \lim_{x\rightarrow 4} \frac{3-\sqrt{x+5}}{x-4}  \nonumber
+\end{align}
+
+\paragraph{Problem 4}
+Consider the values of constants $a$ and $b$ so that $\lim_{x \rightarrow 2} f(x)$ exists and is equal to $f(2)$ where $f(x)$ is defined as below.
+\begin{align}
+    f(x) = \begin{cases}
+    			a + bx & \text{ if } x > 2 \\
+    			3 & \text{ if } x=2 \\
+    			b-ax^2 & \text{ if } x < 2
+    	   \end{cases}  \nonumber
+\end{align}
+
+\paragraph{Problem 5}
+Compute the following limit.
+\begin{align}
+    \lim_{x\rightarrow \infty} \frac{100}{x^2 + 5}  \nonumber
+\end{align}
+
+
+\paragraph{Problem 6}
+Compute
+\begin{align}
+    \lim_{x\rightarrow \infty} (3x^3 - 1000x^2)  \nonumber
+\end{align}
+
+
+\paragraph{Problem 7}
+Compute
+\begin{align}
+    \lim_{x\rightarrow \infty} \frac{7x^2 + x - 100}{2x^2 - 5x}  \nonumber
+\end{align}
+
+
+\paragraph{Problem 8}
+Compute
+\begin{align}
+    \lim_{x\rightarrow \infty} \left( 3^x + 3^{2x} \right)^{\frac{1}{x}}  \nonumber
+\end{align}
+
+
+\paragraph{Problem 9}
+Compute $\lim_{x\rightarrow 0^+} \; x \cdot \ln x$.
+
+
+\paragraph{Problem 10}
+Compute $\lim_{x \rightarrow 0^+} x \cdot \left( \ln x \right)^2$.
+
+
+\paragraph{Problem 11}
+Compute $\lim_{x \rightarrow 0 } (1-x)^{1/x}$.
+
+
+\paragraph{Problem 12}
+Consider the following functions for $w \geq 0$ and $0 < \sigma < 1$.
+\begin{align}
+    u(w) &= \frac{w^{1-\sigma}-1}{1-\sigma}  \nonumber \\
+    u(w) &= \ln(w) \nonumber \nonumber \\
+    u(w) &= \sqrt{w} \nonumber 
+\end{align}
+For each function above, find the following limits (if they exist) where $u'(\cdot)$ and $u''(\cdot)$ represent the first and second derivatives respectively.
+\begin{enumerate}[(i)]
+	\item $\lim_{w\rightarrow 0} \; -u''(w)/u'(w)$.
+	\item $\lim_{w\rightarrow \infty} \; -u''(w)/u'(w)$.
+	\item $\lim_{w\rightarrow 0} \; (-u''(w)\cdot w)/u'(w)$.
+	\item $\lim_{w\rightarrow \infty} \; (-u''(w)\cdot w)/u'(w)$.
+\end{enumerate}
+
+\paragraph{Problem 13} Differentiate $y = x^x$ (with respect to $x$).
+
+
+\paragraph{Problem 14} Differentiate $y = x^{e^x}$ (with respect to $x$).
+
+
+\paragraph{Problem 15} Compute the following limits associated with the functions $f(x) = |x|$.
+\begin{align}
+    &\lim_{h\rightarrow 0} \frac{f(-2 + h) - f(-2)}{h}  \nonumber \\
+    &\lim_{h\rightarrow 0} \frac{f(0 + h) - f(0)}{h} \nonumber \\
+    &\lim_{h\rightarrow 0} \frac{f(3 + h) + f(3)}{h} \nonumber
+\end{align}
+
+\paragraph{Problem 16}
+Define the intervals (if any) over which the following function is continuous.
+\[
+	f(x) = \frac{7x^5 + x - 2}{x^2-4}
+\]
+
+
+\paragraph{Problem 17}
+Show that there is a root of the equation $3x^7 - 2x^5 + x -1 = 0$ between $0$ and $1$.
+
+
+\paragraph{Problem 18}
+Compute the following limit associated with $f(x) = x^2 - 8x + 9$.
+\[
+	\lim_{x\rightarrow a} \; \frac{(x^2-8x+9)-(a^2-8a+9)}{x-a}
+\]
+
+
+\paragraph{Problem 19}
+If the function $f(x)$ is differentiable in the interval $(a,b)$ and $|f'(x)| \leq B < \infty$ for all $x$ in the interval $(a,b)$ then is the maximum change in the function over any sub interval $(c,d) \subseteq (a,b)$ finite or infinite? Prove it.
+
+\paragraph{Problem 20}
+If the function $f(x)$ is differentiable on $(a,b)$, but not continuously differentiable, then is $f$ continuous everywhere on $(a,b)$? Prove it. (Hint: use a theorem)
+
+\paragraph{Problem 21}
+Can you differentiate the expression $2x = 1$? If so what is the derivative?  If not, why not?
+
+\paragraph{Problem 22} Find the derivative of the function
+\[
+	f(x) = \frac{\sqrt[4]{x}}{x^{-1} \sqrt{x^5}}
+\]
+
+
+\paragraph{Problem 23} Differentiate the function
+\[
+	f(x) = \frac{3x^2 - 5\sqrt{x} }{ 6x^4 }
+\]
+
+
+\paragraph{Problem 24}
+Find the linearization of the function $f(x) = \sqrt[3]{1+x}$ at $a=0$ and use it to approximate the numbers $f(-0.05)$ and $f(0.1)$.
+Are these approximations overestimates or underestimates?
+
+\paragraph{Problem 25}
+Let $f(x) = (3x-5)/(4-2x)$ and find $f^{-1}(x)$.  Then compare $f'(x)$ and $\frac{d}{dx} f^{-1}(x)$ and describe the relationship (if any).
+
+
+\paragraph{Problem 26}
+Compute the derivative of the following function, $H(p)$, with respect to $p$ and use it to show the answer to the following questions.
+\begin{align}
+    H(p) &= p \log_2 \left(\frac{1}{p} \right) + (1-p)\log_2 \left(\frac{1}{1-p} \right)  \nonumber
+\end{align}
+\begin{enumerate}[(i)]
+	\item Is there a global maximum and minimum over the interval $[0,1]$, if so, what is it?
+	\item If so, over what subset of $[0,1]$, if any, is the function increasing?
+	\item If so, over what subset of $[0,1]$, if any, is the function decreasing?
+\end{enumerate}
+
+\paragraph{Problem 27}
+Consider the function $f(x) = x^4 e^x$ with domain all real numbers.
+\begin{enumerate}[(i)]
+	\item Find the $x$-value(s) of all roots ($x$-intercepts) of $f$.
+	\item Find the $x$- and $y$-value(s) of all critical points and identify each as a local max, local min, or neither.
+	\item Find the $x$- and $y$-value(s) of all global extrema and identify each as a global max or global min.
+	\item Find the $x$-value(s) of all inflection points.
+\end{enumerate}
+
+\paragraph{Problem 28}
+Use the Intermediate Value Theorem to show that $f(x) = x^3 - 2x - 1$ has a root on $[1,2]$.
+
+
+\paragraph{Problem 29}
+Does the Extreme Value Theorem say anything about the function $f(x) = x^2$ on each of the following intervals? If so what does it say?  In either case, explain why.
+\begin{enumerate}[(i)]
+	\item $[1,4]$
+	\item $(1,4)$
+\end{enumerate}
+
+\paragraph{Problem 30}
+Find the value of the constant $c$ that the Mean Value Theorem specifies for $f(x)=x^3 + x$ on the interval $[0,3]$.
+
+
+\paragraph{Problem 31}
+For the equation $x^3 + y^3 = \ln(xy) - 1$ use implicit differentiation to find $\dd y/ \dd x$.
+
+
+\paragraph{Problem 32}
+Consider the function
+\[
+	f(x) = \begin{cases}
+				b-x^2 & \text{ if } x < 3 \\
+				ax & \text{ if } x \geq 3
+	 	   \end{cases}
+\]
+\begin{enumerate}[(i)]
+	\item What condition(s) must be placed on the constants $a$ and $b$ in order for $f$ to be continuous on $(-\infty, \infty)$?
+	\item For what values of the constants $a$ and $b$ will $f$ be differentiable on $(-\infty, \infty)$?
+\end{enumerate}
+
+
+\paragraph{Problem 33}
+Consider the function $f(x) = \ln(x^2)$.
+Find the fourth-order Taylor polynomial for $f(x)$ centered at $x_0=1$.
+
+
+\paragraph{Problem 34}
+Let $X$ be a random variable with a probability density function (PDF) $f(x)$
+\[
+	f(x) = \begin{cases}
+ 				ce^{-x/3} & \text{ for } x > 0 \\
+ 				0 & \text{ otherwise }
+ 		   \end{cases}
+\]
+Remember that a PDF has the property that $\int_{\infty}^{\infty} f(x)\dd x = 1$.
+\begin{enumerate}[(i)]
+	\item Find the value of the constant $c$ that makes $f(x)$ a valid PDF.
+	\item Find the probability that $X \leq 1/4$.
+\end{enumerate}
+
+
+\paragraph{Problem 35}
+Find the derivative of the following function
+\[
+	G(x) = \int_{1}^{\sin{x}} t \dd t
+\]
+
+
+\paragraph{Problem 36}
+Find the derivative of the following function
+\[
+	G(x) = \int_{72}^{\ln(x)} t \dd t
+\]
+
+
+\paragraph{Problem 37}
+Suppose that $\sum_{n=1}^{\infty} a_n$ represents a convergent series and that no term of the series equals zero, i.e., $a_n \neq 0$ for all $n=1,2, \dots$.
+Prove that $\sum_{n=1}^{\infty} 1/a_n$ is a divergent series.
+
+
+\paragraph{Problem 38}
+Determine whether the given sequence is increasing, decreasing, or not monotonic.
+Is the sequence bounded?  On the basis of what you find, does the series converge, diverge or can't be determined?
+\[
+	a_n = \frac{1}{5^n}
+\]
+
+
+\paragraph{Problem 39}
+Differentiate the function $y = 3(x^2-1)^3 (x^2 + 1)^5$.
+
+
+\paragraph{Problem 40}
+Consider a continuously differentiable utility function $u(\cdot)$ such that $u'>0$ and $u'' < 0$.
+Utility comes from income $I$ which takes on two different values $I_H(x)$ and $I_L(x)$ and that the probability of that $I=I_H$ is given by $p(x)$ where $x\geq 0$ and $p'(x)>0$.
+Differentiate the expected utility with respect to $x$.
+\[
+	E[u] = p(x)u[I_H(x)] + (1-p(x))u[I_L(x)]
+\]
+
+
+\paragraph{Problem 41}
+Consider a twice continuously differentiable utility function $U(\cdot)$ such that $U'>0$ and $U''< 0$.
+Utility comes from wealth $W$ and a person takes a gamble $h$ that represents a gain or loss to the a person's wealth and $h=0$ on average ($E(h)=0$).
+Let $p$ represent the size of an insurance premium paid to avoid taking the gamble and makes the person exactly indifferent between the gamble $h$ and paying $p$ with certainty.
+Let $E$ represent the expectation operator.
+Use the identity below to answer the questions.
+\[
+	E[U(W + h)] \equiv U(W-p)
+\]
+\begin{enumerate}[(i)]
+	\item Derive a linear (first order) Taylor approximation of the right-hand side of the identity (with respect to $W$).
+	\item Derive a quadratic (second order) Taylor approximation of the left-hand side of the identity (with respect to $W$).
+	\item Let $r(W) = -U''(W)/U'(W)$ (this is the Arrow-Pratt measure of risk-aversion) use the previous approximations and the identity relationship to sign the derivative $\dd P / \dd r(W)$.  What is the sign and what relationship does this imply about the level of risk aversion and the amount of insurance premium an individual is willing to pay?
+\end{enumerate}
+
+
+\paragraph{Problem 42}
+A new machine has a rental rate $v(s)$ at any time $s$ and depreciates at rate $d$.
+With interest rate $r$ the present discounted value of this machine is 
+\[
+	PDV(t) = \int_{t}^{\infty} e^{(r+d)t} v(s) e^{-(r+d)s} \dd s
+\]
+Let $p(t)$ be the purchase price of the machine at time $t$.
+In equilibrium the purchase price at time $t$, $p(t)$ will equal the present discounted value and hence we have
+\[
+	p(t) = \int_{t}^{\infty} e^{(r+d)t} v(s)e^{-(r+d)s} \dd s
+\]
+\begin{enumerate}[(i)]
+	\item Using the last expression for $p(t)$, find $\frac{dp(t)}{dt}$.
+	\item Using your expression for $\frac{dp(t)}{dt}$ solve for $v(t)$ in terms of $p(t)$ to show the relationship between a new machines rental rate at time $t$ and the machine's purchase price at time $t$.
+\end{enumerate}
+
+
+\paragraph{Problem 43}
+A forester must decide when to cut down a growing tree.
+The value at any time $t$ is given by $f(t)$ where $f' > 0$ and $f'' < 0$ and there was an initial investment of $L$.
+The continuous interest rate is $r$.
+The forester must choose $t$ (the time of harvest) to maximize the present discounted value of her profits.
+\[
+	PDV(t) = e^{-rt}f(t) - L
+\]
+\begin{enumerate}[(i)]
+	\item Differentiate $PDV(t)$ with respect to $t$.
+	\item Use the derivative as a first order condition to characterize the relationship between the $t$ that maximizes the forester's present discounted value of profit and the interest rate $r$.
+\end{enumerate}
+
+
+\section{Sets and Logic}
+
+The sets and logic readings are posted on the course website.
+The readings are an extract of two chapters from a mathematics textbook.
+Chapter 1 covers the basics of sets and Chapter 2 covers the basics of logic.
+At the end of each chapter there are exercises which are divided into sections related to the text.
+The remaining problems for Assignment 0 are listed below by section.
+Though it may look like a lot exercises, many are quite simple and can be completed quickly.
+
+\begin{itemize}
+\item
+  \textbf{Section 1.1}: 1.1, 1.3, 1.5, 1.9
+\item
+  \textbf{Section 1.2}: 1.11, 1.17, 1.19
+\item
+  \textbf{Section 1.3}: 1.23, 1.25, 1.31
+\item
+  \textbf{Section 1.4}: 1.37, 1.41, 1.43, 1.45
+\item
+  \textbf{Section 1.5}: 1.47, 1.49, 1.51
+\item
+  \textbf{Section 1.6}: 1.57, 1.59, 1.65
+\item
+  \textbf{Section 2.1}: 2.1, 2.5
+\item
+  \textbf{Section 2.2}: 2.13
+\item
+  \textbf{Section 2.3}: 2.15
+\item
+  \textbf{Section 2.4}: 2.21, 2.23
+\item
+  \textbf{Section 2.5}: 2.31
+\item
+  \textbf{Section 2.6}: 2.35, 2.41
+\item
+  \textbf{Section 2.7}: 2.47
+\item
+  \textbf{Section 2.8}: 2.51
+\item
+  \textbf{Section 2.9}: 2.61
+\item
+  \textbf{Section 2.10}: 2.65, 2.67, 2.73, 2.79
+\end{itemize}
+
+
+
+
+
+
+\end{document}

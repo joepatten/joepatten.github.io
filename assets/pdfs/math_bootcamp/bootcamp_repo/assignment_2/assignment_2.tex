@@ -1,0 +1,580 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{assignment_style}
+
+\newcounter{problem}
+\newenvironment{problem}[1][]{%
+	\refstepcounter{problem}\par \medskip
+	\noindent \textbf{Problem~\theproblem.#1 \rmfamily}{\medskip}
+}
+
+\newenvironment{solution}{ \noindent \textbf{Solution: \medskip}}{}
+
+\excludecomment{solution}
+
+\title{WSU Economics PhD Mathematics Bootcamp \\ \vspace{2em} Assignment 2}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+%------------------------------------
+%	BEGIN ASSIGNMENT
+%------------------------------------
+
+\paragraph{Directions}
+Problems 1-18 are required for assignment number 1 and are to be typed.  The remaining problems are optional.  Note: Just because material is not explicitly required on the assignment does not mean that it won't be useful or that you are not responsible for it.
+
+Problems with a (BoP x.yz) are problems from the text \emph{Book of Proof} and should have answers at the end of the book.
+Please try to avoid cheating yourself of learning by looking at the answers too soon.
+
+I will try and find some material that could be useful for the calculus questions which are not covered in \emph{Book of Proof}.
+However, using the proof methods we cover and the definition of a sequence plus your previous experience with calculus, you'll have the fundamentals you need to solve those problems.
+
+If you need help, please feel free to email me.
+
+\vspace{5em}
+
+%Direct Proof
+
+\begin{problem}
+%Hammack 4.1
+	\emph{Direct Proof} (BoP 4.1) If $x$ is an even integer, then $x^2$ is even.
+\end{problem}
+
+\begin{problem}
+	\emph{Direct Proof} (BoP 4.13) Suppose $x,y\in \mathbb{R}$.  If $x^2 + 5y = y^2 + 5x$, then $x=y$ or $x+y=5$.
+\end{problem}
+
+%Contrapositive Proof
+\begin{problem}
+	\emph{Contrapositive Proof} (BoP 5.3) Suppose $a,b \in \mathbb{Z}$.  If $a^2(b^2-2b)$ is odd, then $a$ and $b$ are odd.
+\end{problem}
+
+%Contradiction
+\begin{problem}
+	\emph{Proof by Contradiction} (BoP 6.5) Prove that $\sqrt{3}$ is irrational.
+\end{problem}
+
+%Biconditional
+\begin{problem}
+	\emph{Biconditional} (BoP 7.1) Suppose $x\in \mathbb{Z}$. Then $x$ is even if and only if $3x+5$ is odd.
+\end{problem}
+
+%sets
+\begin{problem}
+	\emph{Sets} (BoP 8.5) If $p$ and $q$ are positive integers, then $\{pn: n \in \mathbb{N}\} \cap \{qn: n\in \mathbb{N}\} \neq \emptyset$.
+\end{problem}
+
+\begin{problem}
+	\emph{Sets} (BoP 8.11) If $A$ and $B$ are sets in a universal set $U$, then $\overline{A\cup B} = \overline{A} \cap \overline{B}$.
+\end{problem}
+
+\begin{problem}
+	\emph{Sets} (BoP 8.23) For each $a \in \mathbb{R}$, let $A_{a} = \{(x, a(x^2-1)) \in \mathbb{R}^2: x \in \mathbb{R}\}$.  Prove that
+	\[
+		\bigcap_{a \in \mathbb{R}} A_{a} = \{ (-1,0),(1,0)\}
+	\]
+\end{problem}
+
+%Disproof
+
+\begin{problem}
+	[\; \textbf{Optional}](BoP 9.1) The following statement is either true or false.  If the statement is true, prove it.  If the statement is false, disprove it.
+	If $x,y \in \mathbb{R}$, then $|x+y| = |x|+|y|$.
+\end{problem}
+
+Use the following definitions to help answer Problem \ref{prob:partial}.
+
+\begin{definition}[Antisymmetric]
+	A relation $R$ on a set $X$ is \textbf{antisymmetric} if $\forall x,y \in X$ such that $xRy$ and $yRx$ we have $x=y$.
+\end{definition}
+As an example consider the $\leq$ ordering on $\mathbb{N}$.
+If for two numbers $a,b \in \mathbb{N}$ we have $a \leq b$ and $b\leq a$ then we know it must be that $a=b$.
+There does not exist two distinct natural numbers that are both less than or equal to the other.
+This property is important to ordering the natural numbers, real numbers, etc.
+In general we can order elements of any set leading intervals and so on if the relation on that set is a \emph{partial order}.
+
+\begin{definition}[Partial Order]
+	Let $X$ be a nonempty set with relation $\preceq \subset X\times X$.  Then $\preceq$ is a \textbf{partial order} if it is reflexive, antisymmetric and transitive.
+\end{definition}
+
+
+\begin{problem}\label{prob:partial}
+Let $C$ be a set of consumption bundles.
+A \textbf{preference relation} is a binary relation, $\succsim$, where $x \succsim y$ reads $x$ \emph{is at least as good as} $y$.
+We say that $\succsim$ is a \textbf{rational preference relation} if it satisfies the following properties:
+\begin{enumerate}[(i)]
+	\item $\forall x,y \in C, \; [x \succsim y \; \vee y \succsim x ]$ (Completeness)
+	\item For $x,y,z \in C$ if $[x\succsim y \wedge y\succsim z] \implies x\succsim z$ (Transitivity)
+\end{enumerate}
+Use the above definitions to complete the following exercises.
+\begin{enumerate}[(a)]
+	\item Prove that the rational preference relation, $\succsim$, is reflexive.
+	\item Defining the \textbf{indifference relation}, $\sim$, as $x \sim y$ if $[x\succsim y \wedge y \succsim x ]$, prove that $\sim$ is an equivalence relation.
+	\item Define the quotient set, call it $\mathcal{I}$, associated with $(C,\sim)$ using set notation and prove that $\mathcal{I}$ is a partition of $C$.
+	\item (\textbf{Optional}) Interpret the equivalence classes of $\mathcal{I}$ and show that $\succsim$ is a partial order on $\mathcal{I}$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+	\begin{enumerate}[(a)]
+		\item Let $x_1,x_2 \in C$ such that $x_1 = x_2$.
+		Then $x_1$ must be at least as good as $x_2$ and $x_2$ must be at least as good as $x_1$.
+		Hence we have $[x_1\succsim x_2 \wedge x_2 \succsim x_2]$ and by transitivity we have $x_1 \succsim x_1$.
+		Therefore for any pair $(x,x)$ we have $(x,x) \in \succsim$ \qedsymbol.
+		\emph{In reality this is rather self-evident, a bundle should be at least as good as itself.  The idea is to test your knowledge of what reflexive means and trying to use the assumptions (completeness and transitivity) to show the result}.
+		\item Let $\succsim$ be a rational preference relation on $C$.
+		Let $x \in C$.
+		Then by reflexiveness of $\succsim$ we know that $x \succsim x$ and $x \precsim x$ which implies $x \sim x$ and so the indifference relation $\sim$ is reflexive.
+		Let $x,y \in C$ such that $x \sim y$.
+		Then $x \succsim y \wedge y \succsim x$ which is logically equivalent to $y\succsim x \wedge x \succsim y$ which is the definition of $y \sim x$.
+		Since $(x,y) \in \sim$ implies $(y,x) \in \sim$ the indifference relation $\sim$ is symmetric.
+		Finally, let $x,y,z \in C$ such that $x \sim y$ and $y \sim z$.
+		Then $x \succsim y \wedge y\succsim x$ and $y\succsim z \wedge z \succsim y$.
+		Since both statements are true we can infer that $x \succsim y \succsim z$ is true and that $z \succsim y \succsim x$ is also true.
+		By transitivity of $\succsim$ we know that $x \succsim z \wedge z \succsim x$ which is the definition of $x \sim z$.
+		Hence $\sim$ is transitive.
+		The indifference relation is reflexive, symmetric and transitive, therefore it is an equivalence relation. \qedsymbol
+		\item Let $\sim$ be the indifference relation on the set $C$.
+		We know (from part (b)) that $\sim$ is an equivalence relation.
+		An equivalence class is a set of the form $[x] = \{ y \in C : x \sim y \}$ consisting of all elements $y \in C$ that are indifferent (equivalent) to  $x \in C$.
+		The quotient set of $C$ \emph{modulo} the equivalence relation $\sim$ is the set of all equivalence classes $\{ [x] : x \in C\}$.
+		This is a set of sets where every element of a set is ``equivalent'' or in our case indifferent to every other element in the set (think indifference curves from undergraduate micro).
+		\emph{I don't know why they call it a quotient set, but it might be because its kind of like ``dividing'' the set $C$ by the equivalence relation $\sim$, resulting in a set of blocks of equivalent elements}.
+		To show that the quotient set is a partition of $C$ we need to show that it is a collection of nonempty sets that are pairwise disjoint and that the union of all sets in the collection equals the set $C$.
+		So let $Q = (C,\sim)$ be the quotient set of $C$ modulo $\sim$, the indifference relation.
+		Let $[x] = \{ y \in C: x \sim y\}$ be an arbitrary equivalence class in $Q$.
+		Then by the completeness and reflexiveness of $\succsim$ we know that $x \succsim x$ and by the reflexiveness of $\sim$ we have $x\sim x$.
+		Hence, the set $[x]$ always contains $x$ and is therefore nonempty.
+		Let $x,y \in C$ such that $x\neq y$ and $x \nsim y$ and let $[x]$ and $[y]$ be the respective equivalence classes.
+		Now assume to the contrary that $[x]\cap [y] \neq \emptyset$ and let $z \in [x]\cap[y]$.
+		Then $z \in [x] \wedge z \in [y]$ which implies that $z \sim x$ and $z \sim y$.
+		By symmetry of $\sim$, we know $z \sim x \implies x \sim z$ giving us $ x \sim z \sim y$ and by transitivity of $\sim$ this implies that $x \sim y$ which is a contradiction since we assumed $x \nsim y$.
+		Finally we want to show that $\cup_{x \in C} [x] = C$.
+		Let $z \in \cup_{x\in C}[x]$.
+		Then $z \in [x] = \{ y \in C: x \sim y\}$ for some $x \in C$ and clearly $z \in C$.
+		Now Let $z \in C$.
+		Then $z \in [z] = \{ y \in C: z \sim y \}$ where $[z] \in \{ [x]: x \in C\}$.
+		Hence $z \in \cup_{x \in C}[x]$.
+		This implies that $\cup_{x\in C}[x] \subset C$ and $C \subset \cup_{x\in C}[x]$ and therefore $\cup_{x \in C}[x] = C$. \qedsymbol
+		\item The equivalence classes of $\mathcal{I} = \{[x]: x \in C\}$ constitute the indifference sets of a rational preference relation $\succsim$.
+		When combined with a utility function they will be indifference curves.
+		The rational preference relation $\succsim$ is what is known as a total pre-order.
+		It gives us a basic notion of greater than and less than.
+		For example if $x$ is at least as good as $y$ we are in a way saying that $x$ is no less than $y$.
+		Furthermore, if we were to say $x\succsim y$ and $y \nsuccsim x$ then we could use a symbol like $x \succ y$ implying that $x$ is at least as good as $y$ but that $y$ is NOT at least as good as $x$.
+		We could rephrase this as $x$ \emph{is preferred to} $y$ which essentially ranks $x$ as ``greater than'' $y$ in terms of preference.
+		So now consider how the preferences $\succsim$ ``rank'' the indifference sets in the quotient set $\mathcal{I}$.
+		
+		Consider $[x]$ and $[y]$ such that $x \nsim y$.
+		Then for any $x_0 \in [x]$ and any $y_0 \in [y]$ we know it must be that $x_0 \nsim y_0$.
+		Hence we have either $x_0 \succ y_0$ or $y_0 \succ x_0$.
+		So if we consider the Cartesian product $\mathcal{I}\times \mathcal{I}$ then we say $[x] \succsim [y]$ if $x \succsim y$.
+		Notice that if this is true for $(x,y)$ then it will be true for some other pair $(x_0,y_0)$ when $x_0 \in [x]$ and $y_0 \in [y]$.
+		A binary relation, like $\succsim$ is a partial order if it is reflexive, transitive and \emph{antisymmetric}.
+		For the reflexive property note that $[x] \succsim [x]$ since every element of $x_0 \in [x]$ has the property $x\sim x$ since $x \succsim x$.
+		For transitivity let $[x],[y],[z]$ be in $\mathcal{I}$ such that $[x]\succsim [y]$ and $[y]\succsim [z]$.
+		Then for all $x_0 \in [x]$ and $y_0 \in [y]$ we know $x_0 \succsim y_0$ and for all $z_0 \in [z]$ we have $y_0 \succsim z_0$.
+		Hence by transitivity of $\succsim$ on $C$ we have $x_0 \succsim z_0$.
+		Since every element of $[x]$ is equivalent to $x_0$, every element of $[y]$ is equivalent to $y_0$ and every element of $[z]$ is equivalent to $z_0$ this holds for any elements of theses sets and we have $[x]\succsim [y] \succsim [z]$ implying $[x] \succsim [z]$ so the relation is transitive.
+		Finally consider $[x] \succsim [y]$ and $[y]\succsim [x]$.
+		This implies that $x \sim y$ which implies $y \sim x$.
+		By transitivity if $x \sim y$ then $x \sim y_0$ for any $y_0 \in [y]$.
+		By symmetry if $y \sim x$ then $y \sim x_0$ for any $x_0 \in [x]$.
+		Hence every element of $[x]$ is indifferent (equivalent) to every element of $[y]$.
+		Based on the definition of equivalence classes this is only possible if $[x]=[y]$.
+		Since $[x]\succsim [y] \wedge [y]\succsim [x] \implies [x]=[y]$ the relation is antisymmetric.
+		The relation is reflexive, transitive and antisymmetric on $\mathcal{I}$, therefore it is a partial order on $\mathcal{I}$.
+	\end{enumerate}
+\end{solution}
+
+%function
+\begin{problem}
+	(BoP 12.2.13) Consider the function $f:\mathbb{R}^2 \rightarrow \mathbb{R}^2$ defined as $f(x,y) = (xy,x^3)$.  Is $f$ injective? Is it surjective? Bijective? Explain.
+\end{problem}
+
+\begin{problem}
+	Let $f$ be a function from $A$ to $B$ and let $E$, $F \subset A$.
+	Prove statements $a$ through $e$.
+	\begin{enumerate}[(a)]
+		\item If $E\subset F$, then $f(E) \subset f(F)$,
+		\item $f(E\cap F) \subset f(E)\cap f(F)$,
+		\item $f(E\cup F) = f(E) \cup f(F)$,
+		\item $f(E-F) \subset f(E)$ 
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	\begin{enumerate}[(a)]
+		\item Let $E \subset F$ and $y \in f(E) = \{ f(x): x \in E\}$.
+		Then $\exists x \in E$ such that $y = f(x)$.
+		Since $E \subset F$ we know $x \in F$ which implies that $f(x) \in f(F)$.
+		But $f(x) = y$ so $y \in f(F)$ therefore $f(E) \subset f(F)$.\qedsymbol
+		\item Let $y \in f(E \cap F) = \{ f(x) : x \in E \wedge x \in F\}$.
+		Then $\exists x \in E \cap F$ such that $y = f(x)$.
+		Hence $f(x) \in f(E)$ and $f(x) \in f(F)$.
+		But $y= f(x)$ so $y\in f(E)$ and $y \in f(F)$ so $y \in f(E)\cap f(F)$.
+		Therefore $f(E \cap F) \subset f(E) \cap f(F)$.\qedsymbol
+		\item ($\Rightarrow$)Let $y \in f(E\cup F) = \{ f(x): x \in E \vee x \in F\}$.
+		Then $\exists x \in E \cup F$ such that $y = f(x)$.
+		Furthermore, $x \in E \cup F$ implies that $x$ is in either $E$ and not $F$, $F$ and not $E$ or in both $E$ and $F$.
+		If $x \in E$ then $f(x) \in f(E)$.
+		If $x \in F$ then $f(x) \in f(F)$.
+		Because one or both are true, $f(x) \in f(E)\cup f(F)$.
+		But $y = f(x)$ so $y \in f(E)\cup f(F)$.
+		
+		($\Leftarrow$) Now let $y \in f(E)\cup f(F)$.
+		Then $y \in f(E) \vee y \in f(F)$.
+		Then $\exists x \in E \cup F$ such that $y = f(x)$.
+		But $x \in E \cup F$ implies $f(x) \in f(E \cup F)$ and $y = f(x)$ so $y \in f(E \cup F)$.
+		Therefore $f(E \cup F) \subset f(E)\cup f(F)$ and $f(E) \cup f(F) \subset f(E\cup F)$ which gives the result $f(E\cup F) = f(E)\cup f(F)$.\qedsymbol
+		\item Let $y \in f(E-F)$.
+		Then $\exists x \in E-F$ such that $y = f(x)$.
+		Since $E-F = \{ z \in A: z \in E \wedge z \notin F\}$ we know that $x \in E$ which means $f(x) \in f(E)$.
+		But $y = f(x)$ so $y \in f(E)$ and therefore $f(E-F)\subset f(E)$. \qedsymbol
+	\end{enumerate}
+\end{solution}
+
+\begin{problem}
+	\textbf{(Level sets of functions)} Let $f:A \rightarrow B$ be a function.
+	Define a relation on $A$ denoted $a \sim_f a'$ if $\exists b \in B$ such that $a,a' \in f^{-1}(b)$.
+	Prove the following statements.
+	\begin{enumerate}[(a)]
+		\item Show that $\sim_f$ is an equivalence relation on $A$.
+		\item Show that $[a \sim_f a'] \iff [f(a) = f(a')]$.
+		\item Prove that the inverse images $f^{-1}(b)$ and $f^{-1}(b')$ are disjoint when $b\neq b'$. (This means that indifference curves never intersect.)
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	\begin{enumerate}[(a)]
+		\item Let $a \in A$ and $b = f(a)$.
+		Then for the pair $(a,a)$ clearly $a \sim_f a$ since $a \in f^{-1}(b)$ and so $\sim_f$ is reflexive.
+		Let $a \sim_f a'$.
+		Then $\exists b \in B$ such that $f(a)=f(a')=b$.
+		Hence $a,a' \in f^{-1}(b)$ and $(a,a')\in \sim_f \implies (a',a) \in \sim_f$ and $\sim_f$ is symmetric.
+		Finally let $a,a',a'' \in A$ such that $a \sim_f a'$ and $a' \sim_f a''$.
+		Then $\exists b \in B$ such that $a,a'\in f^{-1}(b)$ and $\exists b' \in B$ such that $a',a'' \in f^{-1}(b')$.
+		By definition, functions can only map elements of $A$ into exactly one element in $B$.
+		Hence if $f(a')=b$ and $f(a') = b'$ it must be that $b = b'$.
+		But this implies that $f(a)=f(a')=f(a'')$ and so $a,a',a'' \in f^{-1}(b)$ and hence $\exists b \in B$ such that $a,a'' \in f^{-1}(b)$ and therefore $a \sim_f a''$ so the relation is transitive.
+		Since the relation $\sim_f$ is reflexive, symmetric and transitive it is an equivalence relation.\qedsymbol
+		\item ($\Rightarrow$) Let $a \sim_f a$. Then $\exists b \in B$ such that $a,a' \in f^{-1}(b) = \{ a \in A : f(a)=b\}$.
+		Hence we have $f(a)=b \wedge f(a')=b$ and therefore $f(a)=f(a')$.
+		
+		($\Leftarrow$) Let $a',a'' \in A$ such that $f(a')=f(a'')$.  Furthermore let $b \in B$ be the element $b = f(a')=f(a'')$.
+		Then $a',a'' \in \{ a \in A : f(a) = b\} = f^{-1}(b)$.
+		Hence $\exists b \in B$ such that $a',a'' \in f^{-1}(b)$ and therefore $a' \sim_f a''$. \qedsymbol
+		\item Let $b,b' \in B$ such that $b \neq b'$ and consider the sets $f^{-1}(b)$ and $f^{-1}(b')$ and assume to the contrary that $f^{-1}(b) \cap f^{-1}(b') \neq \emptyset$.
+		Then there exist elements in $f^{-1}(b) \cap f^{-1}(b')$ and let $a \in f^{-1}(b) \cap f^{-1}(b')$.
+		Then $a \in f^{-1}(b) \wedge a \in f^{-1}(b')$ which implies $f(a)=b \wedge f(a)=b'$.
+		Since the definition of a function requires that $\forall a \in A, \exists ! b \in B$ such that $b=f(a)$ it must be that $b=b'$ which is a contradiction, implying that $f^{-1}(b) \cap f^{-1}(b') = \emptyset$ when $b \neq b'$. \qedsymbol
+		(FYI, the compound symbol $\exists !$ means ``there exists a unique'')
+	\end{enumerate}
+\end{solution}
+
+\begin{problem}
+	Prove the following statements.
+	Let $f$ be a function mapping $A$ to $B$, and let $G$, $H \subset B$.
+	(Reminder: the notation here $f^{-1}(X)$ is the \emph{pre-image} of some set $X$ in the codomain under the function $f$.)
+	\begin{enumerate}[(a)]
+		\item If $G\subset H$, then $f^{-1}(G) \subset f^{-1}(H)$,
+		\item $f^{-1}(G\cap H) = f^{-1}(G) \cap f^{-1}(H)$,
+		\item $f^{-1}(G\cup H) = f^{-1}(G) \cup f^{-1}(H)$, and
+		\item $f^{-1}(G - H) = f^{-1}(G) - f^{-1}(H)$.
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	\begin{enumerate}[(a)]
+		\item Let $G \subset H \subset B$ and $a \in f^{-1}(G) \subset A$.
+		Then $f(a) \in G$ and since $G \subset H$ we know $f(a) \in H$.
+		Hence, $a \in f^{-1}(H)$ and therefore $f^{-1}(G) \subset f^{-1}(H)$. \qedsymbol
+		\item ($\Rightarrow$) Let $a \in f^{-1}(G \cap H)$.
+		Then $f(a) \in G \cap H$ which is equivalent to $f(a) \in G \wedge f(a) \in H$.
+		But this implies that $a \in f^{-1}(G) \wedge a \in f^{-1}(H)$ which is equivalent to $a \in f^{-1}(G)\cap f^{-1}(H)$.
+		Therefore $f^{-1}(G \cap H) \subset f^{-1}(G)\cap f^{-1}(H)$.
+		
+		($\Leftarrow$) Let $a \in f^{-1}(G) \cap f^{-1}(H)$.
+		Then $a \in f^{-1}(G) \wedge a \in f^{-1}(H)$ which implies $f(a) \in G \wedge f(a) \in H \equiv f(a) \in G \cap H$.
+		Since $f(a) \in G \cap H$ implies $a \in f^{-1}(G \cap H)$ we have $f^{-1}(G)\cap f^{_1}(H) \subset f^{-1}(G \cap H)$.
+		Therefore $f^{-1}(G\cap H) = f^{-1}(G)\cap f^{-1}(H)$.
+		\item ($\Rightarrow$) Let $a \in f^{-1}(G \cup H)$.
+		Then $f(a) \in G \cup H \equiv f(a) \in G \vee f(a) \in H$.
+		If $f(a) \in G$, then $a \in f^{-1}(G)$ and if $f(a) \in H$, then $a \in f^{-1}(H)$.
+		Hence $f(a) \in G \vee f(a) \in H$ implies $a \in f^{-1}(G) \vee a \in f^{-1}(H)$ which is equivalent to $a \in f^{-1}(G) \cup f^{-1}(H)$. 
+		
+		($\Leftarrow$) Let $a \in f^{-1}(G) \cup f^{-1}(H)$.
+		Then $a \in f^{-1}(G) \vee a \in f^{-1}(H)$.
+		If $a \in f^{-1}(G)$ then $f(a) \in G$.
+		If $a \in f^{-1}(H)$ then $f(a) \in H$.
+		Hence $a \in f^{-1}(G) \vee a \in f^{-1}(H)$ implies $f(a) \in G \vee f(a) \in H \equiv f(a) \in G \cup H$.
+		But $f(a) \in G \cup H$ implies $a \in f^{-1}(G \cup H)$.
+		Therefore $f^{-1}(G \cup H) = f^{-1}(G) \cup f^{-1}(H)$. \qedsymbol
+		\item ($\Rightarrow$) Let $a \in f^{-1}(G - H)$.
+		Then $f(a) \in G \wedge f(a) \notin H$ which implies that $a \in f^{-1}(G) \wedge a \notin f^{-1}(H)$.
+		Therefore $a \in f^{-1}(G) - f^{-1}(H)$.
+		
+		($\Leftarrow$) Let $a \in f^{-1}(G) - f^{-1}(H)$.
+		Then $a \in f^{-1}(G) \wedge a \notin f^{-1}(H)$ which implies $f(a) \in G \wedge f(a) \notin H$.
+		Hence we have $f(a) \in G \cap (B - H) = (G \cap B) - H = G - H$. 
+		Since $f(a) \in G - H$ we know $a \in f^{-1}(G - H)$.
+		Therefore $f^{-1}(G-H) = f^{-1}(G) - f^{-1}(H)$. \qedsymbol
+	\end{enumerate}
+\end{solution}
+
+%Calculus
+\begin{problem}
+%Chartrand 12.7
+A \textbf{sequence} in $A$ is a function $f: \mathbb{N} \rightarrow A$ and the range of the sequence is a list $\{f(1),f(2),\dots \} = \{a_1, a_2, \dots \}$.
+By definition $\lim_{n\rightarrow \infty} a_n = L$ if for every positive real number (no matter how small) $\epsilon > 0$, there exists a positive integer $N$ such that if $n$ is an integer with $n > N$, then $|a_n - L| < \epsilon$.
+By taking the negation of this definition, write out the meaning of $\lim_{n\rightarrow \infty} a_n \neq L$ using quantifiers.  Then write out the meaning of $\{a_n\}$ diverges using quantifiers.	
+
+\noindent (Hint: the definition of convergence using quantifiers is: $(\forall \epsilon > 0), \exists N \in \mathbb{N}, \forall n > N, |a_n - L| < \epsilon$.  Or in terms of an implication $\forall \epsilon > 0, \exists N \in \mathbb{N}, \; [ n > N \implies |a_n - L| < \epsilon ]$)
+\end{problem}
+\begin{solution}
+	\textbf{Negation}: There exists a real number $\epsilon > 0$ such that for each positive integer $N$, there exists an integer $n > N$ such that $|a_n - L| \geq \epsilon$.
+	\textbf{Divergence}: For each real number $L$, there exists $\epsilon > 0$ such that for each positive integer $N$, there exists $n > N$ such that $|a_n - L | \geq \epsilon$.
+	\textbf{Symbolic}: $\exists \epsilon > 0, \; \forall N \in \mathbb{N}, \; \exists n \in \mathbb{N}, n > N, \; |a_n - L| \geq \epsilon$.
+	\emph{Notice the difference between negation and divergence. The definition of convergence included as specific limit $L$.  Negation just says that the sequence doesn't converge to $L$, but may still converge to some other $L' \neq L$.  Divergence on the other hand says there does not exist any limit $L$ that the sequence converges to (note: but there may be a subsequence that does -- see real analysis).}
+\end{solution}
+
+\begin{problem}
+%Chartrand 12.3
+	Using the definition of convergence in the previous problem, prove that the sequence $\left\{ \frac{1}{2n} \right\}$ converges to 0.
+\end{problem}
+\begin{solution}
+	Let $\epsilon > 0$ be given.
+	Choose $N = \lceil 1/(2\epsilon) \rceil$ where $\lceil 1/(2\epsilon) \rceil$ represents the ``ceiling'' integer of $1/(2\epsilon)$ (essentially round it up to the nearest integer).
+	Now let $n > N$.
+	Thus $n > 1/(2\epsilon)$ and so $|\frac{1}{2n} - 0| = \frac{1}{2n} < \frac{1}{2N} < \frac{1}{2(1/(2\epsilon)} = \frac{1}{1/\epsilon} = \epsilon$. \qedsymbol
+\end{solution}
+
+\begin{definition}[Limit of a Function]
+	Let $f$ be a real-valued function defined on a set $X$ of real numbers.
+	We say $L \in \mathbb{R}$ is the \textbf{limit} of $f(x)$ as $x$ approaches $a \in \mathbb{R}$ if for every real number $\epsilon > 0$, there exists a real number $\delta > 0$ such that for every real number $x$ with $0 < |x-a| < \delta$, it follows that $|f(x) - L| < \epsilon$. 
+	
+	( $\forall \epsilon > 0, \exists \delta > 0, \forall x \; [ |x-a| < \delta ] \implies [ |f(x)-L| < \epsilon ]$)
+\end{definition}
+
+\begin{definition}[Epsilon Neighborhood]
+	Let $a\in \mathbb{R}$ and $\epsilon > 0$.
+	Then the set (interval) defined as $B_{\epsilon}(a) = \{ x \in \mathbb{R} : |x-a| < \epsilon \} = (a - \epsilon, a + \epsilon)$ is called an $\epsilon$-\textbf{neighborhood} (or epsilon-ball) of $a$.
+\end{definition}
+
+The above definition is very important and you will see this used a lot in the future.
+We can use it to restate the definitions of limits used earlier.
+
+We say the sequence $\{a_n\}$ converges to the limit $L$ if
+\[
+	\forall \epsilon > 0, \exists N \in \mathbb{N} \text{ such that } \forall n > N, \; a_n \in B_{\epsilon}(L)
+\]
+Similarly for the limit of a function, we say that the limit of the function $f$ over sequence $\{a_n\}$ is $L$ if
+\[
+	\forall \epsilon > 0, \exists \delta > 0 \text{ such that } x \in B_{\delta}(L) \implies f(x) \in B_{\epsilon}(L)
+\]
+
+\begin{definition}[Continuity]
+	Let $f:X \rightarrow \mathbb{R}$.
+	We say that $f$ is \textbf{continuous} at a point $\a in \mathbb{R}$ if $\lim_{x\rightarrow a} f(x) = f(a)$.
+	Using our previous methods of defining limits this means we can phrase continuity also as
+	\begin{align}
+		\forall \epsilon > 0, \exists \delta > 0, \forall x &\text{ such that } |x - a| < \delta , [f(x) - f(a) < \epsilon] \nonumber \\
+		\forall \epsilon > 0, \exists \delta > 0, &\text{ such that } x \in B_{\delta}(a) \implies f(x) \in B_{\epsilon}(f(a)) \nonumber 
+	\end{align}
+\end{definition}
+In general there are three criteria for $f$ to be continuous at point $a$.
+\begin{enumerate}[(i)]
+	\item $f$ is defined at $a$
+	\item $\lim_{x \rightarrow a} f(x)$ exists
+	\item $\lim_{x \rightarrow a} f(x) = f(a)$
+\end{enumerate}
+
+\begin{problem}
+%Chartrand 12.39
+	Prove that the function $f:[1,\infty) \rightarrow [0,\infty)$ defined by $f(x) = \sqrt{x-1}$ is continuous at $x=10$.
+\end{problem}
+\begin{solution}
+(From Chartrand 12.39)
+	Let $\epsilon > 0$ be given and choose $\delta = \min(1,5\epsilon)$.
+	Let $x \in \mathbb{R}^n$ such that $0 < | x - 10 | < \delta$.
+	Since $| x - 10 | < 1$, it follows that $9 < x < 11$ and so $\sqrt{x - 1} + 3 > 5$.
+	Therefore, $1/(\sqrt{x-1}+3) < 1/5$.
+	Hence
+	\[
+		|\sqrt{x-1}-3| = \left| \frac{(\sqrt{x-1}-3)(\sqrt{x-1}+3)}{\sqrt{x-1} + 3} \right| = \frac{|x-10|}{\sqrt{x-1}+3} < \frac{1}{5}(5\epsilon) = \epsilon
+	\]
+	which completes the proof. \qedsymbol
+\end{solution}
+
+\begin{problem}
+%Chartrand 12.41
+	Let $f:\mathbb{R} \rightarrow \mathbb{R}$.
+	We say the function $f$ is \textbf{differentiable} at $a$ and is denoted $f'(a)$ if the following limit exists.
+	\[
+		f'(a) = \lim_{x\rightarrow a} \frac{f(x)-f(a)}{x-a}
+	\]
+\end{problem}
+Let $f$ be defined as $f(x) = x^2$.
+Determine $f'(3)$ and verify that your answer is correct with an $\epsilon-\delta$ proof.
+
+\begin{solution}
+	(From Chartrand 12.41)
+	$f'(3) = 6$.
+	
+	\textit{Proof}. \; Let $\epsilon > 0$ be given and choose $\delta = \epsilon$.
+	Let $x \in \mathbb{R}$ such that $0 < |x - 3| < \delta = \epsilon$.
+	Then 
+	\begin{align}
+		\left| \frac{f(x)-f(3)}{x-3} - 6\right| &= \left| \frac{x^2-9}{x-3} - 6 \right| = \left| \frac{(x-3)(x+3)}{x-3}-6 \right| \nonumber \\
+		&= |(x+3)-6| = |x - 3| < \epsilon \nonumber
+	\end{align}
+	Thus, $f'(3) = 6$. \qedsymbol
+\end{solution}
+
+%------------------------------------
+%	END ASSIGNMENT
+%------------------------------------
+
+%------------------------------------
+%	EXTRA PRACTICE EXERCISES
+%------------------------------------
+
+
+\newpage
+\section{Extra Practice Exercises}
+
+\subsection{Direct Proof}
+
+
+\begin{problem}
+	(BoP 4.9) Suppose $a$ is an integer.  If $7\; |\; 4a$ then $7\; |\; a$.
+\end{problem}
+
+
+
+\subsection{Contrapositive Proof}
+
+Prove the following using the method of contrapositive proof.
+
+
+\begin{problem}
+	(BoP 5.9) Suppose $n \in \mathbb{Z}$. If $3 \nmid n^2$, then $3 \nmid n$.
+\end{problem}
+
+\subsection{Either Direct or Contrapositive Proof}
+Use either direct or the contrapositive method to prove the statements.
+
+\begin{problem}
+	(BoP 5.15) Suppose $x\in \mathbb{Z}$.  If $x^3-1$ is even, then $x$ is odd.
+\end{problem}
+
+\begin{problem}
+(BoP 5.21) Let $a,b \in \mathbb{Z}$ and $n\in \mathbb{N}$.  If $a\equiv b (\mod n)$, then $a^3 \equiv c^3 (\mod n)$.
+\end{problem}
+
+
+\subsection{Proof by Contradiction}
+
+Use the method of proof by contradiction to prove the following statements.
+
+\begin{problem}
+	(BoP 6.11) There exist no integers $a$ and $b$ for which $18a + 6b = 1$.
+\end{problem}
+
+
+\subsection{Proving Non-conditional Statements}
+
+\begin{problem}
+	(BoP 7.1) Suppose $x\in \mathbb{Z}$. Then $x$ is even if and only if $3x+5$ is odd.
+\end{problem}
+
+\begin{problem}
+	(BoP 7.21) Every real solution of $x^3 + x + 3 = 0$ is irrational.
+\end{problem}
+
+\subsection{Proofs Involving Sets}
+\emph{Book of Proof} Chapter 8 Exercises: 1,5,7,9,11,21,23
+Use any of the methods we've covered to prove the following statements.
+\begin{problem}
+	(BoP 8.1) Prove that $\{12n: n\in \mathbb{Z}\} \subseteq \{2n: n\in \mathbb{Z}\} \cap \{3n: n\in \mathbb{Z}\}$.
+\end{problem}
+
+
+\begin{problem}
+	(BoP 8.9) If $A$,$B$ and $C$ are sets, then $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+\end{problem}
+
+
+\begin{problem}
+	(BoP 8.21) Suppose $A$ and $B$ are sets. Prove $A \subseteq B$ if and only if $A-B = \emptyset$.
+\end{problem}
+
+
+
+\subsection{Disproof}
+Each of the following statements is either true or false.  If a statement is true, prove it.  If a statement is false, disprove it.
+
+\begin{problem}
+	(BoP 9.34) If $X \subseteq A \cup B$, then $X \subseteq A$ or $X \subseteq B$.
+\end{problem}
+
+
+\subsection{Relations}
+
+\begin{problem}
+	(BoP 11.0.1) Let $A =\{0,1,2,3,4,5\}$.  Write out the relation $R$ that expresses $>$ on $A$.
+\end{problem}
+
+\begin{problem}
+	(BoP 11.1.6) Consider the relation $R = \{(x,x): x \in \mathbb{Z}\}$ on $\mathbb{Z}$.
+	Is $R$ reflexive? Symmetric? Transitive?  If a property does not hold, say why.  What familiar relation is this?
+\end{problem}
+
+\begin{problem}
+	(BoP 11.1.8) Define a relation on $\mathbb{Z}$ as $xRy$ if $|x-y| < 1$.
+	Is $R$ reflexive? Symmetric? Transitive?  If a property does not hold, say why.  What familiar relation is this?
+\end{problem}
+
+
+
+\subsection{Functions}
+
+\begin{problem}
+	(BoP 12.1.7) Consider the set $\{(x,y) \in \mathbb{Z}\times \mathbb{Z}: 3x+y=4\}$.  Is this a function from $\mathbb{Z}$ to $\mathbb{Z}$? Explain.
+\end{problem}
+
+\begin{problem}
+	(BoP 12.1.9) Consider the set $f = \{(x^2,x): x\in \mathbb{R}\}$. Is this a function from $\mathbb{R}$ to $\mathbb{R}$? Explain.
+\end{problem}
+
+\begin{problem}
+	(BoP 12.2.5) A function $f: \mathbb{Z} \rightarrow \mathbb{Z}$ defined as $f(n) = 2n + 1$.
+	Verify whether this function is injective and whether it is surjective.
+\end{problem}
+
+
+
+\begin{problem}
+	(BoP 12.5.7) Show that the function $f:\mathbb{R}^2 \rightarrow \mathbb{R}^2$ defined by the formula $f(x,y) = ((x^2+1)y, x^3)$ is bijective.  Then find its inverse.
+\end{problem}
+
+
+\subsection{Calculus Topics}
+
+
+\begin{problem}
+%Chartrand 12.11
+	Prove that if a sequence $\{s_n\}$ converges to $L$, then the sequence $\{s_{n^2}\}$ also converges to $L$.
+\end{problem}
+
+\begin{problem}
+%Chartrand 12.19
+	Give an $\epsilon - \delta$ proof that $\lim_{x\rightarrow -1} (3x-5) = -8$.
+\end{problem}
+
+\begin{problem}
+%Chartrand 12.25
+	Show that $\lim_{x\rightarrow 0} \frac{1}{x^2}$ does not exist.
+\end{problem}
+
+
+
+\end{document}

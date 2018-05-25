@@ -1,0 +1,86 @@
+---
+readings:
+  - name: Before Bootcamp Reading
+    simonblume: Chapters 1-5
+    notes:
+      - name: Sets & Logic (Chapters 1 & 2 from Chartrand, Polimeni and Zhang)
+        link: Assignment_0_logic_reading.pdf
+
+  - name: Week 1
+    simonblume: Chapters 6, 7, 8, 9
+
+  - name: Week 2
+    simonblume: Chapters 10, 11, 27
+
+  - name: Week 3
+    simonblume: Appendix A1
+    notes:
+      - name: <i>Book of Proof</i> by Richard Hammack - Chapters 4-9, 11, 12
+        link: BookOfProof.pdf
+    ext_links:
+      - link: https://www.ma.utexas.edu/users/nrauh/teaching/m408d/limits.pdf
+      - link: https://www.ocf.berkeley.edu/~yosenl/math/epsilon-delta.pdf
+      - link: http://www.milefoot.com/math/calculus/limits/
+      - link: https://www.khanacademy.org/math/differential-calculus/limits-topic/epsilon-delta/v/limit-intuition-review
+
+  - name: Week 4
+    simonblume: Chapters 13, 14
+
+assignments:
+  - name: Assignment 0 (Prerequisite Material)
+    link: assignment_0.pdf
+    descrip: >
+      <b>Univariate calculus, sets, and logic</b>. You will need the Sets & Logic
+      reading to complete the assignment. The material in this assignment is
+      fair game for the final exam.  You should complete these problems to
+      refresh old topics and learn some new ones.  However, you do not need to
+      turn this assignment in to me.  I will assume your understanding and familiarity
+      with the material during the mathcamp, so please complete your study no later than
+      July 13th.
+    due: First week or two.
+    keys:
+      - link: assignment_0_key.pdf
+        name: Assignment 0 Key
+    #  - link: sets_and_logic_answers.pdf
+    #    name: Set & Logic Key
+
+  - name: Assignment 1
+    link: assignment_1.pdf
+    descrip: >
+      To be described soon.
+    due: July 31, 2017 @ 11:59 PM Pacific Standard Time
+    keys:
+      - link: assignment_1_key.pdf
+        name: Assignment 1 Key
+
+  - name: Assignment 2
+    link: assignment_2.pdf
+    descrip: >
+      To be described soon.
+    due: July August 7, 2017 @ 11:59 PM Pacific Standard Time
+    keys:
+      - link: assignment_2_key.pdf
+        name: Assignment 2 Key
+      - link: sets_and_logic_answers.pdf
+        name: Sets & Logic Key
+
+  - name: Assignment 3
+    link: assignment_3.pdf
+    descrip: >
+      To be described soon.
+    due: August 14, 2017 @ 11:59 PM Pacific Standard Time
+    keys:
+      - link: assignment_3_key.pdf
+        name: Assignment 3 Key
+
+  - name: 2016 Final Exam with Solutions
+    link: final_exam_key.pdf
+    descrip: >
+      <b>Mathematics Bootcamp Final Exam 2016</b>.
+    due:
+
+  - name: 2017 Final Exam with Solutions
+    link: final_exam_2017.pdf
+    descrip: >
+      <b>Mathematicsl Bootcamp Final Exam 2017</b>
+    due:

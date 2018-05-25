@@ -1,0 +1,33 @@
+\documentclass[10pt]{article}
+\usepackage[usenames]{color} %used for font color
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage[utf8]{inputenc} %useful to type directly
+\usepackage{tikz}
+%diacritic characters
+\begin{document}
+\paragraph{Quotient Set Notation}
+There are many ways denote the quotient set (check the \emph{Book of Proof} for one way).
+A common method is to get a notation for an individual equivalence class first.
+Say $[x] = \{ y \in C: x \sim y\}$ which is the set of all bundles in $C$ that are indifferent to $x$.
+Then we might create a class of sets (set of sets) using the indexed collection of sets notation you covered in the prerequisite readings.
+For example $\mathcal{I} = \{ [x] : x \in C\}$ where $[x]=\{ y \in C: x \sim y\}$.
+Remember that sets only contain distinct elements so even though we ``loop'' through all values $x$ any two values $x,y$ such that $x \sim y$ will lead to $[x] = [y]$ and the distinct equivalence class will only show up once in the collection $\mathcal{I}$.
+
+\paragraph{Problem 10}
+Let $\succsim$ be rational preference relation and define $\sim$ as the indifference relation where $x\sim y$ iff $[x\succsim y \wedge y\succsim x]$.
+Because $\succsim$ is rational we know that it is complete, reflexive and transitive.
+To show $(x,x) \in \sim, \; \forall x$ we can refer to completeness to know that either $x\succsim x$ or $x\succsim x$ and by reflexiveness we know both statements are true so $x\sim x$.
+
+Symmetry would imply that for any $x,y\in C$ if $(x,y)\in \sim$ then $(y,x) \in \sim$.
+Again we now know that $\sim$ is reflexive and we still know $\succsim$ is complete, reflexive and transitive and we should use these facts to establish symmetry and transitivity of $\sim$.
+Let $x,y\in C$ and suppose $x \sim y$.
+Then we know $[x\succsim y \wedge y\succsim x]$ is true by definition of $\sim$.
+Because the order of arguments in the conjunction don't alter its truth value we could say
+$[y\succsim x \wedge x \succsim y]$ which is the definition of $y\sim x$.
+
+For transitivity, suppose $x,y,z \in C$ and $[x\sim y \wedge y \sim z]$.
+Then by definition $[x\succsim y \wedge y\succsim x]$ and $[y\succsim z \wedge z\succsim y]$.
+Hence we have $x \succsim y \succsim z$ which by transitivity of $\succsim$ implies $x\succsim z$ and we also have $z\succsim y \succsim x$ which by transitivity of $\succsim$ implies $z\succsim x$.
+Since we have $[x\succsim z \wedge z\succsim x]$ we see that $x \sim z$ and therefore $\sim$ is transitive.
+\end{document}

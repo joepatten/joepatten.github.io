@@ -1,0 +1,141 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\paragraph{Problem 4 Hints}
+So for this problem just assume that $X = \mathbb{R}^n$.
+Then $a\cdot x = a_1 x_1 + \cdots + a_n x_n$.
+Given two vectors $x,y \in \mathbb{R}^n$ and scalars $\alpha, \beta \in \mathbb{R}$ we have
+\begin{align}
+	a \cdot (\alpha x + \beta y) &= a\cdot (\alpha x) + a\cdot (\beta y) \nonumber \\
+	&= \alpha(a\cdot x) + \beta (a\cdot y) \nonumber 
+\end{align}
+therefore its a linear map.
+
+For part (ii), this is basically the proof that linear transformations between real vector spaces can be represented by real valued matrices.
+In this case the matrices will all be $n\times 1$.
+Consider a function $f\in X^*$.
+By definition $f$ is a linear map from $X = \mathbb{R}^n$ to $\mathbb{R}$.
+Because $X$ is a linear subspace and $\mathbb{R}$ is a linear subspace and $f$ is a linear map we know that $f(X)$ is a linear subspace in $\mathbb{R}$.
+Because $X$ and $f(X)$ are subspaces they have a basis.
+Let $(\mathbf{e}_1,\dots, \mathbf{e}_n)$ be the coordinate vectors for $\mathbb{R}^n$ (which are a basis for $X$).
+Then for any $x\in X$ we can write $\mathbf{x} = x_1 \mathbf{e}_1 + \cdots + x_n \mathbf{e}_n$ (a linear combination of the basis vectors).
+Applying our function $f$ to $x$ gives us
+\begin{align}
+	f(\mathbf{x}) &= f( x_1 \mathbf{e}_1 + \cdots + x_n \mathbf{e}_n ) \nonumber \\
+	&= x_1 f(\mathbf{e}_1) + \cdots + x_n f(\mathbf{e}_n) \nonumber
+\end{align}
+Since $\mathbf{e}_i$, for $i=1,\dots,n$ is a vector we know $f(\mathbf{e}_i) \in \mathbb{R}$.
+For all $i = 1,\dots, n$ define $f(\mathbf{e}_i) = a_i$.
+Then 
+\begin{align}
+	f(\mathbf{x}) &= x_1 a_1 + \cdots + x_n a_n \nonumber \\
+	&= a_1 x_n + \cdots + a_n x_n \nonumber \\
+	&= \mathbf{a} \cdot \mathbf{x} \nonumber
+\end{align}
+so we can define the $\mathbf{a} = (f(\mathbf{e}_1), \dots, f(\mathbf{e}_n))$.
+
+For part (iii), you should use the defined operations to show that the vector space axioms hold for this set so that its a vector space.
+The key operations are that if $f$ and $g$ are linear functions in the set, then these will be our vectors.
+So $f + g$ is defined as $f(x) + g(x)$ where $x$ is a vector in $X$.
+If $\alpha$ is a real number, then we scale the vectors in $X^*$ as $\alpha f = \alpha f(x)$.
+All the axioms should be tested.
+
+For part (iv) the idea is to use what we just learned in part (ii), that every linear functional $f \in X^*$ can be uniquely determined by a vector $\mathbf{a} = (f(\mathbf{e}_1),\dots,f(\mathbf{e}_n))$.
+We can think about finding a set of such $\mathbf{a}$ vectors.
+For example suppose we have a set of $n$ vectors, say the coordinate vectors again, $(\mathbf{e}_1,\dots, \mathbf{e}_n)$, do each of these represent their own linear functional? Yes.
+Now that we are calling them functionals, lets represent the set now as $\{f_1,\dots, f_n\}$.
+At this point we establish that any linear functional is just a linear combination of these $n$ linear functionals and that the set is linearly independent.
+Once you've done that you will have shown that a set of $n$ vectors is a basis for $X^*$ and therefore $\dim\left(X^*\right) = n$.
+
+\paragraph{Problem 10 Hints}
+Define the profit function $\pi(p) = \max\{p\cdot y : y\in Y\}$.
+This function tells you the maximum profit over technology $Y$ when prices are $p$.
+Lets suppose we have some fixed $p_0 \in \mathbb{R}^n$.
+Then what do we know about $\pi(p_0)$?
+Well we know that for all $y\in Y$ it must be the case that $p_0\cdot y \leq \pi(p_0)$, right?
+By definition of the maximum, either $y$ achieves the maximum and $p_0\cdot y = \pi(p_0)$ or else it must be that $p_0\cdot y < \pi(p_0)$.
+So what if we look at all the vectors $y \in \mathbb{R}^n$ (notice not just in $Y$) that when you take the dot product of it with $p_0$ it equals $\pi(p_0)$?
+\[
+  \{ y \in \mathbb{R}^n: p_0\cdot y = \pi(p_0) \}
+\]
+You should notice from previous exercises that this is a hyperplane in $\mathbb{R}^n$ and we have associated with it two half-spaces.
+\[
+  H^{\leq}_{p_0}(\pi(p_0)) = \{ y \in \mathbb{R}^n : p_0 \cdot y \leq \pi(p_0) \} \qquad H_{p_0}^{\geq}(\pi(p_0)) = \{ y \in \mathbb{R}^n : p_0 \cdot y \geq \pi(p_0)
+\]
+The left half-space could be referred to as the ``lower'' half-space and the right one as the ``upper'' half-space.
+Of course we get the hyperplane by simply taking the intersection $H_{p_0}^{\leq}(\pi(p_0)) \cap H_{p_0}^{\geq}(\pi(p_0))$.
+
+If its the case that $Y \subseteq H_{p_0}(\pi(p_0))$ what should we be able to show?
+As you know from the proofs material the subset relation is an implication of the form $y\in Y \implies y \in H_{p_0}(\pi(p_0))$.
+As discussed we know that for any $y \in Y$ it must be the case that $p_0\cdot y \leq \pi(p_0)$ so that rules out the ``upper'' half-space, right?
+So we focus on the ``lower'' half-space.
+Let $y \in Y$ then by definition of $\pi(p_0)$ we know that $p_0 \cdot y \leq \pi(p_0)$ and since $y \in Y \implies y \in \mathbb{R}^n$ we know that $y \in \{ y \in \mathbb{R}^n : p_0 \cdot y \leq \pi(p_0) \} = H_{p_0}^{\leq}(\pi(p_0))$.
+Since our choice of $y \in Y$ was arbitrary, it holds for all $y \in Y$ and thus $Y\subseteq H_{p_0}^{\leq}(\pi(p_0))$.
+
+Remember that the dot product in this case is a function mapping $\mathbb{R}^n$ into $\mathbb{R}$.
+Hence, $p\cdot y$ and $\pi(p)$ are both real numbers.
+The ``normed distance'' or metric distance in $\mathbb{R}$ is the absolute value, like we used in the calculus proofs on assignment 2.
+So we will look at the difference $|p\cdot y - \pi(p)|$ over the points in a hyperplane and in $Y$.
+As previously discussed we know that it is always true for elements of $Y$ that $p_0 \cdot y \leq \pi(p_0)$ implying that $p_0\cdot y  - \pi(p_0) \leq 0$.
+The only vectors in $Y$ for which the difference will actually be zero are those vectors $y^*$ that are the profit maximizing production plans.
+Okay so now consider again the hyperplane $\{ y \in \mathbb{R}^n: p_0 \cdot y = \pi(p_0)\}$.
+If any point in the hyperplane is also an element of $Y$, then would it be a profit maximizing production plan? It would be.
+So saying the hyperplane ``touches'' $Y$ is essentially saying they have an element in common (technically there are topological arguments that slightly loosen this, but we haven't covered those yet, so...).
+In our case, as long as $\exists y^* \in Y$ such that $p_0\cdot y^* = \pi(p_0)$ that same point $y^*$ is also in the hyperplane and $|p_0 \cdot y^* - \pi(p_0)|=0$.
+As for the question about $F(y)$, just ignore it I realize know I was asking too much on this.  The point here is that all points on the ``boundary'' of $Y$ will satisfy $F(y)=0$ and that the profit maximizing production plans, if any, will be on the boundary.
+\textbf{So what}? Well we have now established that $Y$ is contained in $H_{p_0}^{\leq}(\pi(p_0))$ and that the hyperplane ``touches'' the boundary of $Y$ and all this essentially makes the hyperplane \emph{tangent} to the set $Y$ and we call it a \textbf{supporting hyperplane}.
+
+For part (iii) remember what you learned about what it means for two sets to be equal
+\[
+  A = B \iff [A \subseteq B \wedge B \subseteq A]
+\]
+Now for all the previous discussion we were working with $p_0$, was there anything special about $p_0$?
+No, we just picked it arbitrarily from the set $\mathbb{R}^n$ which means that the vector doesn't have any zeros in it -- no negative or zero prices -- sorry for a typo in the assignment.
+Anyways, since we picked $p_0$ arbitrarily all our previous results should hold for all elements of the set that we drew $p_0$ from.
+So for any $p \in \mathbb{R}^n$ we have a supporting hyperplane that contains $Y$ in its ``lower'' half-space and ``touches'' $Y$ on its boundary.
+Remember that for any $p$ we can define $\pi(p) = \max\{p\cdot y: y \in Y\}$ and we could also create the hyperplane $H(p) = \{ y \in \mathbb{R}^n: p\cdot y = \pi(p)\}$ which means we could also create the ``lower`` half space that we know will contain $Y$, or $H_{p}^{\leq}(\pi(p))=\{ y \in \mathbb{R}^n : p\cdot y \leq \pi(p) \}$
+Hopefully you remember from your reading on sets that we can represent \emph{indexed collections} of sets (set of sets) so that the set of all ``lower'' half-spaces could be represented as $\{ H_{p}^{\leq}(\pi(p)): p \in \mathbb{R}^n \}$ -- which is the same as $\{ A(p) : p \in \mathbb{R}^n\}$ from the problem.
+
+Okay so we want to show the following
+\[
+	Y \subseteq \cap_{p \in \mathbb{R}^n} A(p) \text{ and } \cap_{p \in \mathbb{R}^n} A(p) \subseteq Y
+\]
+Let $y \in Y$. Then since $Y$ is contained in \text{every} half-space of the form $A(p)$ we know that it is in the intersection of all half-spaces of the form $A(p)$, right? why?
+This means that $y$ is also in $\cap_p A(p)$.
+
+The other direction is little more involved.
+One way to go about this would be proof by contradiction.
+Essentially, we assume, to the contrary, that $y \notin Y$.
+If we can show that this implies that $\exists p$ such that $p\cdot y > \pi(p)$ then this means there exists some half-space $A(p)$ that doesn't contain $y$, which contradicts our primary assumption.
+
+Let $y \in \cap_p A(p)$ and to the contrary let $y \notin Y$; what do we know?
+Well this means that $y$ is in every half space of the form $\{ x \in \mathbb{R}^n : p\cdot x \leq \pi(p)\}$ so we know that $p\cdot y \leq \pi(p)$ for all $p$.
+Even though $y \notin Y$ we can a pick a point $z\in Y$ that is ``closest'' to $y$ in the sense that $z$ minimizes the normed distance $\| y - z \|$.
+Now the basic idea is that we can form a price vector, $p = y - z$ and think about value $\pi(p)$.
+Lets create a value $c = p\cdot z$.
+From this we can think of a hyperplane $H_{p}(c) = \{ x \in \mathbb{R}^n : p\cdot x = c \}$.
+Because $p\cdot z = c$ and $z \in Y$ we know $z \in H_p(c)$ and that $H_p(c)$ touches $Y$.
+
+Without going into all the details this ends up being the point.
+You end up establishing that our vector $z \in Y$ that is closest to $y \notin Y$ ends up achieving the maximum $\pi(p)$ and that for all other vectors $v \in Y$, we have $p\cdot v \leq \pi(p)$ so that $Y$ is contained by the ``lower'' half-space of the hyperplane we created.
+However, we find the following holds for the vector $y\in Y$.
+\begin{align}
+	p\cdot y - c &= p\cdot y - p\cdot z \nonumber \\
+	&= p\cdot (y - z) \nonumber \\
+	&= (y - z)\cdot (y - z) \nonumber \\
+	&= \| y - z \|^2  \nonumber \\
+	&> 0 \text{ since } y \neq z \nonumber 
+\end{align}
+What this implies is that $p\cdot y > \pi(p)$.
+So essentially what you'll end up showing, after more work than I now expect you to do, is that we created a price $p$ with a hyperplane $\{ x \in \mathbb{R}^n : p\cdot x = \pi(p)\}$ that \textbf{separates} the set $Y$ from the point $y\notin Y$.
+This implies that $y$ is not in the lower half-space and hence couldn't be in the intersection $\cap_p A(p)$ which is where we get our contradiction.
+
+\textbf{Duality}  The idea of duality is that given technology $Y$ you can use the space of prices to create the profit (value) function $\pi(p)$ which tells you the profit of the profit maximizing firm with technology $Y$ and prices $p$.
+If instead we know $\pi(p)$, but not $Y$, we can construct $Y$ (or at least the convex hull of it) using our knowledge of $\pi(p)$ and the half-spaces it generates for us.
+
+\textbf{You'll encounter hyperplanes, half-spaces, convex sets, duality and so on several times in consumer theory, producer theory and general equilibrium as it plays a large role in convex optimization problems}
+
+\end{document}

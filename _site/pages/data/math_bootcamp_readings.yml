@@ -1,0 +1,28 @@
+
+--- 
+readings:
+  - name: Before Bootcamp Reading
+    simonblume: Chapters 1-5
+    notes: 
+      - name: Sets & Logic
+        link: Assignment_0_logic_reading.pdf
+      - name: More notes
+        link: "#"
+      - name: And Again
+        link: "#"
+  
+assignments:
+  - name: Assignment 0
+    link: Assignment_0_logic_reading.pdf
+    descrip: Univariate calculus, sets, and logic
+    due: July 13, 2016 @ 11:59 PM Pacific Standard Time
+
+  - name: Assignment 1
+    link: "#"
+    descrip: Some topic
+    due: Some date
+
+  - name: Assignment 2
+    link: "#"
+    descrip: Some topic for 2
+    due: Some date for 2

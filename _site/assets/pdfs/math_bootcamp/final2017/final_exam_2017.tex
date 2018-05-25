@@ -1,0 +1,278 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{assignment_style}
+
+\newcounter{problem}
+\newenvironment{problem}[1][]{%
+	\refstepcounter{problem}\par \medskip
+	\noindent \textbf{Problem~\theproblem.#1 \rmfamily}{\medskip}
+}
+
+\newenvironment{solution}{ \noindent \textbf{Solution: \medskip}}{}
+
+\excludecomment{solution}
+
+\title{WSU Economics PhD Math Bootcamp 2017 \\ \vspace{0.5em} Final Exam}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+\begin{problem}
+\\You are studying a game theoretic problem in which three firms are competing with each other in quantity supplied to a new market.
+Some firms benefit when other firms produce more and some firms are hurt when others produce more.
+The problem is complex, but you have finally managed to create the payoff functions for each player (firm) in this game that correctly specify their preferences over outcomes.
+These payoff functions are shown below.
+\begin{align}
+	\pi_1(q_1 | q_2,q_3) &= \frac{1}{4}q_1^2 - q_1 q_2 + \frac{1}{3}q_1 q_3 \nonumber \\
+	\pi_2(q_2 | q_1,q_3) &= \frac{1}{4}\left(q_1 - q_2^2\right) + q_2 q_3 \nonumber \\
+	\pi_3(q_3 | q_1,q_2) &= \frac{1}{8} q_3(q_1 + q_2) - q_3 \nonumber
+\end{align}
+You are looking for a \textbf{Nash Equilibrium} of the game which requires each firm to choose their quantity $q_i$ to maximize their payoff given the choices of $q$ by the other two firms.
+Suppose that you have determined that \textit{first order conditions} are sufficient for a maximum in each firm's payoff function (meaning that $q_i$ is chosen to make $\partial \pi_i / \partial q_i = 0$.)
+
+\begin{enumerate}[(A)]
+	\item Derive the system of first order conditions for the payoff functions in this game.
+	\item Using the set of first order conditions from part (A), rearrange them into a linear system of equations of the form, $A\mathbf{x} = \mathbf{b}$.
+	\item An equilibrium will be a list of strategies $(q_1, q_2, q_3)$ in which all three first order conditions are simultaneously satisfied.  Perform a test (calculate a special number) on the matrix $A$ from part (B) that will tell you whether or not a unique equilibrium exists for this game (given the vector $\mathbf{b}$).
+	\item As a matrix, $A$ represents a linear mapping between which two vector spaces? $A: \mathbb{R}^{?} \rightarrow \mathbb{R}^{?}$.
+	\item Given the value of the number calculated in part (C), what is the rank of the matrix $A$? What is the dimension of its null space?
+	\item \textit{If possible}, find the inverse of the matrix $A$ and use it to calculate the equilibrium values of $(q_1, q_2, q_3)$ (i.e., those that solve the system).  If it is not possible, explain why and how you know it.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[(A)]
+	\item The system of first order conditions is created by taking the partial derivative of each player's payoff function with respect to their own quantity.
+	\begin{align}
+		\frac{\partial \pi_1(q_1)}{\partial q_1} &= \frac{1}{2}q_1 - q_2 + \frac{1}{3}q_3 = 0 \nonumber \\
+		\frac{\partial \pi_2(q_2)}{\partial q_2} &= -\frac{1}{2}q_2 + q_3 = 0 \nonumber \\
+		\frac{\partial \pi_3(q_3)}{\partial q_3} &= \frac{1}{8}q_1 + \frac{1}{8}q_2 - 1 = 0 \nonumber
+	\end{align}
+	\item Note that each of the first partial derivatives derived previously are linear combinations of the quantities $(q_1, q_2, q_3)$.
+	Putting this into a system of linear equations we have,
+	\begin{align}
+		\frac{1}{2}q_1 - q_2 + \frac{1}{3}q_3 &= 0 \nonumber \\
+		0 q_1 - \frac{1}{2} q_2 + q_3 &= 0 \nonumber \\
+		\frac{1}{8}q_1 + \frac{1}{8}q_2 + 0q_3 &= 1 \nonumber
+	\end{align}
+	We can rearrange this system into the matrix expression,
+	\begin{align}
+		\begin{bmatrix}
+			\frac{1}{2} & -1 & \frac{1}{3} \\
+			0 & -\frac{1}{2} & 1 \\
+			\frac{1}{8} & \frac{1}{8} & 0
+		\end{bmatrix}
+		\begin{bmatrix}
+			q_1 \\
+			q_2 \\
+			q_3
+		\end{bmatrix}
+		&= 
+		\begin{bmatrix}
+			0 \\
+			0 \\
+			1
+		\end{bmatrix} \nonumber
+	\end{align}
+	\item The test to perform, or the number to calculate is the determinant of $A$.
+	If $\det(A) \neq 0$ then there exists a unique solution of the system $A\mathbf{x} = \mathbf{b}$ for any $\mathbf{b}$ and $A$ is called \textit{non-singular} and is therefore invertible.
+	On the other hand, if $\det(A) = 0$, then $A$ is \textit{singular} and is not invertible and we will have either no solution, or an infinite number of solutions to the system.
+	For the matrix $A$ we found in part (B), we have $\det(A) = -\frac{1}{6} \neq 0$.
+	Hence, for any $\mathbb{b}$, and in particular the one we defined, there exists a unique solution (equilibrium).
+	\item $A$ is a $3\times 3$ square matrix and so it is a linear mapping (operator) from $\mathbb{R}^3$ into itself.
+	In other words, $A:\mathbb{R}^3 \rightarrow \mathbb{R}^3$.
+	Another way to realize this is that as a function $L(\mathbf{x})$ the vector $\mathbf{x} = (q_1, q_2, q_3)$ is a vector of 3 quantities.  The function will then return a vector containing 3 values.  Hence the function takes 3-element vectors as inputs and returns 3-element vectors as outputs.
+	\item In part (C) we found that $\det(A) \neq 0$, given the (hopefully well known by you) statements of equivalence, the matrix $A$ has full rank, if and only if it is nonsingular and therefore it has rank 3.
+	Because the linear map represented by $A$ maps into a 3 dimensional space, being full rank means that the column space of $A$ is 3-dimensional.
+	As a consequence, the null-space has dimension zero by the \textbf{rank-nullity} theorem.
+	Another way to realize this is simply that $\det(A) \neq 0$ if and only if the homogenous system $A\mathbf{x} = \mathbf{0}$ has only the trivial solution, $\mathbf{x} = \mathbf{0}$.
+	This means that the null space (the set of vectors that map to zero) contains only one vector -- the zero vector itself.  The dimension of the set containing only the zero vector is zero.
+	\item We know $A$ is nonsingular, so it is invertible.  The inverse is,
+	\begin{align}
+		A^{-1} &= \begin{bmatrix}
+			\frac{3}{4} & -\frac{1}{4} & 5 \\
+			-\frac{3}{4} & \frac{1}{4} & 3 \\
+			-\frac{3}{8} & \frac{9}{8} & \frac{3}{2}
+		\end{bmatrix} \nonumber
+	\end{align}
+	Now we simply premultiply $\mathbf{b}$ by $A^{-1}$ to get the solution (equilibrium values).
+	\begin{align}
+		\begin{bmatrix}
+			\frac{3}{4} & -\frac{1}{4} & 5 \\
+			-\frac{3}{4} & \frac{1}{4} & 3 \\
+			-\frac{3}{8} & \frac{9}{8} & \frac{3}{2}
+		\end{bmatrix}
+		\begin{bmatrix}
+			0 \\
+			0 \\
+			1
+		\end{bmatrix}
+		&= \begin{bmatrix}
+			5 \\
+			3 \\
+			\frac{3}{2}
+		\end{bmatrix} \nonumber
+	\end{align}
+	So we find that the Nash equilibrium values for the game we are researching is,
+	\[
+		q_1^{ne} = 5, \quad q_2^{ne} = 3, \quad q_3^{ne} = \frac{3}{2}
+	\]
+\end{enumerate}
+\end{solution}
+
+\end{problem}
+
+\begin{problem}
+\\ Consider an investor who must decide how much money, $y$, to invest in a stock to maximize their expected utility.
+Suppose that there are only two possible outcomes $G$ for good and $B$ for bad.
+If the consumer believes the probability of $G$ is $p_G$ and the probability of $B$ is $1 - p_G$, then the expected utility from a choice $y > 0$ is,
+\[
+	p_G U(y;G) + (1 - p_G) U(y; B)
+\]
+For any beliefs $(p_G, 1 - p_G)$ the investor may have, they will choose $y$ optimally which means that they will choose $y$ to solve the first order condition,
+
+\[
+	p_G U'(y;G) + (1 - p_G) U'(y;B) = 0
+\]
+
+which means $y(p_G)$ is the expected utility maximizing choice and the maximal utility is,
+
+\[
+	V(p_G) = p_G U(y(p_G);G) + (1 - p_G) U(y(p_G);B) 
+\] 
+
+Now suppose that the probability of $G$ and $B$ depend upon a previous choice, $x$, made by the investor (that is fixed when they choose $y$) and the outcome of a research effort that is a function $x$ with outcomes $H$ and $L$.
+Given a choice of $x$ the probability of research outcome $H$ is $\rho_H(x)$ and the probability of $L$ is $1 - \rho_H(x)$.
+When the investor's research effort yields an $H$ the probability of $G$ is $p_G^H(x)$.
+When the investor's research effort yields an $L$ the probability of $G$ is $p_G^L(x)$.
+The pre-investment-decision value of choosing a value $x$ is,
+
+\begin{align}
+F(x) &= \rho(x)V(p_G^H(x)) + (1 - \rho_H(x)) V(p_G^L(x)) - C(x)\nonumber	
+\end{align}
+
+Where $C(x)$ is the cost from choosing level $x$.
+
+\textbf{Differentiate the composite value function above with respect to $x$ and simplify the expression}. (Hint: remember the first order condition defined above. This might be more complicated than you think.)
+
+\end{problem}
+
+\begin{solution}
+\begin{align}
+	\frac{\partial F(x)}{\partial x} &= \rho_H'(x) V(p_G^H(x)) + \rho_H(x) \cdot \frac{\partial V(p_G^H(x))}{\partial x} \nonumber \\
+	& - \rho_H'(x) V(p_G^L(x)) + (1 - \rho_H(x)) \frac{\partial V(p_G^L(x))}{\partial x} \nonumber \\
+	& - C'(x) \nonumber
+\end{align}
+
+This can be rearranged as,
+
+\begin{align}
+	\frac{\partial F(x)}{\partial x} &= \rho_H'(x)\left[ V(p_G^H(x)) - V(p_G^L(x))\right] \nonumber \\
+	&= + \rho_H(x) \frac{\partial V(p_G^H(x))}{\partial x} + (1-\rho_H(x))\frac{\partial V(p_G^L(x))}{\partial x} \nonumber \\
+	& - C'(x) \nonumber
+\end{align}
+
+Now we need to apply the chain rule to the derivative, $\partial V(p_G^k(x)) / \partial x$ and substitute the result into the above expression and simplify.
+
+\begin{align}
+	\frac{\partial V(p_G^k(x))}{\partial x} &= \frac{p_G^k(x)}{\partial x} U(y(p_G^k(x)); G) + p_G^k(x) U'(y(p_G^k(x));G)\frac{\partial y(p_G^k(x))}{\partial p_G}\cdot \frac{\partial p_G^k(x)}{\partial x} \nonumber \\
+	&- \frac{\partial p_G^k(x)}{\partial x} U(y(p_G^k(x));B) + (1-p_G^k(x)) U'(y(p_G^k(x));B) \frac{\partial y(p_G^k(x))}{\partial p_G^k} \cdot \frac{\partial p_G^k(x)}{\partial x} \nonumber
+\end{align}
+
+It is critical to notice here that we can gather together the marginal utilities to obtain expressions identical to the first order conditions.
+
+\begin{align}
+	\frac{\partial V(p_G^k(x))}{\partial x} &= \frac{p_G^k(x)}{\partial x} \left[ U(y(p_G^k(x));G) - U(y(p_G^k(x));B) \right] \nonumber \\
+	&+ \underbrace{\left[p_G^k(x) U'(y(p_G^k(x)); G) + (1-p_G^k(x))U'(y(p_G^k(x));B)\right]}_{=0} \cdot\frac{\partial y(p_G^k(x))}{\partial p_G^k}\cdot \frac{\partial p_G^k(x)}{\partial x} \nonumber
+\end{align}
+
+Substituting this back in we have,
+
+\begin{align}
+	\frac{\partial F(x)}{\partial x} &= \rho_H'(x)\left[ V(p_G^H(x)) - V(p_G^L(x))\right] \nonumber \\
+	&+ \rho_H(x)\frac{p_G^H(x)}{\partial x} \left[ U(y(p_G^H(x));G) - U(y(p_G^H(x));B) \right] \nonumber \\
+	&+ (1-\rho_H(x))\frac{p_G^L(x)}{\partial x} \left[ U(y(p_G^L(x));G) - U(y(p_G^L(x));B) \right] \nonumber \\
+	&- C'(x) \nonumber
+\end{align}
+
+More simplifications could be performed, especially with additional assumptions.
+However, this suffices to test the use of the chain rule, product rule and handling a quite complex derivative.
+
+\end{solution}
+
+\newpage
+\begin{problem}
+\\Use the definitions below to prove the required proposition.
+
+\begin{definition}
+A preference relation $\succsim$ on a choice set $X$ is \textit{locally nonsatiated} if for every $\mathbf{x} \in X$ and every $\epsilon > 0$, there is a $\mathbf{y}\in X$ such that $\| \mathbf{y} - \mathbf{x} \| \leq \epsilon$ and $\mathbf{y} \succ \mathbf{x}$.
+\end{definition}
+\begin{definition}
+	A consumer has rational preference relation $\succsim$ on $X$ represented by utility function $u(\mathbf{x})$.
+	The prices for the goods in $\mathbf{x}$ are $\mathbf{p}$ and the consumer has wealth $w > 0$.
+	The consumer's utility maximization problem is
+	\begin{align}
+		\max_{\mathbf{x}} u(\mathbf{x}) \quad s.t. \quad\mathbf{p}\cdot \mathbf{x} \leq w \nonumber
+	\end{align}
+	The solution (demand) is $x(\mathbf{p},w)$ defined as the set of all $x \in X$ such that $x$ maximizes utility subject to the budget constraint.
+	\[
+		x(\mathbf{p},w) = \left\{ \mathbf{x} \in X: x \text{ is optimal and } \mathbf{p}\cdot \mathbf{x} \leq w  \right\}
+	\]
+\end{definition}
+\begin{prop}[Walras' Law]
+	If a consumer's preferences are \textit{locally nonsatiated} and $\mathbf{x}^* \in x(\mathbf{p},w)$, then $\mathbf{p}\cdot \mathbf{x}^* = w$.
+\end{prop}
+(Intuitively, if a consumption bundle is optimal, then it will involve the consumer spending all their income.)
+Hint: Try proof by contradiction.
+
+\end{problem}
+\begin{solution}
+\begin{proof}
+	Let $u$ represent the locally non-satiated preference relation $\succsim$ on choice set $X$ and let $x(\mathbf{p},w)$ be the set of utility maximizing choices from $X$ subject to the budget constraint $\mathbf{p}\cdot \mathbf{x} \leq w$.
+	To the contrary, suppose that there exists an $\mathbf{x} \in x(\mathbf{p},w)$ such that $\mathbf{p}\cdot\mathbf{x} < w$.
+	By definition, if $\mathbf{x} \in x(\mathbf{p},w)$ then $u(x) \geq u(z)$ for all $z\in X$ that satisfy the budget constraint.
+	By local non-satiation we can find an $\epsilon > 0$ such that there will exist a $\mathbf{y}$ close to $\mathbf{x}$ such that $\| y - x \| \leq \epsilon$ and $\mathbf{y} \succ \mathbf{x}$ and that $\mathbf{p}\cdot \mathbf{y} < w$.
+	We have just shown that both $\mathbf{x}$ and $\mathbf{y}$ are feasible and that $\mathbf{y} \succ \mathbf{x}$ which means $u(\mathbf{y}) > u(\mathbf{x})$.
+	However this contradicts the assumption in our premise that $\mathbf{x} \in x(\mathbf{p},w)$.
+	Thus, it must be the case that if $\mathbf{x}$ is optimal, then it exactly satisfies the budget constraint $\mathbf{p}\cdot \mathbf{x} = w$.
+\end{proof}
+\end{solution}
+
+\vspace{4em}
+\begin{problem}
+\\An economic agent is pricing the value of a new business they wish to purchase that generates annual returns.
+	The present discounted value of the business changes over time, and the agent knows that the price they will be charged to purchase it will also change with time.
+	In particular, the buyer knows the fundamental pricing equation,
+	\[
+		p(t) = \int_{t}^{\infty} e^{(r+d)t} v(s)e^{-(r+d)s} \dd s
+	\]
+	\textbf{Differentiate the price $p(t)$ with respect to $t$ and then solve for $v(t)$ in terms of $p(t)$ and $p'(t)$}.
+\end{problem}
+
+\begin{solution}
+\\First rearrange by pulling out elements that don't change with $s$,
+\begin{align}
+	p(t) &= e^{(r+d)t} \int_{t}^{\infty} v(s) e^{-(r+d)s} \dd s \nonumber
+\end{align}
+This has use because we now have two functions,
+\[
+	p(t) = f(t) \cdot g(t)
+\]
+where 
+\begin{align}
+	f(t) &= e^{(r+d)t} \nonumber \\
+	g(t) &= \int_{t}^{\infty} v(s) e^{-(r+d)s} \dd s \nonumber
+\end{align}
+The derivative is then,
+\begin{align}
+	\frac{d p(t)}{d t} &= \underbrace{(r+d)e^{(r+d)t} \int_{t}^{\infty} v(s) e^{-(r+d)s} \dd s}_{f'(t)g(t)} - \underbrace{e^{(r+d)t} v(t) e^{-(r+d)t}}_{f(t)g'(t)} \nonumber \\
+	&= (r+d)p(t) - v(t) \nonumber \\
+	v(t) &= (r+d)p(t) - \frac{dp(t)}{dt} \nonumber
+\end{align}
+
+\end{solution}
+
+
+
+
+\end{document}

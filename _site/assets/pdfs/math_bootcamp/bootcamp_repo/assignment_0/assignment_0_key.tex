@@ -1,0 +1,823 @@
+%------------------------------------------------
+% FILENAME: assignment_0_key.tex
+%  PROJECT: mathbootcamp
+%   AUTHOR: Brett R. Devine
+%    EMAIL: brett.devine@wsu.edu
+%  WEBSITE: http://brettdevine.github.io
+%------------------------------------------------
+\documentclass[a4paper, 11pt]{article}
+\usepackage{assignment_0_style}
+
+\title{ Assignment 0 Key }
+\author{ Brett Devine }
+\date{ Jun 19, 2016 }
+
+\begin{document}
+\maketitle
+
+\section{Limits}
+\label{sec:limits}
+
+\paragraph{Problem 1} Compute
+\begin{align}
+    \lim_{x\rightarrow 3} \frac{5x^2 - 8x -13}{x^2-5}  \nonumber
+\end{align}
+
+%------------------------------------------------
+%   BEGIN Problem 1 Answer
+%------------------------------------------------
+\paragraph{Problem 1 Answer}
+\begin{align}
+    \lim_{x\rightarrow 3} \frac{5x^2-8x-13}{x^2-5} &= \frac{5(3)^2-8(3)-13}{(3)^2-5} \nonumber \\
+    &= \frac{8}{2} = 2 \nonumber 
+\end{align}
+
+%------------------------------------------------
+%   END Problem 1 Answer
+%------------------------------------------------
+
+\paragraph{Problem 2} Compute
+\begin{align}
+    \lim_{x\rightarrow 3} \frac{x^4 - 81}{2x^2-5x-3}  \nonumber
+\end{align}
+
+%------------------------------------------------
+%   BEGIN Problem 2 Answer
+%------------------------------------------------
+
+\paragraph{Problem 2 Answer}
+Substitution of 3 into the expression will result in the indeterminate form $0/0$ so factor out the expressions causing the indeterminate form
+\begin{align}
+    \lim_{x\rightarrow 3} \frac{x^4 - 81}{2x^2-5x-3} &= \lim_{x\rightarrow 3} \frac{(x^2-9)(x^2+9)}{(x-3)(2x+1)} \nonumber \\
+    &= \lim_{x\rightarrow 3} \frac{(x-3)(x+3)(x^2+9)}{(x-3)(2x+1)} \nonumber \\
+    &= \lim_{x\rightarrow 3} \frac{(x+3)(x^2+9)}{(2x+1)} \nonumber \\
+    &= \frac{((3) + 3)((3)^2 + 9)}{2(3) + 1} \nonumber \\
+    &= \frac{108}{7} \nonumber   
+\end{align}
+
+%------------------------------------------------
+%   END Problem 2 Answer
+%------------------------------------------------
+
+\paragraph{Problem 3}
+Compute
+\begin{align}
+    \lim_{x\rightarrow 4} \frac{3-\sqrt{x+5}}{x-4}  \nonumber
+\end{align}
+
+%------------------------------------------------
+%   BEGIN Problem 3 Answer
+%------------------------------------------------
+
+\paragraph{Problem 3 Answer}
+\begin{align}
+    &= \lim_{x\rightarrow 4} \frac{3-\sqrt{x+5}}{x-4} \cdot \frac{3+\sqrt{x+5}}{3 + \sqrt{x+5}}  \nonumber \\
+    &= \lim_{x\rightarrow 4} \frac{9-(x+5)}{(x-4)(3+\sqrt{x+5})} \nonumber \\
+    &= \lim_{x\rightarrow 4} \frac{4-x}{(x-4)(3 + \sqrt{x + 5}} \nonumber \\
+    &= \lim_{x\rightarrow 4} \frac{-(x-4)}{(x-4)(3 + \sqrt{x + 5})} \nonumber \\
+    &= \lim_{x\rightarrow 4} \frac{-1}{3 + \sqrt{x+5}} \nonumber \\
+    &= \frac{-1}{3 + \sqrt{4 + 5}} \nonumber \\
+    &= -\frac{1}{6} \nonumber 
+\end{align}
+
+%------------------------------------------------
+%   END Problem 3 Answer
+%------------------------------------------------
+
+\paragraph{Problem 4}
+Consider the values of constants $a$ and $b$ so that $\lim_{x \rightarrow 2} f(x)$ exists and is equal to $f(2)$ where $f(x)$ is defined as below.
+\begin{align}
+    f(x) = \begin{cases}
+    			a + bx & \text{ if } x > 2 \\
+    			3 & \text{ if } x=2 \\
+    			b-ax^2 & \text{ if } x < 2
+    	   \end{cases}  \nonumber
+\end{align}
+
+%------------------------------------------------
+%   BEGIN Problem 4 Answer
+%------------------------------------------------
+
+\paragraph{Problem 4 Answer}
+\begin{align}
+    \lim_{x\rightarrow 2+} f(x) = \lim_{x\rightarrow 2+} (a+bx) &= a + 2b = 3  \nonumber \\
+    \lim_{x\rightarrow 2-} f(x) = \lim_{x\rightarrow 2-} (b-ax^2) &= b - 4a = 3 \nonumber
+\end{align}
+The above expressions give us a system of equations
+\begin{align}
+    a + 2b &= 3  \nonumber \\
+    b-4a &= 3 \nonumber 
+\end{align}
+Solving the system of 2 equations in 2 unknowns gives us $a = -\frac{1}{3}$ and $b = \frac{5}{3}$.
+
+%------------------------------------------------
+%   END Problem 4 Answer
+%------------------------------------------------
+
+\paragraph{Problem 5}
+Compute the following limit.
+\begin{align}
+    \lim_{x\rightarrow \infty} \frac{100}{x^2 + 5}  \nonumber
+\end{align}
+
+%------------------------------------------------
+%   BEGIN Problem 5 Answer
+%------------------------------------------------
+
+\paragraph{Problem 5 Answer}
+\begin{align}
+    \lim_{x\rightarrow \infty} \frac{100}{x^2 + 5} = \frac{100}{\infty} = 0  \nonumber
+\end{align}
+
+%------------------------------------------------
+%   END Problem 5 Answer
+%------------------------------------------------
+
+\paragraph{Problem 6}
+Compute
+\begin{align}
+    \lim_{x\rightarrow \infty} (3x^3 - 1000x^2)  \nonumber
+\end{align}
+
+%------------------------------------------------
+%   BEGIN Problem 6 Answer
+%------------------------------------------------
+
+\paragraph{Problem 6 Answer}
+Substitution yields an indeterminate form ``$\infty - \infty$'' which we circumvent by factoring.
+\begin{align}
+    &= \lim_{x\rightarrow 3} x^2(3x - 1000)  \nonumber \\
+    &= \infty \cdot \infty \nonumber
+\end{align}
+which means that the limit does not exist.
+
+%------------------------------------------------
+%   END Problem 6 Answer
+%------------------------------------------------
+
+\paragraph{Problem 7}
+Compute
+\begin{align}
+    \lim_{x\rightarrow \infty} \frac{7x^2 + x - 100}{2x^2 - 5x}  \nonumber
+\end{align}
+
+%------------------------------------------------
+%   BEGIN Problem 7 Answer
+%------------------------------------------------
+
+\paragraph{Problem 7 Answer}
+\begin{align}
+    &= \lim_{x\rightarrow \infty} \frac{7x^2 + x - 100}{2x^2 - 5x} \cdot \frac{\frac{1}{x^2}}{\frac{1}{x^2}} \nonumber \\
+    &= \lim_{x\rightarrow \infty} \frac{\frac{7x^2}{x^2} + \frac{x}{x^2} - \frac{100}{x^2}}{ \frac{2x^2}{x^2} - \frac{5x}{x^2} } \nonumber \\
+    &= \lim_{x\rightarrow \infty} \frac{ 7 + \frac{1}{x} - \frac{100}{x^2} }{ 2 - \frac{5}{x} } \nonumber \\
+    &= \frac{7 + 0 - 0}{2 - 0} \nonumber \\
+    &= \frac{7}{2} \nonumber 
+\end{align}
+
+%------------------------------------------------
+%   END Problem 7 Answer
+%------------------------------------------------
+
+\paragraph{Problem 8}
+Compute
+\begin{align}
+    \lim_{x\rightarrow \infty} \left( 3^x + 3^{2x} \right)^{\frac{1}{x}}  \nonumber
+\end{align}
+
+%------------------------------------------------
+%   BEGIN Problem 8 Answer
+%------------------------------------------------
+
+\paragraph{Problem 8 Answer}
+\begin{align}
+    &= \lim_{x\rightarrow \infty} \left( 3^x + \left[3^2\right]^x \right)^{\frac{1}{x}}  \nonumber \\
+    &= \lim_{x\rightarrow \infty} \left( 3^x + 9^x \right)^{\frac{1}{x}} \nonumber \\
+    &= \lim_{x\rightarrow \infty} \left( 9^x \left[ \frac{3^x}{9^x} + \frac{9^x}{9^x} \right] \right)^{\frac{1}{x}} \nonumber \\
+    &= \lim_{x\rightarrow \infty} \left( 9^x \left[ \left(\frac{3}{9}\right)^x + 1 \right] \right)^{\frac{1}{x}} \nonumber \\
+    &= \lim_{x\rightarrow \infty} \left( 9^x \left[ \left(\frac{1}{3}\right) + 1 \right] \right)^{\frac{1}{x}} \nonumber \\
+    &= \lim_{x\rightarrow \infty} \left(9^x \right)^{\frac{1}{x}} \cdot \left[ \left(\frac{1}{3}\right)^x + 1 \right]^{\frac{1}{x}} \nonumber \\
+    &= \lim_{x\rightarrow \infty} 9 \left[ \left(\frac{1}{3}\right)^x + 1 \right]^{\frac{1}{x}} \nonumber \\
+    &= (9)[0 + 1]^0 \nonumber \\
+    &= 9 \nonumber 
+\end{align}
+
+%------------------------------------------------
+%   END Problem 8 Answer
+%------------------------------------------------
+
+\paragraph{Problem 9}
+Compute $\lim_{x\rightarrow 0^+} \; x \cdot \ln x$.
+
+%------------------------------------------------
+%   BEGIN Problem 9 Answer
+%------------------------------------------------
+
+\paragraph{Problem 9 Answer}
+\begin{align}
+    &= \lim_{x\rightarrow 0^+} \frac{\ln x}{1/x} \nonumber \\
+    &= \frac{\ln 0}{1/0^+} \nonumber
+\end{align}
+which leads to the indeterminate form $-\infty / \infty$ so use l'Hopital's Rule.
+\begin{align}
+    &= \lim_{x\rightarrow 0^+} \frac{1/x}{-1/x^2}  \nonumber \\
+    &= \lim_{x\rightarrow 0^+} \frac{1}{x} \cdot \frac{x^2}{-1} \nonumber \\
+    &= \lim_{x\rightarrow 0^+} (-x) \nonumber \\
+    &= 0 \nonumber 
+\end{align}
+%------------------------------------------------
+%   END Problem 9 Answer
+%------------------------------------------------
+
+\paragraph{Problem 10}
+Compute $\lim_{x \rightarrow 0^+} x \cdot \left( \ln x \right)^2$.
+
+%------------------------------------------------
+%   BEGIN Problem 10 Answer
+%------------------------------------------------
+
+\paragraph{Problem 10 Answer}
+\begin{align}
+    &= \lim_{x\rightarrow 0^+} \frac{\left(\ln x\right)^2}{1/x} = \frac{\infty}{\infty}  \nonumber
+\end{align}
+Use l'Hopital's Rule
+\begin{align}
+    &= \lim_{x\rightarrow 0^+} \frac{2\ln x \cdot (1/x)}{\frac{-1}{x^2}} = \frac{\infty}{\infty}  \nonumber
+\end{align}
+So use l'Hopital's Rule again
+\begin{align}
+    &= \lim_{x\rightarrow 0^+} \frac{2 \cdot 1/x}{\frac{1}{x^2}}  \nonumber \\
+    &= \lim_{x\rightarrow 0^+} 2x \nonumber \\
+    &= 2 \cdot 0 \nonumber \\
+    &= 0 \nonumber 
+\end{align}
+
+%------------------------------------------------
+%   END Problem 10 Answer
+%------------------------------------------------
+
+\paragraph{Problem 11}
+Compute $\lim_{x \rightarrow 0 } (1-x)^{1/x}$.
+
+%------------------------------------------------
+%   BEGIN Problem 11 Answer
+%------------------------------------------------
+
+\paragraph{Problem 11 Answer}
+Rewrite problem
+\begin{align}
+    \lim_{x\rightarrow 0} (1-x)^{1/x} &= \lim_{x\rightarrow 0} e^{\ln(1-x)^{1/x}}  \nonumber \\
+    &= \lim_{x\rightarrow 0} e^{(1/x)\cdot \ln(1-x)} \nonumber \\
+    &= e^{\lim_{x\rightarrow 0} \frac{\ln(1-x)}{x} } \nonumber \\
+    &= e^{(\ln 1)/0} = e^{0/0} \nonumber
+\end{align}
+Use l'Hopital's rule for the indeterminate form
+\begin{align}
+    &= e^{\lim_{x\rightarrow 0} \frac{\frac{1}{1-x} \cdot (-1)}{1} }  \nonumber \\
+    &= e^{-1/(1-0)} \nonumber \\
+    &= e^{-1} \nonumber \\
+    &= \frac{1}{e} \nonumber 
+\end{align}
+%------------------------------------------------
+%   END Problem 11 Answer
+%------------------------------------------------
+
+\paragraph{Problem 12}
+Consider the following functions for $w \geq 0$ and $0 < \sigma < 1$.
+\begin{align}
+    u(w) &= \frac{w^{1-\sigma}-1}{1-\sigma}  \nonumber \\
+    u(w) &= \ln(w) \nonumber \nonumber \\
+    u(w) &= \sqrt{w} \nonumber 
+\end{align}
+For each function above, find the following limits (if they exist) where $u'(\cdot)$ and $u''(\cdot)$ represent the first and second derivatives respectively.
+\begin{enumerate}[(i)]
+	\item $\lim_{w\rightarrow 0} \; -u''(w)/u'(w)$.
+	\item $\lim_{w\rightarrow \infty} \; -u''(w)/u'(w)$.
+	\item $\lim_{w\rightarrow 0} \; (-u''(w)\cdot w)/u'(w)$.
+	\item $\lim_{w\rightarrow \infty} \; (-u''(w)\cdot w)/u'(w)$.
+\end{enumerate}
+
+
+\paragraph{Problem 13} Differentiate $y = x^x$ (with respect to $x$).
+
+%------------------------------------------------
+%   BEGIN Problem 13 Answer
+%------------------------------------------------
+
+\paragraph{Problem 13 Answer}
+$x^{x} (1 + \ln x)$.
+
+%------------------------------------------------
+%   END Problem 13 Answer
+%------------------------------------------------
+
+\paragraph{Problem 14} Differentiate $y = x^{e^x}$ (with respect to $x$).
+
+%------------------------------------------------
+%   BEGIN Problem 14 Answer
+%------------------------------------------------
+
+\paragraph{Problem 14 Answer} $x^{e^x-1} e^{x} (1 + x \ln x)$
+
+%------------------------------------------------
+%   END Problem 14 Answer
+%------------------------------------------------
+
+\paragraph{Problem 15} Compute the following limits associated with the functions $f(x) = |x|$.
+\begin{align}
+    &\lim_{h\rightarrow 0} \frac{f(-2 + h) - f(-2)}{h}  \nonumber \\
+    &\lim_{h\rightarrow 0} \frac{f(0 + h) - f(0)}{h} \nonumber \\
+    &\lim_{h\rightarrow 0} \frac{f(3 + h) + f(3)}{h} \nonumber
+\end{align}
+
+\paragraph{Problem 16}
+Define the intervals (if any) over which the following function is continuous.
+\[
+	f(x) = \frac{7x^5 + x - 2}{x^2-4}
+\]
+
+%------------------------------------------------
+%   BEGIN Problem 16 Answer
+%------------------------------------------------
+
+\paragraph{Problem 16 Answer} \; $(-\infty, -2) \cup (-2,2) \cup (2, \infty)$.
+
+%------------------------------------------------
+%   END Problem 16 Answer
+%------------------------------------------------
+
+\paragraph{Problem 17}
+Show that there is a root of the equation $3x^7 - 2x^5 + x -1 = 0$ between $0$ and $1$.
+
+%------------------------------------------------
+%   BEGIN Problem 17 Answer
+%------------------------------------------------
+
+\paragraph{Problem 17 Answer}
+We see that $f(0) = -1 < 0$ and $f(1) = 3 - 2 + 1 - 1 = 1 > 0$.
+By the Intermediate Value Theorem it follows that there exists a number $c$ in $(0,1)$ such that $f(c)=0$ since $f(x)$ is continuous and 0 is between $f(0)$ and $f(1)$.
+
+%------------------------------------------------
+%   END Problem 17 Answer
+%------------------------------------------------
+
+\paragraph{Problem 18}
+Compute the following limit associated with $f(x) = x^2 - 8x + 9$.
+\[
+	\lim_{x\rightarrow a} \; \frac{(x^2-8x+9)-(a^2-8a+9)}{x-a}
+\]
+
+%------------------------------------------------
+%   BEGIN Problem 18 Answer
+%------------------------------------------------
+
+\paragraph{Problem 18 Answer}
+\; $2a - 8$.
+
+%------------------------------------------------
+%   END Problem 18 Answer
+%------------------------------------------------
+
+\paragraph{Problem 19}
+If the function $f(x)$ is differentiable in the interval $(a,b)$ and $|f'(x)| \leq B < \infty$ for all $x$ in the interval $(a,b)$ then is the maximum change in the function over any sub interval $(c,d) \subseteq (a,b)$ finite or infinite? Prove it.
+
+\paragraph{Problem 20}
+If the function $f(x)$ is differentiable on $(a,b)$, but not continuously differentiable, then is $f$ continuous everywhere on $(a,b)$? Prove it.
+
+\paragraph{Problem 21}
+Can you differentiate the expression $2x = 1$? If so what is the derivative?  If not, why not?
+
+\paragraph{Problem 22} Find the derivative of the function
+\[
+	f(x) = \frac{\sqrt[4]{x}}{x^{-1} \sqrt{x^5}}
+\]
+
+%------------------------------------------------
+%   BEGIN Problem 22 Answer
+%------------------------------------------------
+
+\paragraph{Problem 22 Answer}
+\[
+	f'(x) = - \frac{5}{4x^2 \sqrt[4]{x} }
+\]
+
+%------------------------------------------------
+%   END Problem 22 Answer
+%------------------------------------------------
+
+\paragraph{Problem 23} Differentiate the function
+\[
+	f(x) = \frac{3x^2 - 5\sqrt{x} }{ 6x^4 }
+\]
+
+%------------------------------------------------
+%   BEGIN Problem 23 Answer
+%------------------------------------------------
+
+\paragraph{Problem 23 Answer}
+\[
+	f'(x) = -x^{-3} + \frac{35}{12} x^{-9/2}
+\]
+
+%------------------------------------------------
+%   END Problem 23 Answer
+%------------------------------------------------
+
+\paragraph{Problem 24}
+Find the linearization of the function $f(x) = \sqrt[3]{1+x}$ at $a=0$ and use it to approximate the numbers $f(-0.05)$ and $f(0.1)$.
+Are these approximations overestimates or underestimates?
+
+%------------------------------------------------
+%   BEGIN Problem 24 Answer
+%------------------------------------------------
+
+\paragraph{Problem 24 Answer}
+\begin{align}
+    L(x) &= f(0) + f'(0)(x-0) = 1 + \frac{x}{3}  \nonumber \\
+    L(-0.05) &= 0.9833 \approx 0.98305 \quad \text{over estimate} \nonumber \\
+    L(0.1) &= 1.0333 \approx 1.0323 \quad \text{over estimate} \nonumber
+\end{align}
+
+%------------------------------------------------
+%   END Problem 24 Answer
+%------------------------------------------------
+
+\paragraph{Problem 25}
+Let $f(x) = (3x-5)/(4-2x)$ and find $f^{-1}(x)$.  Then compare $f'(x)$ and $\frac{d}{dx} f^{-1}(x)$ and describe the relationship (if any).
+
+%------------------------------------------------
+%   BEGIN Problem 25 Answer
+%------------------------------------------------
+
+\paragraph{Problem 25 Answer}
+The inverse function is
+\[
+	f^{-1}(x) = \frac{4x+5}{3+2x}
+\]
+
+%------------------------------------------------
+%   END Problem 25 Answer
+%------------------------------------------------
+
+\paragraph{Problem 26}
+Compute the derivative of the following function, $H(p)$, with respect to $p$ and use it to show the answer to the following questions.
+\begin{align}
+    H(p) &= p \log_2 \left(\frac{1}{p} \right) + (1-p)\log_2 \left(\frac{1}{1-p} \right)  \nonumber
+\end{align}
+\begin{enumerate}[(i)]
+	\item Is there a global maximum and minimum over the interval $[0,1]$, if so, what is it?
+	\item If so, over what subset of $[0,1]$, if any, is the function increasing?
+	\item If so, over what subset of $[0,1]$, if any, is the function decreasing?
+\end{enumerate}
+
+%------------------------------------------------
+%   BEGIN Problem 26 Answer
+%------------------------------------------------
+
+\paragraph{Problem 26 Answer}
+\begin{enumerate}[(i)]
+	\item Yes, there is a global max because it is a continuous function on a compact set.  The maximum is $p^* = 0.5$.
+	\item The function increases over $[0,0.5]$.
+	\item The function decreases over $[0.5,1]$.
+\end{enumerate}
+
+%------------------------------------------------
+%   END Problem 26 Answer
+%------------------------------------------------
+
+\paragraph{Problem 27}
+Consider the function $f(x) = x^4 e^x$ with domain all real numbers.
+\begin{enumerate}[(i)]
+	\item Find the $x$-value(s) of all roots ($x$-intercepts) of $f$.
+	\item Find the $x$- and $y$-value(s) of all critical points and identify each as a local max, local min, or neither.
+	\item Find the $x$- and $y$-value(s) of all global extrema and identify each as a global max or global min.
+	\item Find the $x$-value(s) of all inflection points.
+\end{enumerate}
+
+%------------------------------------------------
+%   BEGIN Problem 27 Answer
+%------------------------------------------------
+
+\paragraph{Problem 27 Answer}
+\begin{enumerate}[(i)]
+	\item The equation $x^4e^x=0$ means $x^4=0 \implies x=0$ so the only root is $x=0$.
+	\item $f'(x) = 4x^3 e^x + x^4 e^x = 0 \implies x = 0,-4$.  Plugging in values shows us that $f$ has a local max at $(-4, 256e^{-4})$ and a local min at $(0,0)$.
+	\item There is a global minimum at $(0,0)$, but there is no global maximum since $f(x)\rightarrow \infty$ as $x\rightarrow \infty$.
+	\item Look for solutions to $f''(x) = 0$ which yields $x=\{0,-2,-6\}$.  Checking the value of $f$ and $f''$ at those points tells us that the inflection points are $x=\{-2,-6\}$ but not $x=0$.
+\end{enumerate}
+
+%------------------------------------------------
+%   END Problem 27 Answer
+%------------------------------------------------
+
+\paragraph{Problem 28}
+Use the Intermediate Value Theorem to show that $f(x) = x^3 - 2x - 1$ has a root on $[1,2]$.
+
+%------------------------------------------------
+%   BEGIN Problem 28 Answer
+%------------------------------------------------
+
+IVT: if $f$ is continuous on $[a,b]$ and $y$ is a number between $f(a)$ and $f(b)$, then there is a number $c$ between $a$ and $b$ such that $f(c)=y$.
+For the function given above, $f(1)=-2$ and $f(2)=3$.
+Since $0$ is a number between $-2$ and $3$, the IVT says there is a number $c$ between $1$ and $2$ such that $f(c)=0$; this $c$ is the desired root.
+
+%------------------------------------------------
+%   END Problem 28 Answer
+%------------------------------------------------
+
+\paragraph{Problem 29}
+Does the Extreme Value Theorem say anything about the function $f(x) = x^2$ on each of the following intervals? If so what does it say?  In either case, explain why.
+\begin{enumerate}[(i)]
+	\item $[1,4]$
+	\item $(1,4)$
+\end{enumerate}
+
+%------------------------------------------------
+%   BEGIN Problem 29 Answer
+%------------------------------------------------
+
+\paragraph{Problem 29 Answer}
+\begin{enumerate}[(i)]
+	\item $f$ has a maximum and a mininum on $[1,4]$ by EVT.
+	\item Because $(1,4)$ is not compact, the EVT does not apply and so although there may be, the theorem doesn't say anything to us in this case.
+\end{enumerate}
+
+%------------------------------------------------
+%   END Problem 29 Answer
+%------------------------------------------------
+
+\paragraph{Problem 30}
+Find the value of the constant $c$ that the Mean Value Theorem specifies for $f(x)=x^3 + x$ on the interval $[0,3]$.
+
+%------------------------------------------------
+%   BEGIN Problem 30 Answer
+%------------------------------------------------
+
+\paragraph{Problem 30 Answer}
+MVT: If $f$ is continuous on $[a,b]$, then there is a number $c$ between $a$ and $b$ such that $f'(c) = (f(b)-f(a))/(b-a)$.
+
+For the provided function we have $\frac{f(3)-f(0)}{3-0} = \frac{30-0}{3} = 10$.
+And $f'(x) = 3x^2 + 1$ so we know $f'(c) = 3c^2 + 1$.
+Solving $f'(c)=3c^2 + 1 = 10$ for $c$ yields $c = \sqrt{3}$.
+
+%------------------------------------------------
+%   END Problem 30 Answer
+%------------------------------------------------
+
+\paragraph{Problem 31}
+For the equation $x^3 + y^3 = \ln(xy) - 1$ use implicit differentiation to find $\dd y/ \dd x$.
+
+%------------------------------------------------
+%   BEGIN Problem 31 Answer
+%------------------------------------------------
+
+\paragraph{Problem 31 Answer}
+\begin{align}
+    \frac{\dd y}{\dd x} &= \frac{y - 3x^3 y}{3xy^3-x} = \frac{\frac{1}{x}-3x^2}{3y^2-\frac{1}{y}}  \nonumber
+\end{align}
+
+%------------------------------------------------
+%   END Problem 31 Answer
+%------------------------------------------------
+
+\paragraph{Problem 32}
+Consider the function
+\[
+	f(x) = \begin{cases}
+				b-x^2 & \text{ if } x < 3 \\
+				ax & \text{ if } x \geq 3
+	 	   \end{cases}
+\]
+\begin{enumerate}[(i)]
+	\item What condition(s) must be placed on the constants $a$ and $b$ in order for $f$ to be continuous on $(-\infty, \infty)$?
+	\item For what values of the constants $a$ and $b$ will $f$ be differentiable on $(-\infty, \infty)$?
+\end{enumerate}
+
+%------------------------------------------------
+%   BEGIN Problem 32 Answer
+%------------------------------------------------
+
+\paragraph{Problem 32 Answer}
+\begin{enumerate}[(i)]
+	\item The only problem area is $x=3$ so we want $\lim_{x \rightarrow 3^-} f(x) = \lim_{x\rightarrow 3^+} f(x)$.
+	This gives us limits $b-9$ and $3a$ so we need $3a=b-9 \iff a = (1/3)b - 3$.
+	\item Diffentiate piecewise to find $f'(x)$ for $x < 3$ and $x > 3$ giving us $-2x$ and $a$ respectively.
+	Existence will require that $\lim_{x\rightarrow 3^-} f'(x) = \lim_{x\rightarrow 3^+} f'(x) = f'(3)$.
+	The piecewise limits of the derivatives are $-6$ and $a$ so $a=-6$ and using the equation found before we know $3(-6) = b-9$ which implies $-18 + 9 = -9 = b$ so we have $\{a=-6, b=-9\}$.
+\end{enumerate}
+
+%------------------------------------------------
+%   END Problem 32 Answer
+%------------------------------------------------
+
+\paragraph{Problem 33}
+Consider the function $f(x) = \ln(x^2)$.
+Find the fourth-order Taylor polynomial for $f(x)$ centered at $x_0=1$.
+
+%------------------------------------------------
+%   BEGIN Problem 33 Answer
+%------------------------------------------------
+
+\paragraph{Problem 33 Answer}
+\[
+	P_3(x) = 2(x-1) - (x-1)^2 + \frac{2}{3}(x-1)^3 - \frac{1}{2}(x-1)^4
+\]
+
+%------------------------------------------------
+%   END Problem 33 Answer
+%------------------------------------------------
+
+\paragraph{Problem 34}
+Let $X$ be a random variable with a probability density function (PDF) $f(x)$
+\[
+	f(x) = \begin{cases}
+ 				ce^{-x/3} & \text{ for } x > 0 \\
+ 				0 & \text{ otherwise }
+ 		   \end{cases}
+\]
+Remember that a PDF has the property that $\int_{\infty}^{\infty} f(x)\dd x = 1$.
+\begin{enumerate}[(i)]
+	\item Find the value of the constant $c$ that makes $f(x)$ a valid PDF.
+	\item Find the probability that $X \leq 1/4$.
+\end{enumerate}
+
+%------------------------------------------------
+%   BEGIN Problem 34 Answer
+%------------------------------------------------
+
+\paragraph{Problem 34 Answer}
+\begin{enumerate}[(i)]
+	\item $c = - \frac{1}{3}$.
+	\item $1 - e^{-1/12}$.
+\end{enumerate}
+
+%------------------------------------------------
+%   END Problem 34 Answer
+%------------------------------------------------
+
+\paragraph{Problem 35}
+Find the derivative of the following function
+\[
+	G(x) = \int_{1}^{\sin{x}} t \dd t
+\]
+
+%------------------------------------------------
+%   BEGIN Problem 35 Answer
+%------------------------------------------------
+
+\paragraph{Problem 35 Answer}
+\[
+	G'(x) = \sin{x} \cdot \cos{x}
+\]
+
+%------------------------------------------------
+%   END Problem 35 Answer
+%------------------------------------------------
+
+\paragraph{Problem 36}
+Find the derivative of the following function
+\[
+	G(x) = \int_{72}^{\ln(x)} t \dd t
+\]
+
+%------------------------------------------------
+%   BEGIN Problem 36 Answer
+%------------------------------------------------
+
+\paragraph{Problem 36 Answer}
+\[
+	G'(x) = \frac{\ln x}{x}
+\]
+
+%------------------------------------------------
+%   END Problem 36 Answer
+%------------------------------------------------
+
+\paragraph{Problem 37}
+Suppose that $\sum_{n=1}^{\infty} a_n$ represents a convergent series and that no term of the series equals zero, i.e., $a_n \neq 0$ for all $n=1,2, \dots$.
+Prove that $\sum_{n=1}^{\infty} 1/a_n$ is a divergent series.
+
+%------------------------------------------------
+%   BEGIN Problem 37 Answer
+%------------------------------------------------
+
+\paragraph{Problem 37 Answer}
+If $\sum_{n=1}^{\infty} a_n$ is a convergent series, then $a_n \rightarrow 0$ (i.e., the terms go to zero).
+If $a_n \rightarrow 0$, then $|1/a_n| \rightarrow \infty $.
+As the terms of $\sum_{n=1}^{\infty} 1/a_n$ do not go to zero, by the $n$th term test for divergence, the series diverges.
+
+%------------------------------------------------
+%   END Problem 37 Answer
+%------------------------------------------------
+
+\paragraph{Problem 38}
+Determine whether the give sequence is increasing, decreasing, or not monotonic.
+Is the sequence bounded?  On the basis of what you find, does the series converge, diverge or can't be determined?
+\[
+	a_n = \frac{1}{5^n}
+\]
+
+%------------------------------------------------
+%   BEGIN Problem 38 Answer
+%------------------------------------------------
+
+\paragraph{Problem 38 Answer}
+The sequence is \textbf{decreasing} and the sequence is \textbf{bounded} between 0 and 1 and by the monotonic sequence theorem the sequence is \textbf{convergent}.
+
+%------------------------------------------------
+%   END Problem 38 Answer
+%------------------------------------------------
+
+\paragraph{Problem 39}
+Differentiate the function $y = 3(x^2-1)^3 (x^2 + 1)^5$.
+
+%------------------------------------------------
+%   BEGIN Problem 39 Answer
+%------------------------------------------------
+
+\paragraph{Problem 39 Answer}
+\[
+	y' = 18x(x^2-1)^2 (x^2+1)^5 + 30x(x^2-1)^3 (x^2 + 1)^4
+\]
+
+%------------------------------------------------
+%   END Problem 39 Answer
+%------------------------------------------------
+
+\paragraph{Problem 40}
+Consider a continuously differentiable utility function $u(\cdot)$ such that $u'>0$ and $u'' < 0$.
+Utility comes from income $I$ which takes on two different values $I_H(x)$ and $I_L(x)$ and that the probability of that $I=I_H$ is given by $p(x)$ where $x\geq 0$ and $p'(x)>0$.
+Differentiate the expected utility with respect to $x$.
+\[
+	E[u] = p(x)u[I_H(x)] + (1-p(x))u[I_L(x)]
+\]
+
+
+\paragraph{Problem 41}
+Consider a twice continuously differentiable utility function $U(\cdot)$ such that $U'>0$ and $U''< 0$.
+Utility comes from wealth $W$ and a person takes a gamble $h$ that represents a gain or loss to the a person's wealth and $h=0$ on average ($E(h)=0$).
+Let $p$ represent the size of an insurance premium paid to avoid taking the gamble and makes the person exactly indifferent between the gamble $h$ and paying $p$ with certainty.
+Let $E$ represent the expectation operator.
+Use the identity below to answer the questions.
+\[
+	E[U(W + h)] \equiv U(W-p)
+\]
+\begin{enumerate}[(i)]
+	\item Derive a linear (first order) Taylor approximation of the right-hand side of the identity.
+	\item Derive a quadratic (second order) Taylor approximation of the left-hand side of the identity.
+	\item Let $r(W) = -U''(W)/U'(W)$ (this is the Arrow-Pratt measure of risk-aversion) use the previous approximations and the identity relationship to sign the derivative $\dd P / \dd r(W)$.  What is the sign and what relationship does this imply about the level of risk aversion and the amount of insurance premium an individual is willing to pay?
+\end{enumerate}
+
+
+\paragraph{Problem 42}
+A new machine as a rental rate $v(s)$ at any time $s$ and depreciates at rate $d$.
+With interest rate $r$ the present discounted value of this machine is 
+\[
+	PDV(t) = \int_{t}^{\infty} e^{(r+d)t} v(s) e^{-(r+d)s} \dd s
+\]
+Let $p(t)$ be the purchase price of the machine at time $t$.
+In equilibrium the purchase price at time $t$, $p(t)$ will equal the present discounted value and hence we have
+\[
+	p(t) = \int_{t}^{\infty} e^{(r+d)t} v(s)e^{-(r+d)s} \dd s
+\]
+\begin{enumerate}[(i)]
+	\item Using the last expression for $p(t)$, find $\frac{dp(t)}{dt}$.
+	\item Using your expression for $\frac{dp(t)}{dt}$ solve for $v(t)$ in terms of $p(t)$ to show the relationship between a new machines rental rate at time $t$ and the machine's purchase price at time $t$.
+\end{enumerate}
+
+
+\paragraph{Problem 43}
+A forester must decide when to cut down a growing tree.
+The value at any time $t$ is given by $f(t)$ where $f' > 0$ and $f'' < 0$ and there was an initial investment of $L$.
+The continuous interest rate is $r$.
+The forester must choose $t$ (the time of harvest) to maximize the present discounted value of her profits.
+\[
+	PDV(t) = e^{-rt}f(t) - L
+\]
+\begin{enumerate}[(i)]
+	\item Differentiate $PDV(t)$ with respect to $t$.
+	\item Use the derivative as a first order condition to characterize the relationship between the $t$ that maximizes the forester's present discounted value of profit and the interest rate $r$.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

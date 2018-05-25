@@ -1,0 +1,65 @@
+<nav id="sidebar-icon-links">
+  {% if site.github.repo %}
+    <a id="github-link"
+       class="icon" title="Github" aria-label="Github"
+       href="{{ site.github.repo }}">
+      {% include svg/github.svg %}
+    </a>
+    {% endif %}
+
+    <!--
+    <a id="github-download-link"
+       class="icon" title="Download" aria-label="Download"
+       href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">
+      {% include svg/download.svg %}
+    </a>
+  -->
+
+  <a id="kaggle-link"
+     class="icon" title="Kaggle" aria-label="Kaggle"
+     href="https://www.kaggle.com/">
+    {% include svg/kaggle.svg %}
+  </a>
+
+
+  <a id="linkedin-link"
+     class="icon" title="Linkedin" aria-label="Linkedin"
+     href="https://www.linkedin.com/in/joe-patten-a79a3965/">
+    {% include svg/linkedin-logo.svg %}
+  </a>
+<!--
+  {% comment %}
+    Check if we have tag or search pages page active before linking to it.
+  {% endcomment %}
+  {% assign tags_page = false %}
+  {% assign search_page = false %}
+  {% for node in site.pages %}
+    {% if node.layout == "tags" %}
+      {% assign tags_page = node %}
+    {% elsif node.layout == "search" %}
+      {% assign search_page = node %}
+    {% endif %}
+  {% endfor %}
+
+  {% if tags_page %}
+    <a id="tags-link"
+       class="icon{% if page.url == '/tags' %} active{% endif %}"
+       title="Tags" aria-label="Tags"
+       href="{{ site.baseurl }}{{ tags_page.url }}">
+      {% include svg/tags.svg %}
+    </a>
+  {% endif %}
+
+
+  {% if search_page %}
+    <a id="search-link"
+       class="icon{% if page.url == '/search' %} active{% endif %}"
+       title="Search" aria-label="Search"
+       href="{{ site.baseurl }}{{ search_page.url }}">
+      {% include svg/search.svg %}
+    </a>
+  {% endif %}
+-->
+
+  {% include custom-icon-links.html %}
+</nav>
