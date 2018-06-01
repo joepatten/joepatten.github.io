@@ -136,6 +136,3 @@ Below I have provided a *tentative* schedule. Dates as well as topics are subjec
 | 15 | Final Exam | No Notes | **On Campus August 15** |
 
 *S&B ~ Simon & Blume text*
-
-
-[Assignment 0]({{ site.page }}assignment_0.pdf)
