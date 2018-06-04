@@ -134,7 +134,7 @@ Below I have provided a *tentative schedule*. Dates as well as topics are subjec
 | 24 | Linear Systems and Matrix Algebra | S&B 6-9; Notes |  |
 | 25 | Linear Spaces | S&B 10, 11 | |
 | 26 | Linear Spaces and Set Theory | S&B 10, 11; Provided Notes |  |
-| 27 | Weekly Review |  | [**Assignment 1 due**]({{ url }}/assets/pdfs/math_bootcamp/assignments/assignment_1.pdf) |
+| 27 | Weekly Review |  | **Assignment 1 due** |
 
 #### Week 2 (July 30-August 3)
 
@@ -144,7 +144,7 @@ Below I have provided a *tentative schedule*. Dates as well as topics are subjec
 | 31 | Proofs and Real Analysis | S&B 12; Appendix A1; Provided Notes |  |
 | 1 | Proofs and Real Analysis | S&B 12; Appendix A1; Provided Notes |  |
 | 2 | Proofs and Multivariate Calculus | S&B 13-15, 30 |  |
-| 3 | Weekly Review |  | [**Assignment 2 due**]({{ url }}/assets/pdfs/math_bootcamp/assignments/assignment_2.pdf) |
+| 3 | Weekly Review |  | **Assignment 2 due** |
 
 #### Week 3 (August 6-August 10)
 
@@ -154,7 +154,7 @@ Below I have provided a *tentative schedule*. Dates as well as topics are subjec
 | 7 | Multivariate Calculus | S&B 13-15, 30 |  |
 | 8 | Miscellaneous Topics | TBA |  |
 | 9 | Introduction to Programming | Optional |  |
-| 10 | Weekly Review |  | [**Assignment 3 due**]({{ url }}/assets/pdfs/math_bootcamp/assignments/assignment_3.pdf) |
+| 10 | Weekly Review |  | **Assignment 3 due** |
 
 #### Week 4 (August 15)
 
