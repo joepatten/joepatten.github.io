@@ -7,8 +7,8 @@ order: 6
 ---
 
 ## Python Resources
-- my-tutorial
-- [quant-econ](https://lectures.quantecon.org/py/)
+- [My tutorial](python)
+- [QuantEcon](https://lectures.quantecon.org/py/)
 - [Python Documentation](https://docs.python.org/3/)
 
 <!--

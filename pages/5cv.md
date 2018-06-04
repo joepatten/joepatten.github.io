@@ -14,4 +14,4 @@ order: 2
 To make pages show up in the sidebar, add `sidebar_link: true` to the front
 matter.
 -->
-This page will be updated with my CV soon.
+This page will be updated with my CV soon. You can visit my [linkedin page](https://www.linkedin.com/in/joe-patten-a79a3965/) if you don't want to wait!

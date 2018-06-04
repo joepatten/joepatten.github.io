@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Math Bootcamp
+title: PhD Math Bootcamp
 sidebar_link: false
 permalink: /teaching/math_bootcamp/syllabus
 ---
 
-# Economics PhD Mathematics Bootcamp
+## Syllabus
 
 | ---: | :--- |
 | Instructor: | Joe Patten |
@@ -16,9 +16,9 @@ permalink: /teaching/math_bootcamp/syllabus
 | Lectures: | Classroom TBA |
 
 ### Class Website
-Go to my [website](https://joepatten.github.io/personal/teaching/math_bootcamp) (https://joepatten.github.io/personal/teaching/math_bootcamp) on Github.
+Go to my [website](http://joepatten.com/teaching/math_bootcamp) (http://joepatten.com/teaching/math_bootcamp).
 
-## Course Description
+### Course Description
 
 This course serves as a refresher for linear algebra, univariate calculus, and multivariate calculus. In addition, it will cover important topics meant to help you begin to acquire what is often called *mathematical maturity* through covering basic topics in logic, set theory and proofs.  It is designed to help prepare you mathematically for the math course in the fall semester.  This is an active-learning course.  Lecture notes will be posted online.  Please note that the instructor(s) of **EconS 506** course during the Fall semester may assess your knowledge of the topics covered in this summer course with an exam in the first week of the Fall semester, and **<font color="red">that exam score may affect your grade in the EconS 506 course</font>**.
 
