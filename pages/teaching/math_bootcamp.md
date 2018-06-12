@@ -77,6 +77,8 @@ Assignments will be posted here at the beginning of each week. I will also post 
   | {{assignment.descrip}} | {{assignment.due}} | {% if assignment.upload != 'none' %} [{{assignment.name}}]({{ url }}/assets/pdfs/math_bootcamp/assignments/{{assignment.link}})  {% endif %}  {% endfor %}
 
 
+
+
 <!--
 | Description  | Due Date | Link |
 | :--- | :---: | :---: |
@@ -86,6 +88,33 @@ Assignments will be posted here at the beginning of each week. I will also post 
 | **Multivariate Calculus and Miscellaneous Topics** | August 10 | <button name="button">Problem Set 3</button> |
 -->
 Note: The material in assignment 0 is fair game for the final exam. You should complete these problems to refresh old topics and learn some new ones. However, you do not need to turn this assignment in to me. I will assume your understanding and familiarity with the material during the mathcamp, so please complete your study no later than July 23rd
+
+### Assignment LaTeX Template
+
+The template file is [hw_template.tex]({{ url }}/assets/pdfs/math_bootcamp/assignments/hw_template.tex) (thanks to my colleague Brett Devine).  The template is marked with some commented code to know where you type the assignment name, your name and where your answers go.
+
+First, enter the assignment name and your name in the designated fields.
+
+```latex
+\title{Assignment ?}
+\author{Jon Doe}
+```
+
+Next, for each problem, you can use the custom `{problem}` environment created in the file. Simply type the following every time start an answer for a new problem.
+
+```tex
+\begin{problem}{?}
+    Type your answer here.
+\end{problem}
+```
+
+In the above code, **you need to replace the ?** with the number of the problem.  For example, if you are typing your answer to Problem 23, you would type
+
+```tex
+\begin{problem}{23}
+    Your answer here.
+\end{problem}
+```
 
 <a name="read"></a>
 
