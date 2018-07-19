@@ -12,7 +12,8 @@ sidebar_link: false
 | Office Hours: | T.B.A. |
 | Email: | [joseph.patten@wsu.edu](mailto:joseph.patten@wsu.edu) |
 | Dates: | Mon July 23 - Wed August 15 |
-| Lectures: | Classroom TBA |
+| Time: | 10 am - 12 pm |
+| Lectures: | Hulbert Room 23 |
 
 ### Class Website
 Go to my [website](https://joepatten.github.io/personal/teaching/math_bootcamp) (https://joepatten.github.io/personal/teaching/math_bootcamp) on Github.
