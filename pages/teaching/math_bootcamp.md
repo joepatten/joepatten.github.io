@@ -19,7 +19,7 @@ permalink: /teaching/math_bootcamp
 ### Assignments
 
 
-Assignments will be posted here at the Tuesday evening of each week. I will also post solutions.
+Assignments will be posted here on Tuesday evening of each week. I will also post solutions.
 
 
 
