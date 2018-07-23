@@ -12,6 +12,9 @@ permalink: /teaching/math_bootcamp
 
 ### Lecture Notes
 
+
+[Link to advice for incoming Economics PhD students](https://economics.cornell.edu/grad-student-advice)
+
 [Linear Algebra Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf)
 
 <a name="assign"></a>
