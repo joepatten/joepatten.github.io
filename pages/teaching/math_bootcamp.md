@@ -10,12 +10,16 @@ permalink: /teaching/math_bootcamp
 
 [Click here for syllabus]({{ site.baseurl }}/teaching/math_bootcamp/syllabus)
 
+### Lecture Notes
+
+[Linear Algebra Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf)
+
 <a name="assign"></a>
 
 ### Assignments
 
 
-Assignments will be posted here at the beginning of each week. I will also post solutions.
+Assignments will be posted here at the Tuesday evening of each week. I will also post solutions.
 
 
 
