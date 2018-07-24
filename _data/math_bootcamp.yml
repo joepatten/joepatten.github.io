@@ -32,9 +32,12 @@ assignments:
     descrip: Univariate calculus
     due: ---
     upload: 
+    key_name: Assignment 0 Key
+    key_link: assignment_0_key.pdf
     keys:
       - link: assignment_0_key.pdf
         name: Assignment 0 Key
+        upload: yes
     #  - link: sets_and_logic_answers.pdf
     #    name: Set & Logic Key
 
@@ -46,6 +49,7 @@ assignments:
     keys:
       - link: assignment_1_key.pdf
         name: Assignment 1 Key
+        upload: none
 
   - name: Assignment 2
     link: assignment_2.pdf
@@ -55,8 +59,10 @@ assignments:
     keys:
       - link: assignment_2_key.pdf
         name: Assignment 2 Key
+        upload: none
       - link: sets_and_logic_answers.pdf
         name: Sets & Logic Key
+        upload: none
 
   - name: Assignment 3
     link: assignment_3.pdf
@@ -66,3 +72,4 @@ assignments:
     keys:
       - link: assignment_3_key.pdf
         name: Assignment 3 Key
+        upload: none

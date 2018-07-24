@@ -79,9 +79,9 @@ Assignments will be posted here on Tuesday evening of each week. I will also pos
 -->
 
 
-| Description  | Due Date | Link |  
-| :--- | :---   | ---: |{% for assignment in site.data.math_bootcamp.assignments %}
-  | {{assignment.descrip}} | {{assignment.due}} | {% if assignment.upload != 'none' %} [{{assignment.name}}]({{ url }}/assets/pdfs/math_bootcamp/assignments/{{assignment.link}})  {% endif %}  {% endfor %}
+| Description  | Due Date | Assignment | Key |
+| :--- | :---   | ---: | ---: |{% for assignment in site.data.math_bootcamp.assignments %}
+  | {{assignment.descrip}} | {{assignment.due}} | {% if assignment.upload != 'none' %} [{{assignment.name}}]({{ url }}/assets/pdfs/math_bootcamp/assignments/{{assignment.link}})  {% endif %} | [{{assignment.key_name}}]({{ url }}/assets/pdfs/math_bootcamp/assignments/{{assignment.key_link}}) {% endfor %}
 
 
 
