@@ -17,6 +17,8 @@ permalink: /teaching/math_bootcamp
 
 [Linear Algebra Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf)
 
+[Sets and Logic Reading]({{ site.baseurl }}/assets/pdfs/math_bootcamp/sets_and_logic_reading.pdf)
+
 <a name="assign"></a>
 
 ### Assignments
