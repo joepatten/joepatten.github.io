@@ -13,11 +13,10 @@ permalink: /teaching/math_bootcamp
 ### Lecture Notes
 
 
-[Link to advice for incoming Economics PhD students](https://economics.cornell.edu/grad-student-advice)
-
-[Linear Algebra Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf)
-
-[Sets and Logic Reading]({{ site.baseurl }}/assets/pdfs/math_bootcamp/sets_and_logic_reading.pdf)
+| [Link to advice for incoming Economics PhD students](https://economics.cornell.edu/grad-student-advice) |
+| [Linear Algebra Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf) |
+| [Sets and Logic Reading]({{ site.baseurl }}/assets/pdfs/math_bootcamp/sets_and_logic_reading.pdf) |
+| [Latex Tutorial pdf]({{ site.baseurl }}/assets/pdfs/tutorials/latex_tutorial.pdf) and [Latex Zip Folder (containing tex and other necessary files)]({{ site.baseurl }}/assets/zips/latex_tutorial.zip) |
 
 <a name="assign"></a>
 
@@ -25,61 +24,6 @@ permalink: /teaching/math_bootcamp
 
 
 Assignments will be posted here on Tuesday evening of each week. I will also post solutions.
-
-
-
-<!--
-<table class="table table-striped">
-{% for assignment in site.data.math_bootcamp.assignments %}
-<tr>
-    <td>
-    <a class="btn btn-default" href="{{page.assets}}{{assignment.link}}">
-        <i class="fa fa-download"></i>&nbsp; {{assignment.name}}</a>&nbsp;
-    <span style="color:red; font-weight:bold;">Due: {{assignment.due}}</span>
-    <p>{{assignment.descrip}}</p>
-   {% for link in assignment.keys %} 
-    <a style="background-color:#b0b0b0;" class="btn btn-default btn-sm" href="{{page.assets}}{{link.link}}"><i class="fa fa-key">&nbsp; {{link.name}}</i></a> 
-   {% endfor %}
-    </td>
-</tr>
-{% endfor %}
-</table>
-
-
-<table class="table table-striped">
-{% for assignment in site.data.math_bootcamp.assignments %}
-<tr>
-    <td>
-    <a class="btn btn-default" href="{{page.assets}}{{assignment.link}}">
-        <i class="fa fa-download"></i>&nbsp; {{assignment.name}}</a>&nbsp;
-    <span style="color:red; font-weight:bold;">Due: {{assignment.due}}</span>
-    <p>{{assignment.descrip}}</p>
-   {% for link in assignment.keys %} 
-    <a style="background-color:#b0b0b0;" class="btn btn-default btn-sm" href="{{page.assets}}{{link.link}}"><i class="fa fa-key">&nbsp; {{link.name}}</i></a> 
-   {% endfor %}
-    </td>
-</tr>
-{% endfor %}
-</table>
--->
-<!--
-<table style="width:100%">
-  <tr>
-    <th>Description</th>
-    <th>Due Date</th> 
-    <th>Link</th>
-  </tr>
-  {% for assignment in site.data.math_bootcamp.assignments %}
-  <tr>
-    <td>{{assignment.descrip}}</td>
-    <td>{{assignment.due}}</td> 
-    <td> [here]({{ url }}/assets/pdfs/math_bootcamp/assignments/{{assignment.link}}) </td>
-  </tr>
-  {% endfor %}
-</table>
-
--->
-
 
 | Description  | Due Date | Assignment | Key |
 | :--- | :---   | ---: | ---: |{% for assignment in site.data.math_bootcamp.assignments %}
