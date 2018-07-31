@@ -14,7 +14,8 @@ permalink: /teaching/math_bootcamp
 
 | Week | Lecture Notes | Readings |
 | :--- | :--- | :--- |
-| 1 | - [Linear Algebra Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf)<br> - [Proof Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Proofs_Real_Analysis.pdf) | - [Link to advice for incoming Economics PhD students](https://economics.cornell.edu/grad-student-advice)<br> - [Latex Tutorial pdf]({{ site.baseurl }}/assets/pdfs/tutorials/latex_tutorial.pdf) and [Latex Zip Folder (containing tex and other necessary files)]({{ site.baseurl }}/assets/zips/latex_tutorial.zip)<br> - [Sets and Logic Reading]({{ site.baseurl }}/assets/pdfs/math_bootcamp/sets_and_logic_reading.pdf) |
+| 1 | - [Linear Algebra Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf) | - [Link to advice for incoming Economics PhD students](https://economics.cornell.edu/grad-student-advice)<br> - [Latex Tutorial pdf]({{ site.baseurl }}/assets/pdfs/tutorials/latex_tutorial.pdf) and [Latex Zip Folder (containing tex and other necessary files)]({{ site.baseurl }}/assets/zips/latex_tutorial.zip)<br> - [Sets and Logic Reading]({{ site.baseurl }}/assets/pdfs/math_bootcamp/sets_and_logic_reading.pdf) |
+| 2 | - [Proof Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Proofs_Real_Analysis.pdf) | |
 
 <!--
 <table>
