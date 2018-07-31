@@ -139,6 +139,6 @@ Below I have provided a *tentative* schedule. Dates as well as topics are subjec
 
 | Date  | Topics | Readings | Assignments |
 | :--- | :---   | :--- | :--- |
-| 15 | Final Exam | No Notes | **On Campus August 15** |
+| 14 | Final Exam | No Notes | **On Campus August 14 at 10am** |
 
 *S&B ~ Simon & Blume text*
