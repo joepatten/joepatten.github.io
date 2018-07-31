@@ -12,11 +12,34 @@ permalink: /teaching/math_bootcamp
 
 ### Lecture Notes
 
+| Week | Lecture Notes | Readings |
+| :--- | :--- | :--- |
+| 1 | - [Linear Algebra Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf)<br> - [Proof Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Proofs_Real_Analysis.pdf) | - [Link to advice for incoming Economics PhD students](https://economics.cornell.edu/grad-student-advice)<br> - [Latex Tutorial pdf]({{ site.baseurl }}/assets/pdfs/tutorials/latex_tutorial.pdf) and [Latex Zip Folder (containing tex and other necessary files)]({{ site.baseurl }}/assets/zips/latex_tutorial.zip)<br> - [Sets and Logic Reading]({{ site.baseurl }}/assets/pdfs/math_bootcamp/sets_and_logic_reading.pdf) |
 
-| [Link to advice for incoming Economics PhD students](https://economics.cornell.edu/grad-student-advice) |
-| [Linear Algebra Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf) |
-| [Sets and Logic Reading]({{ site.baseurl }}/assets/pdfs/math_bootcamp/sets_and_logic_reading.pdf) |
-| [Latex Tutorial pdf]({{ site.baseurl }}/assets/pdfs/tutorials/latex_tutorial.pdf) and [Latex Zip Folder (containing tex and other necessary files)]({{ site.baseurl }}/assets/zips/latex_tutorial.zip) |
+<!--
+<table>
+  <tbody>
+    <tr>
+      <th>Week</th>
+      <th align="left">Lecture Notes</th>
+      <th align="left">Readings</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td align="left"><ul>
+      						<li><A href="../../assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf">Linear Algebra Notes</A> </li> 
+      					</ul>
+      </td>
+      <td align="left"><ul>
+      						<li> <A href="https://economics.cornell.edu/grad-student-advice">Link to advice for incoming Economics PhD students</A> </li>
+      						<li> <A href="../../assets/pdfs/math_bootcamp/sets_and_logic_reading.pdf">Sets and Logic Reading</A> </li>
+      						<li> <A href="../../assets/pdfs/tutorials/latex_tutorial.pdf">Latex Tutorial pdf</A> and <A href="../../assets/zips/latex_tutorial.zip">Latex Zip Folder (containing tex and other necessary files)</A> </li>
+      					</ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+-->
 
 <a name="assign"></a>
 
