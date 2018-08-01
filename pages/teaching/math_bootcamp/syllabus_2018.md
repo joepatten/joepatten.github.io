@@ -156,7 +156,7 @@ Below I have provided a *tentative schedule*. Dates as well as topics are subjec
 | 9 | Introduction to Programming | Optional |  |
 | 10 | Weekly Review |  | **Assignment 3 due** |
 
-#### Week 4 (August 15)
+#### Week 4 (August 14)
 
 | 14 | Final Exam | No Notes | **On Campus August 14 at 10am** |
 
