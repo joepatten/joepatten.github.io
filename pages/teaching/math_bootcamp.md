@@ -16,7 +16,7 @@ permalink: /teaching/math_bootcamp
 | :--- | :--- | :--- |
 | 1 | - [Linear Algebra Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf) | - [Link to advice for incoming Economics PhD students](https://economics.cornell.edu/grad-student-advice)<br> - [Latex Tutorial pdf]({{ site.baseurl }}/assets/pdfs/tutorials/latex_tutorial.pdf) and [Latex Zip Folder (containing tex and other necessary files)]({{ site.baseurl }}/assets/zips/latex_tutorial.zip)<br> - [Sets and Logic Reading]({{ site.baseurl }}/assets/pdfs/math_bootcamp/sets_and_logic_reading.pdf) |
 | 2 | - [Proof Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Proofs_Real_Analysis.pdf)<br> - [Real Analysis Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Real_Analysis.pdf) | - [Columbia Real Analysis Notes](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxtYXRoY2FtcDIwMTdjdXxneDoxNWZhNWU1MzI2NTU2ODhi)<br> |
-| 2 | - [Optimization and Multivariate Calculus Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Opt_Calc.pdf) |  |
+| 3 | - [Optimization and Multivariate Calculus Notes]({{ site.baseurl }}/assets/pdfs/math_bootcamp/Mathcamp_Opt_Calc.pdf) |  |
 
 <!--
 <table>
@@ -130,9 +130,9 @@ Below I have provided a *tentative* schedule. Dates as well as topics are subjec
 
 | Date  | Topics | Readings | Assignments |
 | :--- | :---   | :--- | :--- |
-| 6 | Multivariate Calculus | S&B 13-15, 30 |  |
-| 7 | Multivariate Calculus | S&B 13-15, 30 |  |
-| 8 | Miscellaneous Topics | TBA |  |
+| 6 | Optimization | S&B 20-21 |  |
+| 7 | Multivariate Calculus | S&B 13-15 |  |
+| 8 | Multivariate Calculus | S&B 13-15, 30 |  |
 | 9 | Introduction to Programming | Optional |  |
 | 10 | Weekly Review |  | **Assignment 3 due**  |
 
