@@ -155,13 +155,14 @@ Below I have provided a *tentative schedule*. Dates as well as topics are subjec
 | 7 | Multivariate Calculus | S&B 13-15, 30 |  |
 | 8 | Miscellaneous Topics | TBA |  |
 | 9 | Introduction to Programming | Optional |  |
-| 10 | Weekly Review |  | **Assignment 3 due** |
+| 10 | Weekly Review |  |  |
 
-#### Week 4 (August 15)
+#### Week 4 (August 13-14)
 
 | Date  | Topics | Readings | Assignments |
 | :--- | :---   | :--- | :--- |
-| 15 | Final Exam | No Notes | **On Campus August 15** |
+| 13 |  |  | **Assignment 3 due**  |
+| 14 | Final Exam | No Notes | **On Campus August 14** |
 
 *S&B ~ Simon & Blume text*
 
