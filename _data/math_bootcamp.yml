@@ -72,7 +72,7 @@ assignments:
     link: assignment_3.pdf
     descrip: Multivariate Calculus and Miscellaneous Topics
     due: August 10
-    upload: none
+    upload: 
     keys:
       - link: assignment_3_key.pdf
         name: Assignment 3 Key
