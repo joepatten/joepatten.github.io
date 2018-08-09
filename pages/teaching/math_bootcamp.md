@@ -150,4 +150,5 @@ There will be multiple times for the Final Exam (since orientation week will be 
 | Monday August 13 | 3-5 |
 | Tuesday August 14 | 10-12 |
 | Wednesday August 15 | 3-5 |
+
 *S&B ~ Simon & Blume text*
