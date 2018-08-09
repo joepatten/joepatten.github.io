@@ -160,7 +160,15 @@ Below I have provided a *tentative schedule*. Dates as well as topics are subjec
 
 | Date  | Topics | Readings | Assignments |
 | 13 |  |  | **Assignment 3 due**  |
-| 14 | Final Exam | No Notes | **On Campus August 14 at 10am** |
+| 13-15 | Final Exam | No Notes | **See Below** |
+
+There will be multiple times for the Final Exam (since orientation week will be so hectic). Here is a list of those days and times. Note that you only have to attend one. If any of the three don't work, let me know and we will figure out a different time that works for you.
+
+| Date | Time |
+| :---| :--- |
+| Monday August 13 | 3-5 |
+| Tuesday August 14 | 10-12 |
+| Wednesday August 15 | 3-5 |
 
 *S&B ~ Simon & Blume text*
 
