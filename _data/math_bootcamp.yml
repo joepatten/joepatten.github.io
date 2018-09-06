@@ -79,3 +79,15 @@ assignments:
       - link: assignment_3_key.pdf
         name: Assignment 3 Key
         upload: none
+
+  - name: Final Exam 2018
+    link: final_exam_2018.pdf
+    descrip: Mathcamp Final given Summer 2018
+    due: August 15
+    upload: 
+    key_name: Final Exam 2018 Key
+    key_link: final_exam_2018_solutions.pdf
+    keys:
+      - link: assignment_3_key.pdf
+        name: Assignment 3 Key
+        upload: none
