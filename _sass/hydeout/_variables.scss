@@ -1,3 +1,10 @@
+///////////////////////////
+//                       //
+//       Colors          //
+//                       //
+///////////////////////////
+
+//grey colors
 $gray-1: #f9f9f9 !default;
 $gray-2: #DDDDDD !default;
 $gray-3: #ccc !default;
@@ -20,9 +27,21 @@ $blue: #268bd2 !default;
 $brown: #8f5536 !default;
 $gold: #CA4 !default;
 
+///////////////////////////
+//                       //
+//       Font            //
+//                       //
+///////////////////////////
+
 $root-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif !default;
 $root-font-size: 1rem !default;
 $root-line-height: 1.5 !default;
+
+///////////////////////////
+//                       //
+//       Colors          //
+//                       //
+///////////////////////////
 
 $body-color: $gray-5 !default;
 $body-muted: $gray-4 !default;
@@ -30,16 +49,32 @@ $body-bg: #EEE !default;
 $link-color: $blue !default;
 $heading-color: $gray-6 !default;
 
+///////////////////////////
+//                       //
+//       Borders         //
+//       Sidebar         //
+//                       //
+///////////////////////////
+
 $border-color: $gray-2 !default;
 $border-radius: 300px !default;
 $padding-v: 1em !default;
 $padding-h: 1.5em !default;
 $heading-spacing: 0.5rem !default;
 $section-spacing: 2rem !default;
-$sidebar-width: 18rem !default;
+//$sidebar-width: 18rem !default;
+$sidebar-width: 19rem !default;             //width of sidebar
+
+///////////////////////////
+//                       //
+//       Font            //
+//                       //
+///////////////////////////
 
 $large-breakpoint: 49rem !default;
-$large-font-size: 1.1rem !default;
+$large-font-size: 1.15rem !default;   //here is the font size
+
+$layout_desktop_width: 55rem !default;
 
 $box-shadow-size: 1px !default;
 $box-shadow-opacity: 0.16 !default;

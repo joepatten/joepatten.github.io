@@ -229,8 +229,10 @@ body {
       }
     }
 
+// This is the width of the page!!!!!!
     > * {
-      max-width: 38rem;
+      //max-width: 38rem;
+      max-width: $layout_desktop_width;
       padding: 0;
     }
   }
