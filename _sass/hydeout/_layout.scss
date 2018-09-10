@@ -247,14 +247,29 @@ body {
   /*change the color of the links on sidebar*/
   color: #DDD;
   
-  /*chnage color of icon links (github,twitter,etc)*/
+  /*change color of icon links (github,twitter,etc)*/
   svg {
     fill: $gold;
   }
 
+
+
   /*hover over icon color*/
   &:hover, &:focus, &.active {
-    svg { fill:               lighten($gold, 15%)             ; }
+    svg { fill:               lighten($gold, 15%)             ; 
+    //position: absolute;
+    //top: calc(50% - 20px);
+    //left: calc(50% - 20px);
+    //width: 40px;
+    //height: 40px;
+    border-radius: 50%;
+    //background-color: #fff;
+    box-shadow:
+      //0 0 60px 30px #fff,
+      //0 0 100px 60px #f0f,
+      //0 0 140px 90px #0ff;
+      0 0 100px 2px $gold;
+      }
   }
 
   &:hover, &:focus {
@@ -264,6 +279,7 @@ body {
       text-decoration: underline;
       color: $gold;
     }
+    
   }
 
   /* active link */

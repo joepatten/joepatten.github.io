@@ -47,14 +47,27 @@ a {
   }
 }
 
+// img {
+//   display: block;
+//   max-width: 100%;
+//   margin: 0 0 1rem;
+//   border-radius: 5px;
+//   height: auto; // Fix to keep max-width from squishing images with defined
+//                 // height in HTML
+// }
+
 img {
   display: block;
   max-width: 100%;
   margin: 0 0 1rem;
   border-radius: 5px;
+  border-radius: 50%;
+  border-color: $gold;
   height: auto; // Fix to keep max-width from squishing images with defined
                 // height in HTML
 }
+
+
 
 table {
   margin-bottom: 1rem;

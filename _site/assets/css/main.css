@@ -40,6 +40,8 @@ img {
   max-width: 100%;
   margin: 0 0 1rem;
   border-radius: 5px;
+  border-radius: 50%;
+  border-color: #CA4;
   height: auto; }
 
 table {
@@ -633,14 +635,16 @@ body {
 #sidebar a {
   /*change the color of the links on sidebar*/
   color: #DDD;
-  /*chnage color of icon links (github,twitter,etc)*/
+  /*change color of icon links (github,twitter,etc)*/
   /*hover over icon color*/
   /* active link */
   /* active link */ }
   #sidebar a svg {
     fill: #CA4; }
   #sidebar a:hover svg, #sidebar a:focus svg, #sidebar a.active svg {
-    fill: #dcc580; }
+    fill: #dcc580;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 2px #CA4; }
   #sidebar a:hover, #sidebar a:focus {
     color: #CA4;
     text-decoration: none; }
