@@ -553,7 +553,7 @@ body {
 /* -----------------------------------------------------------
   Mobile view
 ----------------------------------------------------------- */
-#sidebar header ~ *, #sidebar header ~ nav, #sidebar p.lead {
+#sidebar header ~ *, #sidebar header ~ nav, #sidebar p.lead, #sidebar main {
   display: none; }
 
 .container > header {
@@ -615,6 +615,8 @@ body {
       font-size: 1.1rem; }
     #sidebar header ~ nav {
       display: flex; }
+    #sidebar main {
+      display: block; }
 
   .index #sidebar {
     margin-bottom: 0; }

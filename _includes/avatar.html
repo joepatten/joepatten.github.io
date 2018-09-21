@@ -1,9 +1,26 @@
+<!--
 <nav id="avatar">
+	
 	<center>
 	<img src = "https://i.imgur.com/Lnzs2Zd.jpg" border="4" target='avatar'>
 	</center>
+-->
+<!--
+	{% if site.sidebar_home_link %}
+	<center>
+	<img src = "https://i.imgur.com/Lnzs2Zd.jpg" border="4" target='avatar' class="home-link {% if page.url == '/' %} active{% endif %}">
+	</center>
+    <!--<a class="home-link {% if page.url == '/' %} active{% endif %}"
+        href="{{ site.baseurl }}/">Home</a>--><!--
+  	{% endif %}
 </nav>
-
+-->
 <!--
 The css options are located in the :
 	-->
+
+<nav id="sidebar-icon-links">
+	<center>
+	<img src = "https://i.imgur.com/Lnzs2Zd.jpg" border="4" target='avatar' class="home-link {% if page.url == '/' %} active{% endif %}">
+	</center>
+</nav>

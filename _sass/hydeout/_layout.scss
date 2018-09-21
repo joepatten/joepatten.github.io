@@ -93,10 +93,11 @@ body {
 // Hide secondary nav content in sidebar
 // Hide lead paragraph in sidebar
 #sidebar {
-  header ~ *, header ~ nav, p.lead {
+  header ~ *, header ~ nav, p.lead, main {
     display: none;
   }
 }
+
 
 // Make header elements blend into sidebar / background
 .container > header {
@@ -146,6 +147,8 @@ body {
     display: block;
   }
 
+  
+
   header {
     ~ nav {
       display: flex;
@@ -163,6 +166,7 @@ body {
 /* -----------------------------------------------------------
   Tablet / Desktop view
 ----------------------------------------------------------- */
+
 
 @media (min-width: $large-breakpoint) {
   body {
@@ -200,6 +204,11 @@ body {
     header ~ nav {
       display: flex;
     }
+
+    main {
+      display: block;
+  }
+
   }
 
   .index #sidebar { margin-bottom: 0; }

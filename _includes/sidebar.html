@@ -1,7 +1,13 @@
 <div id="sidebar">
-  {% include avatar.html %}
+  <main>
+    <div id='avatar'>
+      <img src = "https://i.imgur.com/Lnzs2Zd.jpg" border="4" target='avatar' class="home-link {% if page.url == '/' %} active{% endif %}">
+    </div>
+  </main>
   <header>
+
     <{% if page.layout == "index" %}h1{% else %}div{% endif %} class="site-title">
+
       <a href="{{ site.baseurl }}/">
         {% unless page.url == "/" %}
           <span class="back-arrow icon">{% include svg/back-arrow.svg %}</span>
@@ -20,6 +26,7 @@
   {% endif %}
 -->
   {% include sidebar-icon-links.html %}
+  
 
   {% include copyright.html %}
 </div>
