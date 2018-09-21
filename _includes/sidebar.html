@@ -1,9 +1,14 @@
 <div id="sidebar">
+  
   <main>
     <div id='avatar'>
       <img src = "https://i.imgur.com/Lnzs2Zd.jpg" border="4" target='avatar' class="home-link {% if page.url == '/' %} active{% endif %}">
     </div>
   </main>
+  {% unless page.url != "/" %}
+  
+  {% endunless %}
+
   <header>
 
     <{% if page.layout == "index" %}h1{% else %}div{% endif %} class="site-title">
