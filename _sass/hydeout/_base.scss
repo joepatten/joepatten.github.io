@@ -58,11 +58,23 @@ a {
 
 img {
   display: block;
-  max-width: 100%;
+  max-width: 80%;
   margin: 0 0 1rem;
-  border-radius: 5px;
+//  border-radius: 5px;
+//  border-radius: 50%;
+//  border-color: #fff;
+  height: auto; // Fix to keep max-width from squishing images with defined
+                // height in HTML
+}
+
+
+img[target] {
+  display: block;
+  max-width: 80%;
+  margin: 0 0 1rem;
+//  border-radius: 5px;
   border-radius: 50%;
-  border-color: $gold;
+  border-color: #aaa;
   height: auto; // Fix to keep max-width from squishing images with defined
                 // height in HTML
 }
