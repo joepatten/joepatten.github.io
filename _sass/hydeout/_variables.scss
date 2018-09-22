@@ -24,8 +24,11 @@ $yellow: #f4bf75 !default;
 $green: #90a959 !default;
 $cyan: #75b5aa !default;
 $blue: #268bd2 !default;
+$bg_blue: #607DC7 !default;
 $brown: #8f5536 !default;
 $gold: #CA4 !default;
+//$gold: #9C892A !default;
+//$gold: #CEB421 !default;
 
 ///////////////////////////
 //                       //
@@ -46,7 +49,7 @@ $root-line-height: 1.5 !default;
 $body-color: $gray-5 !default;
 $body-muted: $gray-4 !default;
 $body-bg: #EEE !default;
-$link-color: $blue !default;
+$link-color: $bg_blue !default;
 $heading-color: $gray-6 !default;
 
 ///////////////////////////
