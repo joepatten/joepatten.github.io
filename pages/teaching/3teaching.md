@@ -6,6 +6,8 @@ permalink: /teaching
 order: 5
 ---
 
+<!-- Maybe add a description of some sort? -->
+
 #### [PhD Math Bootcamp]({{ site.baseurl }}/teaching/math_bootcamp) (ECONS 506)
 
 #### [Sports Economics]({{ site.baseurl }}/teaching/321) (ECONS 321)
