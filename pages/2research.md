@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Research
-sidebar_link: true
+sidebar_link: false
 permalink: /research
 order: 4
 ---
