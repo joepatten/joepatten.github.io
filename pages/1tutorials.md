@@ -6,10 +6,11 @@ permalink: /tutorials
 order: 6
 ---
 
-## Python Resources
+#### Python Resources
 - [My Tutorial](tutorials/python)
 - [QuantEcon](https://lectures.quantecon.org/py/)
 - [Python Documentation](https://docs.python.org/3/)
+
 
 <!--
 ```python
@@ -20,12 +21,11 @@ def mutiply(x,y):
 ```
 -->
 
-## R Resources
-- my-tutorial
+#### R Resources
 - [swirl](http://swirlstats.com/)
 - [R Documentation](https://www.r-project.org/other-docs.html)
 
-## Latex Resources
+####  Latex Resources
 - [My Tutorial pdf]({{ site.baseurl }}/assets/pdfs/tutorials/latex_tutorial.pdf) and [folder (containing the tex file and necessary files)]({{ site.baseurl }}/assets/zips/latex_tutorial.zip)
 - [Latex Wikibooks](https://en.wikibooks.org/wiki/LaTeX)
 - [Latex Documentation](https://www.latex-project.org/help/documentation/)
