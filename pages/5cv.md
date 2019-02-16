@@ -14,4 +14,4 @@ order: 2
 To make pages show up in the sidebar, add `sidebar_link: true` to the front
 matter. MAYBE ADD AN INTERACTIVE CV?
 -->
-[Click here for my CV]({{ site.baseurl }}/assets/pdfs/CV/Patten_Joe_cv.pdf). You can also visit my [linkedin page](https://www.linkedin.com/in/joe-patten-a79a3965/).
+[Click here for my full CV]({{ site.baseurl }}/assets/pdfs/CV/Patten_Joe_cv.pdf). You can also visit my [linkedin page](https://www.linkedin.com/in/joe-patten-a79a3965/).

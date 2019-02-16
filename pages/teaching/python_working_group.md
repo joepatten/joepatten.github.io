@@ -16,7 +16,7 @@ permalink: /teaching/python
 	</tr>
 	<tr>
 		<td>2/15/2019</td>
-		<td>Intro to Pandas</td>
+		<td><a href = "https://github.com/joepatten/pandas_tutorial/blob/master/pandas_tutorial.ipynb">Intro to Pandas</a></td>
 	</tr>
 	<tr>
 		<td>1/25/2019</td>
