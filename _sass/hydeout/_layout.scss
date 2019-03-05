@@ -118,11 +118,11 @@ body {
 
 // Add white background to mobile
 @media (max-width: $large-breakpoint) {.container > .content {
-  //background: $bg-color;
-  background-image: linear-gradient(
-    to top,
-    lighten($bg-color, 5%),
-    darken($bg-color, 5%));
+  background: $bg-color;
+  //background-image: linear-gradient(
+  //  to top,
+  //  lighten($bg-color, 5%),
+  //  darken($bg-color, 5%));
 }}
     
 
@@ -217,11 +217,11 @@ body {
 
   .container {
   //MAKE the background gradient!
-    background-image: linear-gradient(
-    to top,
-    lighten($bg-color, 5%),
-    darken($bg-color, 5%)); 
-    //background: $body-bg;
+    //background-image: linear-gradient(
+    //to top,
+    //lighten($bg-color, 5%),
+    //darken($bg-color, 5%)); 
+    background: $body-bg;
     color: $body-color;
     padding: $section-spacing * 2;
     height: 100vh;
