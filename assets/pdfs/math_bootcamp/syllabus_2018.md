@@ -113,7 +113,7 @@ For those using LaTeX I will provide assignment templates for you to use.
 
 #### Final Exam
 
-There will be one exam at the end of the course and it is worth 40/100 points.  The exam will cover all the material covered in the course.  The exam will be proctored on campus in Hulbert Hall on *Wednesday August 15, 2017*.
+There will be one exam at the end of the course and it is worth 40/100 points.  The exam will cover all the material covered in the course.  The exam will be proctored on campus in Hulbert Hall on *Wednesday August 15, 2018*.
 
 ---
 
