@@ -2,7 +2,7 @@
 layout: page
 title: PhD Math Bootcamp 2019
 sidebar_link: false
-permalink: /teaching/math_bootcamp_2019/syllabus
+permalink: /teaching/math_bootcamp_2019/syllabus_print
 ---
 
 ## Syllabus
@@ -24,7 +24,12 @@ Go to my [website](http://joepatten.com/teaching/math_bootcamp_2019).
 This course serves as a refresher for linear algebra, univariate calculus, optimization, and multivariate calculus. In addition, it will cover important topics meant to help you begin to acquire what is often called *mathematical maturity* through covering basic topics in logic, set theory and proofs.  It is designed to help prepare you mathematically for the math course in the fall semester.  This is an active-learning course.  Lecture notes will be posted online.  Please note that the instructor(s) of **EconS 506** course during the Fall semester may assess your knowledge of the topics covered in this summer course with an exam in the first week of the Fall semester, and **<font color="red">that exam score may affect your grade in the EconS 506 course</font>**.
 
 ---
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 #### Course Learning Goals
 
 **At the end of this course, students should be able to**:
@@ -105,6 +110,7 @@ An assignment will be posted on the course website.  Due dates are given below. 
 
 Although I do prefer that you turn in your assignments on time, I will accept assignments past their due date. Turning in assignments late will not affect your grade. That being said, I strongly encourage you to adhere to the course schedule listed below so that you don't fall behind. 
 
+<br/>
 ##### Consider typing your homework assignments.
 You may turn in your homework either hand-written or typed. That being said, as a professional economist you will need to communicate mathematical arguments in a clear, well type-set document.  Although I do not require you to type out your homework in this class, it may be a great opportunity for you to learn.  If you wish to type your homework assignments, I recommend using TeX, although you could also use MathType, Microsoft Word's equation editor, scientific word, etc.  It is a good idea to invest time and effort gaining proficiency in these tools as you will definitely use them later.  It might seem slow at first, but these assignments will give you practice, making you more fluent in these tools and prepare you for assignments in your first year courses. If you feel that you are spending too much time typing up your assignments, consider turning in a handwritten copy, and typing it up later.
 
@@ -122,6 +128,8 @@ There will be one exam at the end of the course and it is worth 40/100 points.  
 
 Below I have provided a *tentative schedule*. Dates as well as topics are subject to change depending on the pace of the course, as well as what I think should be covered. Also, I will be introducing programming (specifically using Python) on August 8th. That day will be optional, although I strongly recommend you attend. 
 
+<br/>
+
 {% include mathcamp_outline_2019.html %}
 
 **Prerequisite Assignment**
@@ -136,6 +144,13 @@ Students with Disabilities: Reasonable accommodations are available for students
 **Website**: [accesscenter.wsu.edu](http://accesscenter.wsu.edu) 
 **Email**: [access.center@wsu.edu](mailto:access.center@wsu.edu)
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 ### WSU Academic Integrity Statement
 
 As an institution of higher education, Washington State University is committed to principles of truth and academic honesty. All members of the University community share the responsibility for maintaining and supporting these principles. When a student enrolls in Washington State University, the student assumes an obligation to pursue academic endeavors in a manner consistent with the standards of academic integrity adopted by the University. To maintain the academic integrity of the community, the University cannot tolerate acts of academic dishonesty including any forms of cheating, plagiarism, or fabrication. Washington State University reserves the right and the power to discipline or to exclude students who engage in academic dishonesty. Students found responsible for academic integrity violations may receive an F on the particular assignment or exam, as well as an F for the course.  Serious and/or repeated offenses may result in referral to the Office of Student Standards and Accountability and expulsion from WSU. Cheating is defined in the Standards for Student Conduct WAC 504-26-010 (3).
