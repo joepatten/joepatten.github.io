@@ -8,12 +8,13 @@ order: 5
 
 <!-- Maybe add a description of some sort? -->
 
-#### [PhD Math Bootcamp]({{ site.baseurl }}/teaching/math_bootcamp) (ECONS 506)
+#### [PhD Math Bootcamp]({{ site.baseurl }}/teaching/math_bootcamp_2019) (ECONS 506)
 
 > <span style="font-size:.75em; color:#808080">The course covers topics including: Proofs, Set Theory, Real Analysis, Linear Algebra, Multivariate Calculus, and Optimization.</span>\\
-> <span style="font-size:.75em; color:#808080">Summer 2018, Summer 2019</span>
+> <span style="font-size:.75em; color:#808080">[Click here for the current Math Bootcamp (Summer 2019)]({{ site.baseurl }}/teaching/math_bootcamp_2019)</span>\\
+> <span style="font-size:.75em; color:#808080">[Click here for last year's Math Bootcamp (Summer 2018)]({{ site.baseurl }}/teaching/math_bootcamp)</span>
 
-#### Master's Math Bootcamp (ECONS 526)
+#### Master's Math Bootcamp (ECONS 526) Page coming soon
 
 > <span style="font-size:.75em; color:#808080">The course covers topics including: Single Variable Calculus, Multivariate Calculus, Linear Algebra, and Optimization.</span>\\
 > <span style="font-size:.75em; color:#808080">Summer 2019</span>

@@ -1,16 +1,17 @@
 ---
 layout: page
-title: 2018 PhD Math Bootcamp
+title: 2019 PhD Math Bootcamp
 sidebar_link: False
-permalink: /teaching/math_bootcamp
+permalink: /teaching/math_bootcamp_2019
 ---
 <!--make new sidebar with reading, syllabus, etc-->
+
 <br/>
-Note: This is **not** the current Mathcamp. [Click here for the 2019 Math Bootcamp]({{ site.baseurl }}/teaching/math_bootcamp_2019)
+[Click here for last year's Math Bootcamp (2018)]({{ site.baseurl }}/teaching/math_bootcamp)
 
 ### Syllabus 
 
-[Click here for syllabus]({{ site.baseurl }}/teaching/math_bootcamp/syllabus)
+[Click here for syllabus]({{ site.baseurl }}/teaching/math_bootcamp_2019/syllabus)
 
 ### Lecture Notes
 
@@ -53,8 +54,8 @@ Note: This is **not** the current Mathcamp. [Click here for the 2019 Math Bootca
 Assignments will be posted here on Tuesday evening of each week. I will also post solutions.
 
 | Description  | Due Date | Assignment | Key |
-| :--- | :---   | ---: | ---: |{% for assignment in site.data.math_bootcamp.assignments %}
-  | {{assignment.descrip}} | {{assignment.due}} | {% if assignment.upload != 'none' %} [{{assignment.name}}]({{ url }}/assets/pdfs/math_bootcamp/assignments/{{assignment.link}})  {% endif %} | [{{assignment.key_name}}]({{ url }}/assets/pdfs/math_bootcamp/assignments/{{assignment.key_link}}) {% endfor %}
+| :--- | :---   | ---: | ---: |{% for assignment in site.data.math_bootcamp_2019.assignments %}
+  | {{assignment.descrip}} | {{assignment.due}} | {% if assignment.upload != 'none' %} [{{assignment.name}}]({{ url }}/assets/pdfs/math_bootcamp/assignments/2019/{{assignment.link}})  {% endif %} | {% if assignment.upload_key != 'none' %} [{{assignment.key_name}}]({{ url }}/assets/pdfs/math_bootcamp/assignments/2019/{{assignment.key_link}}) {% endif %} {% endfor %}
 
 
 
@@ -67,7 +68,7 @@ Assignments will be posted here on Tuesday evening of each week. I will also pos
 | **Set Theory and Proofs and Real Analysis** | August 3 | <button name="button">Problem Set 2</button> |
 | **Multivariate Calculus and Miscellaneous Topics** | August 10 | <button name="button">Problem Set 3</button> |
 -->
-Note: The material in assignment 0 is fair game for the final exam. You should complete these problems to refresh old topics and learn some new ones. However, you do not need to turn this assignment in to me. I will assume your understanding and familiarity with the material during the mathcamp, so please complete your study no later than July 23rd
+Note: The material in assignment 0 is fair game for the final exam. You should complete these problems to refresh old topics and learn some new ones. However, you do not need to turn this assignment in to me. I will assume your understanding and familiarity with the material during the mathcamp, so please complete your study no later than July 15th.
 
 ### Assignment LaTeX Template
 
@@ -102,55 +103,4 @@ In the above code, **you need to replace the ?** with the number of the problem.
 
 Below I have provided a *tentative* schedule. Dates as well as topics are subject to change depending on the pace of the course, as well as what I think should be covered. Also, I will be introducing programming (specifically using Python) on August 9th. That day will be optional, although I strongly recommend you attend. 
 
-#### Before coming to mathcamp:
-
-| Date  | Topics | Readings | Assignments |
-| :--- | :---   | :--- | :--- |
-| Prereqs | Univariate Calculus | S&B 2-5 | Prerequisite assignment to be completed early in the course.|
-
-#### Week 1 (July 23-July 27)
-
-| Date  | Topics | Readings | Assignments |
-| :--- | :---   | :--- | :--- |
-| 23 | Linear Systems and Matrix Algebra | S&B 6-9; Notes |  |
-| 24 | Linear Systems and Matrix Algebra | S&B 6-9; Notes |  |
-| 25 | Linear Spaces | S&B 10, 11 | |
-| 26 | Linear Spaces and Set Theory | S&B 10, 11; Provided Notes |  |
-| 27 | Weekly Review |  | **Assignment 1 due** |
-
-#### Week 2 (July 30-August 3)
-
-| Date  | Topics | Readings | Assignments |
-| :--- | :---   | :--- | :--- |
-| 30 | Set Theory | S&B 10, 11; Provided Notes |  |
-| 31 | Proofs and Real Analysis | S&B 12; Appendix A1; Provided Notes |  |
-| 1 | Proofs and Real Analysis | S&B 12; Appendix A1; Provided Notes |  |
-| 2 | Proofs and Multivariate Calculus | S&B 13-15, 30 |  |
-| 3 | Weekly Review |  | **Assignment 2 due**  |
-
-#### Week 3 (August 6-August 10)
-
-| Date  | Topics | Readings | Assignments |
-| :--- | :---   | :--- | :--- |
-| 6 | Optimization | S&B 20-21 |  |
-| 7 | Multivariate Calculus | S&B 13-15 |  |
-| 8 | Multivariate Calculus | S&B 13-15, 30 |  |
-| 9 | Introduction to Programming | Optional |  |
-| 10 | Weekly Review |  |  |
-
-#### Week 4 (August 13-14)
-
-| Date  | Topics | Readings | Assignments |
-| :--- | :---   | :--- | :--- |
-| 13 |  |  | **Assignment 3 due**  |
-| 13-15 | Final Exam | No Notes | **See Below** |
-
-There will be multiple times for the Final Exam (since orientation week will be so hectic). Here is a list of those days and times. Note that you only have to attend one. If any of the three don't work, let me know and we will figure out a different time that works for you.
-
-| Date | Time |
-| :--- | :--- |
-| Monday August 13 | 3-5 |
-| Tuesday August 14 | 10-12 |
-| Wednesday August 15 | 3-5 |
-
-*S&B ~ Simon & Blume text*
+{% include mathcamp_outline_2019.html %}
