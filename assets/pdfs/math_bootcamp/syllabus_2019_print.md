@@ -12,7 +12,7 @@ permalink: /teaching/math_bootcamp_2019/syllabus_print
 | Office: | 205C Hulbert Hall |
 | Office Hours: | TBA |
 | Email: | [joseph.patten@wsu.edu](mailto:joseph.patten@wsu.edu) |
-| Dates: | Mon July 15 - Wed August 14 |
+| Dates: | Mon July 22 - Wed August 14 |
 | Time: | TBA |
 | Lectures: | TBA |
 
@@ -89,11 +89,10 @@ Grading will be based off points accumulated through assignments and the exam.
 
 | Course Items | Due Date | Points |
 | :---   | :---  | :---:  |
-| Assignment 1 | July 19 | 15 |
-| Assignment 2 | July 26 | 15 |
-| Assignment 3 | August 2 | 15 |
-| Assignment 4 | August 12 | 15 |
-| Final Exam | August 14 | 40 |
+| Assignment 1 | July 29 | 20 |
+| Assignment 2 | August 5 | 20 |
+| Assignment 3 | August 12 | 20 |
+| Final Exam | TBA | 40 |
 | **Total** | | **100** |
 
 #### Workload
@@ -104,7 +103,7 @@ In this course, there will be no official "faculty directed time" and the worklo
 
 #### Assignments
 
-An assignment will be posted on the course website.  Due dates are given below.  <font color="red">**The assignments should be submitted to my box or my email by 11:59 pm Pacific Standard Time on the due date**</font>.  Note that if you are going to turn your assignment into my box, do so before 5:00 pm as the office will lock the room that has the boxes at that time.  Each assignment will be worth 15/100 points.  The assignments will be problem sets that give the students practice applying the mathematical tools covered in the course texts.
+An assignment will be posted on the course website.  Due dates are given below.  <font color="red">**The assignments should be submitted to my box or my email by 11:59 pm Pacific Standard Time on the due date**</font>.  Note that if you are going to turn your assignment into my box, do so before 5:00 pm as the office will lock the room that has the boxes at that time.  Each assignment will be worth 20/100 points.  The assignments will be problem sets that give the students practice applying the mathematical tools covered in the course texts.
 
 #### Late assignments
 
@@ -120,17 +119,17 @@ For those using LaTeX I will provide assignment templates for you to use.
 
 #### Final Exam
 
-There will be one exam at the end of the course and it is worth 40/100 points.  The exam will cover all the material covered in the course.  The exam will be proctored on campus in Hulbert Hall on *Wednesday August 15, 2017*.
+There will be one exam at the end of the course and it is worth 40/100 points.  The exam will cover all the material covered in the course.  The exam will be proctored on campus in Hulbert Hall on *Wednesday August 15, 2019*.
 
 ---
 
 ### Course Outline
 
-Below I have provided a *tentative schedule*. Dates as well as topics are subject to change depending on the pace of the course, as well as what I think should be covered. Also, I will be introducing programming (specifically using Python) on August 8th. That day will be optional, although I strongly recommend you attend. 
+Below I have provided a *tentative schedule*. Dates as well as topics are subject to change depending on the pace of the course, as well as what I think should be covered.
 
 <br/>
 
-{% include mathcamp_outline_2019.html %}
+{% include mathcamp_outline_2019_new.html %}
 
 **Prerequisite Assignment**
 The prerequisite assignment will not count toward your grade for the course, but you will be entirely accountable for the mastery of the related content in EconS 506.  The assignment is given as a chance for you to review and practice the univariate calculus and assess your level of mastery of the content.

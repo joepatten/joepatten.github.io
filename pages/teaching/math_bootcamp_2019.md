@@ -68,7 +68,7 @@ Assignments will be posted here on Tuesday evening of each week. I will also pos
 | **Set Theory and Proofs and Real Analysis** | August 3 | <button name="button">Problem Set 2</button> |
 | **Multivariate Calculus and Miscellaneous Topics** | August 10 | <button name="button">Problem Set 3</button> |
 -->
-Note: The material in assignment 0 is fair game for the final exam. You should complete these problems to refresh old topics and learn some new ones. However, you do not need to turn this assignment in to me. I will assume your understanding and familiarity with the material during the mathcamp, so please complete your study no later than July 15th.
+Note: The material in assignment 0 is fair game for the final exam. You should complete these problems to refresh old topics and learn some new ones. However, you do not need to turn this assignment in to me. I will assume your understanding and familiarity with the material during the mathcamp, so please complete your study no later than July 22nd.
 
 ### Assignment LaTeX Template
 
@@ -101,6 +101,6 @@ In the above code, **you need to replace the ?** with the number of the problem.
 
 ### Course Outline
 
-Below I have provided a *tentative* schedule. Dates as well as topics are subject to change depending on the pace of the course, as well as what I think should be covered. Also, I will be introducing programming (specifically using Python) on August 8th. That day will be optional, although I strongly recommend you attend. 
+Below I have provided a *tentative* schedule. Dates as well as topics are subject to change depending on the pace of the course, as well as what I think should be covered.
 
-{% include mathcamp_outline_2019.html %}
+{% include mathcamp_outline_2019_new.html %}

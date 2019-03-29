@@ -26,25 +26,10 @@ readings:
   - name: Week 4
     simonblume: Chapters 13, 14
 
-assignments:
-  - name: Assignment 0
-    link: assignment_0.pdf
-    descrip: Univariate calculus
-    due: ---
-    upload: 
-    key_name: Assignment 0 Key
-    key_link: assignment_0_key.pdf
-    keys:
-      - link: assignment_0_key.pdf
-        name: Assignment 0 Key
-        upload: yes
-    #  - link: sets_and_logic_answers.pdf
-    #    name: Set & Logic Key
-
   - name: Assignment 1
     link: assignment_1.pdf
     descrip: Linear Systems and Matrix Algebra
-    due: July 29
+    due: August 5
     upload: none
     upload_key: none
     key_name: Assignment 1 Key
@@ -56,8 +41,8 @@ assignments:
 
   - name: Assignment 2
     link: assignment_2.pdf
-    descrip: Set Theory, Proofs and Real Analysis
-    due: August 5
+    descrip: Calculus and Optimization
+    due: August 12
     upload: none
     upload_key: none
     key_name: Assignment 2 Key
@@ -69,19 +54,6 @@ assignments:
       - link: sets_and_logic_answers.pdf
         name: Sets & Logic Key
         upload: yes
-
-  - name: Assignment 3
-    link: assignment_3.pdf
-    descrip: Optimization and Multivariate Calculus
-    due: August 12
-    upload: none
-    upload_key: none
-    key_name: Assignment 3 Key
-    key_link: assignment_3_key.pdf
-    keys:
-      - link: assignment_3_key.pdf
-        name: Assignment 3 Key
-        upload: none
 
 #  - name: Assignment 4
 #    link: assignment_4.pdf
@@ -96,14 +68,14 @@ assignments:
 #        name: Assignment 3 Key
 #        upload: none
 
-  - name: Final Exam 2018
-    link: final_exam_2018.pdf
-    descrip: Mathcamp Final given Summer 2018
-    due: August 14
-    upload: 
-    key_name: Final Exam 2018 Key
-    key_link: final_exam_2018_solutions.pdf
-    keys:
-      - link: assignment_3_key.pdf
-        name: Assignment 3 Key
-        upload: none
+#  - name: Final Exam 2018
+#    link: final_exam_2018.pdf
+#    descrip: Mathcamp Final given Summer 2018
+#    due: August 14
+#    upload: 
+#   key_name: Final Exam 2018 Key
+#    key_link: final_exam_2018_solutions.pdf
+#    keys:
+#      - link: assignment_3_key.pdf
+#        name: Assignment 3 Key
+#        upload: none
