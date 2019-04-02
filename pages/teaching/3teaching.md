@@ -14,10 +14,10 @@ order: 5
 > <span style="font-size:.75em; color:#808080">[Click here for the current Math Bootcamp (Summer 2019)]({{ site.baseurl }}/teaching/math_bootcamp_2019)</span>\\
 > <span style="font-size:.75em; color:#808080">[Click here for last year's Math Bootcamp (Summer 2018)]({{ site.baseurl }}/teaching/math_bootcamp)</span>
 
-#### Master's Math Bootcamp (ECONS 526) Page coming soon
+#### [Master's Math Bootcamp]({{ site.baseurl }}/teaching/masters_math_bootcamp_2019) (ECONS 526)
 
 > <span style="font-size:.75em; color:#808080">The course covers topics including: Single Variable Calculus, Multivariate Calculus, Linear Algebra, and Optimization.</span>\\
-> <span style="font-size:.75em; color:#808080">Summer 2019</span>
+> <span style="font-size:.75em; color:#808080">[Click here for the current Math Bootcamp (Summer 2019)]({{ site.baseurl }}/teaching/masters_math_bootcamp_2019)</span>
 
 #### [Sports Economics]({{ site.baseurl }}/teaching/321) (ECONS 321)
 

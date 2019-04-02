@@ -26,34 +26,35 @@ readings:
   - name: Week 4
     simonblume: Chapters 13, 14
 
+assignments:
   - name: Assignment 1
-    link: assignment_1.pdf
-    descrip: Linear Systems and Matrix Algebra
-    due: August 5
+    link: masters_assignment_1.pdf
+    descrip: Calculus
+    due: August 8
     upload: none
     upload_key: none
     key_name: Assignment 1 Key
-    key_link: assignment_1_key.pdf
+    key_link: masters_assignment_1_key.pdf
     keys:
-      - link: assignment_1_key.pdf
+      - link: masters_assignment_1_key.pdf
         name: Assignment 1 Key
         upload: none
 
-  - name: Assignment 2
-    link: assignment_2.pdf
-    descrip: Calculus and Optimization
-    due: August 12
-    upload: none
-    upload_key: none
-    key_name: Assignment 2 Key
-    key_link: assignment_2_key.pdf
-    keys:
-      - link: assignment_2_key.pdf
-        name: Assignment 2 Key
-        upload: none
-      - link: sets_and_logic_answers.pdf
-        name: Sets & Logic Key
-        upload: yes
+#  - name: Assignment 2
+#    link: assignment_2.pdf
+#    descrip: Calculus and Optimization
+#    due: August 12
+#    upload: none
+#    upload_key: none
+#    key_name: Assignment 2 Key
+#    key_link: assignment_2_key.pdf
+#    keys:
+#      - link: assignment_2_key.pdf
+#        name: Assignment 2 Key
+#        upload: none
+#      - link: sets_and_logic_answers.pdf
+#        name: Sets & Logic Key
+#        upload: yes
 
 #  - name: Assignment 4
 #    link: assignment_4.pdf

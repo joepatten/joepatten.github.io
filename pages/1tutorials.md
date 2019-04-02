@@ -7,7 +7,7 @@ order: 6
 ---
 
 #### Python Resources
-- [My Tutorial](tutorials/python)
+- [My Tutorial](tutorials/python) (under construction)
 - [QuantEcon](https://lectures.quantecon.org/py/)
 - [Python Documentation](https://docs.python.org/3/)
 

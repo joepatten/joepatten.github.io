@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 2018 PhD Math Bootcamp
+title: PhD Math Bootcamp 2018
 sidebar_link: False
 permalink: /teaching/math_bootcamp
 ---

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: PhD Math Bootcamp
+title: PhD Math Bootcamp 2018
 sidebar_link: false
 permalink: /teaching/math_bootcamp/syllabus
 ---

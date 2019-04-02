@@ -92,7 +92,7 @@ Grading will be based off points accumulated through assignments and the exam.
 | Assignment 1 | July 29 | 20 |
 | Assignment 2 | August 5 | 20 |
 | Assignment 3 | August 12 | 20 |
-| Final Exam | TBA | 40 |
+| Final Exam | TBA (August 12-16) | 40 |
 | **Total** | | **100** |
 
 #### Workload
@@ -119,15 +119,19 @@ For those using LaTeX I will provide assignment templates for you to use.
 
 #### Final Exam
 
-There will be one exam at the end of the course and it is worth 40/100 points.  The exam will cover all the material covered in the course.  The exam will be proctored on campus in Hulbert Hall on *Wednesday August 15, 2019*.
+There will be one exam at the end of the course and it is worth 40/100 points.  The exam will cover all the material covered in the course.  The exam will be proctored on campus in Hulbert Hall on a date TBA (in the week of August 12-16).
 
 ---
+
+<br/>
 
 ### Course Outline
 
 Below I have provided a *tentative schedule*. Dates as well as topics are subject to change depending on the pace of the course, as well as what I think should be covered.
 
 <br/>
+<br/>
+
 
 {% include mathcamp_outline_2019_new.html %}
 
@@ -143,13 +147,6 @@ Students with Disabilities: Reasonable accommodations are available for students
 **Website**: [accesscenter.wsu.edu](http://accesscenter.wsu.edu) 
 **Email**: [access.center@wsu.edu](mailto:access.center@wsu.edu)
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 ### WSU Academic Integrity Statement
 
 As an institution of higher education, Washington State University is committed to principles of truth and academic honesty. All members of the University community share the responsibility for maintaining and supporting these principles. When a student enrolls in Washington State University, the student assumes an obligation to pursue academic endeavors in a manner consistent with the standards of academic integrity adopted by the University. To maintain the academic integrity of the community, the University cannot tolerate acts of academic dishonesty including any forms of cheating, plagiarism, or fabrication. Washington State University reserves the right and the power to discipline or to exclude students who engage in academic dishonesty. Students found responsible for academic integrity violations may receive an F on the particular assignment or exam, as well as an F for the course.  Serious and/or repeated offenses may result in referral to the Office of Student Standards and Accountability and expulsion from WSU. Cheating is defined in the Standards for Student Conduct WAC 504-26-010 (3).

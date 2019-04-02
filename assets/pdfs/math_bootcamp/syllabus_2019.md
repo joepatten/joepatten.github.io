@@ -87,7 +87,7 @@ Grading will be based off points accumulated through assignments and the exam.
 | Assignment 1 | July 29 | 20 |
 | Assignment 2 | August 5 | 20 |
 | Assignment 3 | August 12 | 20 |
-| Final Exam | TBA | 40 |
+| Final Exam | TBA (August 12-16) | 40 |
 | **Total** | | **100** |
 
 #### Workload
@@ -113,7 +113,7 @@ For those using LaTeX I will provide assignment templates for you to use.
 
 #### Final Exam
 
-There will be one exam at the end of the course and it is worth 40/100 points.  The exam will cover all the material covered in the course.  The exam will be proctored on campus in Hulbert Hall on a date TBA.
+There will be one exam at the end of the course and it is worth 40/100 points.  The exam will cover all the material covered in the course.  The exam will be proctored on campus in Hulbert Hall on a date TBA (in the week of August 12-16).
 
 ---
 
