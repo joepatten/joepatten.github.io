@@ -29,7 +29,7 @@ readings:
 assignments:
   - name: Assignment 1
     link: masters_assignment_1.pdf
-    descrip: Calculus
+    descrip: Linear Algebra and Derivatives
     due: August 8
     upload: none
     upload_key: none

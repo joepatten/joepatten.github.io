@@ -51,7 +51,7 @@ Grading will be based off points accumulated through an assignment and exam.
 
 | Course Items | Due Date | Points |
 | :---   | :---  | :---:  |
-| Assignment 1 | August 7 | 30 |
+| Assignment 1 | August 8 | 30 |
 | Final Exam | TBA (August 12-16) | 70 |
 | **Total** | | **100** |
 
