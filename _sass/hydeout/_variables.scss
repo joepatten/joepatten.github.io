@@ -48,9 +48,13 @@ $root-line-height: 1.5 !default;
 
 //$body-color: $#FFFFFFFF !default;
 $body-color: $gray-5 !default;
+//$body-color: #27EE10FF !default;             DELETE
 $body-muted: $gray-4 !default;
 //$body-bg: #EEE !default;
+//$body-bg: #1E2A45 !default; 
 $body-bg: #FFFFFFFF !default;                                //THIS is the background color. Go to layout, and then lines 121 for mobile, and 224 for desktop
+//$body-bg: #2F2F2F !default; 
+//THIS is the background color. Go to layout, and then lines 121 for mobile, and 224 for desktop
 $link-color: $bg_blue !default;
 $heading-color: $gray-6 !default;
 
@@ -93,7 +97,8 @@ $code-color: #bf616a !default;
 
 // Hyde theming
 
-$sidebar-bg-color: #1E2945 !default;
+//$sidebar-bg-color: #1E2945 !default;
+$sidebar-bg-color: #0F0F0F !default;
 $sidebar-title-color: #ffffff !default;
 $sidebar-sticky: true !default;
 $layout-reverse: false !default;
@@ -102,6 +107,9 @@ $bg-color: #FFFFFF !default;
 
 //$sidebar-bg: "../../assets/img/sidebar-bg2.jpg" !default; 
 //$sidebar-bg: "../../assets/img/wsu-red.png" !default;
-$sidebar-bg: "../../assets/img/wsu-tur.png" !default;			//where do i go to change 
+//$sidebar-bg: "../../assets/img/wsu-tur.png" !default;			//where do i go to change 
+//$sidebar-bg: "../../assets/img/wsu-gray.png" !default;			//where do i go to change 
+$sidebar-bg: "../../assets/img/wsu-dark2.png" !default;			//where do i go to change 
+//$sidebar-bg: "../../assets/img/wsu-gray-right.png" !default;			//where do i go to change 
 $sidebar-body-color: $gray-4 !default;
 $active-link-color: #FFF !default;

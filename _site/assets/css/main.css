@@ -504,10 +504,11 @@ pre {
 body {
   /* edit text in sidebar that aren't links */
   color: #767676;
-  background-color: #1E2945;
+  background-color: #0F0F0F;
   /*change sidebar image*/
-  background-image: url("../../assets/img/wsu-tur.png");
+  background-image: url("../../assets/img/wsu-dark2.png");
   background-size: 1300px;
+  background-repeat: no-repeat;
   background-position: -370px -20px;
   /*background-image: linear-gradient(
     to bottom,
@@ -625,7 +626,8 @@ body {
     background: #FFFFFFFF;
     color: #515151;
     padding: 4rem;
-    height: 100vh; }
+    background-repeat: no-repeat;
+    background-size: 100% 100%; }
     .container > header {
       color: inherit;
       margin: 0; }
