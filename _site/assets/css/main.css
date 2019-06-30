@@ -344,11 +344,11 @@ a svg {
 
 /* Operator.Word */
 .highlight .w {
-  color: #bbb; }
+  color: #fff; }
 
 /* Text.Whitespace */
 .highlight .mf {
-  color: #008923; }
+  color: #F1D673; }
 
 /* Literal.Number.Float */
 .highlight .mh {
@@ -441,7 +441,7 @@ code {
   padding: .25em .5em;
   font-size: 85%;
   color: #fff;
-  background-color: #111;
+  background-color: #202020;
   border-radius: 3px; }
 
 pre {
@@ -454,13 +454,27 @@ pre code {
   color: #bbb;
   background-color: transparent; }
 
+.blinking {
+  animation: blinkingText 0.8s infinite; }
+
+@keyframes blinkingText {
+  0% {
+    color: #fff; }
+  49% {
+    color: transparent; }
+  50% {
+    color: transparent; }
+  51% {
+    color: transparent; }
+  52% {
+    color: #fff; } }
 .highlight {
   padding: .25rem;
   margin-bottom: 1rem;
   font-size: .8rem;
   line-height: 1.4;
-  background-color: #111;
-  border: 1px solid #111;
+  background-color: #202020;
+  border: 1px solid #202020;
   border-radius: .25rem; }
   .highlight pre {
     margin-bottom: 0;
@@ -734,7 +748,7 @@ article + *, .post-body ~ section {
 .page-title,
 .post-title,
 .post-title a {
-  color: #313131; }
+  color: #000; }
 
 .page-title,
 .post-title {

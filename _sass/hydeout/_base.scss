@@ -102,6 +102,7 @@ th {
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
   background-color: $gray-1;
+  //background-color: lighten(#000, 5%);
 }
 
 input[type="text"], input[type="search"], input[type="submit"], button {

@@ -38,10 +38,20 @@ pre code {
 //  background-color: transparent;
 //}
 
+.blinking{
+  animation:blinkingText 0.8s infinite;
+}
+@keyframes blinkingText{
+  0%{   color: #fff;  }
+  49%{  color: transparent; }
+  50%{  color: transparent; }
+  51%{  color:transparent;  }
+  52%{ color: #fff;  }
+  //100%{ color: #fff;  }
+}
 
 
-
-
+// I am going to try to put in blinking text
 
 // Pygments/Rouge via Jekyll
 .highlight {
@@ -51,11 +61,11 @@ pre code {
   line-height: 1.4;
   //background-color: $jupyter-bg;
   //background-color: $gray-code;
-  background-color: #111;
+  background-color: $code-color;
   //background-color: #0A1547;
   //border: 1px solid $jupyter-border;
   //border: 1px solid #0A1547;
-  border: 1px solid #111;
+  border: 1px solid $code-color;
   border-radius: .25rem;
 
   pre {
