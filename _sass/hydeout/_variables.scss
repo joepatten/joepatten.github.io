@@ -13,6 +13,7 @@ $gray-5: #515151 !default;
 $gray-6: #313131 !default;
 $jupyter-bg: #F7F7F7 !default;
 $jupyter-border: #CECECE !default;
+$side_bg_code_bg: #14151D !default;
 
 //color for message and code
 //$gray-code: #D1D1D1 !default;
@@ -61,7 +62,9 @@ $link-color: $bg_blue !default;
 //$link-color: $green2 !default;
 $heading-color: #000 !default;
 //$heading-color: $gray-6 !default;
-$code-color: #202020 !default;
+//$code-color: #202020 !default;
+$code-color: lighten($side_bg_code_bg, 5%) !default;
+//$code-color: #45485D !default;
 
 ///////////////////////////
 //                       //
@@ -103,7 +106,7 @@ $code-font-family: Menlo, Monaco, "Courier New", monospace !default;
 // Hyde theming
 
 //$sidebar-bg-color: #1E2945 !default;
-$sidebar-bg-color: #0F0F0F !default;
+$sidebar-bg-color: $side_bg_code_bg !default;
 $sidebar-title-color: #ffffff !default;
 $sidebar-sticky: true !default;
 $layout-reverse: false !default;
@@ -114,7 +117,7 @@ $bg-color: #FFFFFF !default;
 //$sidebar-bg: "../../assets/img/wsu-red.png" !default;
 //$sidebar-bg: "../../assets/img/wsu-tur.png" !default;			//where do i go to change 
 //$sidebar-bg: "../../assets/img/wsu-gray.png" !default;			//where do i go to change 
-$sidebar-bg: "../../assets/img/wsu-dark2.png" !default;			//where do i go to change 
-//$sidebar-bg: "../../assets/img/wsu-gray-right.png" !default;			//where do i go to change 
+//$sidebar-bg: "../../assets/img/wsu-dark2.png" !default;			//where do i go to change 
+$sidebar-bg: "../../assets/img/wsu-dull-blue.png" !default;			//where do i go to change 
 $sidebar-body-color: $gray-4 !default;
 $active-link-color: #FFF !default;
