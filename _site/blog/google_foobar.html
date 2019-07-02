@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<!--
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#more {display: none;}
+</style>-->
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      The Google Foobar Challenge &middot; Joe Patten
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  
+  <main>
+    <div id='avatar'>
+      <img src = "https://i.imgur.com/f3Usi8c.png" border="4" target='avatar' class="home-link ">
+    </div>
+  </main>
+  
+
+  <header>
+
+    <div class="site-title">
+
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Joe Patten
+      </a>
+    </div>
+    <p class="lead">Economics PhD Student</p>
+  </header>
+
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+  
+
+
+  
+    
+      <a class="page-link "
+          href="/about">About</a>
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/tutorials">Tutorials</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/teaching">Teaching</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/cv">CV</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+
+<!--
+  
+    <span class="site-version">Currently v3.6.0</span>
+  
+-->
+  
+
+
+<nav id="sidebar-icon-links">
+
+<!--
+  
+    <a id="github-link"
+       class="icon" title="Github" aria-label="Github"
+       href="https://github.com/joepatten">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 6c-3.313 0-6 2.686-6 6 0 2.651 1.719 4.9 4.104 5.693.3.056.396-.13.396-.289v-1.117c-1.669.363-2.017-.707-2.017-.707-.272-.693-.666-.878-.666-.878-.544-.373.041-.365.041-.365.603.042.92.619.92.619.535.917 1.403.652 1.746.499.054-.388.209-.652.381-.802-1.333-.152-2.733-.667-2.733-2.965 0-.655.234-1.19.618-1.61-.062-.153-.268-.764.058-1.59 0 0 .504-.161 1.65.615.479-.133.992-.199 1.502-.202.51.002 1.023.069 1.503.202 1.146-.776 1.648-.615 1.648-.615.327.826.121 1.437.06 1.588.385.42.617.955.617 1.61 0 2.305-1.404 2.812-2.74 2.96.216.186.412.551.412 1.111v1.646c0 .16.096.347.4.288 2.383-.793 4.1-3.041 4.1-5.691 0-3.314-2.687-6-6-6z"/></svg>
+    </a>
+    
+-->
+  <a id="stack-overflow-link"
+     class="icon" title="Stack Overflow" aria-label="Stack Overflow"
+     href="https://stackoverflow.com/users/8345749/joe?tab=profile">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1.5 16.5h-5v-1h5v1zm3-5.832l-.811-4.668-.996.173.81 4.668.997-.173zm-2.982 3.468l-4.873-.488-.093 1.008 4.878.439.088-.959zm.269-1.293l-4.639-1.304-.263.977 4.653 1.25.249-.923zm.602-1.207l-4.149-2.432-.514.871 4.148 2.433.515-.872zm.933-.734l-2.67-3.914-.836.569 2.67 3.915.836-.57zm-1.322 2.098v4h-6v-4h-1v5h8v-5h-1z"/></svg>
+  </a>
+
+    <!--stack github2
+    <a id="github-download-link"
+       class="icon" title="Download" aria-label="Download"
+       href="https://github.com/joepatten/archive/v3.6.0.zip">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  -->
+<!--
+  <a id="kaggle-link"
+     class="icon" title="Kaggle" aria-label="Kaggle"
+     href="https://www.kaggle.com/">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="24" height="24" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.358"/></svg>
+  </a>
+ link3 email3 -->
+
+  <a id="linkedin-link"
+     class="icon" title="Linkedin" aria-label="Linkedin"
+     href="https://www.linkedin.com/in/joe-patten-a79a3965/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 8c0 .557-.447 1.008-1 1.008s-1-.45-1-1.008c0-.557.447-1.008 1-1.008s1 .452 1 1.008zm0 2h-2v6h2v-6zm3 0h-2v6h2v-2.861c0-1.722 2.002-1.881 2.002 0v2.861h1.998v-3.359c0-3.284-3.128-3.164-4-1.548v-1.093z"/></svg>
+  </a>
+
+  <a id="github-link"
+     class="icon" title="Github" aria-label="github"
+     href="https://github.com/joepatten">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 6c-3.313 0-6 2.686-6 6 0 2.651 1.719 4.9 4.104 5.693.3.056.396-.13.396-.289v-1.117c-1.669.363-2.017-.707-2.017-.707-.272-.693-.666-.878-.666-.878-.544-.373.041-.365.041-.365.603.042.92.619.92.619.535.917 1.403.652 1.746.499.054-.388.209-.652.381-.802-1.333-.152-2.733-.667-2.733-2.965 0-.655.234-1.19.618-1.61-.062-.153-.268-.764.058-1.59 0 0 .504-.161 1.65.615.479-.133.992-.199 1.502-.202.51.002 1.023.069 1.503.202 1.146-.776 1.648-.615 1.648-.615.327.826.121 1.437.06 1.588.385.42.617.955.617 1.61 0 2.305-1.404 2.812-2.74 2.96.216.186.412.551.412 1.111v1.646c0 .16.096.347.4.288 2.383-.793 4.1-3.041 4.1-5.691 0-3.314-2.687-6-6-6z"/></svg>
+  </a>
+
+
+
+    <a id="email-link"
+     class="icon" title="Email" aria-label="Email"
+     href="mailto:joseph.patten@wsu.edu">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg>
+  </a>
+
+
+
+<!--
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+-->
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+
+  <p style="font-size:1rem;">
+  &copy; 2019. All rights reserved.
+  <!--<a href="/LICENSE.md">MIT License.</a>-->
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="page-title">The Google Foobar Challenge</h1>
+</header>
+<div class="content">
+  <p>* <em>I am currently on the second challenge in Level 4. I wanted to outline my experience thus far and give advice on how to approach each level. I plan on updating this article when I have completed the whole challenge.</em></p>
+
+<p>Last fall, as I was preparing a presentation for how to write cleaner, more pythonic code for my Python Working Group, I got an odd message with my search results.</p>
+
+<p><img src="../../assets/blog/foobar/google_secret_recruit.JPG" alt="foobar screen" /></p>
+
+<p><img src="../../assets/blog/foobar/foobar_message.png" alt="foobar screen" /></p>
+
+<p>The message reads “You’re speaking out language. Up for a challenge?”. Of course I quickly clicked “I want to play”. This brought me to a linux-like terminal with the welcome message: “Success! You’ve managed to infiltrate Commander Lambda’s evil organization, and finally earned yourself an entry-level position as a Minion on her space station. From here, you just might be able to subvert her plans to use the LAMBCHOP doomsday device to destroy Bunny Planet. Problem is, Minions are the lowest of the low in the Lambda hierarchy. Better buck up and get working, or you’ll never make it to the top…”</p>
+
+<h3 id="structure-of-the-challenge">Structure of the Challenge</h3>
+
+<p>Using the “ls” command show that journal.txt, and start_here.txt are two files in your directory. The journal.txt file contains the welcome text, and gets updated after every completed challenge. The start_here.txt tells use to “Type request to request a challenge. Type help for a list of commands.” Typing help in the terminal shows a list of valid commands:</p>
+
+<p><img src="../../assets/blog/foobar/help.png" alt="foobar help commands" /></p>
+
+<p>Once you have requested a challenge using the “request” command, a folder appears in your directory with a text file that contains a description of the challenge as well as a couple of test cases. In the same folder, there is also a solution.py file and a solution.java file. You can choose to code in either Java or Python for each challenge.</p>
+
+<p>Once you have come up with a solution, you can verify your solution with the “verify” command. Google will check your code with multiple test cases (most of which are hidden). If you pass all the test cases, you can either submit your solution, or refactor and clean up your code and reverify it. Submitting a correct solution results in a new journal entry in your journal.txt file. You don’t have to do the challenges all at once. I actually recommend that you request a new challenge when you feel ready and have enough time to complete it.</p>
+
+<p>Let me tell you about the structure of the whole challenge. There are 5 levels. The following table shows how many challenges there are in each level as well as the time given for each challenge:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Level</th>
+      <th style="text-align: left">Number of Challenges</th>
+      <th style="text-align: left">Time given for each Challenge</th>
+      <th style="text-align: left">Reward for Level Completion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">48 hours</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">72 hours</td>
+      <td style="text-align: left">Friend referral link</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">96 hours</td>
+      <td style="text-align: left">Google recruit survey</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">360 hours</td>
+      <td style="text-align: left">??</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">??</td>
+      <td style="text-align: left">??</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="level-1">Level 1</h3>
+
+<p>I requested my first challenge and got working. I was given 48 hours to complete the challenge. I will not share what exactly the challenge was, but it would have been fairly easy for anyone who had completed an introductory computer science course. I submitted my solution within the half hour I received the challenge (as I believed that I had 48 hours to complete all challenges). I got a new message that was added to my journal.txt file and could then request a challenge from level 2.</p>
+
+<h3 id="level-2">Level 2</h3>
+
+<p>Level 2 challenges got progressively harder, but I was given enough time to complete each challenge. As opposed to level 1, level 2 contained challenges that were more “puzzle-like”. The key to each challenge was to identify the “pattern” and check for edge cases. After completing the challenges in level 2, I found that I could probably not get by with just my “introductory” computer science knowledge. So, I purchased <a href="https://www.amazon.com/Introduction-Algorithms-Press-Thomas-Cormen-ebook/dp/B007CNRCAO/ref=sr_1_8?crid=35TWIYDTPEIDQ&amp;keywords=data+structures+and+algorithms&amp;qid=1562026055&amp;s=gateway&amp;sprefix=data+structures+a%2Caps%2C230&amp;sr=8-8">Introductions to Algorithms</a> (also known as CLRS) and began to study it. Finding time to study was difficult as I still had PhD commitments (researching, teaching, and taking classes) as well as family commitments, but I eventually felt comfortable enough to use different data structures and algorithms to solve problems efficiently. I also used <a href="https://leetcode.com/">leetcode</a> to practice my newfound knowledge.</p>
+
+<h3 id="level-3">Level 3</h3>
+
+<p>After feeling comfortable I ventured onto Level 3. All three challenges in this level were not too difficult (and I could usually come up with a solution fairly quickly). Even though I was fairly confident that my code was correct, I usually could not pass all of the checks as my code either timed out, or I did not account for some edge cases. The fun (and often stressful) part of this level was to think of different data structures and/or algorithms that would circumvent the time-out problem. I submitted all three challenges in this level in the matter of about a week or two. I don’t recommend others do this as you want to submit code that is both clean and optimized. I just submitted quickly as I have other priorities I have to attend to.</p>
+
+<p>After completing level 3 (late spring, early summer), I was asked if I wanted to be contacted by a Google recruiter. Of course I did! I filled out a brief survey, and a Google recruiter contacted me about a week later. He requested my resume, and gave me the option to apply for the fall 2019, winter 2020, and summer 2020 software engineering internship. I chose the summer 2020 internship. He notified that Google does not start the hiring process for summer 2020 until August, but that he would contact me when August rolled around.</p>
+
+<p><img src="../../assets/blog/foobar/foobar_lvl_3.png" alt="level 3 completion" /></p>
+
+<h3 id="level-4">Level 4</h3>
+
+<p>Even though I was contacted by a recruiter, I thought I would try my hand at level 4. So far, I have only completed the first challenge in this level. This challenge was different than the challenges in the previous levels as “conventional” data structures and algorithms could not be used. The problem I got reminded of a NP-hard problem I learned from CLRS. I completed the challenge by modifying the inputs (I don’t want to go into too much detail), and using brute force. I was surprised when I was able to pass all of the test cases.</p>
+
+<p><img src="../../assets/blog/foobar/foobar_lvl_4.png" alt="level 4" /></p>
+
+<h3 id="what-next">What next?</h3>
+
+<p>I have not been able to request the last challenge in level 4 as I have been pretty swamped this summer. I plan on (hopefully) completing the next challenge before fall classes start. Even if this Google Foobar challenge does not result in a job at Google, it has been a worthwhile experience that has helped me to grow a lot as a programmer and a critical thinker over a short period of time. Anyone who gets the secret invitation from Google to do this challenge should not hesitate to click “I want to play”.</p>
+
+</div>
+
+    </main>
+
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    <!-- Optional footer content -->
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133713409-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-133713409-1');
+</script>
+
+  <script src="/js/jquery.min.js"></script>
+  <script>
+    $("p").each(function() {
+        if($(this).html()=='[expand]') {
+            $(this).addClass('expand_start');
+        }
+        if($(this).html()=='[/expand]') {
+            $(this).addClass('expand_end');
+        }
+    });
+    $( "p.expand_start" ).each(function() {
+        $(this).nextUntil( $("p.expand_end") ).wrapAll("<div class='expand' style='overflow: hidden;'></div>");
+        $(this).prev().append('<span>..&nbsp; <a href="#" style="cursor: pointer;" onclick="$(this).parent().parent().next().slideToggle(); $(this).parent().hide();">read&nbsp;more&nbsp;&rarr;</a></span>');
+        $(this).remove()
+	});
+    $( ".expand").hide();
+    $( "p.expand_end" ).hide();
+</script>
+  </body>
+</html>
