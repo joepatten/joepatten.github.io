@@ -5,15 +5,15 @@ sidebar_link: false
 permalink: /blog/google_foobar
 ---
 
-\* *I am currently on the second challenge in Level 4. I wanted to outline my experience thus far and give advice on how to approach each level. I plan on updating this article when I have completed the whole challenge.*
+\* *The Google Foobar challenge is a secret recruiting challenge given to individuals who search for certain programming terms in Google. More information can be found [here](https://www.geeksforgeeks.org/google-foo-bar-challenge/). I am currently on the second challenge in Level 4. I wanted to outline my experience thus far and give advice on how to approach each level. I plan on updating this article when I have completed the whole challenge.*
 
-Last fall, as I was preparing a presentation for how to write cleaner, more pythonic code for my Python Working Group, I got an odd message with my search results.
+Last fall, as I was preparing a presentation on how to write cleaner, more pythonic code for my Python Working Group, I got an odd message with my search results.
 
 ![foobar screen](../../assets/blog/foobar/google_secret_recruit.JPG)
 
 ![foobar screen](../../assets/blog/foobar/foobar_message.png)
 
-The message reads "You're speaking out language. Up for a challenge?". Of course I quickly clicked "I want to play". This brought me to a linux-like terminal with the welcome message: "Success! You've managed to infiltrate Commander Lambda's evil organization, and finally earned yourself an entry-level position as a Minion on her space station. From here, you just might be able to subvert her plans to use the LAMBCHOP doomsday device to destroy Bunny Planet. Problem is, Minions are the lowest of the low in the Lambda hierarchy. Better buck up and get working, or you'll never make it to the top..."
+The message reads <span style="color:gray">"You're speaking out language. Up for a challenge?"</span>. Of course I quickly clicked <span style="color:gray">"I want to play"</span>. This brought me to a linux-like terminal with the welcome message: <span style="color:gray">"Success! You've managed to infiltrate Commander Lambda's evil organization, and finally earned yourself an entry-level position as a Minion on her space station. From here, you just might be able to subvert her plans to use the LAMBCHOP doomsday device to destroy Bunny Planet. Problem is, Minions are the lowest of the low in the Lambda hierarchy. Better buck up and get working, or you'll never make it to the top..."</span>
 
 ### Structure of the Challenge
 

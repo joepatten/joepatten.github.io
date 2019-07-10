@@ -5,4 +5,4 @@ sidebar_link: false
 permalink: /blog
 ---
 
-Comming soon
+Coming soon

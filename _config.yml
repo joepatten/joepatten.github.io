@@ -26,6 +26,8 @@ plugins:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
+  # - jekyll-seo-tag
+  # - jekyll-sitemap
 
 #for git:
 #(git init)

@@ -13,8 +13,8 @@ permalink: /teaching/math_bootcamp_2019/syllabus
 | Office Hours: | TBA |
 | Email: | [joseph.patten@wsu.edu](mailto:joseph.patten@wsu.edu) |
 | Dates: | Mon July 22 - Wed August 14 |
-| Time: | TBA |
-| Lectures: | TBA |
+| Time: | 10 am - 12 pm |
+| Lectures: | Hulbert Hall Room 23 |
 
 ### Class Website
 Go to my [website](http://joepatten.com/teaching/math_bootcamp_2019).

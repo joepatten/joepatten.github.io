@@ -30,6 +30,9 @@ def mutiply(x,y):
 - [Latex Wikibooks](https://en.wikibooks.org/wiki/LaTeX)
 - [Latex Documentation](https://www.latex-project.org/help/documentation/)
 
+#### Git (and Github)
+- [(Free) Udacity course](https://www.udacity.com/course/how-to-use-git-and-github--ud775)
+
 <!--
 ```tex
 %latex code
