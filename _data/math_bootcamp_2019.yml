@@ -43,7 +43,7 @@ assignments:
 
   - name: Assignment 1
     link: assignment_1.pdf
-    descrip: Linear Systems and Matrix Algebra
+    descrip: Linear Systems, Matrix Algebra and Set Theory
     due: July 29
     upload: yes
     upload_key: none
