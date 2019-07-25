@@ -45,7 +45,7 @@ assignments:
     link: assignment_1.pdf
     descrip: Linear Systems and Matrix Algebra
     due: July 29
-    upload: none
+    upload: yes
     upload_key: none
     key_name: Assignment 1 Key
     key_link: assignment_1_key.pdf
