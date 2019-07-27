@@ -71,6 +71,7 @@ html {
     flex: 1;
     line-height: 1.4;
     font-size: 12px;
+    color :darken(#999, 15%);
   }
   
   span {
@@ -91,18 +92,8 @@ html {
 }
 
 .item-1 {
-  @media (min-width: 60em) {
+  @media (min-width: 80em) {
     grid-column: span 2;
-    
-    h1 {
-      font-size: 24px;
-    }
-  }
-}
-
-.item-full {
-  @media (min-width: 1em) {
-    grid-column: span 4;
     
     h1 {
       font-size: 24px;
