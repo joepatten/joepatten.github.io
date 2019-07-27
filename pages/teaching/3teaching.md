@@ -7,7 +7,7 @@ order: 5
 ---
 
 <!-- Maybe add a description of some sort? -->
-
+<!--
 #### [PhD Math Bootcamp]({{ site.baseurl }}/teaching/math_bootcamp_2019) (ECONS 506)
 
 > <span style="font-size:.75em; color:#808080">The course covers topics including: Proofs, Set Theory, Real Analysis, Linear Algebra, Multivariate Calculus, and Optimization.</span>\\
@@ -33,3 +33,84 @@ order: 5
 
 > <span style="font-size:.75em; color:#808080">Community griven group with weekly presentations given by its members.</span>\\
 > <span style="font-size:.75em; color:#808080">Active member and presenter</span>
+
+
+-->
+
+<div class="band">
+  <div class="item-1">
+    <a href="/teaching/math_bootcamp_2019" class="card">
+      <div class="thumb" style="background-image: url(../../assets/img/IMG_5988.JPG);"></div>
+      
+      <article>
+        <h1>PhD Math Bootcamp</h1>
+        <p>Summer 2018, Summer 2019</p>
+        <span>ECONS 506</span>
+      </article>
+    </a>
+  </div>
+
+  <div class="item-1">
+    <a href="/teaching/masters_math_bootcamp_2019" class="card">
+      <div class="thumb" style="background-image: url(../../assets/img/teaching_pics/IMG_6007.JPG);"></div>
+      
+      <article>
+        <h1>Master's Math Bootcamp</h1>
+        <p>Summer 2019</p>
+        <span>ECONS 526</span>
+      </article>
+    </a>
+  </div>
+
+  <div class="item-2">
+    <a href="/teaching/321" class="card">
+      <div class="thumb" style="background-image: url(../../assets/img/teaching_pics/IMG_5997.JPG);"></div>
+      
+      <article>
+        <h1>Sports Economics</h1>
+        <p>Winter 2017, Winter 2018</p>
+        <span>ECONS 321</span>
+      </article>
+    </a>
+  </div>
+
+  <div class="item-2">
+    <a href="/teaching/labor_econ" class="card">
+      <div class="thumb" style="background-image: url(../../assets/img/teaching_pics/IMG_6033.JPG);"></div>
+      
+      <article>
+        <h1>Labor Economics</h1>
+        <p>Fall 2017 (TA), Developed Online Summer 2018</p>
+        <span>ECONS 323</span>
+      </article>
+    </a>
+  </div>
+
+  <div class="item-2">
+    <a href="/teaching/micro_101" class="card">
+      <div class="thumb" style="background-image: url(../../assets/img/teaching_pics/IMG_6043.JPG);"></div>
+      
+      <article>
+        <h1>Fundamentals of Microeconomics</h1>
+        <p>Winter Break 2019</p>
+        <span>ECONS 101</span>
+      </article>
+    </a>
+  </div>
+
+  <div class="item-2">
+    <a href="/teaching/python" class="card">
+      <div class="thumb" style="background-image: url(../../assets/img/teaching_pics/IMG_6008.JPG);"></div>
+      
+      <article>
+        <h1>Python Working Group</h1>
+        <span>Python</span>
+      </article>
+    </a>
+  </div>
+
+  
+  
+
+  
+</div>

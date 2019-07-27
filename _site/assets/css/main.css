@@ -9,7 +9,7 @@ html {
   padding: 20px 0; }
 
 .band {
-  width: 90%;
+  width: 100%;
   max-width: 1240px;
   margin: 0 auto;
   display: grid;
@@ -64,7 +64,7 @@ html {
     padding-bottom: 60%;
     background-size: cover; }
 
-@media (min-width: 60em) {
+@media (min-width: 100em) {
   .item-1 {
     grid-column: span 2; }
     .item-1 h1 {

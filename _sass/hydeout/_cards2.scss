@@ -7,7 +7,7 @@ html {
 
 
 .band {
-  width: 90%;
+  width: 100%;
   max-width: 1240px;
   margin: 0 auto;
   
@@ -91,7 +91,7 @@ html {
 }
 
 .item-1 {
-  @media (min-width: 60em) {
+  @media (min-width: 100em) {
     grid-column: span 2;
     
     h1 {
