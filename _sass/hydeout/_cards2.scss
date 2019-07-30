@@ -22,7 +22,7 @@ html {
   }
   
   @media (min-width: 60em) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
@@ -71,7 +71,7 @@ html {
     flex: 1;
     line-height: 1.4;
     font-size: 12px;
-    color :darken(#999, 50%);
+    color :darken(#999, 15%);
   }
   
   span {
@@ -92,7 +92,7 @@ html {
 }
 
 .item-1 {
-  @media (min-width: 100em) {
+  @media (min-width: 80em) {
     grid-column: span 2;
     
     h1 {

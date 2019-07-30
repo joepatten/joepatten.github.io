@@ -6,6 +6,7 @@ permalink: /about
 order: 2
 ---
 
+
 ![Image](../../assets/img/family.jpg)
 
 I am a 4th year Economics PhD student at WSU. Above is picture of me, my wife Lynn, and two of our kids, Kate and Emma. Lynn and I are both from California. We met each other at BYU where I was studying Biomechanics and she was studying Human Development. We got married our senior year. After graduating from BYU, I stayed to do Biomechanics research and TA for Biomechanics courses. While there, I took some Economics courses on the side and quickly fell in love with the subject. Since then, we have lived in various states, including Washington, Arizona, and Texas. I started at WSU in 2016, and we have had a blast here.
