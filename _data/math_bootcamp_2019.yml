@@ -58,7 +58,7 @@ assignments:
     link: assignment_2.pdf
     descrip: Set Theory, Proofs and Real Analysis
     due: August 5
-    upload: none
+    upload: yes
     upload_key: none
     key_name: Assignment 2 Key
     key_link: assignment_2_key.pdf
