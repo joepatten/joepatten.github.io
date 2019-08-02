@@ -46,7 +46,7 @@ assignments:
     descrip: Linear Systems, Matrix Algebra and Set Theory
     due: July 29
     upload: yes
-    upload_key: none
+    upload_key: yes
     key_name: Assignment 1 Key
     key_link: assignment_1_key.pdf
     keys:
