@@ -12,7 +12,7 @@ permalink: /teaching/math_bootcamp_2019/syllabus
 | Office: | 205C Hulbert Hall |
 | Office Hours: | TBA |
 | Email: | [joseph.patten@wsu.edu](mailto:joseph.patten@wsu.edu) |
-| Dates: | Mon July 22 - Wed August 14 |
+| Dates: | Mon July 22 - Tue August 13 |
 | Time: | 10 am - 12 pm |
 | Lectures: | Hulbert Hall Room 23 |
 
@@ -87,7 +87,7 @@ Grading will be based off points accumulated through assignments and the exam.
 | Assignment 1 | July 29 | 20 |
 | Assignment 2 | August 5 | 20 |
 | Assignment 3 | August 12 | 20 |
-| Final Exam | TBA (August 12-16) | 40 |
+| Final Exam | August 13 from 10 AM-12 PM | 40 |
 | **Total** | | **100** |
 
 #### Workload

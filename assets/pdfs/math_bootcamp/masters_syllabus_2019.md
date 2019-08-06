@@ -12,8 +12,8 @@ permalink: /teaching/masters_math_bootcamp_2019/syllabus
 | Office: | 205C Hulbert Hall |
 | Office Hours: | TBA |
 | Email: | [joseph.patten@wsu.edu](mailto:joseph.patten@wsu.edu) |
-| Dates: | Mon August 5 - Wed August 14 |
-| Time: | 1 pm - 2:15 pm |
+| Dates: | Mon August 5 - Tue August 13 |
+| Time: | 1 pm - 2 pm |
 | Lectures: | Hulbert Hall Room 23 |
 
 ### Class Website
@@ -51,8 +51,8 @@ Grading will be based off points accumulated through an assignment and exam.
 
 | Course Items | Due Date | Points |
 | :---   | :---  | :---:  |
-| Assignment 1 | August 8 | 30 |
-| Final Exam | TBA (August 12-16) | 70 |
+| Assignment 1 | August 12 | 30 |
+| Final Exam | August 13 from 1-2 PM | 70 |
 | **Total** | | **100** |
 
 #### Workload
