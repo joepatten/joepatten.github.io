@@ -28,10 +28,10 @@ readings:
 
 assignments:
   - name: Assignment 1
-    link: masters_assignment_1.pdf
+    link: assignment_1.pdf
     descrip: Linear Algebra and Derivatives
     due: August 12
-    upload: none
+    upload: yes
     upload_key: none
     key_name: Assignment 1 Key
     key_link: masters_assignment_1_key.pdf

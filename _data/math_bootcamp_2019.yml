@@ -74,7 +74,7 @@ assignments:
     link: assignment_3.pdf
     descrip: Optimization and Multivariate Calculus
     due: August 12
-    upload: none
+    upload: yes
     upload_key: none
     key_name: Assignment 3 Key
     key_link: assignment_3_key.pdf
