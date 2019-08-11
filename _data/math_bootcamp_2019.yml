@@ -59,9 +59,9 @@ assignments:
     descrip: Set Theory, Proofs and Real Analysis
     due: August 5
     upload: yes
-    upload_key: none
-    key_name: Assignment 2 Key
-    key_link: assignment_2_key.pdf
+    upload_key: yes
+    key_name: Assignment 2 selected solutions
+    key_link: assignment_2_solutions.pdf
     keys:
       - link: assignment_2_key.pdf
         name: Assignment 2 Key
@@ -75,9 +75,9 @@ assignments:
     descrip: Optimization and Multivariate Calculus
     due: August 12
     upload: yes
-    upload_key: none
+    upload_key: yes
     key_name: Assignment 3 Key
-    key_link: assignment_3_key.pdf
+    key_link: assignment_3_solutions.pdf
     keys:
       - link: assignment_3_key.pdf
         name: Assignment 3 Key
