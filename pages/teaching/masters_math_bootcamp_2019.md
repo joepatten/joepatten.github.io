@@ -22,7 +22,7 @@ The Assignment will be posted here. I will also post solutions to the assignment
 
 | Description  | Due Date | Assignment | Key |
 | :--- | :---   | ---: | ---: |{% for assignment in site.data.masters_math_bootcamp_2019.assignments %}
-  | {{assignment.descrip}} | {{assignment.due}} | {% if assignment.upload != 'none' %} [{{assignment.name}}]({{ url }}/assets/pdfs/math_bootcamp/assignments/2019/{{assignment.link}})  {% endif %} | {% if assignment.upload_key != 'none' %} [{{assignment.key_name}}]({{ url }}/assets/pdfs/math_bootcamp/assignments/2019/{{assignment.key_link}}) {% endif %} {% endfor %}
+  | {{assignment.descrip}} | {{assignment.due}} | {% if assignment.upload != 'none' %} [{{assignment.name}}]({{ url }}/assets/pdfs/masters_math_bootcamp/assignments/{{assignment.link}})  {% endif %} | {% if assignment.upload_key != 'none' %} [{{assignment.key_name}}]({{ url }}/assets/pdfs/masters_math_bootcamp/assignments/{{assignment.key_link}}) {% endif %} {% endfor %}
 
 
 

@@ -34,7 +34,7 @@ assignments:
     upload: yes
     upload_key: yes
     key_name: Assignment 1 Key
-    key_link: masters_assignment_1_key.pdf
+    key_link: assignment_1_key.pdf
     keys:
       - link: masters_assignment_1_key.pdf
         name: Assignment 1 Key
