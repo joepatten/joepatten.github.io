@@ -28,13 +28,19 @@ matter. MAYBE ADD AN INTERACTIVE CV?
 
 <p style="text-align:left;"> <img width="50" alt="portfolio_view" src="../../assets/img/cv/wsu.png" align='left'> 
     &nbsp; &nbsp; &nbsp; <strong>Washington State University</strong> <br>
-    &nbsp; &nbsp; &nbsp;  3 years <br> <br>
+    &nbsp; &nbsp; &nbsp;  2 years <br> <br>
 
 	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>Graduate Research Assistant (Economics)</strong>
 	<span style="float:right;">
-        2013-2014
+        2017, 2019-Present
     </span> <br>
-	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <i>Benjamin Cowan</i> 
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <i>Benjamin Cowan</i> <br> <br>
+
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>Graduate Research Assistant (Economics)</strong>
+	<span style="float:right;">
+        2018-2019
+    </span> <br>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <i>Jon Yoder</i> 
 	
 </p>
 <hr>
@@ -123,8 +129,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
     </span> <br>
 	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fall 2012 <br>
 	
-</p>
-<hr>
+</p> <br>
 
 <h3>Education</h3>
 
@@ -135,6 +140,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
     </span> <br>
     &nbsp; &nbsp; &nbsp;  <i>PhD, Economics</i> 
 </p>
+
 
 <p style="text-align:left;"> <img width="50" alt="portfolio_view" src="../../assets/img/cv/byu.png" align='left'> 
     &nbsp; &nbsp; &nbsp; <strong>BYU</strong>
