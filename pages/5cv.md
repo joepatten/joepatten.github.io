@@ -45,6 +45,30 @@ matter. MAYBE ADD AN INTERACTIVE CV?
 </p>
 <hr>
 
+
+
+<!--
+<p>A Collapsible:</p>
+<button class="collapsible">Open Collapsible</button>
+<div class="content_collap">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<p>Collapsible Set:</p>
+<button class="collapsible">Open Section 1</button>
+<div class="content_collap">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 2</button>
+<div class="content_collap">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+-->
+
+
+
+
+
 <p style="text-align:left;"> <img width="50" alt="portfolio_view" src="../../assets/img/cv/chicago.png" align='left'> 
     &nbsp; &nbsp; &nbsp; <strong>University of Chicago</strong> <br>
     &nbsp; &nbsp; &nbsp;  1 year <br> <br>
@@ -150,3 +174,27 @@ matter. MAYBE ADD AN INTERACTIVE CV?
     &nbsp; &nbsp; &nbsp;  <i>BS, Kinesiology</i>
 </p>
 
+
+
+
+
+
+
+<!--
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content_collap = this.nextElementSibling;
+    if (content_collap.style.maxHeight){
+      content_collap.style.maxHeight = null;
+    } else {
+      content_collap.style.maxHeight = content_collap.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+-->

@@ -87,18 +87,6 @@ order: 5
   </div>
 
   <div class="item-2">
-    <a href="/teaching/micro_101" class="card">
-      <div class="thumb" style="background-image: url(../../assets/img/teaching_pics/IMG_6043.JPG);"></div>
-      
-      <article>
-        <h1>Fundamentals of Microeconomics</h1>
-        <p>Winter Break 2019</p>
-        <span>ECONS 101</span>
-      </article>
-    </a>
-  </div>
-
-  <div class="item-2">
     <a href="/teaching/python" class="card">
       <div class="thumb" style="background-image: url(../../assets/img/teaching_pics/IMG_6008.JPG);"></div>
       

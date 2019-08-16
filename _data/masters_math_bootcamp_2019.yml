@@ -40,6 +40,19 @@ assignments:
         name: Assignment 1 Key
         upload: none
 
+  - name: Final Exam
+    link: final2019.pdf
+    descrip: Summer 2019 Mathcamp
+    due: August 13
+    upload: yes
+    upload_key: yes
+    key_name: Final Exam Key
+    key_link: final2019_solutions.pdf
+    keys:
+      - link: masters_assignment_1_key.pdf
+        name: Assignment 1 Key
+        upload: none
+
 #  - name: Assignment 2
 #    link: assignment_2.pdf
 #    descrip: Calculus and Optimization
