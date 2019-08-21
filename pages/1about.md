@@ -16,5 +16,6 @@ In addition to Economics, I love doing the following things:
 - Going on dates or just spending time with the wife
 - Playing soccer
 - Programming in Python
+- Learning Machine Learning
 - Working in Photoshop
 - Playing and creating video games (when I acutally have some time)
