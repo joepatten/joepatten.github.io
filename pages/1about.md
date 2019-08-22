@@ -14,7 +14,7 @@ I am a 4th year Economics PhD student at WSU. Above is picture of me, my wife Ly
 In addition to Economics, I love doing the following things:
 - Playing with my kids (sledding, hide and seek, and playing any kind of sport are particularly fun)
 - Going on dates or just spending time with the wife
-- Playing soccer
+- Playing and coaching soccer
 - Programming in Python
 - Learning Machine Learning
 - Working in Photoshop
