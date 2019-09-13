@@ -36,24 +36,20 @@ order: 5
 
 
 -->
-## Latest Instructor Reviews
+### Latest Instructor Reviews
 
 <!--[PhD Mathcamp 2018](../../assets/pdfs/mathcamp_2018.pdf): **4.7/5.0**-->
-PhD Mathcamp 2018: **4.7/5.0**
+ PhD Mathcamp 2018: **4.7/5.0**
 
-[PhD Mathcamp 2019](../../assets/pdfs/mathcamp_2019.pdf): **4.5/5.0**
+ [PhD Mathcamp 2019](../../assets/pdfs/mathcamp_2019.pdf): **4.5/5.0**
 
-![reviews](../../assets/img/reviews.png)
+ ![reviews](../../assets/img/reviews.png)
 
-### Student Comments: 
+### Selected Student Comments: 
 
 > The professor covered the vast material well. Having studied much of this material previously, I was impressed by his ability to easily convey the quantity of the material presented while highlighting many of the nuances required to apply the material. 
 
 > The instructor was diligent with writing out information on the whiteboard, which was helpful for visualizing what I was learning and for taking notes. 
-
-> The lectures were well made and conveyed. 
-
-> The problem sets allowed me to take the concepts I learned in the course further than I first anticipated.
 
 > It was a great course that was taught well. I can't think of anything to change.
 
