@@ -5,6 +5,7 @@ sidebar_link: false
 permalink: /about_test
 ---
 
+{% include public_private.html %}
 
 ![Image](../../assets/img/family.jpg)
 
@@ -31,3 +32,4 @@ In addition to Economics, I love doing the following things:
 - Programming in Python
 - Working in Photoshop
 - Playing and creating video games (when I acutally have some time)
+
