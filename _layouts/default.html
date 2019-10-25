@@ -7,7 +7,7 @@
 <html lang="en-us">
 
   {% include head.html %}
-
+  <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <body class="{{ page.layout }}{% if page.url == '/' %} home{% endif %}">
 
     {% include sidebar.html %}
@@ -22,7 +22,7 @@
 
 	{% include analytics.html %}
 
-  <script src="/js/jquery.min.js"></script>
+  
   {% include text-expand.html %}
   </body>
 </html>

@@ -17,7 +17,7 @@
 
   <title>
     
-      Python Working Group &middot; Joe Patten
+      Fun with Binary Decision Diagrams &middot; Joe Patten
     
   </title>
 
@@ -533,7 +533,7 @@
 
     <main class="container">
       <header>
-  <h1 class="page-title">Python Working Group</h1>
+  <h1 class="page-title">Fun with Binary Decision Diagrams</h1>
 </header>
 
 <!--<script>
@@ -582,28 +582,131 @@ for (var i = 0; i < btns.length; i++) {
 </script>-->
 
 <div class="content">
-  <h4 id="presentations">Presentations</h4>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<p>Large graphs can take a lot of memory. We can use Binary Decision Diagrams to reduce the space complexity. We will first convert the graph into a boolean formula, and then convert that formula into a Binary Decision Diagram (which in itself is a graph). As there are not many “practical” guides for BDDs out there, I thought that I would create this post to clarify how to construct and use BDDs by stepping through an example using Python.</p>
+
+<p>Let’s look at an example graph:</p>
+
+<p><img src="../../../assets/blog/bdd/graph.PNG" alt="graph" /></p>
+
+<p>In order to convert this graph to a boolean formula, we first need to represent each variable as a combination of binary variables. Since we have 8 nodes, we will need 3 binary variables to represent all our nodes. Let <script type="math/tex">x_1, x_2,</script> and <script type="math/tex">x_3</script> be our binary variables. The nodes can be represented as binary variables as follows:</p>
 
 <table>
-	<col width="20%" />
-  	<col width="80%" />
-	<tr>
-		<th>Date</th>
-		<th>Topic</th>
-	</tr>
-	<tr>
-		<td>2/15/2019</td>
-		<td><a href="https://github.com/joepatten/pandas_tutorial/blob/master/pandas_tutorial.ipynb">Intro to Pandas</a></td>
-	</tr>
-	<tr>
-		<td>1/25/2019</td>
-		<td><a href="https://github.com/joepatten/python_basics/blob/master/basics.ipynb">Intro to Python</a></td>
-	</tr>
-	<tr>
-		<td>10/26/2018</td>
-		<td><a href="https://github.com/joepatten/clean_pythonic_code_working_group/blob/master/solutions.ipynb">Clean Pythonic Code Presentation</a></td>
-	</tr>
+  <thead>
+    <tr>
+      <th style="text-align: left">Original node</th>
+      <th style="text-align: left"><script type="math/tex">x_1</script></th>
+      <th style="text-align: left"><script type="math/tex">x_2</script></th>
+      <th style="text-align: left"><script type="math/tex">x_3</script></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">s0</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">s1</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">s2</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">s3</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">s4</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">s5</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">s6</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">s7</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
 </table>
+
+<p>The boolean formula to represent <script type="math/tex">s5</script> is <script type="math/tex">x_1 \wedge \neg x_2 \wedge x_3</script>. Now that we have represented the nodes into boolean formulas, we next move onto how to represent the edges. Two nodes are needed to describe an edge. We will use the boolean variables <script type="math/tex">x_1, x_2, x_3</script> for the initial node, and <script type="math/tex">x_4, x_5, x_6</script> for the terminal node (so now we are using 6 boolean variables). Let’s consider the edge <script type="math/tex">s6 \rightarrow s4</script> which is denoted as <script type="math/tex">R_{6,4}</script>. The boolean formulae for <script type="math/tex">s6</script> and <script type="math/tex">s4</script> are  <script type="math/tex">x_1 \wedge x_2 \wedge \neg x_3</script> and <script type="math/tex">x_4 \wedge \neg x_5 \wedge \neg x_6</script> respectively. The edge is represented as the conjunction of these formulae: <script type="math/tex">R_{6,4} = x_1 \wedge x_2 \wedge \neg x_3 \wedge x_4 \wedge \neg x_5 \wedge \neg x_6</script>.</p>
+
+<p>Since there are 13 edges in this graph, we will have 13 similar formulae. The disjunction of these edge formulae will give us a boolean formula (<script type="math/tex">R</script>) for the whole graph. Or in other words <script type="math/tex">R = R_{0,2} \vee R_{1,3} \vee ... \vee R_{7,6}</script>. We can represent this boolean formula in a nice compact format using a BDD. Traversing the BDD will show what edges are in a graph. A path terminating in 1 means that the edge is in the original graph. However, if a path terminates in 0, that means that the edge is not in the original graph. The BDD for our graph can be seen below:</p>
+
+<p><img src="../../../assets/blog/bdd/bdd_example_R.PNG" alt="bdd" /></p>
+
+<p>Notice that this is a directed acyclic graph. Now that we have represented the graph as a BDD, we can perform different graph searches and model checking algorithms. I will update this article to include how to perform symbolic model checking.</p>
+
+<h2 id="implementation-in-python">Implementation in Python</h2>
+
+<p>Let’s implement this using the pyeda package in Python. This will also be done in jupyter notebooks to break our implementation into steps, and to help us visualize better what’s going on.</p>
+
+<p>First I will import the packages needed. pyeda will be used to make and work with the BDDs, pandas will be used to store the edges, and graphviz will help us visualize the BDDs:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pyeda.inter</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">pydot</span>
+<span class="kn">import</span> <span class="nn">graphviz</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">gvmagic</span>
+</code></pre></div></div>
+
+<p>The edges will be stored as strings in a list. I will need to convert all of these edges to a boolean formula. I first convert this list to a pandas dataframe.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">R</span> <span class="o">=</span> <span class="p">[</span><span class="s">'000010'</span><span class="p">,</span><span class="s">'010000'</span><span class="p">,</span><span class="s">'100000'</span><span class="p">,</span><span class="s">'011000'</span><span class="p">,</span><span class="s">'110100'</span><span class="p">,</span><span class="s">'100001'</span><span class="p">,</span><span class="s">'010001'</span><span class="p">,</span><span class="s">'001011'</span><span class="p">,</span><span class="s">'101001'</span><span class="p">,</span><span class="s">'101111'</span><span class="p">,</span><span class="s">'111110'</span><span class="p">,</span><span class="s">'111011'</span><span class="p">,</span><span class="s">'110011'</span><span class="p">]</span>
+<span class="n">Rs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">R</span><span class="p">:</span>
+    <span class="n">Rs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">s</span><span class="p">])</span>
+    
+<span class="n">R</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Rs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Each row of the R dataframe now represents an edge. <code class="highlighter-rouge">convert_bin_formula(R)</code> converts the R dataframe as a boolean formula.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">convert_row_to_formula</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="n">row_formula</span> <span class="o">=</span> <span class="p">[</span><span class="s">'~'</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="s">'x{i}'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">))]</span>
+    <span class="k">return</span> <span class="s">' &amp; '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row_formula</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">convert_bin_formula</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
+    <span class="n">r_formulas</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">R</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">r_formula</span> <span class="o">=</span> <span class="n">convert_row_to_formula</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">r_formulas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r_formula</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s">' | '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">r_formulas</span><span class="p">)</span>
+
+<span class="n">expression</span> <span class="o">=</span> <span class="n">convert_bin_formula</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Next, we will represent the boolean formula of the graph as a BDD. The <code class="highlighter-rouge">expr</code> and <code class="highlighter-rouge">expr2bdd</code> functions from the pyeda module will convert our expression to a boolean formula, and convert our boolean formula to a BDD respectively.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="n">expr</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">expr2bdd</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>All done! We have converted a graph to a BDD. If you are using Jupyter Notebooks, you can display this BDD using the magic command <code class="highlighter-rouge">%dotobj f</code>. You can also output the BDD as a dot file using <code class="highlighter-rouge">f.to_dot()</code>.</p>
 
 </div>
 

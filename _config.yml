@@ -7,6 +7,7 @@ title:            'Joe Patten'
 #to change the title font go to _includes/font-includes.html
 tagline:          'Economist'
 description:      'Economics PhD Student'
+description2:     "CS Master's Student"
 url:              https://joepatten.github.io
 baseurl:          "" # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.
