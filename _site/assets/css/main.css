@@ -74,6 +74,12 @@ html {
 *, :after, :before {
   box-sizing: inherit; }
 
+.games table {
+  max-width: 400px; }
+
+.games tfoot td {
+  border-top: 1px #e5e5e5 solid; }
+
 .games tbody td {
   position: relative; }
 
@@ -82,7 +88,8 @@ td {
   padding: 0;
   border: 0;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+  border-bottom: 1px #aaa solid; }
 
 .games .td {
   padding: 3px 7px 2px 5px;
@@ -90,56 +97,34 @@ td {
   font-size: 13px;
   height: 34px;
   background-color: #fff;
-  border-bottom: 2px #fff solid;
-  border-right: 2px #fff solid; }
+  border-bottom: 1px #fff solid;
+  border-top: 1px #fff solid;
+  border-right: 1px #e5e5e5 solid;
+  border-left: 1px #e5e5e5 solid; }
 
 @media (min-width: 1100px) {
   .games .td {
-    font-size: 16px; } }
+    font-size: 13px; } }
 .games .number {
+  color: #000;
   font-size: 12px;
-  font-family: "DecimaMonoPro",monospace;
-  text-align: right;
+  text-align: center;
   line-height: .8; }
 
 @media (min-width: 1100px) {
   .games .number {
-    font-size: 16px; } }
+    font-size: 12px; } }
 .games .spread {
   width: 70px;
   padding-left: 0; }
 
 /*! CSS Used fontfaces */
-@font-face {
-  font-family: DecimaMonoPro;
-  src: url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-bold-webfont.woff2) format("woff2"), url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-bold-webfont.woff) format("woff");
-  font-style: normal;
-  font-weight: 700; }
-@font-face {
-  font-family: DecimaMonoPro;
-  src: url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-webfont.woff2) format("woff2"), url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-webfont.woff) format("woff");
-  font-style: normal;
-  font-weight: 400; }
-@font-face {
-  font-family: DecimaMonoPro;
-  src: url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-bold-webfont.woff2) format("woff2"), url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-bold-webfont.woff) format("woff");
-  font-style: normal;
-  font-weight: 700; }
-@font-face {
-  font-family: DecimaMonoPro;
-  src: url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-webfont.woff2) format("woff2"), url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-webfont.woff) format("woff");
-  font-style: normal;
-  font-weight: 400; }
-@font-face {
-  font-family: DecimaMonoPro;
-  src: url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-bold-webfont.woff2) format("woff2"), url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-bold-webfont.woff) format("woff");
-  font-style: normal;
-  font-weight: 700; }
-@font-face {
-  font-family: DecimaMonoPro;
-  src: url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-webfont.woff2) format("woff2"), url(https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/decimamonopro-webfont.woff) format("woff");
-  font-style: normal;
-  font-weight: 400; }
+.games .winner {
+  font-weight: bold; }
+
+.games .loser {
+  color: #aaa; }
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
