@@ -6,7 +6,11 @@
     </div>
   </main>-->
   {% unless page.url != "/" %}
-  
+    <main>
+      <div id='avatar'>
+        <img src = "https://i.imgur.com/f3Usi8c.png" border="4" target='avatar' class="home-link {% if page.url == '/' %} active{% endif %}">
+      </div>
+    </main>
   {% endunless %}
 
   <header>
