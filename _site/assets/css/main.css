@@ -125,6 +125,63 @@ td {
 .games .loser {
   color: #aaa; }
 
+.season .td {
+  padding: 3px 7px 2px 5px;
+  vertical-align: middle;
+  font-size: 13px;
+  height: 34px;
+  background-color: #fff;
+  border-bottom: 1px #fff solid;
+  border-top: 1px #fff solid;
+  border-right: 1px #e5e5e5 solid;
+  border-left: 1px #e5e5e5 solid; }
+
+@media (min-width: 1100px) {
+  .season .td {
+    font-size: 13px; } }
+.season table {
+  max-width: 600px; }
+
+.season table {
+  min-width: 550px; }
+
+.season tbody td {
+  position: relative; }
+
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  border-bottom: 1px #aaa solid; }
+
+.season .number {
+  color: #000;
+  font-size: 12px;
+  text-align: center;
+  line-height: .8; }
+
+@media (min-width: 1100px) {
+  .season .number {
+    font-size: 12px; } }
+.season .thead {
+  font-size: 10px;
+  text-align: left; }
+
+.season .text {
+  color: #000;
+  font-size: 13px;
+  text-align: left;
+  line-height: .8; }
+
+@media (min-width: 1100px) {
+  .season .number {
+    font-size: 12px; } }
+.season .spread {
+  width: 70px;
+  padding-left: 0; }
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

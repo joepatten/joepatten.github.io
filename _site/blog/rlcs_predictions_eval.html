@@ -17,7 +17,7 @@
 
   <title>
     
-      Glassdoor &middot; Joe Patten
+      RLCS Predictions Evaluation &middot; Joe Patten
     
   </title>
 
@@ -553,7 +553,7 @@
 
     <main class="container">
       <header>
-  <h1 class="page-title">Glassdoor</h1>
+  <h1 class="page-title">RLCS Predictions Evaluation</h1>
 </header>
 
 <!--<script>
@@ -602,27 +602,36 @@ for (var i = 0; i < btns.length; i++) {
 </script>-->
 
 <div class="content">
-  <p>Dr. Andrew Chamberlain and team:</p>
+  What good are predictions if we don't know how well our model performs? Anyone could come up with a model or algorithm that spit out probabilities, but not all predictions will be that accurate. So the next question is: how should we measure the accuracy of our model? One might think of finding the average number of matches I accurately predicted (where any event probability above .5 would be treated as a 1, and any event probabality below .5 would be treated as a 0. Using this somewhat naive approach, I get an "accuracy" score of above 70%. However, this does not take into account the magnitude of the probabilities (for example, 52% chance of an event happending should not be treated the same way as a 74% chance of an event heppening). It would be nice to keep this magnitude issue in mind when evaluating the model.
 
-<p><a href="/assets/glassdoor/CV_Joe_Patten.pdf">Click here for my CV</a>. Below, you will find how your requirements line up with my qualifications (which can also be found in my <a href="/assets/glassdoor/Cover_Joe_Patten.pdf">cover letter</a>). Don’t hesitate to email me with any questions or concerns!</p>
+One way to address this issue is to bin the predictions I calculated using the model, and then compare them with the actual scores that have been realized. The following plot shows this:
 
-<p><strong>Currently enrolled in a Ph.D. program in Economics</strong>: I am a 3rd year Economics PhD student with fields in applied econometrics and industrial organization. I believe that my education and research experience in Labor Economics and the Economics of Education, my research experience in identification strategies for causal inference, and my passion for programming will allow me to be a invaluable asset to Glassdoor.</p>
 
-<p><strong>Knowledge of applied econometrics, data science and statistics</strong>: As one of my fields is applied econometrics, I have taken multiple econometrics and statistics courses. I consider myself to have an advanced level of knowledge in panel data techniques as I use them a lot in my research. I also have an extensive working and practical knowledge of a variety of other econometric, data science and statistical methods. I am also currently taking a computer science data structures and algorithms course, and a machine learning course online.</p>
+<img src="../../assets/blog/rlcs/actual_versus_forecast.png" alt="predicted versus real accuracy">
 
-<p><strong>Research ability in applied labor economics</strong>: Most of my research has been focused in the Economics of Education and Labor Economics. I have worked as a research assistant to labor economists from the University of Chicago, Brigham Young University, and Washington State University. My current projects include evaluating the effect of spending and tuition cuts in higher education in the US, and analyzing the impact of building postsecondary institutions on various outcomes in Ethiopia.</p>
+My (binned) predictions looks promising. The closer the forecasted chance of winnin to 50%,  we see that the actual win percentage is fairly close to the forecasted chance of winning. I do want to note that I have only used the model on 1 partial season of RLCS. Thus, we will get a clearer picture at how "accurate" my model is once I have added more data to test the model. Another thing we can do is use a (modified) Brier Test. This will show us how much better (or worse) my model performs when compared with a baseline model. The higher the score, the better. The baseline model usually used is giving a 50% chance of an event occuring for every event or state. The following table shows how well our forecasts perform when compared to forecasts from fivethirtyeight.com of other sports:
 
-<p><strong>Experience with machine learning techniques</strong>: I have experience using regression trees and random forests, model selection methods such as lasso and lars, support vector machines, clustering, and neural networks. I plan on integrating these and other machine learning techniques and methods into my future research.</p>
 
-<p><strong>Experience programming</strong>: I have used Python, R, and Stata to build, clean, and run analysis on many large datasets (10 million+ observations), high dimensional datasets (1000+ variables), and confidential datasets. I currently teach graduate students of several disciplines how to efficiently use Python in their research, and volunteer at many Python related workshops and courses at WSU.</p>
 
-<p><strong>Experience with data visualization tools</strong>: I have practical experience with data visualization tools in Python (Plotly, Seaborn, Matplotlib) and Tableau.</p>
+<table border="1">
+<tr><td><strong>Forecasting Score</strong></td><td> <strong>Sport</strong></td></tr>
+<tr><td>.0311</td><td> MLB</td></tr>
+<tr><td>.0696</td><td> Club Soccer Matches</td></tr>
+<tr><td>.0962</td><td> NFL</td></tr>
+<tr><td>.1296</td><td> NBA</td></tr>
+<tr><td>.1917</td><td> World Cup (men)</td></tr>
+<tr><td><font color="red">.2521</font></td><td><font color="red"> My RLCS Forecasts</font></td></tr>
+<tr><td>.2502</td><td> Tennis (women)</td></tr>
+<tr><td>.2715</td><td> World Cup (women)</td></tr>
+<tr><td>.3135</td><td> NFL Playoffs</td></tr>
+<tr><td>.3228</td><td> March Madness (men)</td></tr>
+<tr><td>.3244</td><td> Tennis (men)</td></tr>
+<tr><td>.3604</td><td> NBA Playoffs</td></tr>
+<tr><td>.4568</td><td> Club Soccer League</td></tr>
+<tr><td>.4806</td><td> MLB Playoffs</td></tr>
+<tr><td>.5232</td><td> March Madness (women)</td></tr>
+</table>
 
-<p><strong>Experience using SQL</strong>: Although I only have a basic knowledge of SQL, I have a lot of experience (and love for) working with data.</p>
-
-<p><strong>Strong communication skills</strong>: I have taught a variety of WSU undergraduate and graduate courses, taught a variety of python workshops and presentation groups, and have worked with many collaborators for my research. These opportunities have given me ample experience in communicating with both technical and nontechnical audiences.</p>
-
-<p><strong>Other requirements</strong>: I do not have any experience in creating data pipelines, however, I do have experience using AWS and I have a passion for programming. I have a deep interest in building predictive models and data pipelines to help the team be more productive for years to come. The opportunity to work with Glassdoor’s data to explore different issues and topics is really exciting to me.</p>
 
 </div>
 
