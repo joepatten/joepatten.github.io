@@ -988,24 +988,24 @@ for (var i = 0; i < btns.length; i++) {
 	<tbody class="weekly">
     <tr class="tr team">
      
-					<td class="td text team " style="text-align:right">Dignitas</td>
+					<td class="td text team winner" style="text-align:right">Dignitas</td>
      
 					<td class="td number chance" style="background-color: #ffb361">62%</td>
 					<td class="td number chance" style="background-color: #ffd19e">38%</td>
      
-					<td class="td text team " style="text-align:left">Endpoint</td>
+					<td class="td text team loser" style="text-align:left">Endpoint</td>
     
     
 				</tr>
     
     <tr class="tr team">
      
-					<td class="td text team " style="text-align:right">Team Reciprocity</td>
+					<td class="td text team winner" style="text-align:right">Team Reciprocity</td>
      
 					<td class="td number chance" style="background-color: #ffa747">72%</td>
 					<td class="td number chance" style="background-color: #ffddb8">28%</td>
      
-					<td class="td text team " style="text-align:left">Team SoloMid</td>
+					<td class="td text team loser" style="text-align:left">Team SoloMid</td>
     
     
 				</tr>
@@ -1101,60 +1101,60 @@ for (var i = 0; i < btns.length; i++) {
     
     <tr class="tr team">
      
-					<td class="td text team " style="text-align:right">Spacestation Gaming</td>
+					<td class="td text team winner" style="text-align:right">Spacestation Gaming</td>
      
 					<td class="td number chance" style="background-color: #ffa645">73%</td>
 					<td class="td number chance" style="background-color: #ffdeba">27%</td>
      
-					<td class="td text team " style="text-align:left">Rogue</td>
+					<td class="td text team loser" style="text-align:left">Rogue</td>
     
     
 				</tr>
     
     <tr class="tr team">
      
-					<td class="td text team " style="text-align:right">Flight</td>
+					<td class="td text team loser" style="text-align:right">Flight</td>
      
 					<td class="td number chance" style="background-color: #ffd7ab">33%</td>
 					<td class="td number chance" style="background-color: #ffad54">67%</td>
      
-					<td class="td text team " style="text-align:left">Susquehanna Soniqs</td>
+					<td class="td text team winner" style="text-align:left">Susquehanna Soniqs</td>
     
     
 				</tr>
     
     <tr class="tr team">
      
-					<td class="td text team " style="text-align:right">Ghost Gaming</td>
+					<td class="td text team loser" style="text-align:right">Ghost Gaming</td>
      
 					<td class="td number chance" style="background-color: #ffab4f">69%</td>
 					<td class="td number chance" style="background-color: #ffd9b0">31%</td>
      
-					<td class="td text team " style="text-align:left">Cloud9</td>
+					<td class="td text team winner" style="text-align:left">Cloud9</td>
     
     
 				</tr>
     
     <tr class="tr team">
      
-					<td class="td text team " style="text-align:right">Pittsburgh Knights</td>
+					<td class="td text team winner" style="text-align:right">Pittsburgh Knights</td>
      
 					<td class="td number chance" style="background-color: #ffc07a">52%</td>
 					<td class="td number chance" style="background-color: #ffc485">48%</td>
      
-					<td class="td text team " style="text-align:left">eUnited</td>
+					<td class="td text team loser" style="text-align:left">eUnited</td>
     
     
 				</tr>
     
     <tr class="tr team">
      
-					<td class="td text team " style="text-align:right">NRG Esports</td>
+					<td class="td text team winner" style="text-align:right">NRG Esports</td>
      
 					<td class="td number chance" style="background-color: #ffcb91">43%</td>
 					<td class="td number chance" style="background-color: #ffb96e">57%</td>
      
-					<td class="td text team " style="text-align:left">G2 Esports</td>
+					<td class="td text team loser" style="text-align:left">G2 Esports</td>
     
     
 				</tr>
@@ -1953,7 +1953,7 @@ for (var i = 0; i < btns.length; i++) {
     </div>
     
 
-<strong>Note</strong> <p style='font-size:10 px;'>The forecasts above are based on 1,000 simulations for each game. I use markov chain to simulate the events of each team and their opponent. Transition matrices are constructed using play-by-play data. The model is rather simplistic and does not take into account things like momentum (which is an important factor to consider in Rocket League). Future work will take this into account as well as explore how similar certain teams are with the hope of increasing the accuracy of my forecasts. Predictions should become more accurate as the season goes on, thus we should get a more accurate picture of how teams behave. Future work will also include using priors to forecast games when there is little data about one or both of the teams. I also plan on evaluating my predictions in order to calibrate or even rework my model.
+<strong>Description</strong> <p style='font-size:10 px;'>The forecasts above are based on 1,000 simulations for each game. I use markov chain to simulate the events of each team and their opponent. Events could include shots, saves, passes, etc. I house the transition probabilities in a transition matrix. A transition probability is defined as the probability of an event occuring given a certain event has just occured. For example, one transition probability would be the probability of team B saving the ball when team A shoots the ball. Transition matrices are constructed using play-by-play data from previous weeks. The model is rather simplistic and does not take into account things like momentum (which is an important factor to consider in Rocket League). Future work will take this into account as well as explore how similar certain teams are with the hope of increasing the accuracy of my forecasts. Predictions should become more accurate as the season goes on, thus we should get a more accurate picture of how teams behave. Future work will also include using priors to forecast games when there is little data about one or both of the teams. I also plan on evaluating my predictions in order to calibrate or even rework my model.
 
 <br>
 <br>
