@@ -17,7 +17,7 @@
 
   <title>
     
-      Layout: Excerpt (Defined) &middot; Joe Patten
+      RLCS Predictions &middot; Joe Patten
     
   </title>
 
@@ -42,7 +42,7 @@
 </head>
 
   <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  <body class="post">
+  <body class="page">
 
     <div id="sidebar">
   
@@ -174,7 +174,7 @@
 
   
     
-      <a class="page-link "
+      <a class="page-link  active"
           href="/blog/rlcs_predictions2">RLCS Predictions</a>
     
   
@@ -576,125 +576,56 @@
 
     <main class="container">
       <header>
-  <h1 class="post-title">Layout: Excerpt (Defined)</h1>
+  <h1 class="page-title">RLCS Predictions</h1>
 </header>
+
+<!--<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>-->
+
 <div class="content">
-  <div class="post-meta">
-  <span class="post-date">04 Feb 2012</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        Layout
-      
-    
-  </span>
-</div>
-
-  <div class="post-body">
-    <p>This is the start of the post content.</p>
-
-<p>This paragraph should be absent from an index page where <code class="highlighter-rouge">post.excerpt</code> is shown.</p>
-
-    
-
-
-
-<div class="post-tags">
   
-    
-    <a href="/tags.html#content">
-    
-      <span class="icon">
-        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
-</svg>
-      </span>&nbsp;<span class="tag-name">content</span>
-    </a>
-  
-    
-    <a href="/tags.html#excerpt">
-    
-      <span class="icon">
-        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
-</svg>
-      </span>&nbsp;<span class="tag-name">excerpt</span>
-    </a>
-  
-    
-    <a href="/tags.html#layout">
-    
-      <span class="icon">
-        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
-</svg>
-      </span>&nbsp;<span class="tag-name">layout</span>
-    </a>
-  
-</div>
-  </div>
-
-  
-  <section class="comments">
-    <h2>Comments</h2>
-    
-  <p>
-    You are seeing this because your Disqus shortname is not properly set. To
-    configure Disqus, you should edit your <code>_config.yml</code> to include
-    either a <code>disqus.shortname</code> variable.
-  </p>
-
-  <p>
-    If you do not wish to use Disqus, override the
-    <code>comments.html</code> partial for this theme.
-  </p>
-
-
-  </section>
-
-  <section class="related">
-  <h2>Related Posts</h2>
-  <ul class="posts-list">
-    
-      <li>
-        <h3>
-          <a href="/2017/06/01/hello-hydeout.html">
-            Hello Hydeout
-            <small>01 Jun 2017</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2013/12/28/introducing-hyde.html">
-            Introducing Hyde
-            <small>28 Dec 2013</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2012/02/07/example-content.html">
-            Example content
-            <small>07 Feb 2012</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</section>
-
 </div>
 
     </main>
