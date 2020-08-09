@@ -1,5 +1,8 @@
 ---
-permalink: /blog/rlcs_predictions_test
+layout: page
+title: RLCS Predictions
+sidebar_link: false
+permalink: /blog/rlcs_test
 ---
 
 

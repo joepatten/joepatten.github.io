@@ -1101,3 +1101,83 @@ button.disqus-load {
     border-right-color: rgba(0, 255, 0, 0.75); }
   to {
     border-right-color: transparent; } }
+.bracket-viz {
+  display: flex;
+  justify-content: center;
+  color: #1e202c;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("../../assets/img/blue_dribble_7.png");
+  background-color: #1e202c;
+  background-size: 100%;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border-radius: 5px; }
+
+.bracket-viz .overlay {
+  display: flex;
+  justify-content: center;
+  color: #1e202c;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("https://rocketeers.gg/wp-content/uploads/2019/05/Rocketeers.gg_Dribbling1.jpg");
+  background-size: 100%;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border-radius: 5px; }
+
+.bracket-viz svg {
+  display: block; }
+
+.bracket-viz svg text {
+  font-size: 14px;
+  fill: #CA4; }
+
+.bracket-viz .round-labels text {
+  text-transform: capitalize;
+  fill: #ccc; }
+
+.bracket-viz .link {
+  fill: none;
+  stroke-width: 1.5px;
+  stroke: #3d4159; }
+
+.bracket-viz .node rect {
+  stroke-width: 1.5px;
+  stroke: #3d4159;
+  fill: #c1c4d5; }
+
+.bracket-viz .node text {
+  fill: #1e202c; }
+
+.bracket-viz .node.highlighted rect {
+  fill: currentColor; }
+
+.bracket-viz .node.highlighted text {
+  fill: #ffffff; }
+
+.bracket-viz .icon-rect {
+  stroke-width: 1.5px;
+  fill: #c1c4d5;
+  stroke: #3d4159; }
+
+.bracket-viz .icon-image {
+  display: none; }
+
+.bracket-viz .icon-image.highlighted {
+  display: inline; }
+
+.bracket-viz .highlighted-link {
+  fill: none;
+  stroke-linecap: butt; }
+
+.bracket-viz .probability {
+  font-size: 1em;
+  fill: #c29e35; }
+
+.bracket-viz .probability.win {
+  font-size: 2em;
+  fill: #c29e35; }
+
+table, th {
+  border: 1px solid #232637; }

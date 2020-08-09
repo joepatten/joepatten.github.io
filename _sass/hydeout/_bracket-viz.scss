@@ -1,0 +1,118 @@
+//background for whole bracket
+.bracket-viz {
+  display: flex;
+  justify-content: center;
+  color: $bracket_blue;
+  width: 100%;
+  overflow: hidden;
+  
+  //added
+  background-image: url("../../assets/img/blue_dribble_7.png");
+  background-color: $bracket_blue;
+  //background-attachment: fixed;
+  background-size: 100%;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border-radius: 5px;
+}
+
+.bracket-viz .overlay {
+  display: flex;
+  justify-content: center;
+  color: $bracket_blue;
+  width: 100%;
+  overflow: hidden;
+  
+  //added
+  background-image: url("https://rocketeers.gg/wp-content/uploads/2019/05/Rocketeers.gg_Dribbling1.jpg");
+  //background-color: $bracket_blue;
+  //background-attachment: fixed;
+  background-size: 100%;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border-radius: 5px;
+}
+
+.bracket-viz svg {
+  display: block;
+  
+}
+
+//Probability of Winning Tournament text
+.bracket-viz svg text {
+  font-size: 14px;
+  fill: $gold;
+  //darken($bracket_blue, 20%);
+}
+
+//top (headline) text
+.bracket-viz .round-labels text {
+  text-transform: capitalize;
+  fill: $gray-3;
+}
+
+//
+.bracket-viz .link {
+  fill: none;
+  stroke-width: 1.5px;
+  stroke: lighten($bracket_blue, 15%);
+}
+
+//rectangle
+.bracket-viz .node rect {
+  stroke-width: 1.5px;
+  //stroke: currentColor;
+  stroke: lighten($bracket_blue, 15%);
+  fill: lighten($bracket_blue, 65%);
+}
+
+.bracket-viz .node text {
+  //fill: darken($bracket_blue, 20%);
+  fill: $bracket_blue;
+}
+
+.bracket-viz .node.highlighted rect {
+  fill: currentColor;
+}
+
+.bracket-viz .node.highlighted text {
+  fill: #ffffff;
+}
+
+//rectangle that has team logo
+.bracket-viz .icon-rect {
+  stroke-width: 1.5px;
+  fill: lighten($bracket_blue, 65%);
+  stroke: lighten($bracket_blue, 15%);
+}
+
+.bracket-viz .icon-image {
+  display: none;
+}
+
+.bracket-viz .icon-image.highlighted {
+  display: inline;
+}
+
+.bracket-viz .highlighted-link {
+  fill: none;
+  stroke-linecap: butt;
+}
+
+//probability text
+.bracket-viz .probability {
+  font-size: 1em;
+  //fill: darken($bracket_blue, 20%);
+  fill: darken($gold, 5%);
+}
+
+//probability of win (in final) text
+.bracket-viz .probability.win {
+  font-size: 2em;
+  //fill: darken($bracket_blue, 20%);
+  fill: darken($gold, 5%);
+}
+
+table, th {
+  border: 1px solid #232637;
+}
