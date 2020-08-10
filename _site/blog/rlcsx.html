@@ -263,6 +263,10 @@
   
 
   
+    
+  
+
+  
 
   
     
@@ -302,38 +306,6 @@
 
   
     
-  
-
-  
-    
-  
-
-  
-    
-  
-
-  
-    
-  
-
-  
-    
-  
-
-  
-    
-  
-
-  
-    
-  
-
-  
-    
-  
-
-  
-
   
 
   
@@ -367,6 +339,20 @@
   
 
   
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
     
   
 
@@ -382,6 +368,28 @@
     
   
 
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
   
 
   
@@ -645,13 +653,13 @@ for (var i = 0; i < btns.length; i++) {
   <script src="https://d3js.org/d3-array.v2.min.js"></script>
   <script src="../assets/js/bracket-viz.js"></script>
   <script>
-  	// data taken from assets/data/predictions2.csv
-  	// javascript taken from assets/js/breacket-viz.js
-  	// css from _bracket-viz.scss
-  	// TODO: put bracket in include (anyway to have the file as an input that I could put in?)
-  	// 
+    // data taken from assets/data/predictions2.csv
+    // javascript taken from assets/js/breacket-viz.js
+    // css from _bracket-viz.scss
+    // TODO: put bracket in include (anyway to have the file as an input that I could put in?)
+    // 
     // The data retrieving call is placed outside the bracket drawing code so the retrieved data can be used by both the bracket viz and the table viz
-    d3.csv("/assets/data/predictions2.csv")
+    d3.csv("/assets/data/updated_predictions2.csv")
       .then((data) => {
         // console.log(data);
         // Draw bracket viz
@@ -670,19 +678,21 @@ for (var i = 0; i < btns.length; i++) {
           "Something went wrong. Please try again later.";
       });
   </script>
-	
+  
 <!-- Added -->
   <script type="text/javascript">
-  	function myFunction() {
-	  var x = document.getElementById("myDIV");
-	  if (x.innerHTML === "Hello") {
-	    x.innerHTML = "Swapped text!";
-	  } else {
-	    x.innerHTML = "Hello";
-	  }
-	}
+    function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.innerHTML === "Hello") {
+      x.innerHTML = "Swapped text!";
+    } else {
+      x.innerHTML = "Hello";
+    }
+  }
   </script>
 
+
+The predictions above are using the updated model. Click <a href="../blog/old_rlcsx">here</a> for predictions using model from season 9.
 </div>
 
     </main>
