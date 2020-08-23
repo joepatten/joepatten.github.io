@@ -1,0 +1,50 @@
+---
+layout: page
+title: RLCS Season X Predictions
+sidebar_link: false
+permalink: /blog/na_rlcsx1
+---
+
+<!-- <div class="dropdown">
+  <button class="dropbtn">Season 10</button>
+  <div class="dropdown-content">
+    <a href="/blog/rlcsx">Season 10</a>
+    <a href="/blog/rlcs9">Season 9</a>
+  </div>
+</div>
+ -->
+<br/>
+<h3>Regional Event 1 NA Playoffs Predictions</h3>
+
+<div id="bracket-viz">
+</div>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <script src="https://d3js.org/d3-array.v2.min.js"></script>
+  <script src="../assets/js/bracket-viz.js"></script>
+  <script>
+    // data taken from assets/data/predictions2.csv
+    // javascript taken from assets/js/breacket-viz.js
+    // css from _bracket-viz.scss
+    // TODO: put bracket in include (anyway to have the file as an input that I could put in?)
+    // 
+    // The data retrieving call is placed outside the bracket drawing code so the retrieved data can be used by both the bracket viz and the table viz
+    d3.csv("/assets/data/na_predictions.csv")
+      .then((data) => {
+        // console.log(data);
+        // Draw bracket viz
+        bracketViz({
+          el: document.querySelector("#bracket-viz"),
+          data: data,
+        });
+        // Draw table viz
+        // Set up bracket/table toggle
+      })
+      .catch((error) => {
+        console.error(error);
+        // Handle errors
+        // Here I used the simplest solution. If you want more complex message, you can put the error message markup in the html body, and toggle the visibility of the message using a class
+        document.querySelector("#bracket-viz").textContent =
+          "Something went wrong. Please try again later.";
+      });
+  </script>
