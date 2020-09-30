@@ -1164,7 +1164,8 @@ button.disqus-load {
   fill: #c29e35; }
 
 .pred_table th {
-  border: 1px solid #232637; }
+  border: 1px solid #232637;
+  color: #9B9B9BFF; }
 
 .hide {
   display: none; }

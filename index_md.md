@@ -1,12 +1,7 @@
 ---
-layout: page
-title: Home
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: home
 ---
-
-This site is currently under construction. Click [here]({{ site.baseurl }}/teaching/math_bootcamp) to get to the Math Bootcamp page.
-
-What I am currently working on:
-- Creating and developing Labor Economics course
-- Developing math bootcamp for incoming PhD Economics students
-- Continuing research in education economics
-- Completing Dataquest courses for Python and Data Science
+thsi is a test
