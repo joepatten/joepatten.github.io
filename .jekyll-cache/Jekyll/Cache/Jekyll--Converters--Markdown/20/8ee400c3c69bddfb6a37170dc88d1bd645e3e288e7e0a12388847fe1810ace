@@ -1,0 +1,88 @@
+I"Ë
+<h4 id="python-resources">Python Resources</h4>
+<ul>
+  <li><a href="tutorials/python">My Tutorial</a> (under construction)</li>
+  <li><a href="https://lectures.quantecon.org/py/">QuantEcon</a></li>
+  <li><a href="https://docs.python.org/3/">Python Documentation</a></li>
+</ul>
+
+<!--
+```python
+#Python code
+def mutiply(x,y):
+  return(x*y)
+#=>
+```
+-->
+
+<h4 id="r-resources">R Resources</h4>
+<ul>
+  <li><a href="http://swirlstats.com/">swirl</a></li>
+  <li><a href="https://www.r-project.org/other-docs.html">R Documentation</a></li>
+</ul>
+
+<h4 id="latex-resources">Latex Resources</h4>
+<ul>
+  <li><a href="/assets/pdfs/tutorials/latex_tutorial.pdf">My Tutorial pdf</a> and <a href="/assets/zips/latex_tutorial.zip">folder (containing the tex file and necessary files)</a></li>
+  <li><a href="https://en.wikibooks.org/wiki/LaTeX">Latex Wikibooks</a></li>
+  <li><a href="https://www.latex-project.org/help/documentation/">Latex Documentation</a></li>
+</ul>
+
+<h4 id="git-and-github">Git (and Github)</h4>
+<ul>
+  <li><a href="https://www.udacity.com/course/how-to-use-git-and-github--ud775">(Free) Udacity course</a></li>
+</ul>
+
+<!--
+```tex
+%latex code
+\begin{align}
+  x &=5;
+  y &=4;
+\end{align}
+```
+
+```latex
+$x=4$
+```
+\\( sin(x^2) \\)
+
+and here
+
+$$sin(x^2)$$
+
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="c1">#Python code
+</span><span class="k">def</span> <span class="nf">printer</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+
+<span class="k">def</span> <span class="nf">printer</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+
+<span class="k">def</span> <span class="nf">printer</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+
+<span class="k">def</span> <span class="nf">printer</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+
+<span class="k">def</span> <span class="nf">printer</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+</pre></td></tr></tbody></table></code></pre></figure>
+
+-->
+:ET

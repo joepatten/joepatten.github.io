@@ -1,0 +1,258 @@
+I":,<h2 id="syllabus">Syllabus</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Instructor:</td>
+      <td>Joe Patten</td>
+    </tr>
+    <tr>
+      <td>Office:</td>
+      <td>205C Hulbert Hall</td>
+    </tr>
+    <tr>
+      <td>Office Hours:</td>
+      <td>TBA</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td><a href="mailto:joseph.patten@wsu.edu">joseph.patten@wsu.edu</a></td>
+    </tr>
+    <tr>
+      <td>Dates:</td>
+      <td>Mon August 5 - Wed August 14</td>
+    </tr>
+    <tr>
+      <td>Time:</td>
+      <td>TBA</td>
+    </tr>
+    <tr>
+      <td>Lectures:</td>
+      <td>TBA</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="class-website">Class Website</h3>
+<p>Go to my <a href="http://joepatten.com/teaching/masters_math_bootcamp_2019">website</a>.</p>
+
+<h3 id="course-description">Course Description</h3>
+
+<p>This course serves as a refresher for linear algebra, calculus, and optimization. In addition, it will cover important topics meant to help you begin to acquire what is often called <em>mathematical maturity</em>.  It is designed to help prepare you mathematically for your fall courses.  This is an active-learning course.  Lecture notes will be posted online.</p>
+
+<hr />
+
+<h3 id="course-learning-goals">Course Learning Goals</h3>
+
+<p><strong>At the end of this course, students should be able to</strong>:</p>
+<blockquote>
+  <p>Understand and have working knowledge of mathematics used in Master’s-level economics.  Students will learn/review calculus of one variable and of several variables, linear algebra and optimization.</p>
+</blockquote>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><strong>The following will address this outcome</strong>:</p>
+<blockquote>
+  <p>Assigned readings and problem set.</p>
+</blockquote>
+
+<p><strong>This outcome will be evaluated primarily by</strong>:</p>
+<blockquote>
+  <p>Completion of problem set and exam.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="course-materials">Course Materials</h3>
+
+<p>The book used for this course will be Simon &amp; Blume’s <a href="http://www.amazon.com/Mathematics-Economists-Carl-P-Simon/dp/0393957330/ref=sr_1_1?ie=UTF8&amp;qid=1458096199&amp;sr=8-1&amp;keywords=Mathematics+for+economics+blume" title="Mathematics for Economists">“<em>Mathematics for Economists</em>”</a>.</p>
+
+<hr />
+
+<h3 id="grading-exams-and-homework">Grading, Exams, and Homework</h3>
+<p>Grading will be based off points accumulated through an assignment and exam.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Course Items</th>
+      <th style="text-align: left">Due Date</th>
+      <th style="text-align: center">Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Assignment 1</td>
+      <td style="text-align: left">August 8</td>
+      <td style="text-align: center">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Final Exam</td>
+      <td style="text-align: left">TBA (August 12-16)</td>
+      <td style="text-align: center">70</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Total</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center"><strong>100</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="workload">Workload</h4>
+
+<p>It is WSU policy that for every hour of faculty directed activities, students should expect a minimum of two hours engaged in supportive learning activities.  Depending on your skills and knowledge as a learner, additional time may be required.</p>
+
+<p>In this course, there will be no official “faculty directed time” and the workload will in all honesty be substantial for all individuals that have not had a significant amount of prior mathematics education.</p>
+
+<h4 id="assignments">Assignments</h4>
+
+<p>An assignment will be posted on the course website.  Due dates are given below.  <font color="red">**The assignment should be submitted to my box or my email by 11:59 pm Pacific Standard Time on the due date**</font>.  Note that if you are going to turn your assignment into my box, do so before 5:00 pm as the office will lock the room that has the boxes at that time.  The assignment will be worth 30/100 points.  The assignment will be a problem set that gives the students practice applying the mathematical tools covered in the course text.</p>
+
+<p><br /></p>
+
+<h4 id="late-assignments">Late assignments</h4>
+
+<p>Although I do prefer that you turn in your assignment on time, I will accept the assignment past its due date. Turning in the assignment late will not affect your grade. That being said, I strongly encourage you to adhere to the course schedule listed below so that you don’t fall behind.</p>
+
+<h4 id="final-exam">Final Exam</h4>
+
+<p>There will be one exam at the end of the course and it is worth 70/100 points.  The exam will cover all the material covered in the course.  The exam will be proctored on campus in Hulbert Hall on a date TBA.</p>
+
+<hr />
+
+<h3 id="course-outline">Course Outline</h3>
+
+<p>Below I have provided a <em>tentative schedule</em>. Dates as well as topics are subject to change depending on the pace of the course, as well as what I think should be covered.</p>
+
+<!--
+| Date  | Topics | Readings | Assignments |
+| :--- | :---   | :--- | :--- |
+| 15 | Linear Systems and Matrix Algebra | S&B 6-9; Notes |  |
+| 16 | Linear Systems and Matrix Algebra | S&B 6-9; Notes |  |
+| 17 | Linear Spaces | S&B 10, 11 | |
+| 18 | Linear Spaces and Set Theory | S&B 10, 11; Provided Notes |  |
+| 19 | Weekly Review |  | **Assignment 1 due** |
+-->
+<h4 id="week-1-august-5-august-9">Week 1 (August 5-August 9)</h4>
+
+<table>
+      <col width="5%" />
+    <col width="35%" />
+    <col width="35%" />
+    <col width="25%" />
+<thead>
+<tr>
+<th align="left">Date</th>
+<th align="left">Topics</th>
+<th align="left">Readings</th>
+<th align="left">Assignments</th>
+</tr>
+</thead>
+<tbody>
+  <tr>
+<td align="left">5</td>
+<td align="left"><a href="../../assets/pdfs/masters_math_bootcamp/Lecture1.pdf">Linear Algebra</a></td>
+<td align="left">S&amp;B 6-7</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><a href="../../assets/pdfs/masters_math_bootcamp/Lecture2.pdf">Calculus (derivatives)</a></td>
+<td align="left">S&amp;B 1-2</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left"><a href="../../assets/pdfs/masters_math_bootcamp/Lecture3.pdf">Unconstrained Optimization</a></td>
+<td align="left">S&amp;B 17</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left"><a href="../../assets/pdfs/masters_math_bootcamp/Lecture4.pdf">Constrained Optimization</a></td>
+<td align="left">S&amp;B 18</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left"><a href="../../assets/pdfs/masters_math_bootcamp/Lecture5.pdf">Calculus (integration, chain rule)</a></td>
+<td align="left">S&amp;B 4, Appendix A4</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<!--
+| Date  | Topics | Readings | Assignments |
+| :--- | :---   | :--- | :--- |
+| 29 | Proofs and Real Analysis | S&B 12; Appendix A1; Provided Notes |  |
+| 30 | Optimization | S&B 20-21 |  |
+| 31 | Optimization | S&B 20-21 |  |
+| 1 | Optimization | S&B 20-21 |  |
+| 2 | Weekly Review |  | **Assignment 3 due**  |
+-->
+<!--
+<br/>
+<br/>
+<br/>
+-->
+
+<h4 id="week-2-august-12-14">Week 2 (August 12-14)</h4>
+
+<table>
+      <col width="5%" />
+    <col width="35%" />
+    <col width="35%" />
+    <col width="25%" />
+<thead>
+<tr>
+<th align="left">Date</th>
+<th align="left">Topics</th>
+<th align="left">Readings</th>
+<th align="left">Assignments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">12</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><strong><a href="../../assets/pdfs/masters_math_bootcamp/assignments/assignment_1.pdf">Assignment 1 due</a></strong></td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">Final Exam from 1-2 PM</td>
+<td align="left">No Notes</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<!--
+| Date  | Topics | Readings | Assignments |
+| :--- | :---   | :--- | :--- |
+| 12 |  |  | **Assignment 4 due**  |
+| TBA | Final Exam | No Notes |  |
+-->
+<p><em>S&amp;B ~ Simon &amp; Blume text</em></p>
+
+<h3 id="students-with-disabilities">Students with Disabilities</h3>
+
+<p>Students with Disabilities: Reasonable accommodations are available for students with a documented disability. If you have a disability and need accommodations to fully participate in this class, please either visit or call the Access Center (Washington Building 217; 509-335-3417) to schedule an appointment with an Access Advisor. All accommodations MUST be approved through the Access Center. For more information contact a Disability Specialist at 509-335-3417, or on-line via <a href="http://accesscenter.wsu.edu">http://accesscenter.wsu.edu or Access.Center@wsu.edu</a> or <a href="mailto:access.center@wsu.edu">Access.Center@wsu.edu</a></p>
+
+<p><strong>Pullman or WSU Online</strong> 
+<strong>Phone</strong>: (509) 335-3417 
+<strong>Website</strong>: <a href="http://accesscenter.wsu.edu">accesscenter.wsu.edu</a> 
+<strong>Email</strong>: <a href="mailto:access.center@wsu.edu">access.center@wsu.edu</a></p>
+
+<h3 id="wsu-academic-integrity-statement">WSU Academic Integrity Statement</h3>
+
+<p>As an institution of higher education, Washington State University is committed to principles of truth and academic honesty. All members of the University community share the responsibility for maintaining and supporting these principles. When a student enrolls in Washington State University, the student assumes an obligation to pursue academic endeavors in a manner consistent with the standards of academic integrity adopted by the University. To maintain the academic integrity of the community, the University cannot tolerate acts of academic dishonesty including any forms of cheating, plagiarism, or fabrication. Washington State University reserves the right and the power to discipline or to exclude students who engage in academic dishonesty. Students found responsible for academic integrity violations may receive an F on the particular assignment or exam, as well as an F for the course.  Serious and/or repeated offenses may result in referral to the Office of Student Standards and Accountability and expulsion from WSU. Cheating is defined in the Standards for Student Conduct WAC 504-26-010 (3).</p>
+
+<p>You can learn more about Academic Integrity on your campus using the URL listed in the Academic Regulations section or to <a href="http://academicintegrity.wsu.edu/">http://academicintegrity.wsu.edu</a> . Please use these resources to ensure that you don’t inadvertently violate WSU’s standard of conduct. It is strongly suggested that every student read and understand these definitions.</p>
+
+<h3 id="safety-statement">Safety Statement</h3>
+
+<p>Washington State University is committed to enhancing the safety of the students, faculty, staff, and visitors. It is highly recommended that you review the Campus Safety Plan <a href="http://safetyplan.wsu.edu/">http://safetyplan.wsu.edu</a> and visit the Office of Emergency Management web site <a href="http://oem.wsu.edu/">http://oem.wsu.edu</a> for a comprehensive listing of university policies, procedures, statistics, and information related to campus safety, emergency management, and the health and welfare of the campus community.</p>
+:ET

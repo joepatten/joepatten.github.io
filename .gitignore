@@ -1,5 +1,10 @@
 _site
 .sass-cache
 .jekyll-metadata
-Gemfile
+
+
+Makefile
 Gemfile.lock
+_config.dev.yml
+.vscode
+*.gem

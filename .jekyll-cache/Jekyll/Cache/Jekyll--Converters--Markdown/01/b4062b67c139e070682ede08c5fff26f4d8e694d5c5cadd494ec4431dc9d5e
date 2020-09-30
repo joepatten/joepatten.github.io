@@ -1,0 +1,405 @@
+I"�U<h2 id="syllabus">Syllabus</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Instructor:</td>
+      <td>Joe Patten</td>
+    </tr>
+    <tr>
+      <td>Office:</td>
+      <td>107A Hulbert Hall</td>
+    </tr>
+    <tr>
+      <td>Office Hours:</td>
+      <td>T.B.A.</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td><a href="mailto:joseph.patten@wsu.edu">joseph.patten@wsu.edu</a></td>
+    </tr>
+    <tr>
+      <td>Dates:</td>
+      <td>Mon July 23 - Wed August 15</td>
+    </tr>
+    <tr>
+      <td>Time:</td>
+      <td>10 am - 12 pm</td>
+    </tr>
+    <tr>
+      <td>Lectures:</td>
+      <td>Hulbert Hall Room 23</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="class-website">Class Website</h3>
+<p>Go to my <a href="http://joepatten.com/teaching/math_bootcamp">website</a>.</p>
+
+<h3 id="course-description">Course Description</h3>
+
+<p>This course serves as a refresher for linear algebra, univariate calculus, and multivariate calculus. In addition, it will cover important topics meant to help you begin to acquire what is often called <em>mathematical maturity</em> through covering basic topics in logic, set theory and proofs.  It is designed to help prepare you mathematically for the math course in the fall semester.  This is an active-learning course.  Lecture notes will be posted online.  Please note that the instructor(s) of <strong>EconS 506</strong> course during the Fall semester may assess your knowledge of the topics covered in this summer course with an exam in the first week of the Fall semester, and <strong><font color="red">that exam score may affect your grade in the EconS 506 course</font></strong>.</p>
+
+<hr />
+
+<h4 id="course-learning-goals">Course Learning Goals</h4>
+
+<p><strong>At the end of this course, students should be able to</strong>:</p>
+<blockquote>
+  <p>Understand and have working knowledge of mathematics used in PhD-level economics.  Students will learn/review calculus of one variable and of several variables, linear algebra and matrix properties.  Students will also learn some logic, set theory and proof strategies useful for learning and understanding more advanced mathematical concepts.</p>
+</blockquote>
+
+<p><strong>The following will address this outcome</strong>:</p>
+<blockquote>
+  <p>Assigned readings and problem sets.</p>
+</blockquote>
+
+<p><strong>This outcome will be evaluated primarily by</strong>:</p>
+<blockquote>
+  <p>Completion of problem sets and exams.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="course-materials">Course Materials</h3>
+
+<p>The following are some recommended textbooks.  The primary book used for this course will be Simon &amp; Blume’s “<em>Mathematics for Economists</em>”.  However, Simon &amp; Blume’s text, by itself, is inadequate for modern mathematics, you should expect to consult other texts.  I will provide other notes as additional resources, particularly for the set theory and proofs sections.</p>
+
+<h4 id="graduate-level-course-books">Graduate-level Course Books</h4>
+
+<p><strong>Mathematics for Economists</strong></p>
+
+<ul>
+  <li>Carl Simon and Lawrence Blume. <a href="http://www.amazon.com/Mathematics-Economists-Carl-P-Simon/dp/0393957330/ref=sr_1_1?ie=UTF8&amp;qid=1458096199&amp;sr=8-1&amp;keywords=Mathematics+for+economics+blume" title="Mathematics for Economists"><strong>Mathematics for Economists</strong></a>.  New York; W.W. Norton &amp; Company, 1994.</li>
+  <li>Michael Carter. <a href="http://www.amazon.com/Foundations-Mathematical-Economics-Michael-Carter/dp/0262531925/ref=sr_1_1?ie=UTF8&amp;qid=1458096452&amp;sr=8-1&amp;keywords=Foundations+of+Mathematical+economics" title="Foundations of Mathematical Economics"><strong>Foundations of Mathematical Economics</strong></a>. MIT Press, 2001.</li>
+  <li>Michael Hoy, John Livernois, Chris McKenna, Ray Rees and Thanasis Stengos. <a href="http://www.amazon.com/Mathematics-Economics-Michael-Hoy/dp/0262015072/ref=sr_1_1?ie=UTF8&amp;qid=1458096520&amp;sr=8-1&amp;keywords=Mathematics+for+economics+hoy" title="Mathematics for Economics"><strong>Mathematics for Economics</strong></a>. MIT Press 2011.</li>
+  <li>Dean Corbae, Maxwell B. Stinchcombe. <a href="http://www.amazon.com/Introduction-Mathematical-Analysis-Economic-Econometrics/dp/0691118671/ref=sr_1_1?ie=UTF8&amp;qid=1462657834&amp;sr=8-1&amp;keywords=mathematical+analysis+for+economics" title="An Introduction to Mathematical Analysis for Economic Theory and Econometrics"><strong>An Introduction to Mathematical Analysis for Economic Theory and Econometrics</strong></a>. Princeton University Press, 2009.</li>
+  <li>Efe A. Ok. <a href="http://www.amazon.com/Real-Analysis-Economic-Applications-Efe/dp/0691117683/ref=pd_bxgy_14_2?ie=UTF8&amp;refRID=0SNE45T1AZZH7Q34NZWK" title="Real Analysis with Economic Applications"><strong>Real Analysis with Economic Applications</strong></a>. Princeton University Press, 2007.</li>
+</ul>
+
+<p><strong>Mathematical Proof</strong></p>
+
+<ul>
+  <li>Daniel J. Velleman. <a href="http://www.amazon.com/How-Prove-Structured-Approach-2nd/dp/0521675995/ref=sr_1_1?ie=UTF8&amp;qid=1462656397&amp;sr=8-1&amp;keywords=How+to+prove+it" title="How to Prove It: A Structured Approach"><strong>How to Prove It: A Structured Approach</strong></a>. Cambridge University Press, 2006.</li>
+  <li>Gary Chartrand, Albert D. Polimeni, Ping Zhang. <a href="http://www.amazon.com/Mathematical-Proofs-Transition-Advanced-Mathematics/dp/0321390539/ref=sr_1_2?ie=UTF8&amp;qid=1462657054&amp;sr=8-2&amp;keywords=chartrand+proofs" title="Mathematical Proofs: A Transition to Advanced Mathematics"><strong>Mathematical Proofs: A Transition to Advanced Mathematics</strong></a>. Pearson; 2nd ed, 2007.</li>
+</ul>
+
+<p><strong>Linear Algebra and Matrix Algebra</strong></p>
+
+<ul>
+  <li>Sheldon Axler. <a href="http://www.amazon.com/Linear-Algebra-Right-Undergraduate-Mathematics/dp/3319110799/ref=sr_1_1?ie=UTF8&amp;qid=1462656714&amp;sr=8-1&amp;keywords=Linear+Algebra+done+right" title="Linear Algebra Done Right"><strong>Linear Algebra Done Right</strong></a>. Springer; 3rd ed, 2014.</li>
+  <li>Roger A. Horn, Charles R. Johnson. <a href="http://www.amazon.com/Matrix-Analysis-Roger-Horn/dp/0521386322/ref=sr_1_2?ie=UTF8&amp;qid=1462657359&amp;sr=8-2&amp;keywords=matrix+analysis" title="Marix Analysis"><strong>Matrix Analysis</strong></a>. Cambridge University Press, 1990.</li>
+</ul>
+
+<h4 id="undergraduate-level-course-books-as-additional-reference">Undergraduate-level Course Books As Additional Reference</h4>
+
+<ul>
+  <li>Kevin Wainwright and Alpha C. Chiang. <strong>Fundamental Methods of Mathematical Economics</strong>. McGraw-Hill Education, 2004.</li>
+  <li>Michael Klein. <strong>Mathematical Methods for Economics</strong>. Prentice Hall, 2001.</li>
+</ul>
+
+<hr />
+
+<h3 id="grading-exams-and-homework">Grading, Exams, and Homework</h3>
+<p>Grading will be based off points accumulated through assignments and the exam.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Course Items</th>
+      <th style="text-align: left">Due Date</th>
+      <th style="text-align: center">Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Assignment 1</td>
+      <td style="text-align: left">July 27</td>
+      <td style="text-align: center">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Assignment 2</td>
+      <td style="text-align: left">August 3</td>
+      <td style="text-align: center">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Assignment 3</td>
+      <td style="text-align: left">August 10</td>
+      <td style="text-align: center">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Final Exam</td>
+      <td style="text-align: left">August 15</td>
+      <td style="text-align: center">40</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Total</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center"><strong>100</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="workload">Workload</h4>
+
+<p>It is WSU policy that for every hour of faculty directed activities, students should expect a minimum of two hours engaged in supportive learning activities.  Depending on your skills and knowledge as a learner, additional time may be required.</p>
+
+<p>In this course, there will be no official “faculty directed time” and the workload will in all honesty be substantial for all individuals that have not had a significant amount of prior mathematics education.</p>
+
+<h4 id="assignments">Assignments</h4>
+
+<p>An assignment will be posted on the course website.  Due dates are given below.  <font color="red">**The assignments should be submitted to my box or my email by 11:59 pm Pacific Standard Time on the due date**</font>.  Note that if you are going to turn your assignment into my box, do so before 5:00 pm as the office will lock the room that has the boxes at that time.  Each assignment will be worth 20/100 points.  The assignments will be problem sets that give the students practice applying the mathematical tools covered in the course texts.</p>
+
+<h4 id="late-assignments">Late assignments</h4>
+
+<p>Although I do prefer that you turn in your assignments on time, I will accept assignments past their due date. Turning in assignments late will not affect your grade. That being said, I strongly encourage you to adhere to the course schedule listed below so that you don’t fall behind.</p>
+
+<h5 id="consider-typing-your-homework-assignments">Consider typing your homework assignments.</h5>
+<p>You may turn in your homework either hand-written or typed. That being said, as a professional economist you will need to communicate mathematical arguments in a clear, well type-set document.  Although I do not require you to type out your homework in this class, it may be a great opportunity for you to learn.  If you wish to type your homework assignments, I recommend using TeX, although you could also use MathType, Microsoft Word’s equation editor, scientific word, etc.  It is a good idea to invest time and effort gaining proficiency in these tools as you will definitely use them later.  It might seem slow at first, but these assignments will give you practice, making you more fluent in these tools and prepare you for assignments in your first year courses. If you feel that you are spending too much time typing up your assignments, consider turning in a handwritten copy, and typing it up later.</p>
+
+<p><strong>NOTE</strong>: If you are working on a chromebook or for some other reason are unable to use any of the above mentioned tools to type your assignments, I recommend using an online browser-based LaTeX editor.  Some good sites capable of doing simple to complex projects are <a href="https://www.overleaf.com">Overleaf.com</a> and <a href="https://www.sharelatex.com">ShareLatex.com</a>.  Both sites have free options that allow you full access without contributors.</p>
+
+<p>For those using LaTeX I will provide assignment templates for you to use.</p>
+
+<h4 id="final-exam">Final Exam</h4>
+
+<p>There will be one exam at the end of the course and it is worth 40/100 points.  The exam will cover all the material covered in the course.  The exam will be proctored on campus in Hulbert Hall on <em>Wednesday August 15, 2018</em>.</p>
+
+<hr />
+
+<h3 id="course-outline">Course Outline</h3>
+
+<p>Below I have provided a <em>tentative schedule</em>. Dates as well as topics are subject to change depending on the pace of the course, as well as what I think should be covered. Also, I will be introducing programming (specifically using Python) on August 9th. That day will be optional, although I strongly recommend you attend.</p>
+
+<h4 id="before-coming-to-mathcamp">Before coming to mathcamp:</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Topics</th>
+      <th style="text-align: left">Readings</th>
+      <th style="text-align: left">Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Prereqs</td>
+      <td style="text-align: left">Univariate Calculus</td>
+      <td style="text-align: left">S&amp;B 2-5</td>
+      <td style="text-align: left">Prerequisite assignment to be completed early in the course.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="week-1-july-23-july-27">Week 1 (July 23-July 27)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Topics</th>
+      <th style="text-align: left">Readings</th>
+      <th style="text-align: left">Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">23</td>
+      <td style="text-align: left">Linear Systems and Matrix Algebra</td>
+      <td style="text-align: left">S&amp;B 6-9; Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">24</td>
+      <td style="text-align: left">Linear Systems and Matrix Algebra</td>
+      <td style="text-align: left">S&amp;B 6-9; Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">Linear Spaces</td>
+      <td style="text-align: left">S&amp;B 10, 11</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">26</td>
+      <td style="text-align: left">Linear Spaces and Set Theory</td>
+      <td style="text-align: left">S&amp;B 10, 11; Provided Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">27</td>
+      <td style="text-align: left">Weekly Review</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"><strong>Assignment 1 due</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="week-2-july-30-august-3">Week 2 (July 30-August 3)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Topics</th>
+      <th style="text-align: left">Readings</th>
+      <th style="text-align: left">Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">30</td>
+      <td style="text-align: left">Set Theory</td>
+      <td style="text-align: left">S&amp;B 10, 11; Provided Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">31</td>
+      <td style="text-align: left">Proofs and Real Analysis</td>
+      <td style="text-align: left">S&amp;B 12; Appendix A1; Provided Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Proofs and Real Analysis</td>
+      <td style="text-align: left">S&amp;B 12; Appendix A1; Provided Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Proofs and Multivariate Calculus</td>
+      <td style="text-align: left">S&amp;B 13-15, 30</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Weekly Review</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"><strong>Assignment 2 due</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="week-3-august-6-august-10">Week 3 (August 6-August 10)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Topics</th>
+      <th style="text-align: left">Readings</th>
+      <th style="text-align: left">Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">Multivariate Calculus</td>
+      <td style="text-align: left">S&amp;B 13-15, 30</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Multivariate Calculus</td>
+      <td style="text-align: left">S&amp;B 13-15, 30</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Miscellaneous Topics</td>
+      <td style="text-align: left">TBA</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Introduction to Programming</td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Weekly Review</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="week-4-august-13-14">Week 4 (August 13-14)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Topics</th>
+      <th style="text-align: left">Readings</th>
+      <th style="text-align: left">Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"><strong>Assignment 3 due</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">13-15</td>
+      <td style="text-align: left">Final Exam</td>
+      <td style="text-align: left">No Notes</td>
+      <td style="text-align: left"><strong>See Below</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>There will be multiple times for the Final Exam (since orientation week will be so hectic). Here is a list of those days and times. Note that you only have to attend one. If any of the three don’t work, let me know and we will figure out a different time that works for you.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Monday August 13</td>
+      <td style="text-align: left">3-5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tuesday August 14</td>
+      <td style="text-align: left">10-12</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Wednesday August 15</td>
+      <td style="text-align: left">3-5</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>S&amp;B ~ Simon &amp; Blume text</em></p>
+
+<p><strong>Prerequisite Assignment</strong>
+The prerequisite assignment will not count toward your grade for the course, but you will be entirely accountable for the mastery of the related content in EconS 506.  The assignment is given as a chance for you to review and practice the univariate calculus and assess your level of mastery of the content.</p>
+
+<h3 id="students-with-disabilities">Students with Disabilities</h3>
+
+<p>Students with Disabilities: Reasonable accommodations are available for students with a documented disability. If you have a disability and need accommodations to fully participate in this class, please either visit or call the Access Center (Washington Building 217; 509-335-3417) to schedule an appointment with an Access Advisor. All accommodations MUST be approved through the Access Center. For more information contact a Disability Specialist at 509-335-3417, or on-line via <a href="http://accesscenter.wsu.edu">http://accesscenter.wsu.edu or Access.Center@wsu.edu</a> or <a href="mailto:access.center@wsu.edu">Access.Center@wsu.edu</a></p>
+
+<p><strong>Pullman or WSU Online</strong> 
+<strong>Phone</strong>: (509) 335-3417 
+<strong>Website</strong>: <a href="http://accesscenter.wsu.edu">accesscenter.wsu.edu</a> 
+<strong>Email</strong>: <a href="mailto:access.center@wsu.edu">access.center@wsu.edu</a></p>
+
+<h3 id="wsu-academic-integrity-statement">WSU Academic Integrity Statement</h3>
+
+<p>As an institution of higher education, Washington State University is committed to principles of truth and academic honesty. All members of the University community share the responsibility for maintaining and supporting these principles. When a student enrolls in Washington State University, the student assumes an obligation to pursue academic endeavors in a manner consistent with the standards of academic integrity adopted by the University. To maintain the academic integrity of the community, the University cannot tolerate acts of academic dishonesty including any forms of cheating, plagiarism, or fabrication. Washington State University reserves the right and the power to discipline or to exclude students who engage in academic dishonesty. Students found responsible for academic integrity violations may receive an F on the particular assignment or exam, as well as an F for the course.  Serious and/or repeated offenses may result in referral to the Office of Student Standards and Accountability and expulsion from WSU. Cheating is defined in the Standards for Student Conduct WAC 504-26-010 (3).</p>
+
+<p>You can learn more about Academic Integrity on your campus using the URL listed in the Academic Regulations section or to <a href="http://academicintegrity.wsu.edu/">http://academicintegrity.wsu.edu</a> . Please use these resources to ensure that you don’t inadvertently violate WSU’s standard of conduct. It is strongly suggested that every student read and understand these definitions.</p>
+
+<h3 id="safety-statement">Safety Statement</h3>
+
+<p>Washington State University is committed to enhancing the safety of the students, faculty, staff, and visitors. It is highly recommended that you review the Campus Safety Plan <a href="http://safetyplan.wsu.edu/">http://safetyplan.wsu.edu</a> and visit the Office of Emergency Management web site <a href="http://oem.wsu.edu/">http://oem.wsu.edu</a> for a comprehensive listing of university policies, procedures, statistics, and information related to campus safety, emergency management, and the health and welfare of the campus community.</p>
+:ET

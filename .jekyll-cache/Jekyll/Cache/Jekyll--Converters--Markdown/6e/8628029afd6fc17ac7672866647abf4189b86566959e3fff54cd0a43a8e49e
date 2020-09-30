@@ -1,0 +1,160 @@
+I"(<!--make new sidebar with reading, syllabus, etc-->
+
+<h3 id="syllabus">Syllabus</h3>
+
+<p><a href="/teaching/masters_math_bootcamp_2019/syllabus">Click here for syllabus</a></p>
+
+<p><a name="assign"></a></p>
+
+<h3 id="assignments">Assignments</h3>
+
+<p>The Assignment will be posted here. I will also post solutions to the assignment and final exam.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Due Date</th>
+      <th style="text-align: right">Assignment</th>
+      <th style="text-align: right">Key</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Linear Algebra and Derivatives</td>
+      <td style="text-align: left">August 12</td>
+      <td style="text-align: right"><a href="/assets/pdfs/masters_math_bootcamp/assignments/assignment_1.pdf">Assignment 1</a></td>
+      <td style="text-align: right"><a href="/assets/pdfs/masters_math_bootcamp/assignments/assignment_1_key.pdf">Assignment 1 Key</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Summer 2019 Mathcamp</td>
+      <td style="text-align: left">August 13</td>
+      <td style="text-align: right"><a href="/assets/pdfs/masters_math_bootcamp/assignments/final2019.pdf">Final Exam</a></td>
+      <td style="text-align: right"><a href="/assets/pdfs/masters_math_bootcamp/assignments/final2019_solutions.pdf">Final Exam Key</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!--
+| Description  | Due Date | Link |
+| :--- | :---: | :---: |
+| **Univariate calculus, sets, and logic** | --- | <button name="button">Problem Set 0</button> |
+| **Linear Systems and Matrix Algebra** | July 27 | <button name="button">Problem Set 1</button> |
+| **Set Theory and Proofs and Real Analysis** | August 3 | <button name="button">Problem Set 2</button> |
+| **Multivariate Calculus and Miscellaneous Topics** | August 10 | <button name="button">Problem Set 3</button> |
+-->
+
+<h3 id="course-outline">Course Outline</h3>
+
+<p>Below I have provided a <em>tentative</em> schedule. Dates as well as topics are subject to change depending on the pace of the course, as well as what I think should be covered.</p>
+
+<!--
+| Date  | Topics | Readings | Assignments |
+| :--- | :---   | :--- | :--- |
+| 15 | Linear Systems and Matrix Algebra | S&B 6-9; Notes |  |
+| 16 | Linear Systems and Matrix Algebra | S&B 6-9; Notes |  |
+| 17 | Linear Spaces | S&B 10, 11 | |
+| 18 | Linear Spaces and Set Theory | S&B 10, 11; Provided Notes |  |
+| 19 | Weekly Review |  | **Assignment 1 due** |
+-->
+<h4 id="week-1-august-5-august-9">Week 1 (August 5-August 9)</h4>
+
+<table>
+      <col width="5%" />
+    <col width="35%" />
+    <col width="35%" />
+    <col width="25%" />
+<thead>
+<tr>
+<th align="left">Date</th>
+<th align="left">Topics</th>
+<th align="left">Readings</th>
+<th align="left">Assignments</th>
+</tr>
+</thead>
+<tbody>
+  <tr>
+<td align="left">5</td>
+<td align="left"><a href="../../assets/pdfs/masters_math_bootcamp/Lecture1.pdf">Linear Algebra</a></td>
+<td align="left">S&amp;B 6-7</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><a href="../../assets/pdfs/masters_math_bootcamp/Lecture2.pdf">Calculus (derivatives)</a></td>
+<td align="left">S&amp;B 1-2</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left"><a href="../../assets/pdfs/masters_math_bootcamp/Lecture3.pdf">Unconstrained Optimization</a></td>
+<td align="left">S&amp;B 17</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left"><a href="../../assets/pdfs/masters_math_bootcamp/Lecture4.pdf">Constrained Optimization</a></td>
+<td align="left">S&amp;B 18</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left"><a href="../../assets/pdfs/masters_math_bootcamp/Lecture5.pdf">Calculus (integration, chain rule)</a></td>
+<td align="left">S&amp;B 4, Appendix A4</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<!--
+| Date  | Topics | Readings | Assignments |
+| :--- | :---   | :--- | :--- |
+| 29 | Proofs and Real Analysis | S&B 12; Appendix A1; Provided Notes |  |
+| 30 | Optimization | S&B 20-21 |  |
+| 31 | Optimization | S&B 20-21 |  |
+| 1 | Optimization | S&B 20-21 |  |
+| 2 | Weekly Review |  | **Assignment 3 due**  |
+-->
+<!--
+<br/>
+<br/>
+<br/>
+-->
+
+<h4 id="week-2-august-12-14">Week 2 (August 12-14)</h4>
+
+<table>
+      <col width="5%" />
+    <col width="35%" />
+    <col width="35%" />
+    <col width="25%" />
+<thead>
+<tr>
+<th align="left">Date</th>
+<th align="left">Topics</th>
+<th align="left">Readings</th>
+<th align="left">Assignments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">12</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><strong><a href="../../assets/pdfs/masters_math_bootcamp/assignments/assignment_1.pdf">Assignment 1 due</a></strong></td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">Final Exam from 1-2 PM</td>
+<td align="left">No Notes</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<!--
+| Date  | Topics | Readings | Assignments |
+| :--- | :---   | :--- | :--- |
+| 12 |  |  | **Assignment 4 due**  |
+| TBA | Final Exam | No Notes |  |
+-->
+<p><em>S&amp;B ~ Simon &amp; Blume text</em></p>
+:ET

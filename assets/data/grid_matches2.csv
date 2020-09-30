@@ -1,0 +1,34 @@
+Round,team0,team0_prob,team1_prob,team1,Correct,team0_win,,,,,,,,
+Upper Round 1,**Spacestation Gaming**,**64.0%**,36.00%,Charlotte Phoenix,1,TRUE,,64,0.64,0.36,0.1296,,0.5,0.25
+,Kansas City Pioneers,41.20%,**58.8%**,**Pittsburgh Knights**,1,FALSE,,58.8,0.588,0.412,0.169744,,0.5,0.25
+,**Susquehanna Soniqs**,**70.1%**,29.90%,XSET,1,TRUE,,70.1,0.701,0.299,0.089401,,0.5,0.25
+,**G2 Esports**,**66.7%**,33.30%,Alpine Esports,1,TRUE,,66.7,0.667,0.333,0.110889,,0.5,0.25
+,**NRG Esports**,**72.9%**,27.10%,Version1,1,TRUE,,72.9,0.729,0.271,0.073441,,0.5,0.25
+,**Team Envy**,**73.5%**,26.50%,EUnited,1,TRUE,,73.5,0.735,0.265,0.070225,,0.5,0.25
+,**Rogue**,**53.8%**,46.20%,Omelette,1,TRUE,,53.8,0.538,0.462,0.213444,,0.5,0.25
+,**The Peeps**,**57.9%**,42.10%,Plot Twist,1,TRUE,,57.9,0.579,0.421,0.177241,,0.5,0.25
+Lower Round 1,Charlotte Phoenix,30.80%,**69.2%**,**Kansas City Pioneers**,1,FALSE,,69.2,0.692,0.308,0.094864,,0.5,0.25
+,**XSET**,**55.0%**,45.00%,Alpine Esports,0,TRUE,,55,0.55,-0.55,0.3025,,0.5,0.25
+,Version1,46.20%,**53.8%**,**EUnited**,1,FALSE,,53.8,0.538,0.462,0.213444,,0.5,0.25
+,**Omelette**,**58.1%**,41.90%,Plot Twist,0,TRUE,,58.1,0.581,-0.581,0.337561,,0.5,0.25
+Upper Round 2,**Spacestation Gaming**,**79.8%**,20.20%,Pittsburgh Knights,1,TRUE,,79.8,0.798,0.202,0.040804,,0.5,0.25
+,Susquehanna Soniqs,16.00%,**84.0%**,**G2 Esports**,1,FALSE,,84,0.84,0.16,0.0256,,0.5,0.25
+,NRG Esports,48.20%,**51.8%**,**Team Envy**,1,FALSE,,51.8,0.518,0.482,0.232324,,0.5,0.25
+,Rogue,40.60%,**59.4%**,**The Peeps**,1,FALSE,,59.4,0.594,0.406,0.164836,,0.5,0.25
+Lower Round 2,**Susquehanna Soniqs**,**72.7%**,27.30%,Kansas City Pioneers,0,TRUE,,72.7,0.727,-0.727,0.528529,,0.5,0.25
+,**Pittsburgh Knights**,**63.9%**,36.10%,Alpine Esports,1,TRUE,,63.9,0.639,0.361,0.130321,,0.5,0.25
+,**Rogue**,**72.3%**,27.70%,EUnited,1,TRUE,,72.3,0.723,0.277,0.076729,,0.5,0.25
+,**NRG Esports**,**65.0%**,35.00%,Plot Twist,1,TRUE,,65,0.65,0.35,0.1225,,0.5,0.25
+Playoff Quarters,**Spacestation Gaming**,**78.2%**,21.80%,Rogue,0,TRUE,,78.2,0.782,-0.782,0.611524,,0.5,0.25
+,**Team Envy**,**78.7%**,21.30%,Kansas City Pioneers,1,TRUE,,78.7,0.787,0.213,0.045369,,0.5,0.25
+,**G2 Esports**,**62.0%**,38.00%,NRG Esports,1,TRUE,,62,0.62,0.38,0.1444,,0.5,0.25
+,**The Peeps**,**84.9%**,15.10%,Pittsburgh Knights,1,TRUE,,84.9,0.849,0.151,0.022801,,0.5,0.25
+Playoff Semis,Rogue,13.70%,**86.3%**,**Team Envy**,1,FALSE,,86.3,0.863,0.137,0.018769,,0.5,0.25
+,**G2 Esports**,**76.9%**,23.10%,The Peeps,1,TRUE,,76.9,0.769,0.231,0.053361,,0.5,0.25
+Playoff Finals,Team Envy,34.30%,**65.7%**,**G2 Esports**,0,FALSE,,65.7,0.657,-0.657,0.431649,,0.5,0.25
+,,,,,,,,,,,0.171550741,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,0.686202963,,0.25
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,0.313797037,,

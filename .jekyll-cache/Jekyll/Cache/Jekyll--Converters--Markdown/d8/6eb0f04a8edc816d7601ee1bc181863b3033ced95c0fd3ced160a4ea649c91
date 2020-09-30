@@ -1,0 +1,361 @@
+I"E=<!--make new sidebar with reading, syllabus, etc-->
+<p><br />
+Note: This is <strong>not</strong> the current Mathcamp. <a href="/teaching/math_bootcamp_2019">Click here for the 2019 Math Bootcamp</a></p>
+
+<h3 id="syllabus">Syllabus</h3>
+
+<p><a href="/teaching/math_bootcamp/syllabus">Click here for syllabus</a></p>
+
+<h3 id="lecture-notes">Lecture Notes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Week</th>
+      <th style="text-align: left">Lecture Notes</th>
+      <th style="text-align: left">Readings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">- <a href="/assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf">Linear Algebra Notes</a></td>
+      <td style="text-align: left">- <a href="https://economics.cornell.edu/grad-student-advice">Link to advice for incoming Economics PhD students</a><br /> - <a href="/assets/pdfs/tutorials/latex_tutorial.pdf">Latex Tutorial pdf</a> and <a href="/assets/zips/latex_tutorial.zip">Latex Zip Folder (containing tex and other necessary files)</a><br /> - <a href="/assets/pdfs/math_bootcamp/sets_and_logic_reading.pdf">Sets and Logic Reading</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">- <a href="/assets/pdfs/math_bootcamp/Mathcamp_Proofs.pdf">Proof Notes</a><br /> - <a href="/assets/pdfs/math_bootcamp/Mathcamp_Real_Analysis.pdf">Real Analysis Notes</a><br /> - <a href="/assets/pdfs/math_bootcamp/Mathcamp_Real_Analysis_Solutions.pdf">Real Analysis Solutions</a><br /> - <a href="/assets/pdfs/math_bootcamp/Mathcamp_Cauchy.pdf">Cauchy Sequence Example</a></td>
+      <td style="text-align: left">- <a href="https://docs.google.com/viewer?a=v&amp;pid=sites&amp;srcid=ZGVmYXVsdGRvbWFpbnxtYXRoY2FtcDIwMTdjdXxneDoxNWZhNWU1MzI2NTU2ODhi">Columbia Real Analysis Notes</a><br /></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">- <a href="/assets/pdfs/math_bootcamp/Mathcamp_Opt_Calc.pdf">Optimization and Multivariate Calculus Notes</a><br /> - <a href="https://github.com/joepatten/python_tutorial/blob/master/Mathcamp%20Python%20Intro.ipynb">Python Tutorial Notebook</a></td>
+      <td style="text-align: left">- <a href="https://docs.google.com/viewer?a=v&amp;pid=sites&amp;srcid=ZGVmYXVsdGRvbWFpbnxtYXRoY2FtcDIwMTdjdXxneDoyMjZiZmViNjFhZDdjOWJk">Columbia Convexity Notes</a><br /> - <a href="https://docs.google.com/viewer?a=v&amp;pid=sites&amp;srcid=ZGVmYXVsdGRvbWFpbnxtYXRoY2FtcDIwMTdjdXxneDozNDJhMDljNThjODdkNWU0">Columbia Multivariate Calculus Notes</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!--
+<table>
+  <tbody>
+    <tr>
+      <th>Week</th>
+      <th align="left">Lecture Notes</th>
+      <th align="left">Readings</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td align="left"><ul>
+      						<li><A href="../../assets/pdfs/math_bootcamp/Mathcamp_Linear_Algebra.pdf">Linear Algebra Notes</A> </li> 
+      					</ul>
+      </td>
+      <td align="left"><ul>
+      						<li> <A href="https://economics.cornell.edu/grad-student-advice">Link to advice for incoming Economics PhD students</A> </li>
+      						<li> <A href="../../assets/pdfs/math_bootcamp/sets_and_logic_reading.pdf">Sets and Logic Reading</A> </li>
+      						<li> <A href="../../assets/pdfs/tutorials/latex_tutorial.pdf">Latex Tutorial pdf</A> and <A href="../../assets/zips/latex_tutorial.zip">Latex Zip Folder (containing tex and other necessary files)</A> </li>
+      					</ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+-->
+
+<p><a name="assign"></a></p>
+
+<h3 id="assignments">Assignments</h3>
+
+<p>Assignments will be posted here on Tuesday evening of each week. I will also post solutions.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Due Date</th>
+      <th style="text-align: right">Assignment</th>
+      <th style="text-align: right">Key</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Univariate calculus</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_0.pdf">Assignment 0</a></td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_0_key.pdf">Assignment 0 Key</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Linear Systems and Matrix Algebra</td>
+      <td style="text-align: left">July 27</td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_1.pdf">Assignment 1</a></td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_1_key.pdf">Assignment 1 Key</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Set Theory and Proofs and Real Analysis</td>
+      <td style="text-align: left">August 3</td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_2.pdf">Assignment 2</a></td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_2_key.pdf">Assignment 2 Key</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Multivariate Calculus and Miscellaneous Topics</td>
+      <td style="text-align: left">August 10</td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_3.pdf">Assignment 3</a></td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_3_key.pdf">Assignment 3 Key</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mathcamp Final given Summer 2018</td>
+      <td style="text-align: left">August 15</td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/final_exam_2018.pdf">Final Exam 2018</a></td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/final_exam_2018_solutions.pdf">Final Exam 2018 Key</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!--
+| Description  | Due Date | Link |
+| :--- | :---: | :---: |
+| **Univariate calculus, sets, and logic** | --- | <button name="button">Problem Set 0</button> |
+| **Linear Systems and Matrix Algebra** | July 27 | <button name="button">Problem Set 1</button> |
+| **Set Theory and Proofs and Real Analysis** | August 3 | <button name="button">Problem Set 2</button> |
+| **Multivariate Calculus and Miscellaneous Topics** | August 10 | <button name="button">Problem Set 3</button> |
+-->
+<p>Note: The material in assignment 0 is fair game for the final exam. You should complete these problems to refresh old topics and learn some new ones. However, you do not need to turn this assignment in to me. I will assume your understanding and familiarity with the material during the mathcamp, so please complete your study no later than July 23rd</p>
+
+<h3 id="assignment-latex-template">Assignment LaTeX Template</h3>
+
+<p>The template file is <a href="/assets/pdfs/math_bootcamp/assignments/hw_template.tex">hw_template.tex</a> (thanks to my colleague Brett Devine).  The template is marked with some commented code to know where you type the assignment name, your name and where your answers go.</p>
+
+<p>First, enter the assignment name and your name in the designated fields.</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\title</span><span class="p">{</span>Assignment ?<span class="p">}</span>
+<span class="k">\author</span><span class="p">{</span>Jon Doe<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Next, for each problem, you can use the custom <code class="language-plaintext highlighter-rouge">{problem}</code> environment created in the file. Simply type the following every time start an answer for a new problem.</p>
+
+<div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">\begin{problem}</span><span class="p">{</span>?<span class="p">}</span>
+    Type your answer here.
+<span class="nt">\end{problem}</span>
+</code></pre></div></div>
+
+<p>In the above code, <strong>you need to replace the ?</strong> with the number of the problem.  For example, if you are typing your answer to Problem 23, you would type</p>
+
+<div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">\begin{problem}</span><span class="p">{</span>23<span class="p">}</span>
+    Your answer here.
+<span class="nt">\end{problem}</span>
+</code></pre></div></div>
+
+<p><a name="read"></a></p>
+
+<h3 id="course-outline">Course Outline</h3>
+
+<p>Below I have provided a <em>tentative</em> schedule. Dates as well as topics are subject to change depending on the pace of the course, as well as what I think should be covered. Also, I will be introducing programming (specifically using Python) on August 9th. That day will be optional, although I strongly recommend you attend.</p>
+
+<h4 id="before-coming-to-mathcamp">Before coming to mathcamp:</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Topics</th>
+      <th style="text-align: left">Readings</th>
+      <th style="text-align: left">Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Prereqs</td>
+      <td style="text-align: left">Univariate Calculus</td>
+      <td style="text-align: left">S&amp;B 2-5</td>
+      <td style="text-align: left">Prerequisite assignment to be completed early in the course.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="week-1-july-23-july-27">Week 1 (July 23-July 27)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Topics</th>
+      <th style="text-align: left">Readings</th>
+      <th style="text-align: left">Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">23</td>
+      <td style="text-align: left">Linear Systems and Matrix Algebra</td>
+      <td style="text-align: left">S&amp;B 6-9; Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">24</td>
+      <td style="text-align: left">Linear Systems and Matrix Algebra</td>
+      <td style="text-align: left">S&amp;B 6-9; Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">Linear Spaces</td>
+      <td style="text-align: left">S&amp;B 10, 11</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">26</td>
+      <td style="text-align: left">Linear Spaces and Set Theory</td>
+      <td style="text-align: left">S&amp;B 10, 11; Provided Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">27</td>
+      <td style="text-align: left">Weekly Review</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"><strong>Assignment 1 due</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="week-2-july-30-august-3">Week 2 (July 30-August 3)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Topics</th>
+      <th style="text-align: left">Readings</th>
+      <th style="text-align: left">Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">30</td>
+      <td style="text-align: left">Set Theory</td>
+      <td style="text-align: left">S&amp;B 10, 11; Provided Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">31</td>
+      <td style="text-align: left">Proofs and Real Analysis</td>
+      <td style="text-align: left">S&amp;B 12; Appendix A1; Provided Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Proofs and Real Analysis</td>
+      <td style="text-align: left">S&amp;B 12; Appendix A1; Provided Notes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Proofs and Multivariate Calculus</td>
+      <td style="text-align: left">S&amp;B 13-15, 30</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Weekly Review</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"><strong>Assignment 2 due</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="week-3-august-6-august-10">Week 3 (August 6-August 10)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Topics</th>
+      <th style="text-align: left">Readings</th>
+      <th style="text-align: left">Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">Optimization</td>
+      <td style="text-align: left">S&amp;B 20-21</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Multivariate Calculus</td>
+      <td style="text-align: left">S&amp;B 13-15</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Multivariate Calculus</td>
+      <td style="text-align: left">S&amp;B 13-15, 30</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Introduction to Programming</td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Weekly Review</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="week-4-august-13-14">Week 4 (August 13-14)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Topics</th>
+      <th style="text-align: left">Readings</th>
+      <th style="text-align: left">Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"><strong>Assignment 3 due</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">13-15</td>
+      <td style="text-align: left">Final Exam</td>
+      <td style="text-align: left">No Notes</td>
+      <td style="text-align: left"><strong>See Below</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>There will be multiple times for the Final Exam (since orientation week will be so hectic). Here is a list of those days and times. Note that you only have to attend one. If any of the three don’t work, let me know and we will figure out a different time that works for you.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Date</th>
+      <th style="text-align: left">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Monday August 13</td>
+      <td style="text-align: left">3-5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tuesday August 14</td>
+      <td style="text-align: left">10-12</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Wednesday August 15</td>
+      <td style="text-align: left">3-5</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>S&amp;B ~ Simon &amp; Blume text</em></p>
+:ET

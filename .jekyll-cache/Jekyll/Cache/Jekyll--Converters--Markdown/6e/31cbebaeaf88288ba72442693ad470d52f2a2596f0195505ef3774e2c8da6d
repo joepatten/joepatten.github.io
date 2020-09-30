@@ -1,0 +1,39 @@
+I"€<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Due Date</th>
+      <th style="text-align: right">Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Univariate calculus</td>
+      <td style="text-align: left">â€”</td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_0.pdf">Assignment 0</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Linear Systems and Matrix Algebra</td>
+      <td style="text-align: left">July 27</td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_1.pdf">Assignment 1</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Set Theory and Proofs and Real Analysis</td>
+      <td style="text-align: left">August 3</td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_2.pdf">Assignment 2</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Multivariate Calculus and Miscellaneous Topics</td>
+      <td style="text-align: left">August 10</td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/assignment_3.pdf">Assignment 3</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mathcamp Final given Summer 2018</td>
+      <td style="text-align: left">August 15</td>
+      <td style="text-align: right"><a href="/assets/pdfs/math_bootcamp/assignments/final_exam_2018.pdf">Final Exam 2018</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note: The material in assignment 0 is fair game for the final exam. You should complete these problems to refresh old topics and learn some new ones. However, you do not need to turn this assignment in to me. I will assume your understanding and familiarity with the material during the mathcamp, so please complete your study no later than July 23rd</p>
+:ET
