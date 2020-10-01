@@ -1,0 +1,131 @@
+I"�<p>Below are some selected projects that I have recently worked on in an academic setting or in my free time. I am currently working on a few of projects that are not listed below, which include: using collaborative filtering (using big data frameworks and techniques) on Amazon data to analyze co-purchasing trends, using d3.js to make a “graph theorist’s sketchpad”, and analyzing the effect of competitive balance on match viewership in Esports.</p>
+
+<div class="courses-container">
+	<a href="/assets/blog/Public_and_FP_2_year_Colleges_Sept_2020.pdf" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/fig1_spending_notitle.png" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Community College Spending on For-Profit Enrollment</h3>
+				<h6>I estimate the causal impact of spending by community colleges on nearby for-profit colleges by exploiting variation of budget shocks and tuition freezes/caps by state legislatures.</h6>
+				<span>Causal Inference, Two-Stage Least Squares</span>
+			</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="/assets/blog/Tanzania_shoats_cows_analysis_Sept_2020.pdf" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/tanzania_prec_07_17.png" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Impact of Drought on Herd Composition</h3>
+				<h6>Using autoregressive models, I estimate the causal impact of sustained drought on herd composition.</h6>
+				<span>Causal Inference, Autoregressive</span>
+			</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="/blog/rlcs_predictions_eval" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/rlcs_na_grid4.PNG" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Esports Predictions Using Monte Carlo Simulation</h3>
+				<h6>Using a combination of Markov Chain and tree-based ensemble methods, I forecast the outcomes of esports matches and tournaments.</h6>
+				<span>Machine Learning, Monte Carlo, Markov Chain</span>
+			</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="/assets/blog/Theory_of_Corporate_Whistleblowing_Sept_2020.pdf" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/qui_tam.PNG" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Theory of Corporate Whistleblowing</h3>
+				<h6>I develop a theoretical model to analyze the incentives of an employee to whistleblow on an employer.</h6>
+				<span>Theory</span>
+			</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="/assets/blog/Active_Learning.pdf" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/least_condifident_sampling.png" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Active Learning to Label Data</h3>
+				<h6>I show the benefit of using least confident sampling and margin sampling instead of random sampling to label data in order to more efficiently label data.</h6>
+				<span>Machine Learning, Active Learning</span>
+				</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="/assets/blog/SP Inclusion.pdf" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/trees.PNG" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Effect of S&amp;P 500 Inclusion on Stock Price</h3>
+				
+				<h6>Using random forests, we match stocks that barely make it into the S&amp;P 500 with those that don't. We then use difference-in-differences to estimate the effect of S&amp;P 500 inclusion on stock price.</h6>
+				<span>Machine Learning, Difference-in-Differences</span>
+				</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="https://fivethirtyeight.com/features/in-the-papers-chinese-imports-affirmative-action-and-foreign-aid/" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/minutes_cdf.png" />
+				
+			</div>
+			<div class="course-info">
+					<article>
+					<h3>Affirmative Action and Human Capital Investment</h3>
+				
+					<h6>We design an experiment to mimic Affirmative Action (AA). We then estimate the effects of AA on human capital investment. Featured on <strong>FiveThirtyEight</strong>.</h6>
+					
+	        		<span>Experiment</span>
+      			</article>
+			</div>
+		</div>
+	</a>
+</div>
+:ET

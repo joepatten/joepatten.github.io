@@ -1,0 +1,22 @@
+div.terminal-bar {
+	background-color: #C9C9C9FF;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	height:25px;
+	border:1px solid #ADADADFF;
+	background-image: linear-gradient(#C9C9C9FF, #9B9B9BFF);
+
+}
+
+div.highlight {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #CA4;
+  border-radius: 50%;
+  display: inline-block;
+}

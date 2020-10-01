@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Tutorials
-sidebar_link: true
+sidebar_link: false
 permalink: /tutorials
 order: 6
 ---
