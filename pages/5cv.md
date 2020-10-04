@@ -26,21 +26,22 @@ matter. MAYBE ADD AN INTERACTIVE CV?
 
         <div class="job-info">
             <article>
-            <h4>PhD, Economics</h4>
+                <h4>PhD, Economics</h4>
                 <p class="position">
                     Washington State University<span style='float:right;'>May 2021 (Expected)</span>
                 </p>
-                <p>
+                    <p style="margin: 0 0 .5em 0;"></p>
                     <ul>
                         <li>GPA: 4.0/4.0</li>
                         <li>Focuses: Econometrics, Labor Economics, Economics of Education</li>
                     </ul>
-                </p>
+                
 
                 <h4>MS, Computer Science</h4>
                 <p class="position">
                     Washington State University<span style='float:right;'>May 2021 (Expected)</span>
                 </p>
+                <p style="margin: 0 0 .5em 0;"></p>
                     <ul>
                         <li>GPA: 4.0/4.0</li>
                         <li>Focuses: Machine Learning, Data Science</li>
@@ -60,6 +61,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
                 <p class="position">
                     Brigham Young University<span style='float:right;'>May 2012</span>
                 </p>
+                <p style="margin: 0 0 .5em 0;"></p>
                     <ul>
                         <li>GPA: 3.8/4.0</li>
                         <li>Cum Laude</li>
@@ -82,6 +84,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
                 <p class="position">
                     Research and Applied Science Intern<span style='float:right;'>2020</span>
                 </p>
+                <p style="margin: 0 0 .5em 0;"></p>
                     <ul>
                         <li>Designed and administered experiment to estimate and recommend revenue-maximizing prices at China WeWork locations</li>
                         <li>Used a combination of machine learning, economics, and data visualization to aid in algorithmic pricing of office units</li>
@@ -103,6 +106,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
                 <p class="position">
                     Graduate Research Assistant<span style='float:right;'>2017-2019</span>
                 </p>
+                <p style="margin: 0 0 .5em 0;"></p>
                     <ul>
                         <li>Devised causal inference approaches and analyses for various projects in Economics of Education and Developmental Economics under Ben Cowan and Jon Yoder.</li>
                         <li>Built, cleaned, and ran econometric analyses on large datasets (10 million+ observations), high dimensional datasets (1000+ variables), and confidential datasets using Python, R, and Stata</li>
@@ -124,7 +128,8 @@ matter. MAYBE ADD AN INTERACTIVE CV?
                 <p class="position">
                     Research Assistant<span style='float:right;'>2014</span>
                 </p>
-                    <ul>
+                    <p style="margin: 0 0 .5em 0;"></p>
+                    <ul> 
                         <li>Assisted in the design and implementation of affirmative action field experiment in Chicago that later appeared in <a href="https://fivethirtyeight.com/features/in-the-papers-chinese-imports-affirmative-action-and-foreign-aid/">FiveThirtyEight</a></li>
                         <li>Built, cleaned, and analyzed datasets containing student data from several schools</li>
                     </ul>
@@ -144,7 +149,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
                 <p class="position">
                     Research Assistant<span style='float:right;'>2013-2014</span>
                 </p>
-                <p style="margin: 0 0 .5em 0;"></p>
+                    <p style="margin: 0 0 .5em 0;"></p>
                     <ul>
                         <li>Hired and supervised 10 undergraduate students to assist in affirmative action field experiment in Utah</li>
                         <li>Implemented various econometric techniques to evaluate topics in Labor and Economics of Education</li>
@@ -194,7 +199,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
                 <p class="position">
                     Instructor<span style='float:right;'>2017-2020</span>
                 </p>
-                <p style="margin: 1em 0 .5em 0;opacity: 0.55">
+                <p style="margin: .5em 0 .5em 0;opacity: 0.55">
                     Classes Taught:
                     <ul>
                         <li>ECONS 506 - PhD Math Camp</li>

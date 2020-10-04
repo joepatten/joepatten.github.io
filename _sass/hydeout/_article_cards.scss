@@ -205,11 +205,11 @@ max-width: 250px;
 
 
 //take out picture based on window size
-//@media (max-width: 1080px) {
- // .course-preview {
- //   display: none;
-//  }
-//}
+@media (max-width: 1080px) {
+  .course-preview {
+    display: none;
+  }
+}
 
 
 //jobs on resume
@@ -330,9 +330,12 @@ max-width: 250px;
 
 .job h4 {
   letter-spacing: 1px;
-  margin: 0px 0;
+  margin: 0 0 0 0 ;
   color: #fff;
-  line-height: 0px;
+  display:block;
+  padding:0;
+  line-height:14px;
+  //line-height: 0px;
 }
 
 
@@ -352,6 +355,7 @@ max-width: 250px;
     color: $gold;
     text-transform: uppercase;
     letter-spacing: .05em;
+    margin: 0 0 0 0;
     //margin: 2em 2em 0 0;
     //position: absolute;
     //bottom: 0;
