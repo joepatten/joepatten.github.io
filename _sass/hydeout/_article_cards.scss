@@ -54,6 +54,25 @@
   font-weight: normal;
 }
 
+//.course p {
+//  opacity: 0.55;
+//  margin: 0;
+//  letter-spacing: 1px;
+//  font-size: .85em;
+//  color: #fff;
+//  font-weight: normal;
+//}
+
+
+.course li {
+  opacity: 0.55;
+  margin: 0;
+  letter-spacing: 1px;
+  font-size: .85em;
+  color: #fff;
+  font-weight: normal;
+}
+
 .course article {
     padding: 0px;
     flex: 1;
@@ -76,6 +95,19 @@
     //padding-bottom: 25px;
   }
 
+.course span.position {
+    font-size: 12px;
+    font-weight: bold;
+    //color: #999;
+    color: $gold;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    //margin: 2em 2em 0 0;
+    //position: absolute;
+    //bottom: 0;
+    //padding-bottom: 25px;
+}
+
 .course h2 {
   letter-spacing: 1px;
   margin: 10px 0;
@@ -87,6 +119,14 @@
   margin: 10px 0;
   color: #fff;
 }
+
+.course h4 {
+  letter-spacing: 1px;
+  margin: 0px 0;
+  color: #fff;
+  line-height: 0px;
+}
+
 
 
 
@@ -160,9 +200,177 @@ max-width: 250px;
 
 
 
+
+
+
+
 //take out picture based on window size
-@media (max-width: 1080px) {
-  .course-preview {
-    display: none;
+//@media (max-width: 1080px) {
+ // .course-preview {
+ //   display: none;
+//  }
+//}
+
+
+//jobs on resume
+
+
+
+
+.job.a {
+  text-decoration: none;
+}
+
+.job {
+  &:hover {
+    top: -2px;
+    //box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 5px $gray-5;
+    text-decoration: none;
+    background: lighten($side_bg_code_bg, 10%);
+    color: #fff;
   }
+}
+
+.job {
+  text-decoration: none;
+  //background-color: #F7F7F7;
+  background-color: lighten($side_bg_code_bg, 5%);
+  border-radius: 3px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  max-width: 100%;
+  margin: 20px;
+  overflow: hidden;
+  padding: 0px;
+  color: #fff;
+
+  h6 &:hover {
+    color: #fff;
+  }
+}
+
+.job h6 {
+  opacity: 0.55;
+  margin: 0;
+  letter-spacing: 1px;
+  font-size: .85em;
+  color: #fff;
+  font-weight: normal;
+}
+
+.job article {
+    padding: 0px;
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+.position {
+    font-size: 12px;
+    font-weight: bold;
+    //color: #999;
+    color: $gold;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin: 2em 2em 0 0;
+    //position: absolute;
+    //bottom: 0;
+    //padding-bottom: 25px;
+  }
+
+.job h2 {
+  letter-spacing: 1px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.job h3 {
+  letter-spacing: 1px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+
+.job p {
+  margin: 1em 0em 0 0;
+}
+
+.job-preview {
+  //background-color: #2A265F;
+  background-color: lighten($side_bg_code_bg, 5%);
+  color: #fff;
+
+  max-width: 250px;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.job-preview img {
+  //background-color: #2A265F;
+  color: #fff;
+
+max-width: 250px;
+  height: 250px;
+  flex-shrink: 0;
+  background-repeat: repeat;
+  display: flex;
+
+  object-fit: cover
+}
+
+.job-info {
+  padding: 30px;
+  position: relative;
+  width: 100%;
+}
+
+.job h4 {
+  letter-spacing: 1px;
+  margin: 0px 0;
+  color: #fff;
+  line-height: 0px;
+}
+
+
+.job li {
+  opacity: 0.55;
+  margin: 0;
+  letter-spacing: 1px;
+  font-size: .85em;
+  color: #fff;
+  font-weight: normal;
+}
+
+.job span {
+    font-size: 12px;
+    font-weight: bold;
+    //color: #999;
+    color: $gold;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    //margin: 2em 2em 0 0;
+    //position: absolute;
+    //bottom: 0;
+    //padding-bottom: 25px;
+  }
+
+.job p.position {
+    font-size: 12px;
+    font-weight: bold;
+    //color: #999;
+    color: $gold;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin: 1.2em 0 0 0;
+    //position: absolute;
+    //bottom: 0;
+    //padding-bottom: 25px;
+}
+
+job.ul {
+  margin: 0 0 0 0;
 }
