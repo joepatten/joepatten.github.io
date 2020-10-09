@@ -1,0 +1,237 @@
+---
+layout: page
+title:  
+sidebar_link: false
+permalink: /blog/fbs
+---
+
+<script src="https://unpkg.com/d3@5.6.0/dist/d3.min.js"></script>
+<script>
+
+var icon_width = 23;
+var icon_height = icon_width;
+
+////////////////////////////////////////////////////
+// Need to scrape from https://www.espn.com/college-football/rankings/_/poll/1/week/6/year/2020/seasontype/2
+
+
+d3.csv("../pages/blog/data.csv").then(loadedData =>  {
+  data = loadedData;
+  data.forEach(function(d) {
+    d.position = +d.Rank;
+  });
+  
+  // var pos = 1;
+  // data[0]['position'] = pos;
+  // for(var i=1; i<data.length; i++) {
+  //   // this is a new Week, so start over
+  //   if((data[i - 1].Week != data[i].Week) || (data[i - 1]['Poll Type'] != data[i]['Poll Type'])) {
+  //     pos = 1;
+  //   } else {
+  //     pos++;
+  //   }
+  //   data[i]['position'] = pos;
+  // }
+
+
+  // add a css safe class for use in hover interactions and coloring
+  data.forEach(function(d) {
+    d['Team_clean'] = d['name'].toLowerCase().replace(/ /g, '-').replace(/\./g,'').replace('&', '');
+    //d['position'] = +d['RK'];
+  })
+
+  ///////////////////////
+  // Chart Size Setup
+  var margin = { top: 70, right: 0, bottom: 60, left: 40 };
+
+  var x_svg = document.getElementById("ap-chart").getAttribute("width");
+
+  var out_width = x_svg
+  var out_height = 700
+
+  var width = out_width - margin.left - margin.right;
+  var height = out_height - margin.top - margin.bottom;
+
+  var chart = d3.select("#ap-chart")
+      .attr("width", x_svg)
+      .attr("height", out_height)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  ///////////////////////
+  // Scales
+  var x = d3.scaleBand()
+      .domain(data.map(function(d) { return d['Week']; }))
+      .rangeRound([margin.left, width - margin.right]);
+
+  var y = d3.scaleLinear()
+      .domain([d3.min(data, function(d) { return d['position'] }), d3.max(data, function(d) { return d['position']; })])
+      .range([20, height - 30]);
+
+  var y_reverse = d3.scaleLinear()
+      .domain([d3.min(data, function(d) { return d['position'] }), d3.max(data, function(d) { return d['position']; })])
+      .range([20, height - 30]);
+
+  var size = d3.scaleLinear()
+      .domain(d3.extent(data, function(d) { return d['RK']; }))
+      .range([3, 10]);
+
+  ///////////////////////
+  // Axis
+  var xAxis = d3.axisBottom(x);
+
+  var yAxis = d3.axisLeft(y_reverse).ticks(20);
+
+  chart.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(-"+ x.bandwidth()/2.0 +"," + `${height-18}` + ")")
+      .call(xAxis);
+
+  chart.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate(23,0)")
+      .call(yAxis);
+
+  //xAxis.selectAll('stroke').remove()
+  //yAxis
+
+  ///////////////////////
+  // Title
+  chart.append("text")
+    .text(`Click on a team's icon to see their ranking in other weeks.`)
+    .attr("text-anchor", "middle")
+    .attr("class", "graph-title")
+    .style("font-size", "14px")
+    .attr("y", -5)
+    .attr("x", x(4));
+
+  chart.append("text")
+    .text(`${data[0]['Poll Type']} Rankings`)
+    .attr("text-anchor", "middle")
+    .attr("class", "graph-title")
+    .style("font-size", "34px")
+    .attr("y", -25)
+    .attr("x", x(4));
+
+  chart.append("text")
+    .text('Ranking')
+    .attr("text-anchor", "middle")
+    .attr("class", "graph-title")
+    .attr("y", -12)
+    .attr("x", -y(12.5))
+    .attr("transform", "rotate(-90)");
+
+  chart.append("text")
+    .text('Week')
+    .attr("text-anchor", "middle")
+    .attr("class", "graph-title")
+    .attr("y", height - 8 + margin.bottom/2)
+    .attr("x", x(4));
+
+
+  ///////////////////////
+  // Lines
+  var Teams = d3.map(data, function(d) {
+    return d['name'];
+  }).keys();
+
+  Teams.forEach(function(Team) {
+    var currData = data.filter(function(d) {
+      if(d['name'] == Team) {
+        return d;
+      }
+    });
+
+    var line = d3.line()
+        .x(function(d) { return x(d['Week']); })
+        .y(function(d) { return y(d['position']); })
+        .curve(d3.curveMonotoneX);
+
+    chart.append("path")
+        .datum(currData)
+        .attr("class", Team.toLowerCase().replace(/ /g, '-').replace(/\./g,'').replace('&', '') )
+        .attr("style", "fill:none !important")
+        .attr("stroke-linejoin", "round")
+        //.attr("stroke-linecap", "round")
+        .attr("stroke-width", 10)
+        .attr("stroke-opacity", 0.03)
+        .attr("fill", "#AF2626")
+        //.attr("stroke", "#0A174A")
+        .attr("stroke", "grey")
+        //.attr("stroke-dasharray", "10,10")
+        .attr("stroke-linecap", "round")
+        .attr("d", line);
+
+  });
+
+
+  ///////////////////////
+  // Nodes
+  var image_node = chart.append("g")
+    .selectAll("image")
+    .data(data)
+    .enter().append("image")
+      .attr("class", d => d['name'].toLowerCase().replace(/ /g, '-').replace(/\./g,'').replace('&', ''))
+      .attr('x', function(d) { return x(d['Week'])-icon_width/2; })
+      .attr('y', function(d) { return y(d['position'])-icon_height/2; })
+      .attr('width', icon_width)
+      .attr('height', icon_height)
+      //.attr("xlink:href", "https://i.imgur.com/kAKRvgi.png") //TEAM ICONNNNNNNNN
+      .attr("xlink:href", function(d) { return d['link'] })
+      .attr('opacity', '.12')
+      .attr('team-active', false);
+
+  
+  ///////////////////////
+  // Tooltips
+  var tooltip = d3.select("body").append("div")
+      .attr("class", "tooltip");
+
+  chart.selectAll("image")
+      .on("mouseover", function(d) {
+        chart.selectAll('.' + d['Team_clean'])
+            .classed('active', true);
+
+        var tooltip_str = '<span style="text-align:center">' + d['RK'] + ' ' + d['name'] + "</span>" + 
+                "<br/>" + "Points: " + d['PTS'] +
+                "<br/>" + "(W-L): " + d['REC'] +
+                "<br/>" + "Last Week: " + d['Last Week'] +
+                "<br/>" + "Next Week: " + d['Next Week'];
+
+        tooltip.html(tooltip_str)
+            .style("visibility", "visible");
+      })
+
+      .on("mousemove", function(d) {
+        tooltip.style("top", event.pageY - (tooltip.node().clientHeight + 5) + "px")
+            .style("left", event.pageX - (tooltip.node().clientWidth / 2.0) + "px")
+            .attr('opacity', '.2');
+      })
+
+      .on("mouseout", function(d) {
+        chart.selectAll('.'+d['Team_clean'])
+            .classed('active', false)
+              //took out
+        tooltip.style("visibility", "hidden");
+      })
+
+      .on('click', function(d) {
+        chart.selectAll('.' + d['Team_clean'])
+            .classed('click-active-team', function(d) {
+              // toggle state
+              return !d3.select(this).classed('click-active-team');
+            });
+
+              //added
+
+        tooltip.html(tooltip_str)
+            .style("visibility", "visible");
+
+      })
+
+});
+</script>
+
+<body>
+    <svg id="ap-chart" width="550" height="700"></svg>
+</body>

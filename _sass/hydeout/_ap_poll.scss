@@ -1,0 +1,66 @@
+#ap-chart .click-active-team, .active {
+  opacity: 1;
+  stroke-opacity: .4;
+  stroke: orange;
+  /*z-index: 1000;*/
+  /*r: 8;*/
+}
+
+#ap-chart path.click-active {
+  stroke-width: 3.0;
+}
+
+#ap-chart path.active {
+  stroke-width: 10.0;
+}
+
+#ap-chart .axis text {
+  font: 10px sans-serif;
+}
+
+#ap-chart .axis path,
+#ap-chart .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+
+#ap-chart .y.axis path {
+  display: none;
+}
+
+
+#ap-chart .x.axis line {
+  display: none;
+}
+
+#ap-chart .y.axis line {
+  display: none;
+}
+
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  font: 12px sans-serif;
+  background: #222;
+  color: #fff;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0.9;
+  //visibility: hidden;
+}
+
+.green {
+  color: #239D1FFF;
+}
+.red {
+  color: #E12C23FF;
+}
+
+image {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
