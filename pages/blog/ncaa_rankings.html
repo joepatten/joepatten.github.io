@@ -98,7 +98,7 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
   ///////////////////////
   // Title
   chart.append("text")
-    .text(`Click on a team's icon to see their ranking in other weeks.`)
+    .text(`Hover over a team's icon to see their ranking in other weeks.`)
     .attr("text-anchor", "middle")
     .attr("class", "graph-title")
     .style("font-size", "14px")
@@ -217,11 +217,11 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
       })
 
       .on('click', function(d) {
-        chart.selectAll('.' + d['Team_clean'])
-            .classed('click-active-team', function(d) {
-              // toggle state
-              return !d3.select(this).classed('click-active-team');
-            });
+        // chart.selectAll('.' + d['Team_clean'])
+        //     .classed('click-active-team', function(d) {
+        //       // toggle state
+        //       return !d3.select(this).classed('click-active-team');
+        //     });
 
               //added
 
@@ -229,6 +229,7 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
             .style("visibility", "visible");
 
       })
+
 
 });
 </script>
