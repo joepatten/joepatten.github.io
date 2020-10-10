@@ -1,7 +1,8 @@
 #ap-chart .click-active-team, .active {
   opacity: 1;
-  stroke-opacity: .4;
+  stroke-opacity: .5;
   stroke: orange;
+  stroke: #CA4;
   /*z-index: 1000;*/
   /*r: 8;*/
 }
@@ -11,7 +12,8 @@
 }
 
 #ap-chart path.active {
-  stroke-width: 10.0;
+  stroke-width: 9.0;
+  stroke-opacity: .7;
 }
 
 #ap-chart .axis text {
@@ -24,6 +26,8 @@
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
+
 
 
 #ap-chart .y.axis path {
@@ -40,6 +44,14 @@
 }
 
 
+
+
+
+.graph-title {
+  color: #c1c4d5;
+  fill: #ccc;
+}
+
 .tooltip {
   position: absolute;
   padding: 10px;
@@ -50,7 +62,7 @@
   border-radius: 8px;
   pointer-events: none;
   opacity: 0.9;
-  //visibility: hidden;
+  visibility: hidden;
 }
 
 .green {
@@ -60,7 +72,36 @@
   color: #E12C23FF;
 }
 
-image {
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.image {
+  filter: url(.grayscale);
+}
+
+#ap-chart {
+  background-color: #1E202C;
+  border-radius: 5px;
+}
+
+#ap-chart text{
+  color: #666;
+}
+
+#ap-chart .x.axis text {
+  fill: #666;
+}
+
+#ap-chart .x.axis path {
+  stroke: #666;
+}
+
+.graph-subtitle {
+  fill: #666;
 }
