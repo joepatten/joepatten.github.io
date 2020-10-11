@@ -41,7 +41,7 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
   const get_width = function(w) {
     let width;
     var max_width = 600;
-    var min_width = 370;
+    var min_width = 355;
     var sidebar_width = 450;
 
     if (w >= 784) {
@@ -232,7 +232,7 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
         var tooltip_str = '<span style="text-align:center">' + d['RK'] + ' ' + d['name'] + "</span>" + 
                 "<br/>" + "Points: " + d['PTS'] +
                 "<br/>" + "(W-L): " + d['REC'] +
-                "<br/>" + "Last Week: " + d['Last Week'] +
+                "<br/>" + "This Week: " + d['Last Week'] +
                 "<br/>" + "Next Week: " + d['Next Week'];
 
         tooltip.html(tooltip_str)
