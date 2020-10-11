@@ -2,7 +2,7 @@
 layout: page
 title:  
 sidebar_link: false
-permalink: /blog/fbs
+permalink: /blog/fbs_test
 ---
 
 <script src="https://unpkg.com/d3@5.6.0/dist/d3.min.js"></script>
@@ -27,75 +27,31 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
     //d['position'] = +d['RK'];
   })
 
-
-  document.getElementById("ap-chart").getAttribute("width")
-
   ///////////////////////
   // Chart Size Setup
   var margin = { top: 70, right: 0, bottom: 60, left: 40 };
 
-  let x_svg = document.getElementById("ap-chart").getAttribute("width");
+  var x_svg = document.getElementById("ap-chart").getAttribute("width");
 
-  win_width = +window.innerWidth
-
-  const get_width = function(w) {
-    let width;
-    var max_width = 600;
-    var min_width = 370;
-    var sidebar_width = 450;
-
-    if (w >= 784) {
-      //check if window is less than max
-      if (w - sidebar_width > max_width) {
-        return max_width
-      }
-      else if (w - sidebar_width < min_width) {
-        return min_width
-      }
-      else {
-        return w - sidebar_width
-      }
-      
-    }
-    else {
-      if (w -75 <= min_width ) {
-        return min_width
-      }
-      else {
-        return w - 75
-      }
-    }
-  }
-
-  let out_width = get_width(win_width)
+  var out_width = x_svg
   var out_height = 700
 
-  
+  var width = out_width - margin.left - margin.right;
+  var height = out_height - margin.top - margin.bottom;
 
   var chart = d3.select("#ap-chart") //this is the svg
-      .attr("width", out_width)
+      .attr("width", x_svg)
       .attr("height", out_height)
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  //out_width = window.innerWidth/2;
     
-
-  let width = out_width - margin.left - margin.right;
-  var height = out_height - margin.top - margin.bottom;
-
-  // out_width = x_svg
-  // width = out_width
+  //chart.attr("width", 1000).attr("height", out_height)
 
   ///////////////////////
   // Scales
-  // var x = d3.scaleBand()
-  //     .domain(data.map(function(d) { return d['Week']; }))
-  //     .rangeRound([margin.left, width - margin.right]);
-
   var x = d3.scaleBand()
       .domain(data.map(function(d) { return d['Week']; }))
-      .rangeRound([margin.left, width]);
+      .rangeRound([margin.left, width - margin.right]);
 
   var y = d3.scaleLinear()
       .domain([d3.min(data, function(d) { return d['position'] }), d3.max(data, function(d) { return d['position']; })])
@@ -113,7 +69,7 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
   // Axis
   var xAxis = d3.axisBottom(x);
 
-  var yAxis = d3.axisLeft(y_reverse).ticks(25);
+  var yAxis = d3.axisLeft(y_reverse).ticks(20);
 
   chart.append("g")
       .attr("class", "x axis")
@@ -133,8 +89,8 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
   chart.append("text")
     .text(`Hover over a team's icon to see their ranking in other weeks.`)
     .attr("text-anchor", "middle")
-    .attr("class", "graph-subtitle")
-    .style("font-size", "12px")
+    .attr("class", "graph-title")
+    .style("font-size", "14px")
     .attr("y", -5)
     .attr("x", x(4));
 
@@ -275,7 +231,5 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
 </script>
 
 <body>
-  <div id="ap">
     <svg id="ap-chart" width="400" height="700"></svg>
-  </div>
 </body>
