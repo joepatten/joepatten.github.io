@@ -137,7 +137,7 @@ d3.csv("../pages/blog/data_coaches.csv").then(loadedData =>  {
   var x_center = (x(4) + x(5))/2
   
   chart.append("text")
-    .text(`Hover over a team's icon to see their ranking in other weeks.`)
+    .text(`Hover over a team's icon to see their ranking in other weeks`)
     .attr("text-anchor", "middle")
     .attr("class", "graph-subtitle")
     .style("font-size", "12px")
@@ -148,7 +148,7 @@ d3.csv("../pages/blog/data_coaches.csv").then(loadedData =>  {
     .text(`${data[0]['Poll Type']} Rankings`)
     .attr("text-anchor", "middle")
     .attr("class", "graph-title")
-    .style("font-size", "34px")
+    .style("font-size", "31px")
     .attr("y", -25)
     .attr("x", x_center);
 
