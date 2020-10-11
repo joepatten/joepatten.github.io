@@ -2,7 +2,7 @@
 layout: page
 title:  
 sidebar_link: false
-permalink: /blog/fbs
+permalink: /blog/fbs_coaches
 ---
 
 <script src="https://unpkg.com/d3@5.6.0/dist/d3.min.js"></script>
@@ -15,7 +15,7 @@ var icon_height = icon_width;
 // Need to scrape from https://www.espn.com/college-football/rankings/_/poll/1/week/6/year/2020/seasontype/2
 
 
-d3.csv("../pages/blog/data.csv").then(loadedData =>  {
+d3.csv("../pages/blog/data_coaches.csv").then(loadedData =>  {
   data = loadedData;
   data.forEach(function(d) {
     d.position = +d.Rank;
@@ -284,5 +284,5 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
   <div id="ap">
     <svg id="ap-chart" width="400" height="700"></svg>
   </div>
-  <a href="./fbs_coaches">Click here for the Coaches Poll Visualization</a>
+  <a href="./fbs">Click here for the AP Poll Visualization</a>
 </body>
