@@ -235,7 +235,7 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
         chart.selectAll('.inactive')
             .classed('non-hover-team', true)
 
-        var tooltip_str = '<span style="text-align:center">' + d['RK'] + ' ' + d['name'] + "</span>" + 
+        var tooltip_str = d['RK'] + ' ' + '<span style="text-align:center;color:#CA4">' + d['name'] + "</span>" + 
                 "<br/>" + "Points: " + d['PTS'] +
                 "<br/>" + "(W-L): " + d['REC'] +
                 "<br/>" + "This Week: " + d['Last Week'] +
