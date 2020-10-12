@@ -21,9 +21,7 @@
   stroke-opacity: .7;
 }
 
-#ap-chart .axis text {
-  font: 10px sans-serif;
-}
+
 
 #ap-chart .axis path,
 #ap-chart .axis line {
@@ -63,7 +61,7 @@
   border: 0px;
   border-radius: 8px;
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 0.85;
   visibility: hidden;
 }
 
@@ -93,24 +91,22 @@
   border-radius: 5px;
 }
 
-#ap-chart text{
-  //color: #666;
-  color: #1E202C;
-}
 
-#ap-chart .x.axis text {
-  //fill: #666;
-  fill: #1E202C;
+
+
+#ap-chart .axis text {
+  font: 10px sans-serif;
+  fill: #AAA;
 }
 
 #ap-chart .x.axis path {
   //stroke: #666;
-  stroke: #1E202C;
+  stroke: #AAA;
 }
 
 .graph-subtitle {
   //fill: #666;
-  fill: #666;
+  fill: #AAA;
 }
 
 .graph-subtitle text {
@@ -119,8 +115,21 @@
 
 .graph-title {
   //color: #c1c4d5;
-  color: #1E202C;
-  //fill: #ccc;
-  fill: #1E202C;
+  fill: #4A4D5D;
+  //fill: #1E202C;
+  //fill: black;
+  font-weight: bold;
+  font-size: 31px;
 }
+
+//text for axis labels
+.graph-axis {
+  //color: #1E202C;
+  //fill: #ccc;
+  fill: #4A4D5D;
+  //fill: #333;
+  font-weight: 549;
+  font-smooth: 2em;
+}
+
 
