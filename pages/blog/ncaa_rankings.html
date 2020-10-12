@@ -10,6 +10,7 @@ permalink: /blog/fbs
 
 var icon_width = 23;
 var icon_height = icon_width;
+var graph_source = 'Sources: Associated Press, ESPN'
 
 ////////////////////////////////////////////////////
 // Need to scrape from https://www.espn.com/college-football/rankings/_/poll/1/week/6/year/2020/seasontype/2
@@ -134,7 +135,15 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
 
   ///////////////////////
   // Title
-  var x_center = (x(4) + x(5))/2
+  // const median = arr => {
+  //   const mid = Math.floor(arr.length / 2),
+  //     nums = [...arr].sort((a, b) => a - b);
+  //   return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+  // };
+  // console.log(median([4, 5, 6, 50, 1, -5]));
+  // console.log(x.domain())
+  // console.log(median(x.domain().map((i) => Number(i))))
+  let x_center = (x(4) + x(5))/2
   
   chart.append("text")
     .text(`Hover over a team's icon to see their ranking in other weeks`)
@@ -166,6 +175,14 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
     .attr("y", height - 8 + margin.bottom/2)
     .attr("x", x_center);
 
+  //Source
+  chart.append("text")
+    .text(graph_source)
+    //USA TODAY Sports
+    .attr("text-anchor", "end")
+    .attr("class", "graph-source")
+    .attr("y", height - 8 + margin.bottom/2 + 25)
+    .attr("x", +(document.getElementById("ap-chart").getAttribute("width") - margin.left - 8)); //padding is 20
 
   ///////////////////////
   // Lines

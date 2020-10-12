@@ -61,7 +61,7 @@
   border: 0px;
   border-radius: 8px;
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.8;
   visibility: hidden;
 }
 
@@ -132,4 +132,10 @@
   font-smooth: 2em;
 }
 
+.graph-source {
+  fill: #AAA;
+  //font-weight: 549;
+  font-smooth: 2em;
+  font-size: 14px;
+}
 

@@ -10,6 +10,7 @@ permalink: /blog/fbs_coaches
 
 var icon_width = 23;
 var icon_height = icon_width;
+var graph_source = 'Sources: USA Today, ESPN'
 
 ////////////////////////////////////////////////////
 // Need to scrape from https://www.espn.com/college-football/rankings/_/poll/1/week/6/year/2020/seasontype/2
@@ -165,6 +166,14 @@ d3.csv("../pages/blog/data_coaches.csv").then(loadedData =>  {
     .attr("class", "graph-axis")
     .attr("y", height - 8 + margin.bottom/2)
     .attr("x", x_center);
+
+  chart.append("text")
+    .text(graph_source)
+    //USA TODAY Sports
+    .attr("text-anchor", "end")
+    .attr("class", "graph-source")
+    .attr("y", height - 8 + margin.bottom/2 + 25)
+    .attr("x", +(document.getElementById("ap-chart").getAttribute("width") - margin.left - 8)); //padding is 20
 
 
   ///////////////////////
