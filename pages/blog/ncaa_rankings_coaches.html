@@ -42,7 +42,7 @@ d3.csv("../pages/blog/data_coaches.csv").then(loadedData =>  {
   const get_width = function(w) {
     let width;
     var max_width = 600;
-    var min_width = 355;
+    var min_width = 365;
     var sidebar_width = 450;
 
     if (w >= 784) {
@@ -99,7 +99,7 @@ d3.csv("../pages/blog/data_coaches.csv").then(loadedData =>  {
       .rangeRound([margin.left, width]);
 
   var x_corrected = d3.scaleBand()
-      .domain([1,2,3,4,5,6])
+      .domain([1,2,3,4,5,6,7])
       .rangeRound([margin.left, width]);
 
   var y = d3.scaleLinear()
@@ -135,7 +135,7 @@ d3.csv("../pages/blog/data_coaches.csv").then(loadedData =>  {
 
   ///////////////////////
   // Title
-  var x_center = (x(4) + x(5))/2
+  var x_center = (x(5) + x(5))/2
   
   chart.append("text")
     .text(`Hover over a team's icon to see their ranking in other weeks`)
@@ -231,7 +231,7 @@ d3.csv("../pages/blog/data_coaches.csv").then(loadedData =>  {
   
   ///////////////////////
   // Tooltips
-  var tooltip = d3.select("body").append("div")
+var tooltip = d3.select(".container").append("div")
       .attr("class", "tooltip");
 
   chart.selectAll("image")
@@ -254,9 +254,16 @@ d3.csv("../pages/blog/data_coaches.csv").then(loadedData =>  {
       })
 
       .on("mousemove", function(d) {
-        tooltip.style("top", event.pageY - (tooltip.node().clientHeight + 5) + "px")
+        tooltip.style("top", event.pageY - (tooltip.node().clientHeight + 30) + "px")
             .style("left", event.pageX - (tooltip.node().clientWidth / 2.0) + "px")
-            .attr('opacity', '.2');
+            .transition()
+              .delay(0)
+              .duration(0)
+              .style("opacity",.78)
+            .transition()
+              .delay(3000)
+              .duration(500)
+              .style("opacity",0);
       })
 
       .on("mouseout", function(d) {
@@ -271,16 +278,16 @@ d3.csv("../pages/blog/data_coaches.csv").then(loadedData =>  {
       })
 
       // .on('click', function(d) {
-        // chart.selectAll('.' + d['Team_clean'])
-        //     .classed('click-active-team', function(d) {
-        //       // toggle state
-        //       return !d3.select(this).classed('click-active-team');
-        //     });
+      //   chart.selectAll('.' + d['Team_clean'])
+      //       .classed('click-active-team', function(d) {
+      //         // toggle state
+      //         return !d3.select(this).classed('click-active-team');
+      //       });
 
-              //added
+      //         added
 
-        // tooltip.html(tooltip_str)
-        //     .style("visibility", "visible");
+      //   tooltip.html(tooltip_str)
+      //       .style("visibility", "hidden");
 
       // })
 

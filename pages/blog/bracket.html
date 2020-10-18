@@ -20,7 +20,6 @@
       .catch((error) => {
         console.error(error);
         // Handle errors
-        // Here I used the simplest solution. If you want more complex message, you can put the error message markup in the html body, and toggle the visibility of the message using a class
         document.querySelector("#bracket-viz").textContent =
           "Something went wrong. Please try again later.";
       });

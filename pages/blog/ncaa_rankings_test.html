@@ -10,6 +10,7 @@ permalink: /blog/fbs_test
 
 var icon_width = 23;
 var icon_height = icon_width;
+var graph_source = 'Sources: Associated Press, ESPN'
 
 ////////////////////////////////////////////////////
 // Need to scrape from https://www.espn.com/college-football/rankings/_/poll/1/week/6/year/2020/seasontype/2
@@ -27,31 +28,79 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
     //d['position'] = +d['RK'];
   })
 
+
+  document.getElementById("ap-chart").getAttribute("width")
+
   ///////////////////////
   // Chart Size Setup
   var margin = { top: 70, right: 0, bottom: 60, left: 40 };
 
-  var x_svg = document.getElementById("ap-chart").getAttribute("width");
+  let x_svg = document.getElementById("ap-chart").getAttribute("width");
 
-  var out_width = x_svg
+  win_width = +window.innerWidth
+
+  const get_width = function(w) {
+    let width;
+    var max_width = 600;
+    var min_width = 355;
+    var sidebar_width = 450;
+
+    if (w >= 784) {
+      //check if window is less than max
+      if (w - sidebar_width > max_width) {
+        return max_width
+      }
+      else if (w - sidebar_width < min_width) {
+        return min_width
+      }
+      else {
+        return w - sidebar_width
+      }
+      
+    }
+    else {
+      if (w -75 <= min_width ) {
+        return min_width
+      }
+      else {
+        return w - 75
+      }
+    }
+  }
+
+  let out_width = get_width(win_width)
   var out_height = 700
 
-  var width = out_width - margin.left - margin.right;
-  var height = out_height - margin.top - margin.bottom;
+  
 
   var chart = d3.select("#ap-chart") //this is the svg
-      .attr("width", x_svg)
+      .attr("width", out_width)
       .attr("height", out_height)
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  //out_width = window.innerWidth/2;
     
-  //chart.attr("width", 1000).attr("height", out_height)
+
+  let width = out_width - margin.left - margin.right;
+  var height = out_height - margin.top - margin.bottom;
+
+  // out_width = x_svg
+  // width = out_width
 
   ///////////////////////
   // Scales
+  // var x = d3.scaleBand()
+  //     .domain(data.map(function(d) { return d['Week']; }))
+  //     .rangeRound([margin.left, width - margin.right]);
+
   var x = d3.scaleBand()
       .domain(data.map(function(d) { return d['Week']; }))
-      .rangeRound([margin.left, width - margin.right]);
+      .rangeRound([margin.left, width]);
+
+  var x_corrected = d3.scaleBand()
+      .domain([1,2,3,4,5,6])
+      .rangeRound([margin.left, width]);
 
   var y = d3.scaleLinear()
       .domain([d3.min(data, function(d) { return d['position'] }), d3.max(data, function(d) { return d['position']; })])
@@ -67,9 +116,9 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
 
   ///////////////////////
   // Axis
-  var xAxis = d3.axisBottom(x);
+  var xAxis = d3.axisBottom(x_corrected);
 
-  var yAxis = d3.axisLeft(y_reverse).ticks(20);
+  var yAxis = d3.axisLeft(y_reverse).ticks(25);
 
   chart.append("g")
       .attr("class", "x axis")
@@ -86,26 +135,35 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
 
   ///////////////////////
   // Title
+  // const median = arr => {
+  //   const mid = Math.floor(arr.length / 2),
+  //     nums = [...arr].sort((a, b) => a - b);
+  //   return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+  // };
+  // console.log(median([4, 5, 6, 50, 1, -5]));
+  // console.log(x.domain())
+  // console.log(median(x.domain().map((i) => Number(i))))
+  let x_center = (x(4) + x(5))/2
+  
   chart.append("text")
-    .text(`Hover over a team's icon to see their ranking in other weeks.`)
+    .text(`Hover over a team's icon to see their ranking in other weeks`)
     .attr("text-anchor", "middle")
-    .attr("class", "graph-title")
-    .style("font-size", "14px")
+    .attr("class", "graph-subtitle")
+    .style("font-size", "12px")
     .attr("y", -5)
-    .attr("x", x(4));
+    .attr("x", x_center);
 
   chart.append("text")
     .text(`${data[0]['Poll Type']} Rankings`)
     .attr("text-anchor", "middle")
     .attr("class", "graph-title")
-    .style("font-size", "34px")
     .attr("y", -25)
-    .attr("x", x(4));
+    .attr("x", x_center);
 
   chart.append("text")
     .text('Ranking')
     .attr("text-anchor", "middle")
-    .attr("class", "graph-title")
+    .attr("class", "graph-axis")
     .attr("y", -12)
     .attr("x", -y(12.5))
     .attr("transform", "rotate(-90)");
@@ -113,10 +171,18 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
   chart.append("text")
     .text('Week')
     .attr("text-anchor", "middle")
-    .attr("class", "graph-title")
+    .attr("class", "graph-axis")
     .attr("y", height - 8 + margin.bottom/2)
-    .attr("x", x(4));
+    .attr("x", x_center);
 
+  //Source
+  chart.append("text")
+    .text(graph_source)
+    //USA TODAY Sports
+    .attr("text-anchor", "end")
+    .attr("class", "graph-source")
+    .attr("y", height - 8 + margin.bottom/2 + 25)
+    .attr("x", +(document.getElementById("ap-chart").getAttribute("width") - margin.left - 8)); //padding is 20
 
   ///////////////////////
   // Lines
@@ -167,13 +233,13 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
       .attr('height', icon_height)
       //.attr("xlink:href", "https://i.imgur.com/kAKRvgi.png") //TEAM ICONNNNNNNNN
       .attr("xlink:href", function(d) { return d['link'] })
-      .attr('opacity', '.6')
+      .attr('opacity', '.8')
       .attr('team-active', false);
 
   
   ///////////////////////
   // Tooltips
-  var tooltip = d3.select("body").append("div")
+  var tooltip = d3.select(".container").append("div")
       .attr("class", "tooltip");
 
   chart.selectAll("image")
@@ -185,10 +251,10 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
         chart.selectAll('.inactive')
             .classed('non-hover-team', true)
 
-        var tooltip_str = '<span style="text-align:center">' + d['RK'] + ' ' + d['name'] + "</span>" + 
+        var tooltip_str = d['RK'] + ' ' + '<span style="text-align:center;color:#CA4">' + d['name'] + "</span>" + 
                 "<br/>" + "Points: " + d['PTS'] +
                 "<br/>" + "(W-L): " + d['REC'] +
-                "<br/>" + "Last Week: " + d['Last Week'] +
+                "<br/>" + "This Week: " + d['Last Week'] +
                 "<br/>" + "Next Week: " + d['Next Week'];
 
         tooltip.html(tooltip_str)
@@ -196,9 +262,16 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
       })
 
       .on("mousemove", function(d) {
-        tooltip.style("top", event.pageY - (tooltip.node().clientHeight + 5) + "px")
+        tooltip.style("top", event.pageY - (tooltip.node().clientHeight + 30) + "px")
             .style("left", event.pageX - (tooltip.node().clientWidth / 2.0) + "px")
-            .attr('opacity', '.2');
+            .transition()
+              .delay(0)
+              .duration(0)
+              .style("opacity",.75)
+            .transition()
+              .delay(3000)
+              .duration(500)
+              .style("opacity",0);
       })
 
       .on("mouseout", function(d) {
@@ -212,17 +285,19 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
         tooltip.style("visibility", "hidden");
       })
 
+
+
       // .on('click', function(d) {
-        // chart.selectAll('.' + d['Team_clean'])
-        //     .classed('click-active-team', function(d) {
-        //       // toggle state
-        //       return !d3.select(this).classed('click-active-team');
-        //     });
+      //   chart.selectAll('.' + d['Team_clean'])
+      //       .classed('click-active-team', function(d) {
+      //         // toggle state
+      //         return !d3.select(this).classed('click-active-team');
+      //       });
 
-              //added
+      //         added
 
-        // tooltip.html(tooltip_str)
-        //     .style("visibility", "visible");
+      //   tooltip.html(tooltip_str)
+      //       .style("visibility", "hidden");
 
       // })
 
@@ -231,5 +306,8 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
 </script>
 
 <body>
+  <div id="ap">
     <svg id="ap-chart" width="400" height="700"></svg>
+  </div>
+  <a href="./fbs_coaches">Click here for the Coaches Poll Visualization</a>
 </body>
