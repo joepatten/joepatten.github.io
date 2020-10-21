@@ -99,7 +99,7 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
       .rangeRound([margin.left, width]);
 
   var x_corrected = d3.scaleBand()
-      .domain([1,2,3,4,5,6])
+      .domain([1,2,3,4,5,6,7])
       .rangeRound([margin.left, width]);
 
   var y = d3.scaleLinear()
@@ -143,22 +143,28 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
   // console.log(median([4, 5, 6, 50, 1, -5]));
   // console.log(x.domain())
   // console.log(median(x.domain().map((i) => Number(i))))
-  let x_center = (x(4) + x(5))/2
+  let x_center = (x(5) + x(5))/2
+  let div_width = document.getElementById("ap-chart").getAttribute("width")
+  let x_title = (div_width - margin.right - margin.left) / 2
+  let y_title = -100
+  console.log(div_width)
   
-  chart.append("text")
+  div_chart = d3.select('ap-chart')
+
+  div_chart.append("text")
     .text(`Hover over a team's icon to see their ranking in other weeks`)
     .attr("text-anchor", "middle")
     .attr("class", "graph-subtitle")
     .style("font-size", "12px")
-    .attr("y", -5)
-    .attr("x", x_center);
+    .attr("y", -5+y_title)
+    .attr("x", x_title);
 
-  chart.append("text")
+  div_chart.append("text")
     .text(`${data[0]['Poll Type']} Rankings`)
     .attr("text-anchor", "middle")
     .attr("class", "graph-title")
-    .attr("y", -25)
-    .attr("x", x_center);
+    .attr("y", -25+y_title)
+    .attr("x", x_title);
 
   chart.append("text")
     .text('Ranking')
