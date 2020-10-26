@@ -100,7 +100,7 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
       .rangeRound([margin.left, width]);
 
   var x_corrected = d3.scaleBand()
-      .domain([1,2,3,4,5,6,7])
+      .domain([1,2,3,4,5,6,7,8])
       .rangeRound([margin.left, width]);
 
   var y = d3.scaleLinear()
@@ -146,7 +146,7 @@ d3.csv("../pages/blog/data.csv").then(loadedData =>  {
   // console.log(median(x.domain().map((i) => Number(i))))
   
   //let x_center = (x_corrected(4) + x_corrected(5))/2
-  let x_center = x(5)
+  let x_center = (x(5) + x(6))/2
   
   chart.append("text")
     .text(`Hover over a team's icon to see their ranking in other weeks`)

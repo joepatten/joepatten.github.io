@@ -149,28 +149,53 @@ RK,Team,REC,PTS,TREND,Last Week,Next Week,link,name,Week,Poll Type,Rank
 23,VTVirginia Tech,2-1,198,4,"@ #8 North Carolina<span class=""red""> L </span>56-45 ","vs Boston College<span class=""green""> W </span>40-14 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/259.png&w=40&h=40,Virginia Tech,7,AP Poll,23
 24,MINNMinnesota,0-0,177,1, - , - ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/135.png&w=40&h=40,Minnesota,7,AP Poll,24
 25,USCUSC,0-0,124,NR, - , - ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/30.png&w=40&h=40,USC,7,AP Poll,25
-1,CLEMClemson(54),5-0,1542,-,"@ Georgia Tech<span class=""green""> W </span>73-7 ",vs Syracuse  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/228.png&w=40&h=40,Clemson,8,AP Poll,1
-2,ALAAlabama(8),4-0,1494,-,"vs #3 Georgia<span class=""green""> W </span>41-24 ",@ Tennessee  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/333.png&w=40&h=40,Alabama,8,AP Poll,2
-3,NDNotre Dame,4-0,1337,1,"vs Louisville<span class=""green""> W </span>12-7 ",@ Pittsburgh  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/87.png&w=40&h=40,Notre Dame,8,AP Poll,3
+1,CLEMClemson(54),5-0,1542,-,"@ Georgia Tech<span class=""green""> W </span>73-7 ","vs Syracuse<span class=""green""> W </span>47-21 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/228.png&w=40&h=40,Clemson,8,AP Poll,1
+2,ALAAlabama(8),4-0,1494,-,"vs #3 Georgia<span class=""green""> W </span>41-24 ","@ Tennessee<span class=""green""> W </span>48-17 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/333.png&w=40&h=40,Alabama,8,AP Poll,2
+3,NDNotre Dame,4-0,1337,1,"vs Louisville<span class=""green""> W </span>12-7 ","@ Pittsburgh<span class=""green""> W </span>45-3 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/87.png&w=40&h=40,Notre Dame,8,AP Poll,3
 4,UGAGeorgia,3-1,1300,1,"@ #2 Alabama<span class=""red""> L </span>41-24 ", - ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/61.png&w=40&h=40,Georgia,8,AP Poll,4
-5,OSUOhio State,0-0,1223,1, - ,vs Nebraska  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/194.png&w=40&h=40,Ohio State,8,AP Poll,5
-6,OKSTOklahoma State,3-0,1137,1, - ,vs #17 Iowa State  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/197.png&w=40&h=40,Oklahoma State,8,AP Poll,6
+5,OSUOhio State,0-0,1223,1, - ,"vs Nebraska<span class=""green""> W </span>52-17 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/194.png&w=40&h=40,Ohio State,8,AP Poll,5
+6,OKSTOklahoma State,3-0,1137,1, - ,"vs #17 Iowa State<span class=""green""> W </span>24-21 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/197.png&w=40&h=40,Oklahoma State,8,AP Poll,6
 7,TA&MTexas A&M,3-1,1054,4,"@ Mississippi State<span class=""green""> W </span>28-14 ", - ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/245.png&w=40&h=40,Texas A&M,8,AP Poll,7
-8,PSUPenn State,0-0,1033,1, - ,@ Indiana  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/213.png&w=40&h=40,Penn State,8,AP Poll,8
-9,CINCincinnati,3-0,1028,1, - ,@ #16 SMU  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2132.png&w=40&h=40,Cincinnati,8,AP Poll,9
+8,PSUPenn State,0-0,1033,1, - ,"@ Indiana<span class=""red""> L </span>36-35 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/213.png&w=40&h=40,Penn State,8,AP Poll,8
+9,CINCincinnati,3-0,1028,1, - ,"@ #16 SMU<span class=""green""> W </span>42-13 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2132.png&w=40&h=40,Cincinnati,8,AP Poll,9
 10,FLAFlorida,2-1,942,-, - , - ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/57.png&w=40&h=40,Florida,8,AP Poll,10
-11,MIAMIMiami,4-1,887,2,"vs Pittsburgh<span class=""green""> W </span>31-19 ",vs Virginia  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2390.png&w=40&h=40,Miami,8,AP Poll,11
-12,BYUBYU,5-0,875,2,"@ Houston<span class=""green""> W </span>43-26 ",vs Texas State  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/252.png&w=40&h=40,BYU,8,AP Poll,12
+11,MIAMIMiami,4-1,887,2,"vs Pittsburgh<span class=""green""> W </span>31-19 ","vs Virginia<span class=""green""> W </span>19-14 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2390.png&w=40&h=40,Miami,8,AP Poll,11
+12,BYUBYU,5-0,875,2,"@ Houston<span class=""green""> W </span>43-26 ","vs Texas State<span class=""green""> W </span>52-14 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/252.png&w=40&h=40,BYU,8,AP Poll,12
 13,OREOregon,0-0,841,1, - , - ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2483.png&w=40&h=40,Oregon,8,AP Poll,13
-14,UNCNorth Carolina,3-1,677,9,"@ Florida State<span class=""red""> L </span>31-28 ",vs #23 NC State  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/153.png&w=40&h=40,North Carolina,8,AP Poll,14
-,WISCWisconsin,0-0,677,2, - ,vs Illinois  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/275.png&w=40&h=40,Wisconsin,8,AP Poll,15
-16,SMUSMU,5-0,638,1,"@ Tulane<span class=""green""> W </span>37-34 ",vs #9 Cincinnati  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2567.png&w=40&h=40,SMU,8,AP Poll,16
-17,ISUIowa State,3-1,511,3, - ,@ #6 Oklahoma State  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/66.png&w=40&h=40,Iowa State,8,AP Poll,17
-18,MICHMichigan,0-0,489,1, - ,@ #21 Minnesota  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/130.png&w=40&h=40,Michigan,8,AP Poll,18
-19,VTVirginia Tech,3-1,411,4,"vs Boston College<span class=""green""> W </span>40-14 ",@ Wake Forest  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/259.png&w=40&h=40,Virginia Tech,8,AP Poll,19
-20,KSUKansas State,3-1,399,2, - ,vs Kansas  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2306.png&w=40&h=40,Kansas State,8,AP Poll,20
-21,MINNMinnesota,0-0,234,3, - ,vs #18 Michigan  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/135.png&w=40&h=40,Minnesota,8,AP Poll,21
-22,MRSHMarshall,4-0,227,NR,"@ Louisiana Tech<span class=""green""> W </span>35-17 ",vs Florida Atlantic  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/276.png&w=40&h=40,Marshall,8,AP Poll,22
-23,NCSTNC State,4-1,199,NR,"vs Duke<span class=""green""> W </span>31-20 ",@ #14 North Carolina  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/152.png&w=40&h=40,NC State,8,AP Poll,23
+14,UNCNorth Carolina,3-1,677,9,"@ Florida State<span class=""red""> L </span>31-28 ","vs #23 NC State<span class=""green""> W </span>48-21 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/153.png&w=40&h=40,North Carolina,8,AP Poll,14
+,WISCWisconsin,0-0,677,2, - ,"vs Illinois<span class=""green""> W </span>45-7 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/275.png&w=40&h=40,Wisconsin,8,AP Poll,15
+16,SMUSMU,5-0,638,1,"@ Tulane<span class=""green""> W </span>37-34 ","vs #9 Cincinnati<span class=""red""> L </span>42-13 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2567.png&w=40&h=40,SMU,8,AP Poll,16
+17,ISUIowa State,3-1,511,3, - ,"@ #6 Oklahoma State<span class=""red""> L </span>24-21 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/66.png&w=40&h=40,Iowa State,8,AP Poll,17
+18,MICHMichigan,0-0,489,1, - ,"@ #21 Minnesota<span class=""green""> W </span>49-24 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/130.png&w=40&h=40,Michigan,8,AP Poll,18
+19,VTVirginia Tech,3-1,411,4,"vs Boston College<span class=""green""> W </span>40-14 ","@ Wake Forest<span class=""red""> L </span>23-16 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/259.png&w=40&h=40,Virginia Tech,8,AP Poll,19
+20,KSUKansas State,3-1,399,2, - ,"vs Kansas<span class=""green""> W </span>55-14 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2306.png&w=40&h=40,Kansas State,8,AP Poll,20
+21,MINNMinnesota,0-0,234,3, - ,"vs #18 Michigan<span class=""red""> L </span>49-24 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/135.png&w=40&h=40,Minnesota,8,AP Poll,21
+22,MRSHMarshall,4-0,227,NR,"@ Louisiana Tech<span class=""green""> W </span>35-17 ","vs Florida Atlantic<span class=""green""> W </span>20-9 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/276.png&w=40&h=40,Marshall,8,AP Poll,22
+23,NCSTNC State,4-1,199,NR,"vs Duke<span class=""green""> W </span>31-20 ","@ #14 North Carolina<span class=""red""> L </span>48-21 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/152.png&w=40&h=40,NC State,8,AP Poll,23
 24,USCUSC,0-0,192,1, - , - ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/30.png&w=40&h=40,USC,8,AP Poll,24
-25,CCUCoastal Carolina,4-0,185,NR,"@ #21 Louisiana<span class=""green""> W </span>30-27 ",vs Georgia Southern  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/324.png&w=40&h=40,Coastal Carolina,8,AP Poll,25
+25,CCUCoastal Carolina,4-0,185,NR,"@ #21 Louisiana<span class=""green""> W </span>30-27 ","vs Georgia Southern<span class=""green""> W </span>28-14 ",https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/324.png&w=40&h=40,Coastal Carolina,8,AP Poll,25
+1,CLEMClemson(52),6-0,1539,-,"vs Syracuse<span class=""green""> W </span>47-21 ",vs Boston College  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/228.png&w=40&h=40,Clemson,9,AP Poll,1
+2,ALAAlabama(10),5-0,1494,-,"@ Tennessee<span class=""green""> W </span>48-17 ",vs Mississippi State  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/333.png&w=40&h=40,Alabama,9,AP Poll,2
+3,OSUOhio State,1-0,1402,2,"vs Nebraska<span class=""green""> W </span>52-17 ",@ #18 Penn State  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/194.png&w=40&h=40,Ohio State,9,AP Poll,3
+4,NDNotre Dame,5-0,1353,1,"@ Pittsburgh<span class=""green""> W </span>45-3 ",@ Georgia Tech  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/87.png&w=40&h=40,Notre Dame,9,AP Poll,4
+5,UGAGeorgia,3-1,1292,1, - ,@ Kentucky  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/61.png&w=40&h=40,Georgia,9,AP Poll,5
+6,OKSTOklahoma State,4-0,1201,-,"vs #17 Iowa State<span class=""green""> W </span>24-21 ",vs Texas  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/197.png&w=40&h=40,Oklahoma State,9,AP Poll,6
+7,CINCincinnati,4-0,1100,2,"@ #16 SMU<span class=""green""> W </span>42-13 ",vs Memphis  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2132.png&w=40&h=40,Cincinnati,9,AP Poll,7
+8,TA&MTexas A&M,3-1,1094,1, - ,vs Arkansas  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/245.png&w=40&h=40,Texas A&M,9,AP Poll,8
+9,WISCWisconsin,1-0,950,5,"vs Illinois<span class=""green""> W </span>45-7 ",@ Nebraska  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/275.png&w=40&h=40,Wisconsin,9,AP Poll,9
+10,FLAFlorida,2-1,933,-, - ,vs Missouri  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/57.png&w=40&h=40,Florida,9,AP Poll,10
+11,BYUBYU,6-0,906,1,"vs Texas State<span class=""green""> W </span>52-14 ",vs Western Kentucky  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/252.png&w=40&h=40,BYU,9,AP Poll,11
+12,MIAMIMiami,5-1,888,1,"vs Virginia<span class=""green""> W </span>19-14 ", - ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2390.png&w=40&h=40,Miami,9,AP Poll,12
+13,MICHMichigan,1-0,839,5,"@ #21 Minnesota<span class=""green""> W </span>49-24 ",vs Michigan State  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/130.png&w=40&h=40,Michigan,9,AP Poll,13
+14,OREOregon,0-0,784,1, - , - ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2483.png&w=40&h=40,Oregon,9,AP Poll,14
+15,UNCNorth Carolina,4-1,758,1,"vs #23 NC State<span class=""green""> W </span>48-21 ",@ Virginia  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/153.png&w=40&h=40,North Carolina,9,AP Poll,15
+16,KSUKansas State,4-1,562,4,"vs Kansas<span class=""green""> W </span>55-14 ",@ West Virginia  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2306.png&w=40&h=40,Kansas State,9,AP Poll,16
+17,IUIndiana,1-0,466,NR,"vs #8 Penn State<span class=""green""> W </span>36-35 ",@ Rutgers  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/84.png&w=40&h=40,Indiana,9,AP Poll,17
+18,PSUPenn State,0-1,443,10,"@ Indiana<span class=""red""> L </span>36-35 ",vs #3 Ohio State  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/213.png&w=40&h=40,Penn State,9,AP Poll,18
+19,MRSHMarshall,5-0,379,3,"vs Florida Atlantic<span class=""green""> W </span>20-9 ",@ Florida International  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/276.png&w=40&h=40,Marshall,9,AP Poll,19
+20,CCUCoastal Carolina,5-0,282,5,"vs Georgia Southern<span class=""green""> W </span>28-14 ",@ Georgia State  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/324.png&w=40&h=40,Coastal Carolina,9,AP Poll,20
+21,USCUSC,0-0,243,3, - , - ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/30.png&w=40&h=40,USC,9,AP Poll,21
+22,SMUSMU,5-1,208,6,"vs #9 Cincinnati<span class=""red""> L </span>42-13 ",vs Navy  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2567.png&w=40&h=40,SMU,9,AP Poll,22
+23,ISUIowa State,3-2,205,6,"@ #6 Oklahoma State<span class=""red""> L </span>24-21 ",@ Kansas  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/66.png&w=40&h=40,Iowa State,9,AP Poll,23
+24,OUOklahoma,3-2,155,NR,"@ TCU<span class=""green""> W </span>33-14 ",@ Texas Tech  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/201.png&w=40&h=40,Oklahoma,9,AP Poll,24
+25,BSUBoise State,1-0,113,NR,"vs Utah State<span class=""green""> W </span>42-13 ",@ Air Force  ,https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/68.png&w=40&h=40,Boise State,9,AP Poll,25
