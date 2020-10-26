@@ -1,0 +1,363 @@
+---
+layout: page
+title: Data Visualization
+sidebar_link: false
+permalink: /blog/data_viz
+---
+
+<script src="https://unpkg.com/d3@5.6.0/dist/d3.min.js"></script>
+<script>
+
+var icon_width = 23;
+var icon_height = icon_width;
+var graph_source = 'Sources: Associated Press, ESPN'
+
+////////////////////////////////////////////////////
+// Need to scrape from https://www.espn.com/college-football/rankings/_/poll/1/week/6/year/2020/seasontype/2
+
+
+d3.csv("../pages/blog/data.csv").then(loadedData =>  {
+  data = loadedData;
+  data.forEach(function(d) {
+    d.position = +d.Rank;
+  }
+  );
+
+  // add a css safe class for use in hover interactions and coloring
+  data.forEach(function(d) {
+    d['Team_clean'] = d['name'].toLowerCase().replace(/ /g, '-').replace(/\./g,'').replace('&', '');
+    //d['position'] = +d['RK'];
+  })
+
+
+  document.getElementById("ap-chart").getAttribute("width")
+
+  ///////////////////////
+  // Chart Size Setup
+  var margin = { top: 70, right: 0, bottom: 60, left: 40 };
+
+  let x_svg = document.getElementById("ap-chart").getAttribute("width");
+
+  win_width = +window.innerWidth
+
+  const get_width = function(w) {
+    let width;
+    var max_width = 600;
+    var min_width = 365;
+    var sidebar_width = 450;
+
+    if (w >= 784) {
+      //check if window is less than max
+      if (w - sidebar_width > max_width) {
+        return max_width
+      }
+      else if (w - sidebar_width < min_width) {
+        return min_width
+      }
+      else {
+        return w - sidebar_width
+      }
+      
+    }
+    else {
+      if (w -75 <= min_width ) {
+        return min_width
+      }
+      else {
+        return w - 75
+      }
+    }
+  }
+
+  let out_width = get_width(win_width)
+  var out_height = 700
+
+  
+
+  var chart = d3.select("#ap-chart") //this is the svg
+      .attr("width", out_width)
+      .attr("height", out_height)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  //out_width = window.innerWidth/2;
+    
+
+  let width = out_width - margin.left - margin.right;
+  var height = out_height - margin.top - margin.bottom;
+
+  // out_width = x_svg
+  // width = out_width
+
+  ///////////////////////
+  // Scales
+  // var x = d3.scaleBand()
+  //     .domain(data.map(function(d) { return d['Week']; }))
+  //     .rangeRound([margin.left, width - margin.right]);
+
+  var x = d3.scaleBand()
+      .domain(data.map(function(d) { return d['Week']; }))
+      .rangeRound([margin.left, width]);
+
+  var x_corrected = d3.scaleBand()
+      .domain([1,2,3,4,5,6,7])
+      .rangeRound([margin.left, width]);
+
+  var y = d3.scaleLinear()
+      .domain([d3.min(data, function(d) { return d['position'] }), d3.max(data, function(d) { return d['position']; })])
+      .range([20, height - 30]);
+
+  var y_reverse = d3.scaleLinear()
+      .domain([d3.min(data, function(d) { return d['position'] }), d3.max(data, function(d) { return d['position']; })])
+      .range([20, height - 30]);
+
+  var size = d3.scaleLinear()
+      .domain(d3.extent(data, function(d) { return d['RK']; }))
+      .range([3, 10]);
+
+  ///////////////////////
+  // Axis
+  var xAxis = d3.axisBottom(x_corrected);
+
+  var yAxis = d3.axisLeft(y_reverse).ticks(25);
+
+  chart.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(-"+ x.bandwidth()/2.0 +"," + `${height-18}` + ")")
+      .call(xAxis);
+
+  chart.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate(23,0)")
+      .call(yAxis);
+
+  //xAxis.selectAll('stroke').remove()
+  //yAxis
+
+  ///////////////////////
+  // Title
+  // const median = arr => {
+  //   const mid = Math.floor(arr.length / 2),
+  //     nums = [...arr].sort((a, b) => a - b);
+  //   return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+  // };
+  // console.log(median([4, 5, 6, 50, 1, -5]));
+  // console.log(x.domain())
+  // console.log(median(x.domain().map((i) => Number(i))))
+  
+  //let x_center = (x_corrected(4) + x_corrected(5))/2
+  let x_center = x(5)
+  
+  chart.append("text")
+    .text(`Hover over a team's icon to see their ranking in other weeks`)
+    .attr("text-anchor", "middle")
+    .attr("class", "graph-subtitle")
+    .style("font-size", "12px")
+    .attr("y", -5)
+    .attr("x", x_center);
+
+  chart.append("text")
+    .text(`${data[0]['Poll Type']} Rankings`)
+    .attr("text-anchor", "middle")
+    .attr("class", "graph-title")
+    .attr("y", -25)
+    .attr("x", x_center);
+
+  chart.append("text")
+    .text('Ranking')
+    .attr("text-anchor", "middle")
+    .attr("class", "graph-axis")
+    .attr("y", -12)
+    .attr("x", -y(12.5))
+    .attr("transform", "rotate(-90)");
+
+  chart.append("text")
+    .text('Week')
+    .attr("text-anchor", "middle")
+    .attr("class", "graph-axis")
+    .attr("y", height - 8 + margin.bottom/2)
+    .attr("x", x_center);
+
+  //Source
+  chart.append("text")
+    .text(graph_source)
+    //USA TODAY Sports
+    .attr("text-anchor", "end")
+    .attr("class", "graph-source")
+    .attr("y", height - 8 + margin.bottom/2 + 25)
+    .attr("x", +(document.getElementById("ap-chart").getAttribute("width") - margin.left - 8)); //padding is 20
+
+  ///////////////////////
+  // Lines
+  var Teams = d3.map(data, function(d) {
+    return d['name'];
+  }).keys();
+
+  Teams.forEach(function(Team) {
+    var currData = data.filter(function(d) {
+      if(d['name'] == Team) {
+        return d;
+      }
+    });
+
+    var line = d3.line()
+        .x(function(d) { return x(d['Week']); })
+        .y(function(d) { return y(d['position']); })
+        .curve(d3.curveMonotoneX);
+
+    chart.append("path")
+        .datum(currData)
+        .attr("class", Team.toLowerCase().replace(/ /g, '-').replace(/\./g,'').replace('&', '') )
+        .attr("style", "fill:none !important")
+        .attr("stroke-linejoin", "round")
+        //.attr("stroke-linecap", "round")
+        .attr("stroke-width", 6)
+        .attr("stroke-opacity", 0.01)
+        .attr("fill", "#AF2626")
+        //.attr("stroke", "#0A174A")
+        .attr("stroke", "grey")
+        //.attr("stroke-dasharray", "10,10")
+        .attr("stroke-linecap", "round")
+        .attr("d", line);
+
+  });
+
+
+  ///////////////////////
+  // Nodes
+  var image_node = chart.append("g")
+    .selectAll("image")
+    .data(data)
+    .enter().append("image")
+      .attr("class", d => 'inactive ' + d['name'].toLowerCase().replace(/ /g, '-').replace(/\./g,'').replace('&', ''))
+      .attr('x', function(d) { return x(d['Week'])-icon_width/2; })
+      .attr('y', function(d) { return y(d['position'])-icon_height/2; })
+      .attr('width', icon_width)
+      .attr('height', icon_height)
+      //.attr("xlink:href", "https://i.imgur.com/kAKRvgi.png") //TEAM ICONNNNNNNNN
+      .attr("xlink:href", function(d) { return d['link'] })
+      .attr('opacity', '.8')
+      .attr('team-active', false);
+
+  
+  ///////////////////////
+  // Tooltips
+  var tooltip = d3.select(".container").append("div")
+      .attr("class", "tooltip");
+
+  chart.selectAll("image")
+      .on("mouseover", function(d) {
+        chart.selectAll('.' + d['Team_clean'])
+            .classed('active', true)
+            .classed('inactive', false);
+
+        chart.selectAll('.inactive')
+            .classed('non-hover-team', true)
+
+        var tooltip_str = d['RK'] + ' ' + '<span style="text-align:center;color:#CA4">' + d['name'] + "</span>" + 
+                "<br/>" + "Points: " + d['PTS'] +
+                "<br/>" + "(W-L): " + d['REC'] +
+                "<br/>" + "This Week: " + d['Last Week'] +
+                "<br/>" + "Next Week: " + d['Next Week'];
+
+        tooltip.html(tooltip_str)
+            .style("visibility", "visible");
+      })
+
+      .on("mousemove", function(d) {
+        tooltip.style("top", event.pageY - (tooltip.node().clientHeight + 30) + "px")
+            .style("left", event.pageX - (tooltip.node().clientWidth / 2.0) + "px")
+            .transition()
+              .delay(0)
+              .duration(0)
+              .style("opacity",.78)
+            .transition()
+              .delay(3000)
+              .duration(500)
+              .style("opacity",0);
+      })
+
+      .on("mouseout", function(d) {
+        chart.selectAll('.'+d['Team_clean'])
+            .classed('active', false)
+            .classed('inactive', true)
+
+        chart.selectAll('.inactive')
+            .classed('non-hover-team', false)
+
+        tooltip.style("visibility", "hidden");
+      })
+
+      // .on('click', function(d) {
+      //   chart.selectAll('.' + d['Team_clean'])
+      //       .classed('click-active-team', function(d) {
+      //         // toggle state
+      //         return !d3.select(this).classed('click-active-team');
+      //       });
+
+      //         added
+
+      //   tooltip.html(tooltip_str)
+      //       .style("visibility", "hidden");
+
+      // })
+
+
+});
+</script>
+
+<body>
+  <div id="ap">
+    <svg id="ap-chart" width="400" height="700"></svg>
+  </div>
+  <a href="./fbs_coaches">Click here for the Coaches Poll Visualization</a>
+</body>
+
+
+
+
+Below are a few visualizations I have done using D3.js.
+
+<h3>RLCS Regional Event 1 EU Predictions</h3>
+
+<div class="prediction_bracket">
+  	<div id="bracket-viz">
+		</div>
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+
+		  <script src="https://d3js.org/d3-array.v2.min.js"></script>
+		  <script src="../assets/js/bracket-viz.js"></script>
+		  <script>
+		  	// data taken from assets/data/predictions2.csv
+		  	// javascript taken from assets/js/breacket-viz.js
+		  	// css from _bracket-viz.scss
+		  	// TODO: put bracket in include (anyway to have the file as an input that I could put in?)
+		  	// 
+		    // The data retrieving call is placed outside the bracket drawing code so the retrieved data can be used by both the bracket viz and the table viz
+		    d3.csv("/assets/data/updated_predictions2.csv")
+		      .then((data) => {
+		        // console.log(data);
+		        // Draw bracket viz
+		        bracketViz({
+		          el: document.querySelector("#bracket-viz"),
+		          data: data,
+		        });
+		        // Draw table viz
+		        // Set up bracket/table toggle
+		      })
+		      .catch((error) => {
+		        console.error(error);
+		        // Handle errors
+		        // Here I used the simplest solution. If you want more complex message, you can put the error message markup in the html body, and toggle the visibility of the message using a class
+		        document.querySelector("#bracket-viz").textContent =
+		          "Something went wrong. Please try again later.";
+		      });
+		  </script>
+		  <div id="ap">
+		    <svg id="ap-chart" width="400" height="700"></svg>
+		  </div>
+  </div>
+
+
+
+
