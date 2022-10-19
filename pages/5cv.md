@@ -14,7 +14,59 @@ order: 2
 To make pages show up in the sidebar, add `sidebar_link: true` to the front
 matter. MAYBE ADD AN INTERACTIVE CV?
 -->
-[Click here for my resume]({{ site.baseurl }}/assets/pdfs/CV/Patten_Joe_cv.pdf). You can also visit my [linkedin page](https://www.linkedin.com/in/joe-patten-a79a3965/). <br> <br>
+<!--[Click here for my resume]({{ site.baseurl }}/assets/pdfs/CV/Patten_Joe_cv.pdf). -->You can also visit my [linkedin page](https://www.linkedin.com/in/joepatten/). <br> <br>
+
+
+
+
+<h3>Work Experience</h3> 
+
+
+<!-- Capital One -->
+<div class="job-container">
+    <div class="job">
+
+        <div class="job-info">
+            <article>
+            <h4>Capital One</h4>
+                <p class="position">
+                    Principal Data Scientist (People Analytics)<span style='float:right;'>2021-Present</span>
+                </p>
+                <p style="margin: 0 0 .5em 0;"></p>
+                    <ul>
+                        <li>Developing company-wide quality of hire metric in order to increase quality of new hires and evalaute current assessments in place</li>
+                        <li>Created and put into production hiring algorithm to forecast the number of software engineers and business analysts</li>
+                        <li>Validated and monitored the performance of the CodeSignal Assessment used for all Software Engineer candidates</li>
+                    </ul>
+            </article>
+        </div>
+    </div>
+</div>
+
+<!-- WeWork -->
+
+<div class="job-container">
+    <div class="job">
+
+        <div class="job-info">
+            <article>
+            <h4>WeWork</h4>
+                <p class="position">
+                    Research and Applied Science Intern<span style='float:right;'>2020</span>
+                </p>
+                <p style="margin: 0 0 .5em 0;"></p>
+                    <ul>
+                        <li>Designed and administered experiment to estimate and recommend revenue-maximizing prices at China WeWork locations</li>
+                        <li>Used a combination of machine learning, economics, and data visualization to aid in algorithmic pricing of office units</li>
+                    </ul>
+            </article>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 
 
@@ -28,7 +80,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
             <article>
                 <h4>PhD, Economics</h4>
                 <p class="position">
-                    Washington State University<span style='float:right;'>May 2021 (Expected)</span>
+                    Washington State University<span style='float:right;'>May 2021</span>
                 </p>
                     <p style="margin: 0 0 .5em 0;"></p>
                     <ul>
@@ -39,7 +91,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
 
                 <h4>MS, Computer Science</h4>
                 <p class="position">
-                    Washington State University<span style='float:right;'>May 2021 (Expected)</span>
+                    Washington State University<span style='float:right;'>May 2021</span>
                 </p>
                 <p style="margin: 0 0 .5em 0;"></p>
                     <ul>
@@ -71,30 +123,8 @@ matter. MAYBE ADD AN INTERACTIVE CV?
     </div>
 </div>
 
+
 <h3>Research Experience</h3> 
-
-<!-- WeWork -->
-
-<div class="job-container">
-    <div class="job">
-
-        <div class="job-info">
-            <article>
-            <h4>WeWork</h4>
-                <p class="position">
-                    Research and Applied Science Intern<span style='float:right;'>2020</span>
-                </p>
-                <p style="margin: 0 0 .5em 0;"></p>
-                    <ul>
-                        <li>Designed and administered experiment to estimate and recommend revenue-maximizing prices at China WeWork locations</li>
-                        <li>Used a combination of machine learning, economics, and data visualization to aid in algorithmic pricing of office units</li>
-                    </ul>
-            </article>
-        </div>
-    </div>
-</div>
-
-
 <!-- WSU -->
 
 <div class="job-container">
@@ -159,6 +189,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
         </div>
     </div>
 </div>
+
 
 <h3>Expertise</h3> 
 <div class="job-container">
