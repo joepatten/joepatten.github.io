@@ -1,10 +1,14 @@
-I"∆<p>Below are some selected projects that I have recently worked on in an academic setting or in my free time. I am currently working on a few of projects that are not listed below, which include: using collaborative filtering (using big data frameworks and techniques) on Amazon data to analyze co-purchasing trends, using d3.js to make a ‚Äúgraph theorist‚Äôs sketchpad‚Äù, and analyzing the effect of competitive balance on match viewership in Esports.</p>
+I"™<p>Below are some selected non-work projects that I have recently worked on.</p>
+
+<!-- need to add in results for amazon - collaborative filtering-->
+<!-- need to add esports paper-->
+<!-- get updated papers-->
 
 <div class="courses-container">
 	<a href="/assets/blog/green_ridge_demographics.pdf" style="text-decoration: none;">
 		<div class="course">
 			<div class="course-preview">
-				<img src="../../assets/blog/landfill_buffers_example.png" />
+				<img src="../../assets/blog/landfill_map_cropped.png" />
 				
 			</div>
 			<div class="course-info">
@@ -19,10 +23,10 @@
 </div>
 
 <div class="courses-container">
-	<a href="/assets/blog/Public_and_FP_2_year_Colleges_Sept_2020.pdf" style="text-decoration: none;">
+	<a href="/assets/blog/Public_and_FP_2_year_Colleges_2022.pdf" style="text-decoration: none;">
 		<div class="course">
 			<div class="course-preview">
-				<img src="../../assets/blog/fig1_spending_notitle.png" />
+				<img src="../../assets/blog/greendale.jpg" />
 				
 			</div>
 			<div class="course-info">
@@ -37,7 +41,25 @@
 </div>
 
 <div class="courses-container">
-	<a href="/assets/blog/Tanzania_shoats_cows_analysis_Sept_2020.pdf" style="text-decoration: none;">
+	<a href="/blog/ESPORTS_Viewership" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/csgo_major.jpg" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Uncertainty of Outcome and Superstar Effect in Esports</h3>
+				<h6>I evaluate the Uncertainty of Outcome Hypothesis (UOH) as well as the superstar effect on Twitch viewership in two esports: Counter-Strike: Global Offensive and Dota 2. These theories have been evalauted in many sports, but this is the first paper to my knowledge that extends the analysis to esports.</h6>
+				<span>Sports Economics, Esports</span>
+			</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="/assets/blog/Tanzania_shoats_cows_analysis_2022.pdf" style="text-decoration: none;">
 		<div class="course">
 			<div class="course-preview">
 				<img src="../../assets/blog/tanzania_prec_07_17.png" />
@@ -45,9 +67,9 @@
 			</div>
 			<div class="course-info">
 				<article>
-				<h3>Impact of Drought on Herd Composition</h3>
-				<h6>Using autoregressive models, I estimate the causal impact of sustained drought on herd composition.</h6>
-				<span>Causal Inference, Autoregressive</span>
+				<h3>Impact of Drought on Herd Composition (WIP)</h3>
+				<h6>Using autoregressive models, I estimate the impact of sustained drought on herd composition in Tanzania and Uganda.</h6>
+				<span>Autoregressive</span>
 			</article>
 			</div>
 		</div>
@@ -65,18 +87,18 @@
 				<article>
 				<h3>Esports Predictions Using Monte Carlo Simulation</h3>
 				<h6>Using a combination of Markov Chain and tree-based ensemble methods, I forecast the outcomes of esports matches and tournaments.</h6>
-				<span>Machine Learning, Monte Carlo, Markov Chain</span>
+				<span>Machine Learning, Monte Carlo, Markov Chain, Esports</span>
 			</article>
 			</div>
 		</div>
 	</a>
 </div>
 
-<div class="courses-container">
-	<a href="/assets/blog/Theory_of_Corporate_Whistleblowing_Sept_2020.pdf" style="text-decoration: none;">
+<!-- <div class="courses-container">
+	<a href="/assets/blog/Theory_of_Corporate_Whistleblowing_Sept_2020.pdf"  style="text-decoration: none;">
 		<div class="course">
 			<div class="course-preview">
-				<img src="../../assets/blog/qui_tam.PNG" />
+				<img src="../../assets/blog/qui_tam.PNG">
 				
 			</div>
 			<div class="course-info">
@@ -88,7 +110,7 @@
 			</div>
 		</div>
 	</a>
-</div>
+</div> -->
 
 <div class="courses-container">
 	<a href="/assets/blog/Active_Learning.pdf" style="text-decoration: none;">

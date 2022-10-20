@@ -34,7 +34,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
                 </p>
                 <p style="margin: 0 0 .5em 0;"></p>
                     <ul>
-                        <li>Developing company-wide quality of hire metric in order to increase quality of new hires and evalaute current assessments in place</li>
+                        <li>Developing company-wide quality of hire metric in order to optimize new hire quality and evalaute selection practices</li>
                         <li>Created and put into production hiring algorithm to forecast the number of software engineers and business analysts</li>
                         <li>Validated and monitored the performance of the CodeSignal Assessment used for all Software Engineer candidates</li>
                     </ul>

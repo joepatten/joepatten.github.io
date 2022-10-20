@@ -1,4 +1,4 @@
-I"*<!--
+I"6<!--
 <p class="message">
   Hey there! This page is included as an example. Feel free to customize it
   for your own use upon downloading. Carry on!
@@ -10,7 +10,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
 <!--[Click here for my resume](/assets/pdfs/CV/Patten_Joe_cv.pdf). -->
 <p>You can also visit my <a href="https://www.linkedin.com/in/joepatten/">linkedin page</a>. <br /> <br /></p>
 
-<h3>Research Experience</h3>
+<h3>Work Experience</h3>
 
 <!-- Capital One -->
 <div class="job-container">
@@ -24,7 +24,7 @@ matter. MAYBE ADD AN INTERACTIVE CV?
                 </p>
                 <p style="margin: 0 0 .5em 0;"></p>
                     <ul>
-                        <li>Developing company-wide quality of hire metric in order to increase quality of new hires and evalaute current assessments in place</li>
+                        <li>Developing company-wide quality of hire metric in order to optimize new hire quality and evalaute selection practices</li>
                         <li>Created and put into production hiring algorithm to forecast the number of software engineers and business analysts</li>
                         <li>Validated and monitored the performance of the CodeSignal Assessment used for all Software Engineer candidates</li>
                     </ul>
@@ -54,6 +54,58 @@ matter. MAYBE ADD AN INTERACTIVE CV?
     </div>
 </div>
 
+<h3>Education</h3>
+
+<div class="job-container">
+    <div class="job">
+
+        <div class="job-info">
+            <article>
+                <h4>PhD, Economics</h4>
+                <p class="position">
+                    Washington State University<span style="float:right;">May 2021</span>
+                </p>
+                    <p style="margin: 0 0 .5em 0;"></p>
+                    <ul>
+                        <li>GPA: 4.0/4.0</li>
+                        <li>Focuses: Econometrics, Labor Economics, Economics of Education</li>
+                    </ul>
+                
+
+                <h4>MS, Computer Science</h4>
+                <p class="position">
+                    Washington State University<span style="float:right;">May 2021</span>
+                </p>
+                <p style="margin: 0 0 .5em 0;"></p>
+                    <ul>
+                        <li>GPA: 4.0/4.0</li>
+                        <li>Focuses: Machine Learning, Data Science</li>
+                    </ul>
+            </article>
+        </div>
+    </div>
+</div>
+
+<div class="job-container">
+    <div class="job">
+
+        <div class="job-info">
+            <article>
+            <h4>BS, Kinesiology</h4>
+                <p class="position">
+                    Brigham Young University<span style="float:right;">May 2012</span>
+                </p>
+                <p style="margin: 0 0 .5em 0;"></p>
+                    <ul>
+                        <li>GPA: 3.8/4.0</li>
+                        <li>Cum Laude</li>
+                    </ul>
+            </article>
+        </div>
+    </div>
+</div>
+
+<h3>Research Experience</h3>
 <!-- WSU -->
 
 <div class="job-container">
@@ -113,57 +165,6 @@ matter. MAYBE ADD AN INTERACTIVE CV?
                         <li>Implemented various econometric techniques to evaluate topics in Labor and Economics of Education</li>
                     </ul>
                 
-            </article>
-        </div>
-    </div>
-</div>
-
-<h3>Education</h3>
-
-<div class="job-container">
-    <div class="job">
-
-        <div class="job-info">
-            <article>
-                <h4>PhD, Economics</h4>
-                <p class="position">
-                    Washington State University<span style="float:right;">May 2021</span>
-                </p>
-                    <p style="margin: 0 0 .5em 0;"></p>
-                    <ul>
-                        <li>GPA: 4.0/4.0</li>
-                        <li>Focuses: Econometrics, Labor Economics, Economics of Education</li>
-                    </ul>
-                
-
-                <h4>MS, Computer Science</h4>
-                <p class="position">
-                    Washington State University<span style="float:right;">May 2021</span>
-                </p>
-                <p style="margin: 0 0 .5em 0;"></p>
-                    <ul>
-                        <li>GPA: 4.0/4.0</li>
-                        <li>Focuses: Machine Learning, Data Science</li>
-                    </ul>
-            </article>
-        </div>
-    </div>
-</div>
-
-<div class="job-container">
-    <div class="job">
-
-        <div class="job-info">
-            <article>
-            <h4>BS, Kinesiology</h4>
-                <p class="position">
-                    Brigham Young University<span style="float:right;">May 2012</span>
-                </p>
-                <p style="margin: 0 0 .5em 0;"></p>
-                    <ul>
-                        <li>GPA: 3.8/4.0</li>
-                        <li>Cum Laude</li>
-                    </ul>
             </article>
         </div>
     </div>
