@@ -1,4 +1,4 @@
-I"®<p>Below are some selected non-work projects that I have recently worked on.</p>
+I"¾<p>Below are some selected non-work projects that I have recently worked on.</p>
 
 <!-- need to add in results for amazon - collaborative filtering-->
 <!-- need to add esports paper-->
@@ -15,7 +15,7 @@
 				<article>
 				<h3>Demographic Report for the Surrounding Area of the Cumberland County Landfill</h3>
 				<h6>This report documents the racial and age demographics of the area surrounding the proposed landfill. In the affected area, the percentage of Black residents is 77.4% higher than the Black population in Virginia. Additionally, the percent of residents under 18 is 46.6% higher than the percent of residents under 18 in Virginia.</h6>
-				<span>Racial Injustice, Demographics</span>
+				<span>Environmental Justice, Demographics</span>
 			</article>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 </div>
 
 <div class="courses-container">
-	<a href="/blog/ESPORTS_Viewership" style="text-decoration: none;">
+	<a href="/assets/blog/ESPORTS_Viewership.pdf" style="text-decoration: none;">
 		<div class="course">
 			<div class="course-preview">
 				<img src="../../assets/blog/csgo_major.jpg" />
