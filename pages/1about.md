@@ -20,7 +20,7 @@ After my fourth year of graduate school, I accepted an internship at WeWork to w
 
 #### Capital One
 
-After my fifth year of graduate school, I graduated with a PhD in Economics as well as a Master's in Computer Science (focusing on Machine Learning). I went on the job market to find a job where I could do meaningful and impactful work. I chose to accept an offer at Capital One after talking with the hiring manager multiple times as I believed that it fit what I was looking for. If you want to know more about my job market experience, you can read [this post](../blog/job_market). I have been working at Capital One since June 2021 and enjoy the challenge of working on open-ended questions that don't have obvious solutions.
+After my fifth year of graduate school, I graduated with a PhD in Economics as well as a Master's in Computer Science (focusing on Machine Learning). I went on the job market to find a job where I could do meaningful and impactful work. I chose to accept an offer at Capital One after talking with the hiring manager multiple times as I believed that it fit what I was looking for. If you want to know more about my job market experience, you can read [this post](../blog/job_market). I have been working at Capital One since June 2021 and enjoy the challenge of working on open-ended business questions that don't have obvious solutions.
 
 ![Image](../../assets/img/kayak_outside.jpg)
 
