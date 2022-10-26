@@ -1,0 +1,171 @@
+I"¢<p>Below are some selected non-work projects that I have recently worked on.</p>
+
+<!-- need to add in results for amazon - collaborative filtering-->
+<!-- need to add esports paper-->
+<!-- get updated papers-->
+
+<div class="courses-container">
+	<a href="/blog/andfill" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/landfill_map_cropped.png" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Demographic Report for the Surrounding Area of the Cumberland County Landfill</h3>
+				<h6>This report documents the racial and age demographics of the area surrounding the proposed landfill. In the affected area, the percentage of Black residents is 77.4% higher than the Black population in Virginia. Additionally, the percent of residents under 18 is 46.6% higher than the percent of residents under 18 in Virginia.</h6>
+				<span>Environmental Justice, Demographics</span>
+			</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="/assets/blog/Public_and_FP_2_year_Colleges_2022.pdf" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/schools_FP_CC.png" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Community College Spending on For-Profit Enrollment</h3>
+				<h6>I estimate the causal impact of spending by community colleges on nearby for-profit colleges by exploiting variation of budget shocks and tuition freezes/caps by state legislatures.</h6>
+				<span>Causal Inference, Two-Stage Least Squares</span>
+			</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="/assets/blog/ESPORTS_Viewership.pdf" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/csgo_major.jpg" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Uncertainty of Outcome and Superstar Effect in Esports</h3>
+				<h6>I evaluate the Uncertainty of Outcome Hypothesis (UOH) as well as the superstar effect on Twitch viewership in two esports: Counter-Strike: Global Offensive and Dota 2. These theories have been evalauted in many sports, but this is the first paper to my knowledge that extends the analysis to esports.</h6>
+				<span>Sports Economics, Esports</span>
+			</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="/assets/blog/Tanzania_shoats_cows_analysis_2022.pdf" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/tanzania_prec_07_17.png" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Impact of Drought on Herd Composition (WIP)</h3>
+				<h6>Using autoregressive models, I estimate the impact of sustained drought on herd composition in Tanzania and Uganda.</h6>
+				<span>Autoregressive</span>
+			</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="/blog/rlcs_predictions_eval" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/rlcs_na_grid4.PNG" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Esports Predictions Using Monte Carlo Simulation</h3>
+				<h6>Using a combination of Markov Chain and tree-based ensemble methods, I forecast the outcomes of esports matches and tournaments.</h6>
+				<span>Machine Learning, Monte Carlo, Markov Chain, Esports</span>
+			</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<!-- <div class="courses-container">
+	<a href="/assets/blog/Theory_of_Corporate_Whistleblowing_Sept_2020.pdf"  style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/qui_tam.PNG">
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Theory of Corporate Whistleblowing</h3>
+				<h6>I develop a theoretical model to analyze the incentives of an employee to whistleblow on an employer.</h6>
+				<span>Theory</span>
+			</article>
+			</div>
+		</div>
+	</a>
+</div> -->
+
+<div class="courses-container">
+	<a href="/assets/blog/Active_Learning.pdf" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/least_condifident_sampling.png" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Active Learning to Label Data</h3>
+				<h6>I show the benefit of using least confident sampling and margin sampling instead of random sampling to label data in order to more efficiently label data.</h6>
+				<span>Machine Learning, Active Learning</span>
+				</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="/assets/blog/SP Inclusion.pdf" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/trees.PNG" />
+				
+			</div>
+			<div class="course-info">
+				<article>
+				<h3>Effect of S&amp;P 500 Inclusion on Stock Price</h3>
+				
+				<h6>Using random forests, we match stocks that barely make it into the S&amp;P 500 with those that don't. We then use difference-in-differences to estimate the effect of S&amp;P 500 inclusion on stock price.</h6>
+				<span>Machine Learning, Difference-in-Differences</span>
+				</article>
+			</div>
+		</div>
+	</a>
+</div>
+
+<div class="courses-container">
+	<a href="https://fivethirtyeight.com/features/in-the-papers-chinese-imports-affirmative-action-and-foreign-aid/" style="text-decoration: none;">
+		<div class="course">
+			<div class="course-preview">
+				<img src="../../assets/blog/minutes_cdf.png" />
+				
+			</div>
+			<div class="course-info">
+					<article>
+					<h3>Affirmative Action and Human Capital Investment</h3>
+				
+					<h6>We design an experiment to mimic Affirmative Action (AA). We then estimate the effects of AA on human capital investment. Featured on <strong>FiveThirtyEight</strong>.</h6>
+					
+	        		<span>Experiment</span>
+      			</article>
+			</div>
+		</div>
+	</a>
+</div>
+:ET
