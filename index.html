@@ -2,8 +2,92 @@
 layout: page
 title: Home
 ---
-I am a PhD Economist and (currently) a Data Scientist for People Strategy and Analytics at Workday. I love applying my ML and econometric skillset to provide stucture, insight, and analysis to fairly open-ended business problems. When I am not working, I am either spending time with my family or working on side projects (which can vary over time). I have started to use my skills to help out in environmental justice projects. I have recently compiled and submitted a demographic report of the area where the Green Ridge Landfill will be built that outlines potential environmental injustice. A copy of that most recent report can be found <a href="/assets/blog/green_ridge_demographics.pdf"  style="text-decoration: none;">here</a>.
+<head>
+  <meta charset="UTF-8">
+  <title>Joe's Terminal</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    /* Scoped container so nothing leaks globally */
+    #joe-terminal-container {
+      display: flex;
+      justify-content: center;
+      padding: 0px;
+      /* Remove or customize if you don't want spacing */
+    }
 
+    /* The terminal box itself */
+    #joe-terminal {
+      width: 1200px;
+      max-width: 100%;
+      height: 400px;
+      /* background: #02030a; */
+      background: #14151D;
+      border-radius: 0px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      padding: 16px;
+      overflow-y: auto;
+      border: 1px solid #1f2833;
+      font-family: "Fira Code", "Courier New", monospace;
+      color: #c5c6c7;
+    }
+
+    /* Lines + prompt (scoped) */
+    #joe-terminal .jt-line,
+    #joe-terminal .jt-prompt-line {
+      white-space: pre-wrap;
+      line-height: 1.4;
+      font-size: 14px;
+    }
+
+    #joe-terminal .jt-prompt-label {
+      color: #66fcf1;
+    }
+
+    #joe-terminal .jt-prompt-input {
+      color: #f8f8f2;
+    }
+
+    #joe-terminal .jt-cursor {
+      display: inline-block;
+      width: 8px;
+      margin-left: 2px;
+    }
+
+    #joe-terminal .jt-cursor.jt-hidden {
+      opacity: 0;
+    }
+
+    #joe-terminal .jt-output-info {
+      color: #c5c6c7;
+    }
+
+    #joe-terminal .jt-output-error {
+      color: #ff5555;
+    }
+
+    #joe-terminal .jt-output-success {
+      color: #50fa7b;
+    }
+
+    /* Links inside the terminal only */
+    #joe-terminal a {
+      color: #66fcf1;
+      text-decoration: none;
+    }
+
+    #joe-terminal a:hover {
+      text-decoration: underline;
+    }
+
+    /* Focus outline only for terminal */
+    #joe-terminal:focus {
+      outline: none;
+    }
+  </style>
+</head>
+
+
+I’m a PhD economist currently working as a data scientist in People Analytics at Workday and as a researcher with the FutureTech Lab at MIT CSAIL. This site was originally made when I was initially on the job market a few years ago, so it is in need of updating. Use the terminal below to find out more about me!
 <br/>
 <br/>
 <div class="terminal-bar">
@@ -14,39 +98,365 @@ I am a PhD Economist and (currently) a Data Scientist for People Strategy and An
   </svg>
     <!--<span class="dot" x="20px"></span>-->
 </div>
-<div class="terminal">
-<div class="language-python highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-  <code>
-    <span class ="w">> Joe.interests</span>
-    <span class ="mf">["causal inference", "machine learning", "programming", 
-     "data visualization", "soccer", "esports"]</span>
 
-    <span class ="w">> Joe.skills</span>
-    <span class ="mf">["python", "javascript (d3.js)", "spark",
-     "R", "stata", "git", "LaTeX", "SQL"]</span>
+<div id="joe-terminal-container">
+    <div id="joe-terminal" tabindex="0"></div>
+  </div>
 
-    <span class ="w">> Joe.contact_me</span>
-    <span class ="mf">{</span>
-      <span class ="mf">"email": "<a href="mailto:joempatten@gmail.com">joempatten@gmail.com</a>",</span>
-      <span class ="mf">"linkedin": "<a href="https://linkedin.com/in/joepatten">joepatten</a>"</span>
-    <span class ="mf">}</span>
+  <script>
+    // --- State ---
+    const term = d3.select("#joe-terminal");
+    let lines = [];      // { text, className, isHtml }
+    let currentInput = "";
+    let cursorVisible = true;
 
-    <span class ="w">> Joe.about_me</span>
-    <span class ="mf">"<a href="/about">joepatten.com/about</a>"</span>
+    const PROMPT = "joe@terminal:~$";
 
-    <span class ="w">> <span class="blinking">&#9646;</span></span>
-  </code>
-</pre>
-</div>
-</div>
-</div>
+    // --- Helper: escape HTML ---
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        })[m];
+      });
+    }
+
+    // --- Rendering ---
+    function render() {
+      const lineSel = term.selectAll(".jt-line")
+        .data(lines, (d, i) => i);
+
+      const lineEnter = lineSel.enter()
+        .append("div")
+        .attr("class", d => "jt-line " + (d.className || ""));
+
+      lineEnter
+        .style("opacity", 0)
+        .transition()
+        .duration(120)
+        .style("opacity", 1);
+
+      const allLines = lineEnter.merge(lineSel);
+      allLines
+        .attr("class", d => "jt-line " + (d.className || ""))
+        .html(d => d.isHtml ? d.text : escapeHtml(d.text));
+
+      lineSel.exit().remove();
+
+      // Ensure prompt is always at the bottom
+      term.selectAll(".jt-prompt-line").remove();
+
+      term.append("div")
+        .attr("class", "jt-prompt-line")
+        .html(
+          `<span class="jt-prompt-label">${escapeHtml(PROMPT)}</span> ` +
+          `<span class="jt-prompt-input">${escapeHtml(currentInput)}</span>` +
+          `<span class="jt-cursor ${cursorVisible ? "" : "jt-hidden"}">█</span>`
+        );
+
+      const node = term.node();
+      node.scrollTop = node.scrollHeight;
+    }
+
+    // --- Cursor blink ---
+    setInterval(() => {
+      cursorVisible = !cursorVisible;
+      render();
+    }, 500);
+
+    // --- Helper to append a line ---
+    function print(text, className = "jt-output-info", isHtml = false) {
+      lines.push({ text, className, isHtml });
+    }
+
+    // --- Fake filesystem for easter eggs ---
+    const fakeFsRoot = [
+      "README.md",
+      "skills.txt",
+      "projects/",
+      "job-board/",
+      "top_secret/",
+      ".easter_egg"
+    ];
+
+    // --- Command handling ---
+    function runCommand(raw) {
+      const input = raw.trim();
+      if (!input) return;
+
+      // Echo the command itself into history
+      lines.push({
+        text: `${PROMPT} ${input}`,
+        className: "jt-output-info",
+        isHtml: false
+      });
+
+      const parts = input.split(/\s+/);
+      const cmd = parts[0];
+      const args = parts.slice(1);
+
+      // Hidden / special first
+      if (cmd === "ls") {
+        handleLs(args);
+      } else if (cmd === "cd") {
+        handleCd(args);
+      } else if (cmd === "sudo") {
+        handleSudo(args);
+      } else if (cmd === "rm" && args[0] === "-rf" && args[1] === "/") {
+        handleRmRf();
+      } else if (cmd === "cat") {
+        handleCat(args);
+      } else {
+        // Public commands
+        switch (cmd) {
+          case "help":
+            handleHelp();
+            break;
+          case "clear":
+            lines = [];
+            break;
+          case "about":
+            handleAbout();
+            break;
+          case "whoami":
+            handleWhoAmI();
+            break;
+          case "skills":
+            handleSkills();
+            break;
+          case "interests":
+            handleInterests();
+            break;
+          case "projects":
+            handleProjects();
+            break;
+          case "jobboard":
+            handleJobBoard();
+            break;
+          case "contact":
+            handleContact();
+            break;
+          default:
+            print(`bash: ${cmd}: command not found`, "jt-output-error");
+            print("Type 'help' to see available commands.");
+        }
+      }
+    }
+
+    // --- Command impls ---
+
+    function handleHelp() {
+      print("Available commands:", "jt-output-success");
+      print("  help        Show this help");
+      print("  clear       Clear the terminal");
+      print("  about       Short intro about Joe");
+      print("  whoami      Who Joe is in one command");
+      print("  skills      Key skills & stack");
+      print("  interests   Things Joe geeks out about");
+      print("  projects    Selected projects (with links)");
+      print("  jobboard    Info about the job board");
+      print("  contact     How to get in touch");
+      // ls, cd, sudo, rm, cat are intentionally not listed
+    }
+
+    function handleAbout() {
+      print("About Joe", "jt-output-success");
+      print([
+        "Joe is a people data scientist with a PhD in Economics and an MS in Computer Science.",
+        "In People Analytics, he loves coming up with novel data-driven solutions that combine different approaches",
+        "from multiple disciplines. He also dabbles in data visualization.",
+        "",
+        "At MIT FutureTech (CSAIL), he collaborates on research mapping real-world code to",
+        "algorithm families to understand which algorithms truly matter in practice."
+      ].join("\n"));
+    }
+
+    function handleWhoAmI() {
+      print("joe", "jt-output-success");
+      print("Data scientist, economist, researcher, soccer player, novice pickleballer, husband and dad");
+    }
+
+    function handleSkills() {
+      print("Skills", "jt-output-success");
+      print([
+        "  • Causal Inference",
+        "  • Machine Learning",
+        "  • People Analytics",
+        "  • Algorithms",
+        "  • Python",
+        "  • JS (d3.js)",
+        "  • R",
+        "  • SQL"
+      ].join("\n"));
+    }
+
+    function handleInterests() {
+      print("Interests", "jt-output-success");
+      print([
+        "  • College Football & College Basketball - Go Cougs!",
+        "  • Video Games (Rocket League, Balatro, roguelikes, etc.)",
+        "  • Playing (soccer, pickleball, video games, whatever) with my kids",
+        "  • Hanging with the wife"
+      ].join("\n"));
+    }
+
+    function handleProjects() {
+      print("Projects", "jt-output-success");
+      print("A few things I have worked on or am working on:", "jt-output-info");
+      print(
+        [
+          '  - <a href="https://futuretech.mit.edu/team/joe-patten" target="_blank">Algorithm importance project</a>',
+          '  - <a href="./people_analytics_jobs" target="_blank">People analytics job board</a>',
+          '  - <a href="./blog/landfill" target="_blank">Demographic Report for Area of Landfill </a>',
+          '  - <a href="./projects" target="_blank">Other Projects</a>'
+        ].join("\n"),
+        "jt-output-info",
+        true
+      );
+    }
+
+    function handleJobBoard() {
+      print("People Analytics Job Board", "jt-output-success");
+      print(
+        [
+          "  A board focused on people analytics roles (analytics, data science, and HR-tech adjacent).",
+          "  It surfaces roles by job level, region (US/UK/Canada/Australia), and company,",
+          "  with plans for analyses and visualizations around opportunity, mobility, and hiring trends.",
+          ""
+        ].join("\n")
+      );
+
+      print(
+        '  → <a href="./people_analytics_jobs" target="_blank">Visit the job board</a>',
+        "jt-output-info",
+        true
+      );
+    }
+
+    function handleContact() {
+      print("Contact", "jt-output-success");
+      print("  Best ways to reach me:", "jt-output-info");
+      print(
+        [
+          '  • Email: <a href="mailto:joempatten@gmail.com">joempatten@gmail.com</a>',
+          '  • LinkedIn: <a href="https://www.linkedin.com/in/joepatten/" target="_blank">joepatten</a>'
+        ].join("\n"),
+        "jt-output-info",
+        true
+      );
+    }
+
+    // --- Hidden / bash-y commands ---
+
+    function handleLs(args) {
+      print(fakeFsRoot.join("    "));
+    }
+
+    function handleCd(args) {
+      if (args.length === 0) {
+        // cd with no args – pretend home
+        print("", "jt-output-info");
+        return;
+      }
+
+      const target = args[0];
+      if (target === "top_secret" || target === "top_secret/") {
+        print("bash: cd: top_secret: Permission denied", "jt-output-error");
+      } else if (target === "projects" || target === "projects/") {
+        print("bash: cd: projects: Not a real directory in this shell.", "jt-output-error");
+        print("      Try running 'projects' instead.");
+      } else if (target === "job-board" || target === "job-board/") {
+        print("bash: cd: job-board: Not a real directory in this shell.", "jt-output-error");
+        print("      Try running 'jobboard' instead.");
+      } else {
+        print(`bash: cd: ${target}: No such file or directory`, "jt-output-error");
+      }
+    }
+
+    function handleSudo(args) {
+      if (args.length === 0) {
+        print("sudo: no command specified", "jt-output-error");
+      } else {
+        print("Nice try. This terminal doesn't grant root access.", "jt-output-error");
+        print("I'm sorry, Dave, I'm afraid I can't do that.");
+      }
+    }
+
+    function handleRmRf() {
+      print("rm: unsafe operation blocked: rm -rf /", "jt-output-error");
+      print("I'm sorry, Dave, I'm afraid I can't do that.");
+    }
+
+    function handleCat(args) {
+      if (args.length === 0) {
+        print("cat: missing file operand", "jt-output-error");
+        return;
+      }
+      const file = args[0];
+      if (file === "README.md") {
+        print("# Joe's Terminal", "jt-output-success");
+        print(
+          [
+            "",
+            "This is a playful terminal-style interface to learn about Joe,",
+            "his skills, interests, and projects. Please do not try real",
+            "commands like 'ls', 'cd', 'sudo', or 'rm'.",
+            "",
+            "Try:",
+            "  help      – list documented commands",
+            "  skills    – see what Joe can do",
+            "  projects  – explore a few things he's built",
+            "",
+            "Again, don't ise 'ls', 'cd', 'rm', or even 'sudo'."
+          ].join("\n")
+        );
+      } else {
+        print(`cat: ${file}: No such file or directory`, "jt-output-error");
+      }
+    }
+
+    // --- Keyboard handling ---
+    function handleKeyDown(e) {
+      if (document.activeElement !== term.node()) {
+        term.node().focus();
+      }
+
+      if (e.key === "Backspace") {
+        e.preventDefault();
+        currentInput = currentInput.slice(0, -1);
+        render();
+        return;
+      }
+
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const cmd = currentInput;
+        currentInput = "";
+        runCommand(cmd);
+        render();
+        return;
+      }
+
+      if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        currentInput += e.key;
+        render();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    // --- Initial message ---
+    print("Welcome to Joe's Terminal.", "jt-output-success");
+    print("Type 'help' to see available commands.");
+    render();
+  </script>
+
 <br/>
-<!--       <span class ="mf">"github": "<a href="https://github.com/joepatten">joepatten</a>",</span> -->
 
-I have been working on visualizing data in d3.js - which I mostly use at my job (and thus cannot be shown here). I believe that there is a lot of unrealized value that comes from (creative) data visualization. The following <a href="./blog/fbs">link</a> contains a visualization showing how rankings in the FBS (college football) have changed over the first few weeks of the 2019 season.
-<br/>
 
 <h1>Projects</h1>
 
@@ -63,7 +473,7 @@ I have been working on visualizing data in d3.js - which I mostly use at my job 
 
 <!-- add in job market -->
 
-<h1>Recent Activity</h1>
+<h1>NOT so Recent Activity (from a few years ago)</h1>
 
 <br/>
 

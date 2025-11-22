@@ -1,0 +1,476 @@
+---
+title: PA Job Listings
+sidebar_link: false
+body_class: jobboard
+permalink: /people_analytics_jobs
+---
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>People Analytics Job Listings</title>
+
+  <!-- DataTables CSS -->
+  <link rel="stylesheet"
+        href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
+
+    <style>
+    /* Scoped to avoid collisions */
+    #jobboard-nav {
+      background-color: #14151D;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    #jobboard-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Circular image */
+    #jobboard-nav-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* Home link */
+    #jobboard-home-link {
+      text-decoration: none;
+      color: #ffffff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    #jobboard-home-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Optional: subtle divider below nav */
+    #jobboard-nav-divider {
+      height: 1px;
+      background-color: #22242f;
+    }
+
+    /* Page content spacing (optional) */
+    #jobboard-page-content {
+      padding: 24px;
+    }
+  </style>
+
+   {% include head.html %}
+</head>
+<body>
+    
+<!-- Top Navigation -->
+<nav id="jobboard-nav">
+    <div id="jobboard-nav-left">
+      <!-- Replace src with your real image -->
+      <img 
+        id="jobboard-nav-avatar" 
+        src="/assets/img/profile.jpg" 
+        alt="Joe Patten"
+      />
+      <a id="jobboard-home-link" href="https://joepatten.com">
+        ← Back to Home
+      </a>
+    </div>
+  </nav>
+
+  <div id="jobboard-nav-divider"></div>
+
+  <!-- Your job board content goes here -->
+  <div id="jobboard-page-content">
+
+    <h1>People Analytics Job Board</h1>
+
+    <!-- Your table / filters / D3 content goes below this -->
+    <p>Job listings will go here…</p>
+
+  </div>
+
+
+
+<section class="job-board-description">
+
+  <h2>About This Job Board</h2>
+  <p>
+    I plan on updating this job board on a weekly basis. Over time, I also plan to build
+    visualizations and run analyses to better understand hiring trends in people analytics. This is not a complete list of every people analytics job in the world. I primarily
+    use job titles to decide what to include, which means that some real people analytics roles may be missing and some roles listed here might not truly be people analytics roles.
+  </p>
+
+  <p>
+    I try my best to classify each role by Work mode (on-site, hybrid, remote), Location (country/state), and Job level (intern, individual contributor, manager, director+). I also flag new listings. These fields may not always be 100% accurate. I also record the
+    <strong>date I pulled the job</strong>, which is not always the same as the
+    date the job was originally posted.
+  </p>
+
+  <h2>Filters and Sorting</h2>
+  <p>
+    You can filter by work mode, job level, region, and newly added roles. You can
+    also sort the list by each column.
+  </p>
+
+  <h2>Want to Add a Role?</h2>
+  <p>
+    If you’d like me to add a role, just email me at:
+    <a href="mailto:joempatten@gmail.com">joempatten@gmail.com</a>. Right now I am only adding roles that are posted on LinkedIn, but I may expand to other sources in the future. Happy hunting, and let me know how I can help!
+  </p>
+
+</section>
+
+
+<div id="pa-jobs-page">
+  <div id="pa-jobs-filters" class="pa-filters-container">
+    <div class="pa-filters-title">Filter Jobs</div>
+    <div class="pa-filters">
+      <div id="filter-work-mode" class="pa-filter-group">
+        <strong>Work Mode</strong>
+        <!-- Work Mode checkboxes injected here -->
+      </div>
+
+      <div id="filter-region" class="pa-filter-group">
+        <strong>Region</strong>
+        <!-- Region checkboxes injected here -->
+      </div>
+
+      <div id="filter-job-level" class="pa-filter-group">
+        <strong>Job Level</strong>
+        <!-- Job Level checkboxes injected here -->
+      </div>
+
+      <div id="filter-new-only" class="pa-filter-group pa-filter-new-only">
+        <strong>Listing Age</strong>
+        <label>
+          <input type="checkbox" id="pa-filter-new-only-checkbox">
+          <span class="pa-filter-option-text">Show only new listings</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <table id="pa-jobs-table" class="display stripe" style="width:100%">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Location</th>
+        <th>State / Province</th>
+        <th>Region</th>
+        <th>Work Mode</th>
+        <th>Job Level</th>
+        <th>Date Pulled</th> <!-- date + New badge -->
+      </tr>
+    </thead>
+  </table>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+
+<script>
+  function escapeRegex(text) {
+    return text.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
+  }
+
+  $(document).ready(function () {
+    var table = $('#pa-jobs-table').DataTable({
+      ajax: {
+        url: '/pages/blog/jl_output.json',   // your JSON path
+        dataSrc: function (json) {
+          // Normalize Work Mode: fill blanks with "Unknown"
+          json.forEach(function (row) {
+            var wm = row['Work Mode'];
+            if (!wm || (typeof wm === 'string' && wm.trim() === '')) {
+              row['Work Mode'] = 'On-site';
+            }
+          });
+          return json;
+        }
+      },
+      scrollX: true, // horizontal scrolling with cloned header
+      columns: [
+        { data: 'Company' },
+        {
+          // Title as hyperlink using Url
+          data: null,
+          render: function (data, type, row) {
+            var title = row['Title'] || '';
+            var url   = row['Url'] || '#';
+
+            if (type === 'display') {
+              return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' +
+                       title +
+                     '</a>';
+            }
+            return title;
+          }
+        },
+        { data: 'Location' },
+        { data: 'State Province' },
+        {
+          // Region (still read from Country)
+          data: 'Country'
+        },
+        { data: 'Work Mode' },
+        { data: 'Job Level' },   // assumes this field exists in your JSON
+        {
+          // Date Pulled column with optional "New" badge on its own line
+          data: null,
+          render: function (data, type, row) {
+            var dateText = row['Date Pulled'] || '';
+            if (type !== 'display') {
+              // For sorting/searching, just use the raw date text
+              return dateText;
+            }
+
+            var isNew = row['New Flag'] === 'New';
+            var badgeHtml = isNew
+              ? '<div class="pa-badge-new">New</div>'
+              : '';
+
+            return (
+              '<div class="pa-date-cell">' +
+                '<div class="pa-date-text">' + dateText + '</div>' +
+                badgeHtml +
+              '</div>'
+            );
+          }
+        }
+      ],
+      pageLength: 100,
+      lengthMenu: [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
+      order: [[7, 'desc']],  // sort by Date Pulled (column index 7)
+      createdRow: function (row, data) {
+        // Only "new" rows bolded
+        if (data['New Flag'] === 'New') {
+          $(row).addClass('pa-new-row');
+        }
+      },
+      initComplete: function () {
+        var api = this.api();
+
+        // Column indices:
+        // 0 Company
+        // 1 Title
+        // 2 Location
+        // 3 State / Province
+        // 4 Region (Country)
+        // 5 Work Mode
+        // 6 Job Level
+        // 7 Date Pulled (+ New badge)
+
+        var workModeColumn     = api.column(5);
+        var regionColumn       = api.column(4);
+        var jobLevelColumn     = api.column(6);
+
+        var $wmContainer       = $('#filter-work-mode');
+        var $regionContainer   = $('#filter-region');
+        var $jobLevelContainer = $('#filter-job-level');
+        var $newOnlyCheckbox   = $('#pa-filter-new-only-checkbox');
+
+        // --- Work Mode filter options (On-site, Hybrid, Remote, Unknown, then others) ---
+        var workModes = workModeColumn
+          .data()
+          .unique()
+          .toArray()
+          .filter(function (d) { return d && d.trim() !== ''; });
+
+        var workModePriority = ["On-site", "Hybrid", "Remote", "Unknown"];
+
+        var priorityModes = [];
+        var otherModes = [];
+
+        workModes.forEach(function (mode) {
+          if (workModePriority.indexOf(mode) !== -1) {
+            priorityModes.push(mode);
+          } else {
+            otherModes.push(mode);
+          }
+        });
+
+        otherModes.sort();
+
+        var orderedWorkModes = workModePriority
+          .filter(function (m) { return priorityModes.indexOf(m) !== -1; })
+          .concat(otherModes);
+
+        orderedWorkModes.forEach(function (mode) {
+          var id = 'wm-' + mode.replace(/\W+/g, '-').toLowerCase();
+          var $label = $('<label>').append(
+            $('<input>', { type: 'checkbox', value: mode, id: id }),
+            $('<span>', { class: 'pa-filter-option-text', text: mode })
+          );
+          $wmContainer.append($label);
+        });
+
+        // --- Region filter options (United States, Canada, UK, AU first) ---
+        var allRegions = regionColumn
+          .data()
+          .unique()
+          .toArray()
+          .filter(function (d) { return d && d.trim() !== ''; });
+
+        var priorityOrder = ["United States", "Canada", "United Kingdom", "Australia"];
+
+        var priorityRegions = [];
+        var otherRegions = [];
+
+        allRegions.forEach(function (r) {
+          if (priorityOrder.indexOf(r) !== -1) {
+            priorityRegions.push(r);
+          } else {
+            otherRegions.push(r);
+          }
+        });
+
+        otherRegions.sort();
+
+        var orderedRegions = priorityOrder
+          .filter(function (r) { return priorityRegions.indexOf(r) !== -1; })
+          .concat(otherRegions);
+
+        orderedRegions.forEach(function (region) {
+          var id = 'region-' + region.replace(/\W+/g, '-').toLowerCase();
+          var $label = $('<label>').append(
+            $('<input>', { type: 'checkbox', value: region, id: id }),
+            $('<span>', { class: 'pa-filter-option-text', text: region })
+          );
+          $regionContainer.append($label);
+        });
+
+        // --- Job Level filter options (custom order) ---
+        var rawLevels = jobLevelColumn
+          .data()
+          .unique()
+          .toArray()
+          .filter(function (d) { return d && d.trim() !== ''; });
+
+        var levelPriority = ["Intern", "Individual Contributor", "Manager", "Director+"];
+
+        var knownLevels = [];
+        var otherLevels = [];
+
+        rawLevels.forEach(function (lvl) {
+          if (levelPriority.indexOf(lvl) !== -1) {
+            knownLevels.push(lvl);
+          } else {
+            otherLevels.push(lvl);
+          }
+        });
+
+        otherLevels.sort();
+
+        var orderedLevels = levelPriority
+          .filter(function (l) { return knownLevels.indexOf(l) !== -1; })
+          .concat(otherLevels);
+
+        orderedLevels.forEach(function (lvl) {
+          var id = 'joblvl-' + lvl.replace(/\W+/g, '-').toLowerCase();
+          var $label = $('<label>').append(
+            $('<input>', { type: 'checkbox', value: lvl, id: id }),
+            $('<span>', { class: 'pa-filter-option-text', text: lvl })
+          );
+          $jobLevelContainer.append($label);
+        });
+
+        // Shared checkbox filtering logic
+        function applyCheckboxFilter(column, $container) {
+          var selected = [];
+          $container.find('input[type="checkbox"]:checked').each(function () {
+            selected.push($(this).val());
+          });
+
+          if (selected.length === 0) {
+            column.search('', true, false).draw();
+          } else {
+            // Match if cell contains ANY of the selected values (regex OR)
+            var regex = selected.map(escapeRegex).join('|');
+            column.search(regex, true, false).draw();
+          }
+        }
+
+        // Hook up Work Mode / Region / Job Level checkbox events
+        $wmContainer.on('change', 'input[type="checkbox"]', function () {
+          applyCheckboxFilter(workModeColumn, $wmContainer);
+        });
+
+        $regionContainer.on('change', 'input[type="checkbox"]', function () {
+          applyCheckboxFilter(regionColumn, $regionContainer);
+        });
+
+        $jobLevelContainer.on('change', 'input[type="checkbox"]', function () {
+          applyCheckboxFilter(jobLevelColumn, $jobLevelContainer);
+        });
+
+        // --- "Show only new listings" filter ---
+        $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+          // Limit to this specific table
+          if (settings.nTable !== api.table().node()) {
+            return true;
+          }
+
+          if (!$newOnlyCheckbox.is(':checked')) {
+            return true;
+          }
+
+          var rowData = api.row(dataIndex).data();
+          if (!rowData) return true;
+
+          return rowData['New Flag'] === 'New';
+        });
+
+        $newOnlyCheckbox.on('change', function () {
+          api.draw();
+        });
+
+        // --- Show number of entries AFTER filters (not total) ---
+        // Add a span into the length label to hold the count
+        $('.dataTables_length label').each(function () {
+          var $label = $(this);
+          if ($label.find('.pa-entries-count').length === 0) {
+            $label.append(' <span class="pa-entries-count"></span>');
+          }
+        });
+
+        function updateEntriesCount() {
+          // Count of rows after filters/search
+          var filtered = api.rows({ filter: 'applied' }).count();
+          $('.pa-entries-count').text('(' + filtered + ' matching entries)');
+        }
+
+        // Initial count
+        updateEntriesCount();
+
+        // Update count on every draw (filters, search, paging, etc.)
+        api.on('draw', function () {
+          updateEntriesCount();
+        });
+
+        // 🔧 IMPORTANT: fix "cutoff" / width issues after init
+        api.columns.adjust();
+
+        // Also recalc on window resize in case layout changes
+        $(window).on('resize.paJobs', function () {
+          api.columns.adjust();
+        });
+      }
+    });
+  });
+</script>
+
+</body>

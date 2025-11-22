@@ -1,4 +1,4 @@
-I"<h2 id="expressions">Expressions</h2>
+I"�<h2 id="expressions">Expressions</h2>
 
 <p>In Python, you can assign variables with the “=” sign. For example, if you want to assign the number 10 to the variable x, you would type the following into your interpreter:</p>
 
@@ -66,8 +66,8 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">clown</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">CLOWN</span> <span class="o">=</span> <span class="mi">15</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s">"clown: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">clown</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"CLOWN: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">CLOWN</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">clown: </span><span class="sh">"</span><span class="o">+</span><span class="nf">str</span><span class="p">(</span><span class="n">clown</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">CLOWN: </span><span class="sh">"</span><span class="o">+</span><span class="nf">str</span><span class="p">(</span><span class="n">CLOWN</span><span class="p">))</span>
 </code></pre></div></div>
 <font color="red">Out:</font>
 <p class="message">

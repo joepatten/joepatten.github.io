@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#more {display: none;}
+</style>-->
+<html lang="en-us">
+
+  {% include head.html %}
+  <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <body class="{{ page.layout }}{% if page.url == '/' %} home{% endif %}">
+
+    {% include sidebar_top.html %}
+
+    <main class="container">
+      {{ content }}
+    </main>
+
+    {% include mathjax.html %}
+
+    {% include custom-foot.html %}
+
+	{% include analytics.html %}
+
+  
+  {% include text-expand.html %}
+  </body>
+</html>

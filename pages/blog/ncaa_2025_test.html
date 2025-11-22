@@ -1,0 +1,292 @@
+---
+layout: page
+title:  
+sidebar_link: false
+permalink: /blog/fbs_2025
+---
+
+<script src="https://unpkg.com/d3@5.6.0/dist/d3.min.js"></script>
+<script>
+
+var icon_width = 23;
+var icon_height = icon_width;
+var graph_source = 'Sources: Associated Press, ESPN'
+
+////////////////////////////////////////////////////
+// Need to scrape from https://www.espn.com/college-football/rankings/_/poll/1/week/6/year/2020/seasontype/2
+
+
+
+// If NOT using Jekyll, set: var csvUrl = "./pages/blog/data.csv";
+  var csvUrl = "{{ '/pages/blog/data.csv' | relative_url }}";
+
+  d3.csv(csvUrl).then(function(loadedData)  {
+    var data = loadedData;
+
+    // Ensure numeric fields + position
+    data.forEach(function(d){
+      d.Week = +d.Week;
+      d.Rank = +d.Rank;
+      d.position = +d.Rank;
+    });
+
+    // css-safe class for hover interactions
+    data.forEach(function(d) {
+      d.Team_clean = d.name.toLowerCase().replace(/ /g, '-').replace(/\./g,'').replace(/&/g,'');
+    });
+
+    // Weeks & Teams
+    var allWeeks = Array.from(new Set(data.map(function(d){ return d.Week; }))).sort(d3.ascending);
+    var Teams = Array.from(new Set(data.map(function(d){ return d.name; })));
+    var UR_POS = 26;
+
+    // Group by team (v5) -> Map(team => Map(week => row))
+    var byTeam = d3.nest()
+      .key(function(d){ return d.name; })
+      .entries(data)
+      .reduce(function(map, grp){
+        var weekMap = new Map(grp.values.map(function(r){ return [r.Week, r]; }));
+        map.set(grp.key, weekMap);
+        return map;
+      }, new Map());
+
+    // Padded series including fabricated UR rows
+    var paddedByTeam = new Map();
+    Teams.forEach(function(team){
+      var weekMap = byTeam.get(team) || new Map();
+      var exampleRow = weekMap.size ? weekMap.values().next().value : null;
+
+      var padded = allWeeks.map(function(w){
+        var row = weekMap.get(w);
+        if (row) {
+          return Object.assign({}, row, { position: +row.Rank, isUR: false });
+        }
+        return {
+          name: team,
+          Team_clean: team.toLowerCase().replace(/ /g,'-').replace(/\./g,'').replace(/&/g,''),
+          Week: w,
+          link: exampleRow ? exampleRow.link : '',
+          position: UR_POS,
+          isUR: true
+        };
+      });
+      paddedByTeam.set(team, padded);
+    });
+
+    // Only fabricated UR rows (for hidden UR icons)
+    var urNodesData = Array.from(paddedByTeam.values())
+      .reduce(function(acc, arr){ return acc.concat(arr); }, [])
+      .filter(function(d){ return d.isUR; });
+
+    ///////////////////////
+    // Chart Size
+    var margin = { top: 70, right: 0, bottom: 60, left: 40 };
+    var win_width = +window.innerWidth;
+
+    var get_width = function(w) {
+      var max_width = 600, min_width = 365, sidebar_width = 450;
+      if (w >= 784) {
+        if (w - sidebar_width > max_width) return max_width;
+        else if (w - sidebar_width < min_width) return min_width;
+        else return w - sidebar_width;
+      } else {
+        if (w - 75 <= min_width) return min_width;
+        else return w - 75;
+      }
+    };
+
+    var out_width = get_width(win_width);
+    var out_height = 700;
+
+    var chart = d3.select("#ap-chart")
+        .attr("width", out_width)
+        .attr("height", out_height)
+      .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var width = out_width - margin.left - margin.right;
+    var height = out_height - margin.top - margin.bottom;
+
+    ///////////////////////
+    // Scales
+    var x = d3.scaleBand()
+        .domain(allWeeks)
+        .rangeRound([margin.left, width]);
+
+    var y = d3.scaleLinear()
+        .domain([1, UR_POS]) // 26 = UR
+        .range([20, height - 30]);
+
+    ///////////////////////
+    // Axes
+    var xAxis = d3.axisBottom(x).tickValues(allWeeks);
+    var yAxis = d3.axisLeft(y)
+      .tickValues(d3.range(1, 26).concat([UR_POS]))
+      .tickFormat(function(d){ return (d === UR_POS ? 'UR' : d); });
+
+    chart.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(-"+ x.bandwidth()/2.0 +"," + (height-18) + ")")
+        .call(xAxis);
+
+    chart.append("g")
+        .attr("class", "y axis")
+        .attr("transform", "translate(23,0)")
+        .call(yAxis);
+
+    ///////////////////////
+    // Title & labels
+    var bandCenter = function(w) { return x(w) + x.bandwidth()/2; };
+    var midIndex = Math.floor((allWeeks.length - 1) / 2);
+    var x_center = bandCenter(allWeeks[midIndex]);
+
+    chart.append("text")
+      .text("Hover over a team's icon to see their ranking in other weeks")
+      .attr("text-anchor", "middle")
+      .attr("class", "graph-subtitle")
+      .style("font-size", "12px")
+      .attr("y", -5)
+      .attr("x", x_center);
+
+    chart.append("text")
+      .text(data.length ? (data[0]['Poll Type'] + " Rankings") : "Rankings")
+      .attr("text-anchor", "middle")
+      .attr("class", "graph-title")
+      .attr("y", -25)
+      .attr("x", x_center);
+
+    chart.append("text")
+      .text('Ranking')
+      .attr("text-anchor", "middle")
+      .attr("class", "graph-axis")
+      .attr("y", -12)
+      .attr("x", -y(12.5))
+      .attr("transform", "rotate(-90)");
+
+    chart.append("text")
+      .text('Week')
+      .attr("text-anchor", "middle")
+      .attr("class", "graph-axis")
+      .attr("y", height - 8 + margin.bottom/2)
+      .attr("x", x_center);
+
+    chart.append("text")
+      .text(graph_source)
+      .attr("text-anchor", "end")
+      .attr("class", "graph-source")
+      .attr("y", height - 8 + margin.bottom/2 + 25)
+      .attr("x", +(document.getElementById("ap-chart").getAttribute("width") - margin.left - 8));
+
+    ///////////////////////
+    // Ranked Nodes (visible logos)
+    chart.append("g")
+      .selectAll("image.rank")
+      .data(data)
+      .enter().append("image")
+        .attr("class", function(d){ return 'rank inactive ' + d.Team_clean; })
+        .attr('x', function(d) { return x(+d.Week) - icon_width/2; })
+        .attr('y', function(d) { return y(+d.position) - icon_height/2; })
+        .attr('width', icon_width)
+        .attr('height', icon_height)
+        .attr("xlink:href", function(d) { return d.link; })
+        .attr('opacity', 0.8)
+        .attr('team-active', false);
+
+    ///////////////////////
+    // UR Nodes (hidden by default; only the hovered team’s will show)
+    chart.append("g")
+      .selectAll("image.ur")
+      .data(urNodesData)
+      .enter().append("image")
+        .attr("class", function(d){ return 'ur ' + d.Team_clean; })
+        .attr('x', function(d) { return x(+d.Week) - icon_width/2; })
+        .attr('y', function(d) { return y(UR_POS) - icon_height/2; })
+        .attr('width', icon_width)
+        .attr('height', icon_height)
+        .attr("xlink:href", function(d) { return d.link; })
+        .attr('opacity', 0) // ALWAYS hidden unless you hover that team
+        .style('pointer-events', 'none');
+
+    ///////////////////////
+    // One reusable focus line (hidden by default) — draws on hover
+    var hoverLineGen = d3.line()
+      .x(function(d){ return x(+d.Week); })
+      .y(function(d){ return y(+d.position); })
+      .curve(d3.curveMonotoneX);
+
+    var focusLine = chart.append("path")
+      .attr("class", "focusline")
+      .attr("fill", "none")
+      .attr("stroke", "#b8981c")
+      .attr("stroke-width", 6)
+      .attr("stroke-linecap", "round")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-opacity", 0.10);
+
+
+    ///////////////////////
+    // Tooltips + Hover (attach ONLY to ranked icons)
+    var tooltip = d3.select(".container").append("div").attr("class", "tooltip");
+
+    chart.selectAll("image.rank")
+      .on("mouseover", function(d) {
+        // Brighten this team’s ranked icons; fade other ranked icons
+        chart.selectAll('image.rank.' + d.Team_clean)
+             .classed('active', true)
+             .classed('inactive', false);
+        chart.selectAll('image.rank.inactive')
+             .classed('non-hover-team', true);
+
+        // Hide ALL UR icons, then show ONLY this team’s UR icons
+        chart.selectAll('image.ur').interrupt().attr('opacity', 0);
+        chart.selectAll('image.ur.' + d.Team_clean)
+             .interrupt().transition().duration(120).attr('opacity', 0.9);
+
+        // Draw the connecting line for this team (including UR dips)
+        var series = paddedByTeam.get(d.name);
+        focusLine.datum(series)
+          .attr("d", hoverLineGen)
+          .attr("stroke-opacity", 0.4)
+          .lower();
+
+        // Tooltip
+        var tooltip_str = d.RK + ' ' + '<span style="text-align:center;color:#CA4">' + d.name + "</span>" +
+              "<br/>" + "Points: " + d.PTS +
+              // "<br/>" + "(W-L): " + d.REC +
+              "<br/>" + "This Week: " + d["Last Week"] +
+              "<br/>" + "Next Week: " + d["Next Week"];
+        tooltip.html(tooltip_str).style("visibility","visible");
+      })
+      .on("mousemove", function(d) {
+        var e = d3.event; // d3 v5
+        tooltip.style("top", (e.pageY - (tooltip.node().clientHeight + 30)) + "px")
+               .style("left", (e.pageX - (tooltip.node().clientWidth / 2.0)) + "px")
+               .transition().delay(0).duration(0).style("opacity", .78)
+               .transition().delay(3000).duration(500).style("opacity", 0);
+      })
+      .on("mouseout", function(d) {
+        // Reset ranked icons
+        chart.selectAll('image.rank.' + d.Team_clean)
+             .classed('active', false)
+             .classed('inactive', true);
+        chart.selectAll('image.rank.inactive')
+             .classed('non-hover-team', false);
+
+        // Hide all UR icons and the focus line
+        chart.selectAll('image.ur')
+             .interrupt().transition().duration(120).attr('opacity', 0);
+        focusLine.attr("stroke-opacity", 0);
+
+        tooltip.style("visibility", "hidden");
+      });
+
+  });
+
+</script>
+
+<body>
+  <div id="ap">
+    <svg id="ap-chart" width="400" height="700"></svg>
+  </div>
+  <a href="./fbs_coaches">Click here for the Coaches Poll Visualization</a>
+</body>

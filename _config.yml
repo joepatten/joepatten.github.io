@@ -5,9 +5,10 @@ highlighter:      rouge
 # Setup
 title:            'Joe Patten'
 #to change the title font go to _includes/font-includes.html
-tagline:          'Economist'
-description:      "Data Scientist at Capital One"
-description2:     'PhD Economist'
+tagline:          'The DS of the People'
+description:      "People DS at Workday"
+# description2:     'PhD Economist'
+description2:     'MIT Research Affiliate'
 url:              https://joepatten.github.io
 baseurl:          "" # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.

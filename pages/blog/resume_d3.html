@@ -1,0 +1,387 @@
+---
+layout: page
+title: terminal test
+sidebar_link: false
+permalink: /blog/resume_d3
+---
+
+<head>
+  <meta charset="UTF-8">
+  <title>Joe Resume Visualization</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    /* Scoped so it won't affect the rest of your page */
+    #joe-resume-viz-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: 24px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    #joe-resume-viz {
+      flex: 2 1 500px;
+      min-width: 400px;
+      max-width: 900px;
+    }
+
+    #joe-resume-details {
+      flex: 1 1 260px;
+      min-width: 260px;
+      max-width: 360px;
+      background: #0b0c10;
+      color: #f5f5f5;
+      border-radius: 8px;
+      padding: 16px 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    }
+
+    #joe-resume-details h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    #joe-resume-details h3 {
+      margin: 4px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #c5c6c7;
+    }
+
+    #joe-resume-details .joe-resume-dates {
+      font-size: 12px;
+      color: #9ba1a6;
+      margin-bottom: 8px;
+    }
+
+    #joe-resume-details ul {
+      padding-left: 18px;
+      margin: 8px 0 0;
+      font-size: 13px;
+    }
+
+    #joe-resume-details li {
+      margin-bottom: 4px;
+    }
+
+    #joe-resume-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: #444;
+    }
+
+    .joe-resume-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .joe-resume-legend-swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+    }
+
+    /* Tooltip */
+    .joe-resume-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: rgba(16,16,24,0.96);
+      color: #f5f5f5;
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 1000;
+    }
+
+    /* SVG text styling (only inside this viz) */
+    #joe-resume-viz text {
+      font-family: inherit;
+      font-size: 11px;
+      fill: #444;
+    }
+  </style>
+</head>
+<body>
+  <div id="joe-resume-viz-container">
+    <div id="joe-resume-viz"></div>
+
+    <div id="joe-resume-details">
+      <h2>Joe – Career Timeline</h2>
+      <h3>Select a role on the timeline</h3>
+      <div class="joe-resume-dates">Click a node to see details.</div>
+      <ul>
+        <li>Roles are sized by impact/seniority.</li>
+        <li>Colors represent focus areas (people analytics, causal, research, etc.).</li>
+      </ul>
+      <div id="joe-resume-legend"></div>
+    </div>
+  </div>
+
+  <div class="joe-resume-tooltip" id="joe-resume-tooltip"></div>
+
+  <script>
+    // ---------------------
+    // 1. Data
+    // ---------------------
+    // Edit this with your real roles + bullets
+    const roles = [
+      {
+        company: "Capital One",
+        title: "Principal People Data Scientist",
+        start: "2021-01-01",
+        end: "2023-03-01",
+        focus: "People Analytics",
+        impact: 4,
+        bullets: [
+          "Designed quality-of-hire metrics and hiring forecast models.",
+          "Built workforce planning tools that shaped university recruiting and early talent strategy.",
+          "Advised executives on return-to-office policy implications using causal analysis."
+        ]
+      },
+      {
+        company: "Toyota North America",
+        title: "Principal People Data Scientist",
+        start: "2023-03-01",
+        end: "2024-06-01",
+        focus: "People Analytics",
+        impact: 4,
+        bullets: [
+          "Developed attrition models to identify at-risk employees and inform retention efforts.",
+          "Modeled collaboration and work patterns to guide in-office policies.",
+          "Partnered with HR and leaders to embed analytics into decision processes."
+        ]
+      },
+      {
+        company: "Workday",
+        title: "Senior People Data Scientist",
+        start: "2024-06-01",
+        end: "2025-11-01",  // use a recent-ish date; adjust as needed
+        focus: "People Analytics",
+        impact: 5,
+        bullets: [
+          "Evaluated workplace programs (e.g., time-off, giving/volunteering) with causal methods.",
+          "Built analytics that influenced workforce planning and AI adoption strategy.",
+          "Delivered insights and stories to executive audiences across HR and product."
+        ]
+      },
+      {
+        company: "MIT CSAIL (FutureTech)",
+        title: "Research Affiliate",
+        start: "2024-01-01",
+        end: "2025-11-01",
+        focus: "Research",
+        impact: 3,
+        bullets: [
+          "Leading research on mapping real-world code to algorithm families (algorithm importance index).",
+          "Designing pipelines to mine GitHub and analyze algorithm usage patterns.",
+          "Collaborating with researchers on measuring algorithmic progress and societal impact."
+        ]
+      },
+      {
+        company: "Independent",
+        title: "Game / Tool Builder",
+        start: "2020-01-01",
+        end: "2025-11-01",
+        focus: "Side Projects",
+        impact: 2,
+        bullets: [
+          "Prototyped multiple roguelike and systems-driven games (ninja stealth, mafia deckbuilder, founder sim).",
+          "Built interactive D3 visualizations (bump charts, hiring funnels, sports rankings).",
+          "Experimented with job board tooling and data-driven career tools."
+        ]
+      }
+    ];
+
+    const focusColors = {
+      "People Analytics": "#66c2a5",
+      "Research": "#8da0cb",
+      "Side Projects": "#fc8d62"
+    };
+
+    // ---------------------
+    // 2. Setup SVG
+    // ---------------------
+    const container = d3.select("#joe-resume-viz");
+    const width = Math.min(900, container.node().clientWidth || 900);
+    const height = 260;
+    const margin = { top: 30, right: 40, bottom: 50, left: 40 };
+
+    const svg = container.append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+
+    const g = svg.append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // Tooltip
+    const tooltip = d3.select("#joe-resume-tooltip");
+
+    // Parse dates
+    const parseDate = d3.timeParse("%Y-%m-%d");
+    roles.forEach(d => {
+      d.startDate = parseDate(d.start);
+      d.endDate = parseDate(d.end);
+    });
+
+    const minDate = d3.min(roles, d => d.startDate);
+    const maxDate = d3.max(roles, d => d.endDate);
+
+    const xScale = d3.scaleTime()
+      .domain([d3.timeMonth.offset(minDate, -2), d3.timeMonth.offset(maxDate, 2)])
+      .range([0, innerWidth]);
+
+    const yScale = d3.scalePoint()
+      .domain(roles.map(d => d.company))
+      .range([innerHeight - 10, 10])
+      .padding(0.8);
+
+    const rScale = d3.scaleSqrt()
+      .domain(d3.extent(roles, d => d.impact))
+      .range([8, 18]);
+
+    // ---------------------
+    // 3. Axes & Guides
+    // ---------------------
+    const xAxis = d3.axisBottom(xScale)
+      .ticks(6)
+      .tickFormat(d3.timeFormat("%Y"));
+
+    g.append("g")
+      .attr("transform", `translate(0,${innerHeight})`)
+      .call(xAxis)
+      .call(g => g.selectAll("text").attr("dy", "1.2em"));
+
+    // Light horizontal lines per company
+    g.selectAll(".joe-resume-row-line")
+      .data(roles)
+      .enter()
+      .append("line")
+      .attr("class", "joe-resume-row-line")
+      .attr("x1", 0)
+      .attr("x2", innerWidth)
+      .attr("y1", d => yScale(d.company))
+      .attr("y2", d => yScale(d.company))
+      .attr("stroke", "#eee")
+      .attr("stroke-width", 0.6)
+      .attr("stroke-dasharray", "2,4");
+
+    // ---------------------
+    // 4. Role spans + nodes
+    // ---------------------
+    const roleGroup = g.selectAll(".joe-resume-role")
+      .data(roles)
+      .enter()
+      .append("g")
+      .attr("class", "joe-resume-role");
+
+    // Span line from start to end date
+    roleGroup.append("line")
+      .attr("x1", d => xScale(d.startDate))
+      .attr("x2", d => xScale(d.endDate))
+      .attr("y1", d => yScale(d.company))
+      .attr("y2", d => yScale(d.company))
+      .attr("stroke", d => focusColors[d.focus] || "#999")
+      .attr("stroke-width", 3)
+      .attr("stroke-linecap", "round")
+      .attr("opacity", 0.5);
+
+    // Node at end date
+    roleGroup.append("circle")
+      .attr("cx", d => xScale(d.endDate))
+      .attr("cy", d => yScale(d.company))
+      .attr("r", d => rScale(d.impact))
+      .attr("fill", d => focusColors[d.focus] || "#999")
+      .attr("stroke", "#111")
+      .attr("stroke-width", 1.3)
+      .style("cursor", "pointer")
+      .on("mouseover", (event, d) => {
+        tooltip
+          .style("opacity", 1)
+          .html(
+            `<strong>${d.title}</strong><br>` +
+            `${d.company}<br>` +
+            `${d3.timeFormat("%b %Y")(d.startDate)} – ${d3.timeFormat("%b %Y")(d.endDate)}<br>` +
+            `<span style="font-size:11px; color:#ccc;">Focus: ${d.focus}</span>`
+          );
+      })
+      .on("mousemove", event => {
+        tooltip
+          .style("left", (event.pageX + 10) + "px")
+          .style("top", (event.pageY - 28) + "px");
+      })
+      .on("mouseout", () => {
+        tooltip.style("opacity", 0);
+      })
+      .on("click", (event, d) => {
+        updateDetails(d);
+      });
+
+    // Company labels on the left
+    g.selectAll(".joe-resume-company-label")
+      .data(roles)
+      .enter()
+      .append("text")
+      .attr("class", "joe-resume-company-label")
+      .attr("x", -8)
+      .attr("y", d => yScale(d.company) + 3)
+      .attr("text-anchor", "end")
+      .text(d => d.company);
+
+    // ---------------------
+    // 5. Details panel + legend
+    // ---------------------
+    const details = d3.select("#joe-resume-details");
+
+    function updateDetails(d) {
+      details.select("h2").text(d.title);
+      details.select("h3").text(d.company);
+
+      const dateStr =
+        d3.timeFormat("%b %Y")(d.startDate) +
+        " – " +
+        d3.timeFormat("%b %Y")(d.endDate);
+
+      details.select(".joe-resume-dates").text(`${dateStr}  •  ${d.focus}`);
+
+      const ul = details.select("ul");
+      ul.selectAll("li").remove();
+      ul.selectAll("li")
+        .data(d.bullets || [])
+        .enter()
+        .append("li")
+        .text(b => b);
+    }
+
+    // Legend
+    const legendData = Object.keys(focusColors);
+    const legend = d3.select("#joe-resume-legend");
+
+    const legendItems = legend.selectAll(".joe-resume-legend-item")
+      .data(legendData)
+      .enter()
+      .append("div")
+      .attr("class", "joe-resume-legend-item");
+
+    legendItems.append("div")
+      .attr("class", "joe-resume-legend-swatch")
+      .style("background-color", d => focusColors[d]);
+
+    legendItems.append("span").text(d => d);
+
+    // Initialize with first role
+    if (roles.length > 0) {
+      updateDetails(roles[0]);
+    }
+  </script>
+</body>
+

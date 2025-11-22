@@ -22,25 +22,99 @@ matter. MAYBE ADD AN INTERACTIVE CV?
 <h3>Work Experience</h3> 
 
 
+<!-- Workday -->
+<div class="job-container">
+  <div class="job">
+    <div class="job-info">
+      <article>
+        <h4>Workday</h4>
+        <p class="position">
+          Senior Data Scientist (People Analytics)
+          <span style="float:right;">2024–Present</span>
+        </p>
+        <p style="margin: 0 0 .5em 0;"></p>
+        <ul>
+          <li>Lead research to track and increase GenAI usage across Workday.</li>
+          <li>Apply causal inference techniques to estimate the impact of employees joining workplace clubs on collaboration and sentiment.</li>
+          <li>Provided insights on Workday’s Giving and Doing program that guided a redesign to boost employee volunteering.</li>
+          <li>Delivered in-depth analysis and strategic recommendations on time-off policies (PTO and leaves of absence) to the executive committee, improving tracking accuracy and informing updates to leave policies.</li>
+          <!-- Optional: link to article about AI adoption -->
+          <!-- <li><a href="LINK_TO_ARTICLE_HERE" target="_blank">How Workday got 79% of employees to embrace AI</a></li> -->
+        </ul>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- MIT CSAIL / FutureTech -->
+<div class="job-container">
+  <div class="job">
+    <div class="job-info">
+      <article>
+        <h4>MIT CSAIL – FutureTech Lab</h4>
+        <p class="position">
+          Research Affiliate
+          <span style="float:right;">2024–Present</span>
+        </p>
+        <p style="margin: 0 0 .5em 0;"></p>
+        <ul>
+          <li>Lead research quantifying the efficiency, performance, and real-world impact of the most important algorithms in society.</li>
+          <li>Design pipelines to map code (e.g., GitHub repositories) to algorithm families and measure algorithm adoption and diffusion.</li>
+          <li>Mentor and supervise MIT undergraduates on research initiatives.</li>
+          <!-- Optional: link to research bio -->
+          <!-- <li><a href="https://futuretech.mit.edu/team/joe-patten" target="_blank">Research bio</a></li> -->
+        </ul>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Toyota North America -->
+<div class="job-container">
+  <div class="job">
+    <div class="job-info">
+      <article>
+        <h4>Toyota North America</h4>
+        <p class="position">
+          Principal Data Scientist (People Analytics)
+          <span style="float:right;">2023–2024</span>
+        </p>
+        <p style="margin: 0 0 .5em 0;"></p>
+        <ul>
+          <li>Developed a company-wide attrition model to support workforce planning and provide actionable insights to leadership.</li>
+          <li>Analyzed the impact of PTO policies using causal inference techniques.</li>
+          <li>Modeled employee interactions and work habits to improve team dynamics and work–life balance.</li>
+          <li>Conducted in-depth office attendance and hybrid-work analyses for executive presentations.</li>
+          <li>Supervised and supported a data science intern and analyst on key projects.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</div>
+
 <!-- Capital One -->
 <div class="job-container">
-    <div class="job">
-
-        <div class="job-info">
-            <article>
-            <h4>Capital One</h4>
-                <p class="position">
-                    Principal Data Scientist (People Analytics)<span style='float:right;'>2021-Present</span>
-                </p>
-                <p style="margin: 0 0 .5em 0;"></p>
-                    <ul>
-                        <li>Developing company-wide quality of hire metric in order to optimize new hire quality and evalaute selection practices</li>
-                        <li>Created and put into production hiring algorithm to forecast the number of software engineers and business analysts</li>
-                        <li>Validated and monitored the performance of the CodeSignal Assessment used for all Software Engineer candidates</li>
-                    </ul>
-            </article>
-        </div>
+  <div class="job">
+    <div class="job-info">
+      <article>
+        <h4>Capital One</h4>
+        <p class="position">
+          Principal Data Scientist (People Analytics)
+          <span style="float:right;">2021–2023</span>
+        </p>
+        <p style="margin: 0 0 .5em 0;"></p>
+        <ul>
+          <li>Pioneered the creation, development, and validation of short- and long-term Quality of Hire metrics to improve hiring effectiveness.</li>
+          <li>Used synthetic control and propensity score matching to estimate the effects of various return-to-office policies for executives.</li>
+          <li>Designed, developed, and productionized hiring forecasting models for software engineering and business analyst roles.</li>
+          <li>Combined causal and predictive modeling to optimize 2022–2023 software engineering hiring from university campuses.</li>
+          <li>Assisted with pay-equity modeling to support fair compensation practices.</li>
+          <li>Validated and tested the CodeSignal General Coding Assessment used for all software engineering candidates.</li>
+          <li>Mentored a junior data scientist.</li>
+        </ul>
+      </article>
     </div>
+  </div>
 </div>
 
 <!-- WeWork -->
