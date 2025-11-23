@@ -1,304 +1,4 @@
 /* PA job listings page */
-
-#pa-jobs-page {
-  padding: 16px;
-
-  // Style the page title only on this page
-  h1 {
-    margin-top: 0;
-    margin-bottom: 12px;
-  }
-
-  /* Filter box styling */
-  .pa-filters-container {
-    background: lighten($side_bg_code_bg, 5%);
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin-bottom: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
-  }
-
-  .pa-filters-title {
-    font-weight: 600;
-    margin-bottom: 6px;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: $gold; // Filter Jobs title
-  }
-
-  .pa-filters {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    font-size: 0.9rem;
-  }
-
-  .pa-filter-group {
-    strong {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #ffffff; // subtitles (Work Mode, Region, etc.)
-      margin-bottom: 4px;
-      display: block;
-    }
-
-    label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin: 2px 0;
-      font-size: 0.85rem;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-
-    input[type="checkbox"] {
-      width: 14px;
-      height: 14px;
-      accent-color: $gold; // non-default checkbox color
-      cursor: pointer;
-    }
-
-    .pa-filter-option-text {
-      color: $gray-4; // default option text color
-      transition: color 0.15s ease;
-    }
-
-    // Text turns white when checkbox is checked
-    input[type="checkbox"]:checked + .pa-filter-option-text {
-      color: #ffffff;
-    }
-  }
-
-  /* DataTables wrapper: rounded, modern card */
-  .dataTables_wrapper {
-    margin-top: 8px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
-    padding: 8px 8px 12px;
-  }
-
-  /* Modern table styling – applies to both header and body tables when scrollX is on */
-  table.dataTable {
-    font-size: 0.9rem;
-    width: 100%;
-  }
-
-  table.dataTable thead th {
-    background: lighten($side_bg_code_bg, 5%);
-    color: #ffffff;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: 0.75rem;
-    padding: 8px 10px;
-    white-space: nowrap;
-
-    /* remove header gridlines */
-    border: none !important;
-    border-bottom: none !important;
-    }
-
-  table.dataTable tbody td {
-    padding: 6px 10px;
-  }
-
-  // Optional: subtle horizontal separators between rows
-  table.dataTable tbody tr + tr td {
-    border-top: 1px solid #f1f1f1;
-  }
-
-  // Zebra striping (no vertical lines)
-  table.dataTable.stripe tbody tr:nth-child(odd) {
-    background-color: #fafafa;
-  }
-
-  // Row hover
-  table.dataTable tbody tr:hover {
-    background-color: #e8f2ff !important;
-  }
-
-  /* Bold new entries */
-  #pa-jobs-table tbody tr.pa-new-row td {
-    font-weight: 500;
-  }
-
-  /* "New" badge inside date column */
-  .pa-date-cell {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-  }
-
-  .pa-date-text {
-    white-space: nowrap;
-  }
-
-  .pa-badge-new {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 999px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    background: $gold;
-    color: lighten($side_bg_code_bg, 5%);
-  }
-
-  /* Entries count text next to "Show X entries" */
-  .pa-entries-count {
-    font-size: 0.85rem;
-    margin-left: 4px;
-    color: $gray-4;
-    font-weight: 400;
-  }
-
-  /* Remove all body cell borders */
-  table.dataTable tbody td,
-  table.dataTable tbody th {
-    border: none !important;
-  }
-
-  /* Remove the default bottom border DataTables adds */
-  table.dataTable.no-footer {
-    border-bottom: none !important;
-  }
-
-  /* Remove horizontal divider that sometimes sneaks in */
-  .dataTables_wrapper .dataTables_scrollBody table.dataTable tbody tr {
-    border: none !important;
-  }
-
-  /* Optional: keep *your* subtle horizontal row separators */
-  table.dataTable tbody tr + tr td {
-    border-top: 1px solid #f1f1f1 !important; // your row separator
-  }
-
-  /* Pagination button hover color (if you still want this) */
-  .dataTables_wrapper .dataTables_paginate .paginate_button {
-    border-radius: 999px;
-  }
-
-  .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-    background: $bg_blue !important;
-    color: #ffffff !important;
-    border: 1px solid $bg_blue !important;
-  }
-
-  .dataTables_wrapper .dataTables_paginate .paginate_button.current,
-  .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-    background: $bg_blue !important;
-    color: #ffffff !important;
-    border: 1px solid $bg_blue !important;
-  }
-
-  /* Remove header borders on the scrollX cloned header table */
-    .dataTables_scrollHead table.dataTable {
-    border: none !important;
-    border-bottom: none !important;
-    }
-
-  /* Pagination button hover color */
-  .dataTables_wrapper .dataTables_paginate .paginate_button {
-    border-radius: 999px;
-  }
-
-  .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-    background: $gold !important;
-    color: #ffffff !important;
-    border: 1px solid $gold !important;
-  }
-
-  /* Active page button */
-  .dataTables_wrapper .dataTables_paginate .paginate_button.current,
-  .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-    background: lighten($side_bg_code_bg, 5%) !important;
-    color: #ffffff !important;
-    border: 1px solid lighten($side_bg_code_bg, 5%) !important;
-  }
-
-  .dataTables_wrapper .dataTables_scrollHead,
-  .dataTables_wrapper .dataTables_scrollBody {
-    width: 100% !important;
-  }
-
-
-}
-
-/* If body has .jobboard, hide the site sidebar and let the page use its own top nav */
-body.jobboard {
-  /* stack layout vertically */
-  flex-direction: column !important;
-}
-
-body.jobboard #sidebar {
-  display: none !important;
-}
-
-body.jobboard .container {
-  /* make content full width and remove sidebar padding constraints */
-  width: 100% !important;
-  max-width: 100% !important;
-  padding: $section-spacing !important;
-}
-
-/* Ensure the pa content stretches when sidebar removed */
-body.jobboard .container > .content {
-  background: $bg-color;
-  color: $body-color;
-}
-
-
-  /* Top nav & page spacing for the standalone job board page */
-  #jobboard-nav {
-    background-color: #14151D;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    box-sizing: border-box;
-  }
-
-  #jobboard-nav-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  #jobboard-nav-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  #jobboard-home-link {
-    text-decoration: none;
-    color: #ffffff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-  }
-
-  #jobboard-home-link:hover {
-    text-decoration: underline;
-  }
-
-  #jobboard-nav-divider {
-    height: 1px;
-    background-color: #22242f;
-  }
-
-  #jobboard-page-content {
-    padding: 24px;
-  }
 // Top nav (subtle) used only on the PA jobs page layout
 .pa-topnav {
   width: 100%;
@@ -325,7 +25,11 @@ body.jobboard .container > .content {
 
 
 
-
+.job-board-description { 
+    h4 {
+        color: lighten($side_bg_code_bg, 5%);
+    }
+}
 
 /* PA job listings page */
 #pa-jobs-page {
@@ -339,6 +43,10 @@ body.jobboard .container > .content {
     margin-top: 0;
     margin-bottom: 12px;
   }
+
+  h4 {
+        color: $gold;
+    }
 
   /* Filter box styling */
   .pa-filters-container {
@@ -561,6 +269,9 @@ body.jobboard .container > .content {
     width: 100% !important;
   }
 
+
+
+  
 
 }
 

@@ -4,9 +4,13 @@ title: PA Job Listings
 sidebar_link: true
 permalink: /people_analytics_jobs
 ---
+
+
+
+
 <head>
   <meta charset="UTF-8">
-  <title>People Analytics Job Listings</title>
+  <title>The People's People Analytics Job Board</title>
 
   <!-- DataTables CSS -->
   <link rel="stylesheet"
@@ -14,13 +18,119 @@ permalink: /people_analytics_jobs
 
 
 </head>
+<header>
+  <!-- <h1 class="page-title">The People's People Analytics Job Board</h1> -->
+
+
+    <div id="pa-jobs-page">
+    <div id="pa-jobs-filters" class="pa-filters-container">
+      <div class="pa-filters-title">The People's</div>
+      <div class="pa-logo-main">People Analytics Job Board</div>
+    </div>
+    </div>
+    
+
+    
+
+<style>
+  /* PA LOGO */
+  /* Logo block for The People's People Analytics Job Board */
+
+#pa-logo {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #1e202b;
+  border: 1px solid #1e202b;
+}
+
+#pa-logo .pa-logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#pa-logo .pa-logo-kicker {
+  font-size: 0.8rem;
+  /* letter-spacing: 0.16em; */
+  text-transform: uppercase;
+  color: #CA4; 
+}
+
+.pa-logo-main {
+  font-size: 1.5rem;
+  font-weight: 650;
+  color: #f9fafb;
+}
+
+
+
+/* Responsive-ish: stack on narrow screens */
+@media (max-width: 640px) {
+  #pa-logo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #pa-logo .pa-logo-viz {
+    margin-left: 0;
+  }
+}
+
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var line = document.getElementById('pa-logo-line');
+    if (!line) return;
+
+    // Compute total length of the polyline
+    var length = line.getTotalLength();
+
+    // Set up the "hidden" state
+    line.style.strokeDasharray = length;
+    line.style.strokeDashoffset = length;
+
+    var logo = document.getElementById('pa-logo');
+    if (!logo) return;
+
+    // Animate the line drawing on hover
+    logo.addEventListener('mouseenter', function () {
+      line.style.strokeDashoffset = 0;
+    });
+
+    // Optionally reset when leaving (or leave it drawn)
+    logo.addEventListener('mouseleave', function () {
+      line.style.strokeDashoffset = length;
+    });
+  });
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript" src="/assets/js/bracket-viz.js" ></script>
+</header>
+
+
+
+
+
+
 <body>
 
 <section class="job-board-description">
 
-  <h2>About This Job Board</h2>
+  <h4>About This Job Board</h4>
   <p>
-    I plan on updating this job board on a weekly basis. Over time, I also plan to build
+    This job board contains people analytics job listings for the US, the UK, Australia, and Canada (if you want me to add more countries to the board, please let me know). I plan on updating this job board on a weekly basis. Over time, I also plan to build
     visualizations and run analyses to better understand hiring trends in people analytics. This is not a complete list of every people analytics job in the world. I primarily
     use job titles to decide what to include, which means that some real people analytics roles may be missing and some roles listed here might not truly be people analytics roles.
   </p>
@@ -31,16 +141,15 @@ permalink: /people_analytics_jobs
     date the job was originally posted.
   </p>
 
-  <h2>Filters and Sorting</h2>
+  <h4>Filters and Sorting</h4>
   <p>
-    You can filter by work mode, job level, region, and newly added roles. You can
-    also sort the list by each column.
+    You can filter jobs by work mode, job level, region, and newly added roles. Use the search bar to filter across all fields with keywords like “California” (to find jobs in California) or “Amazon” (to find jobs at Amazon). You can also sort by any column - hold Shift to sort by multiple columns.
   </p>
 
-  <h2>Want to Add a Role?</h2>
+  <h4>Want to Add a Role?</h4>
   <p>
     If you’d like me to add a role, just email me at:
-    <a href="mailto:joempatten@gmail.com">joempatten@gmail.com</a>. Right now I am only adding roles that are posted on LinkedIn, but I may expand to other sources in the future. Happy hunting, and let me know how I can help!
+    <a href="mailto:joempatten@gmail.com">joempatten@gmail.com</a> with the job posting url (preferably from the company's hire portal). Right now I only have roles that are posted on LinkedIn, but I may expand to other sources in the future. Happy hunting, and let me know how I can help!
   </p>
 
 </section>
