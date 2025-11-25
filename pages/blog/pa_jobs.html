@@ -149,7 +149,7 @@ permalink: /people_analytics_jobs
   <h4>Want to Add a Role?</h4>
   <p>
     If you’d like me to add a role, just email me at:
-    <a href="mailto:joempatten@gmail.com">joempatten@gmail.com</a> with the job posting url (preferably from the company's hire portal). Right now I only have roles that are posted on LinkedIn, but I may expand to other sources in the future. Happy hunting, and let me know how I can help!
+    <a href="mailto:joempatten@gmail.com">joempatten@gmail.com</a> with the job posting url (preferably from the company's hire portal). Right now I only have roles that are posted on LinkedIn, but I may expand to other sources in the future. This is very much a work in progress, so if you find any bugs or have ideas for modifications, please feel free to reach out. Happy hunting, and let me know how I can help!
   </p>
 
   <div class="jobs-page-disclaimer">
@@ -326,7 +326,26 @@ $(document).ready(function () {
     });
 
     if (latestDate) {
-      var dateObj = new Date(latestDate);
+      if (latestDate) {
+        // latestDate is "YYYY-MM-DD"
+        var parts = latestDate.split('-');
+        var year  = parseInt(parts[0], 10);
+        var month = parseInt(parts[1], 10) - 1; // JS months are 0-based
+        var day   = parseInt(parts[2], 10);
+
+        // This creates a LOCAL date (no timezone shift from string parsing)
+        var dateObj = new Date(year, month, day);
+
+        var formattedDate = dateObj.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
+        $('#pa-last-updated-date').text(formattedDate);
+      } else {
+        $('#pa-last-updated-date').text('Unknown');
+      }
 
       var formattedDate = dateObj.toLocaleDateString('en-US', {
         year: 'numeric',
