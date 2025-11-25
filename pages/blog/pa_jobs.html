@@ -130,20 +130,16 @@ permalink: /people_analytics_jobs
 
   <h4>About This Job Board</h4>
   <p>
-    This job board contains people analytics job listings for the US, the UK, Australia, and Canada (if you want me to add more countries to the board, please let me know). I plan on updating this job board on a weekly basis. Over time, I also plan to build
-    visualizations and run analyses to better understand hiring trends in people analytics. This is not a complete list of every people analytics job in the world. I primarily
-    use job titles to decide what to include, which means that some real people analytics roles may be missing and some roles listed here might not truly be people analytics roles.
+    This job board focuses on people analytics roles in the United States, the United Kingdom, Canada, and Australia (if you’d like me to add other countries, feel free to reach out). I plan on updating this board weekly. Over time, I also plan to build visualizations and run analyses to better understand hiring trends in the people analytics space. This is not an exhaustive list of every people analytics job available. I mainly use job titles to determine inclusion, so some relevant roles may be missing and a few listed roles listed in this job board may not be strictly people analytics.
   </p>
 
   <p>
-    I try my best to classify each role by Work mode (on-site, hybrid, remote), Location (country/state), and Job level (intern, individual contributor, manager, director+). I also flag new listings. These fields may not always be 100% accurate. I also record the
-    date I pulled the job, which is not always the same as the
-    date the job was originally posted.
+    I classify each role by work mode (on-site, hybrid, remote), location (country/state), and job level (intern, individual contributor, manager, director+), and I flag newly added listings. These fields may not always be perfectly accurate. I also record the date the job was pulled, which may differ from the original posting date.
   </p>
 
   <h4>Filters and Sorting</h4>
   <p>
-    You can filter jobs by work mode, job level, region, and newly added roles. Use the search bar to filter across all fields with keywords like “California” (to find jobs in California) or “Amazon” (to find jobs at Amazon). You can also sort by any column - hold Shift to sort by multiple columns.
+    You can filter jobs by work mode, job level, region, and newly added roles. Additionally, you can use the search bar to filter across all fields with keywords like <i>California</i> (to find jobs in California), <i>Amazon</i> (to find jobs at Amazon), or <i>analyst</i> (to find all jobs with analyst in the job title). You can also sort by any column - hold Shift to sort by multiple columns.
   </p>
 
   <h4>Want to Add a Role?</h4>
@@ -151,6 +147,16 @@ permalink: /people_analytics_jobs
     If you’d like me to add a role, just email me at:
     <a href="mailto:joempatten@gmail.com">joempatten@gmail.com</a> with the job posting url (preferably from the company's hire portal). Right now I only have roles that are posted on LinkedIn, but I may expand to other sources in the future. Happy hunting, and let me know how I can help!
   </p>
+
+  <div class="jobs-page-disclaimer">
+    <p>
+      <strong>Disclaimer:</strong> <i>This job board is a personal project created to
+      help the People Analytics community. I am not compensated by any company or
+      organization for maintaining this site. The content here is not affiliated
+      with, endorsed by, or representative of my employers or research
+      affiliations, including Workday or MIT.</i>
+    </p>
+  </div>
 
 </section>
 
@@ -208,293 +214,308 @@ permalink: /people_analytics_jobs
 
 <script>
   function escapeRegex(text) {
-    return text.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
-  }
+  return text.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
+}
 
-  $(document).ready(function () {
-    var table = $('#pa-jobs-table').DataTable({
-      ajax: {
-        url: '/pages/blog/jl_output.json',   // your JSON path
-        dataSrc: function (json) {
-          // Normalize Work Mode: fill blanks with "Unknown"
-          json.forEach(function (row) {
-            var wm = row['Work Mode'];
-            if (!wm || (typeof wm === 'string' && wm.trim() === '')) {
-              row['Work Mode'] = 'On-site';
-            }
-          });
-          return json;
-        }
-      },
-      scrollX: true, // horizontal scrolling with cloned header
-      columns: [
-        { data: 'Company' },
-        {
-          // Title as hyperlink using Url
-          data: null,
-          render: function (data, type, row) {
-            var title = row['Title'] || '';
-            var url   = row['Url'] || '#';
-
-            if (type === 'display') {
-              return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' +
-                       title +
-                     '</a>';
-            }
-            return title;
-          }
-        },
-        { data: 'Location' },
-        { data: 'State Province' },
-        {
-          // Region (still read from Country)
-          data: 'Country'
-        },
-        { data: 'Work Mode' },
-        { data: 'Job Level' },   // assumes this field exists in your JSON
-        {
-          // Date Pulled column with optional "New" badge on its own line
-          data: null,
-          render: function (data, type, row) {
-            var dateText = row['Date Pulled'] || '';
-            if (type !== 'display') {
-              // For sorting/searching, just use the raw date text
-              return dateText;
-            }
-
-            var isNew = row['New Flag'] === 'New';
-            var badgeHtml = isNew
-              ? '<div class="pa-badge-new">New</div>'
-              : '';
-
-            return (
-              '<div class="pa-date-cell">' +
-                '<div class="pa-date-text">' + dateText + '</div>' +
-                badgeHtml +
-              '</div>'
-            );
-          }
-        }
-      ],
-      pageLength: 100,
-      lengthMenu: [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
-      order: [[7, 'desc']],  // sort by Date Pulled (column index 7)
-      createdRow: function (row, data) {
-        // Only "new" rows bolded
-        if (data['New Flag'] === 'New') {
-          $(row).addClass('pa-new-row');
-        }
-      },
-      initComplete: function () {
-        var api = this.api();
-
-        // Column indices:
-        // 0 Company
-        // 1 Title
-        // 2 Location
-        // 3 State / Province
-        // 4 Region (Country)
-        // 5 Work Mode
-        // 6 Job Level
-        // 7 Date Pulled (+ New badge)
-
-        var workModeColumn     = api.column(5);
-        var regionColumn       = api.column(4);
-        var jobLevelColumn     = api.column(6);
-
-        var $wmContainer       = $('#filter-work-mode');
-        var $regionContainer   = $('#filter-region');
-        var $jobLevelContainer = $('#filter-job-level');
-        var $newOnlyCheckbox   = $('#pa-filter-new-only-checkbox');
-
-        // --- Work Mode filter options (On-site, Hybrid, Remote, Unknown, then others) ---
-        var workModes = workModeColumn
-          .data()
-          .unique()
-          .toArray()
-          .filter(function (d) { return d && d.trim() !== ''; });
-
-        var workModePriority = ["On-site", "Hybrid", "Remote", "Unknown"];
-
-        var priorityModes = [];
-        var otherModes = [];
-
-        workModes.forEach(function (mode) {
-          if (workModePriority.indexOf(mode) !== -1) {
-            priorityModes.push(mode);
-          } else {
-            otherModes.push(mode);
+$(document).ready(function () {
+  var table = $('#pa-jobs-table').DataTable({
+    ajax: {
+      url: '/pages/blog/jl_output.json',   // your JSON path
+      dataSrc: function (json) {
+        // Normalize Work Mode: fill blanks with "Unknown"
+        json.forEach(function (row) {
+          var wm = row['Work Mode'];
+          if (!wm || (typeof wm === 'string' && wm.trim() === '')) {
+            row['Work Mode'] = 'On-site';
           }
         });
-
-        otherModes.sort();
-
-        var orderedWorkModes = workModePriority
-          .filter(function (m) { return priorityModes.indexOf(m) !== -1; })
-          .concat(otherModes);
-
-        orderedWorkModes.forEach(function (mode) {
-          var id = 'wm-' + mode.replace(/\W+/g, '-').toLowerCase();
-          var $label = $('<label>').append(
-            $('<input>', { type: 'checkbox', value: mode, id: id }),
-            $('<span>', { class: 'pa-filter-option-text', text: mode })
-          );
-          $wmContainer.append($label);
-        });
-
-        // --- Region filter options (United States, Canada, UK, AU first) ---
-        var allRegions = regionColumn
-          .data()
-          .unique()
-          .toArray()
-          .filter(function (d) { return d && d.trim() !== ''; });
-
-        var priorityOrder = ["United States", "Canada", "United Kingdom", "Australia"];
-
-        var priorityRegions = [];
-        var otherRegions = [];
-
-        allRegions.forEach(function (r) {
-          if (priorityOrder.indexOf(r) !== -1) {
-            priorityRegions.push(r);
-          } else {
-            otherRegions.push(r);
-          }
-        });
-
-        otherRegions.sort();
-
-        var orderedRegions = priorityOrder
-          .filter(function (r) { return priorityRegions.indexOf(r) !== -1; })
-          .concat(otherRegions);
-
-        orderedRegions.forEach(function (region) {
-          var id = 'region-' + region.replace(/\W+/g, '-').toLowerCase();
-          var $label = $('<label>').append(
-            $('<input>', { type: 'checkbox', value: region, id: id }),
-            $('<span>', { class: 'pa-filter-option-text', text: region })
-          );
-          $regionContainer.append($label);
-        });
-
-        // --- Job Level filter options (custom order) ---
-        var rawLevels = jobLevelColumn
-          .data()
-          .unique()
-          .toArray()
-          .filter(function (d) { return d && d.trim() !== ''; });
-
-        var levelPriority = ["Intern", "Individual Contributor", "Manager", "Director+"];
-
-        var knownLevels = [];
-        var otherLevels = [];
-
-        rawLevels.forEach(function (lvl) {
-          if (levelPriority.indexOf(lvl) !== -1) {
-            knownLevels.push(lvl);
-          } else {
-            otherLevels.push(lvl);
-          }
-        });
-
-        otherLevels.sort();
-
-        var orderedLevels = levelPriority
-          .filter(function (l) { return knownLevels.indexOf(l) !== -1; })
-          .concat(otherLevels);
-
-        orderedLevels.forEach(function (lvl) {
-          var id = 'joblvl-' + lvl.replace(/\W+/g, '-').toLowerCase();
-          var $label = $('<label>').append(
-            $('<input>', { type: 'checkbox', value: lvl, id: id }),
-            $('<span>', { class: 'pa-filter-option-text', text: lvl })
-          );
-          $jobLevelContainer.append($label);
-        });
-
-        // Shared checkbox filtering logic
-        function applyCheckboxFilter(column, $container) {
-          var selected = [];
-          $container.find('input[type="checkbox"]:checked').each(function () {
-            selected.push($(this).val());
-          });
-
-          if (selected.length === 0) {
-            column.search('', true, false).draw();
-          } else {
-            // Match if cell contains ANY of the selected values (regex OR)
-            var regex = selected.map(escapeRegex).join('|');
-            column.search(regex, true, false).draw();
-          }
-        }
-
-        // Hook up Work Mode / Region / Job Level checkbox events
-        $wmContainer.on('change', 'input[type="checkbox"]', function () {
-          applyCheckboxFilter(workModeColumn, $wmContainer);
-        });
-
-        $regionContainer.on('change', 'input[type="checkbox"]', function () {
-          applyCheckboxFilter(regionColumn, $regionContainer);
-        });
-
-        $jobLevelContainer.on('change', 'input[type="checkbox"]', function () {
-          applyCheckboxFilter(jobLevelColumn, $jobLevelContainer);
-        });
-
-        // --- "Show only new listings" filter ---
-        $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-          // Limit to this specific table
-          if (settings.nTable !== api.table().node()) {
-            return true;
-          }
-
-          if (!$newOnlyCheckbox.is(':checked')) {
-            return true;
-          }
-
-          var rowData = api.row(dataIndex).data();
-          if (!rowData) return true;
-
-          return rowData['New Flag'] === 'New';
-        });
-
-        $newOnlyCheckbox.on('change', function () {
-          api.draw();
-        });
-
-        // --- Show number of entries AFTER filters (not total) ---
-        // Add a span into the length label to hold the count
-        $('.dataTables_length label').each(function () {
-          var $label = $(this);
-          if ($label.find('.pa-entries-count').length === 0) {
-            $label.append(' <span class="pa-entries-count"></span>');
-          }
-        });
-
-        function updateEntriesCount() {
-          // Count of rows after filters/search
-          var filtered = api.rows({ filter: 'applied' }).count();
-          $('.pa-entries-count').text('(' + filtered + ' matching entries)');
-        }
-
-        // Initial count
-        updateEntriesCount();
-
-        // Update count on every draw (filters, search, paging, etc.)
-        api.on('draw', function () {
-          updateEntriesCount();
-        });
-
-        // 🔧 IMPORTANT: fix "cutoff" / width issues after init
-        api.columns.adjust();
-
-        // Also recalc on window resize in case layout changes
-        $(window).on('resize.paJobs', function () {
-          api.columns.adjust();
-        });
+        return json;
       }
-    });
+    },
+    scrollX: true, // horizontal scrolling with cloned header
+    columns: [
+      { data: 'Company' },
+      {
+        // Title as hyperlink using Url
+        data: null,
+        render: function (data, type, row) {
+          var title = row['Title'] || '';
+          var url   = row['Url'] || '#';
+
+          if (type === 'display') {
+            return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' +
+                     title +
+                   '</a>';
+          }
+          return title;
+        }
+      },
+      { data: 'Location' },        // visible display location
+      { data: 'State Province' },  // visible display state/province
+      {
+        // Region (still read from Country)
+        data: 'Country'
+      },
+      { data: 'Work Mode' },
+      { data: 'Job Level' },   // assumes this field exists in your JSON
+      {
+        // Date Pulled column with optional "New" badge on its own line
+        data: null,
+        render: function (data, type, row) {
+          var dateText = row['Date Pulled'] || '';
+          if (type !== 'display') {
+            // For sorting/searching, just use the raw date text
+            return dateText;
+          }
+
+          var isNew = row['New Flag'] === 'New';
+          var badgeHtml = isNew
+            ? '<div class="pa-badge-new">New</div>'
+            : '';
+
+          return (
+            '<div class="pa-date-cell">' +
+              '<div class="pa-date-text">' + dateText + '</div>' +
+              badgeHtml +
+            '</div>'
+          );
+        }
+      },
+
+      // 🔽 HIDDEN BUT SEARCHABLE COLUMNS 🔽
+      {
+        data: 'Location Full',   // full list of locations
+        visible: false,
+        searchable: true
+      },
+      {
+        data: 'State Province Full',  // full list of states/provinces
+        visible: false,
+        searchable: true
+      }
+    ],
+    pageLength: 100,
+    lengthMenu: [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
+    order: [[7, 'desc']],  // still Date Pulled (column index 7)
+    createdRow: function (row, data) {
+      // Only "new" rows bolded
+      if (data['New Flag'] === 'New') {
+        $(row).addClass('pa-new-row');
+      }
+    },
+    initComplete: function () {
+      var api = this.api();
+
+      // Column indices:
+      // 0 Company
+      // 1 Title
+      // 2 Location
+      // 3 State / Province
+      // 4 Region (Country)
+      // 5 Work Mode
+      // 6 Job Level
+      // 7 Date Pulled (+ New badge)
+      // 8 Location Full (hidden)
+      // 9 State Province Full (hidden)
+
+      var workModeColumn     = api.column(5);
+      var regionColumn       = api.column(4);
+      var jobLevelColumn     = api.column(6);
+
+      var $wmContainer       = $('#filter-work-mode');
+      var $regionContainer   = $('#filter-region');
+      var $jobLevelContainer = $('#filter-job-level');
+      var $newOnlyCheckbox   = $('#pa-filter-new-only-checkbox');
+
+      // --- Work Mode filter options (On-site, Hybrid, Remote, Unknown, then others) ---
+      var workModes = workModeColumn
+        .data()
+        .unique()
+        .toArray()
+        .filter(function (d) { return d && d.trim() !== ''; });
+
+      var workModePriority = ["On-site", "Hybrid", "Remote", "Unknown"];
+
+      var priorityModes = [];
+      var otherModes = [];
+
+      workModes.forEach(function (mode) {
+        if (workModePriority.indexOf(mode) !== -1) {
+          priorityModes.push(mode);
+        } else {
+          otherModes.push(mode);
+        }
+      });
+
+      otherModes.sort();
+
+      var orderedWorkModes = workModePriority
+        .filter(function (m) { return priorityModes.indexOf(m) !== -1; })
+        .concat(otherModes);
+
+      orderedWorkModes.forEach(function (mode) {
+        var id = 'wm-' + mode.replace(/\W+/g, '-').toLowerCase();
+        var $label = $('<label>').append(
+          $('<input>', { type: 'checkbox', value: mode, id: id }),
+          $('<span>', { class: 'pa-filter-option-text', text: mode })
+        );
+        $wmContainer.append($label);
+      });
+
+      // --- Region filter options (United States, Canada, UK, AU first) ---
+      var allRegions = regionColumn
+        .data()
+        .unique()
+        .toArray()
+        .filter(function (d) { return d && d.trim() !== ''; });
+
+      var priorityOrder = ["United States", "Canada", "United Kingdom", "Australia"];
+
+      var priorityRegions = [];
+      var otherRegions = [];
+
+      allRegions.forEach(function (r) {
+        if (priorityOrder.indexOf(r) !== -1) {
+          priorityRegions.push(r);
+        } else {
+          otherRegions.push(r);
+        }
+      });
+
+      otherRegions.sort();
+
+      var orderedRegions = priorityOrder
+        .filter(function (r) { return priorityRegions.indexOf(r) !== -1; })
+        .concat(otherRegions);
+
+      orderedRegions.forEach(function (region) {
+        var id = 'region-' + region.replace(/\W+/g, '-').toLowerCase();
+        var $label = $('<label>').append(
+          $('<input>', { type: 'checkbox', value: region, id: id }),
+          $('<span>', { class: 'pa-filter-option-text', text: region })
+        );
+        $regionContainer.append($label);
+      });
+
+      // --- Job Level filter options (custom order) ---
+      var rawLevels = jobLevelColumn
+        .data()
+        .unique()
+        .toArray()
+        .filter(function (d) { return d && d.trim() !== ''; });
+
+      var levelPriority = ["Intern", "Individual Contributor", "Manager", "Director+"];
+
+      var knownLevels = [];
+      var otherLevels = [];
+
+      rawLevels.forEach(function (lvl) {
+        if (levelPriority.indexOf(lvl) !== -1) {
+          knownLevels.push(lvl);
+        } else {
+          otherLevels.push(lvl);
+        }
+      });
+
+      otherLevels.sort();
+
+      var orderedLevels = levelPriority
+        .filter(function (l) { return knownLevels.indexOf(l) !== -1; })
+        .concat(otherLevels);
+
+      orderedLevels.forEach(function (lvl) {
+        var id = 'joblvl-' + lvl.replace(/\W+/g, '-').toLowerCase();
+        var $label = $('<label>').append(
+          $('<input>', { type: 'checkbox', value: lvl, id: id }),
+          $('<span>', { class: 'pa-filter-option-text', text: lvl })
+        );
+        $jobLevelContainer.append($label);
+      });
+
+      // Shared checkbox filtering logic
+      function applyCheckboxFilter(column, $container) {
+        var selected = [];
+        $container.find('input[type="checkbox"]:checked').each(function () {
+          selected.push($(this).val());
+        });
+
+        if (selected.length === 0) {
+          column.search('', true, false).draw();
+        } else {
+          // Match if cell contains ANY of the selected values (regex OR)
+          var regex = selected.map(escapeRegex).join('|');
+          column.search(regex, true, false).draw();
+        }
+      }
+
+      // Hook up Work Mode / Region / Job Level checkbox events
+      $wmContainer.on('change', 'input[type="checkbox"]', function () {
+        applyCheckboxFilter(workModeColumn, $wmContainer);
+      });
+
+      $regionContainer.on('change', 'input[type="checkbox"]', function () {
+        applyCheckboxFilter(regionColumn, $regionContainer);
+      });
+
+      $jobLevelContainer.on('change', 'input[type="checkbox"]', function () {
+        applyCheckboxFilter(jobLevelColumn, $jobLevelContainer);
+      });
+
+      // --- "Show only new listings" filter ---
+      $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+        // Limit to this specific table
+        if (settings.nTable !== api.table().node()) {
+          return true;
+        }
+
+        if (!$newOnlyCheckbox.is(':checked')) {
+          return true;
+        }
+
+        var rowData = api.row(dataIndex).data();
+        if (!rowData) return true;
+
+        return rowData['New Flag'] === 'New';
+      });
+
+      $newOnlyCheckbox.on('change', function () {
+        api.draw();
+      });
+
+      // --- Show number of entries AFTER filters (not total) ---
+      // Add a span into the length label to hold the count
+      $('.dataTables_length label').each(function () {
+        var $label = $(this);
+        if ($label.find('.pa-entries-count').length === 0) {
+          $label.append(' <span class="pa-entries-count"></span>');
+        }
+      });
+
+      function updateEntriesCount() {
+        // Count of rows after filters/search
+        var filtered = api.rows({ filter: 'applied' }).count();
+        $('.pa-entries-count').text('(' + filtered + ' matching entries)');
+      }
+
+      // Initial count
+      updateEntriesCount();
+
+      // Update count on every draw (filters, search, paging, etc.)
+      api.on('draw', function () {
+        updateEntriesCount();
+      });
+
+      // 🔧 IMPORTANT: fix "cutoff" / width issues after init
+      api.columns.adjust();
+
+      // Also recalc on window resize in case layout changes
+      $(window).on('resize.paJobs', function () {
+        api.columns.adjust();
+      });
+    }
   });
+});
+
 </script>
 
 </body>

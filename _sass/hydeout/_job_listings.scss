@@ -31,6 +31,11 @@
     }
 }
 
+.jobs-page-disclaimer {
+    font-size: 0.5rem !important;
+    color: $gray-4 !important;
+}
+
 /* PA job listings page */
 #pa-jobs-page {
   padding: 0px;
@@ -103,7 +108,7 @@
     }
 
     .pa-filter-option-text {
-      color: $gray-4; // default option text color
+      color: $gray-3; // default option text color
       transition: color 0.15s ease;
     }
 
