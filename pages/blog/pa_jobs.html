@@ -127,6 +127,9 @@ permalink: /people_analytics_jobs
 <body>
 
 <section class="job-board-description">
+<div id="pa-last-updated" style="margin: 10px 0; font-weight: 500;">
+  Last updated: <span id="pa-last-updated-date">Loading...</span>
+</div>
 
   <h4>About This Job Board</h4>
   <p>
@@ -305,6 +308,36 @@ $(document).ready(function () {
     },
     initComplete: function () {
       var api = this.api();
+
+    // ---- Find and display latest Date Pulled (formatted) ----
+    var latestDate = null;
+
+    api.rows().every(function () {
+      var row = this.data();
+      var dateStr = row['Date Pulled'];  // or 'date_pulled'
+
+      if (!dateStr) return;
+
+      // Assumes incoming format is YYYY-MM-DD
+      if (!latestDate || dateStr > latestDate) {
+        latestDate = dateStr;
+      }
+    });
+
+    if (latestDate) {
+      var dateObj = new Date(latestDate);
+
+      var formattedDate = dateObj.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      $('#pa-last-updated-date').text(formattedDate);
+    } else {
+      $('#pa-last-updated-date').text('Unknown');
+    }
+
 
       // Column indices:
       // 0 Company
