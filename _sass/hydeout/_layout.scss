@@ -175,6 +175,8 @@ body {
     flex-direction: row;
     height: 100vh;
     overflow: auto;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
     > * { max-height: 100vh; overflow: auto; }
   }
 
