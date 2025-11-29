@@ -228,358 +228,363 @@ permalink: /people_analytics_jobs
 
 <script>
   function escapeRegex(text) {
-  return text.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
-}
+    return text.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
+  }
 
-$(document).ready(function () {
-  var table = $('#pa-jobs-table').DataTable({
-    ajax: {
-      // url: '/pages/blog/jl_output.json',   // your JSON path
-      url: 'https://raw.githubusercontent.com/joepatten/pa_data/refs/heads/main/jl_output.json',   // your JSON path
-      dataSrc: function (json) {
-        // Normalize Work Mode: fill blanks with "Unknown"
-        json.forEach(function (row) {
-          var wm = row['Work Mode'];
-          if (!wm || (typeof wm === 'string' && wm.trim() === '')) {
-            row['Work Mode'] = 'On-site';
+  // Helper: is Date Pulled within 3 days of today?
+  function isNewListing(dateStr) {
+    if (!dateStr) return false;
+
+    // Grab just the YYYY-MM-DD part in case something extra is present
+    const clean = dateStr.trim().slice(0, 10);
+    const parts = clean.split('-');
+    if (parts.length !== 3) return false;
+
+    const year  = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1;
+    const day   = parseInt(parts[2], 10);
+
+    if (isNaN(year) || isNaN(month) || isNaN(day)) return false;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const pulled = new Date(year, month, day);
+    pulled.setHours(0, 0, 0, 0);
+
+    const diffMs   = today - pulled;
+    const diffDays = diffMs / (1000 * 60 * 60 * 24);
+
+    // within last 3 days, not future-dated
+    return diffDays >= 0 && diffDays <= 2;
+  }
+
+  $(document).ready(function () {
+    var table = $('#pa-jobs-table').DataTable({
+      ajax: {
+        // url: '/pages/blog/jl_output.json',   // your JSON path
+        url: 'https://raw.githubusercontent.com/joepatten/pa_data/refs/heads/main/jl_output.json',
+        dataSrc: function (json) {
+          json.forEach(function (row) {
+            // Normalize Work Mode: fill blanks with "On-site"
+            var wm = row['Work Mode'];
+            if (!wm || (typeof wm === 'string' && wm.trim() === '')) {
+              row['Work Mode'] = 'On-site';
+            }
+
+            // 🔹 Compute New Flag from Date Pulled (within 3 days)
+            var datePulled = row['Date Pulled'];
+            row['New Flag'] = isNewListing(datePulled) ? 'New' : '';
+          });
+          return json;
+        }
+      },
+      scrollX: true,
+      columns: [
+        { data: 'Company' },
+        {
+          // Title as hyperlink using Url
+          data: null,
+          render: function (data, type, row) {
+            var title = row['Title'] || '';
+            var url   = row['Url'] || '#';
+
+            if (type === 'display') {
+              return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' +
+                       title +
+                     '</a>';
+            }
+            return title;
+          }
+        },
+        { data: 'Location' },
+        { data: 'State Province' },
+        { data: 'Country' },   // Region
+        { data: 'Work Mode' },
+        { data: 'Job Level' },
+        {
+          // Date Pulled column with optional "New" badge on its own line
+          data: null,
+          render: function (data, type, row) {
+            var dateText = row['Date Pulled'] || '';
+
+            if (type !== 'display') {
+              // For sorting/searching, just use the raw date text
+              return dateText;
+            }
+
+            var isNew = row['New Flag'] === 'New';
+            var badgeHtml = isNew
+              ? '<div class="pa-badge-new">New</div>'
+              : '';
+
+            return (
+              '<div class="pa-date-cell">' +
+                '<div class="pa-date-text">' + dateText + '</div>' +
+                badgeHtml +
+              '</div>'
+            );
+          }
+        },
+        // Hidden but searchable
+        {
+          data: 'Location Full',
+          visible: false,
+          searchable: true
+        },
+        {
+          data: 'State Province Full',
+          visible: false,
+          searchable: true
+        }
+      ],
+      pageLength: 100,
+      lengthMenu: [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
+      order: [[7, 'desc']],  // Date Pulled
+      createdRow: function (row, data) {
+        if (data['New Flag'] === 'New') {
+          $(row).addClass('pa-new-row');
+        }
+      },
+      initComplete: function () {
+        var api = this.api();
+
+        // ---- Find and display latest Date Pulled (formatted) ----
+        var latestDate = null;
+
+        api.rows().every(function () {
+          var row = this.data();
+          var dateStr = row['Date Pulled'];
+          if (!dateStr) return;
+
+          // Only consider the YYYY-MM-DD part
+          var clean = dateStr.trim().slice(0, 10);
+
+          if (!latestDate || clean > latestDate) {
+            latestDate = clean;
           }
         });
-        return json;
-      }
-    },
-    scrollX: true, // horizontal scrolling with cloned header
-    columns: [
-      { data: 'Company' },
-      {
-        // Title as hyperlink using Url
-        data: null,
-        render: function (data, type, row) {
-          var title = row['Title'] || '';
-          var url   = row['Url'] || '#';
 
-          if (type === 'display') {
-            return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' +
-                     title +
-                   '</a>';
-          }
-          return title;
+        if (latestDate) {
+          var parts = latestDate.split('-');
+          var year  = parseInt(parts[0], 10);
+          var month = parseInt(parts[1], 10) - 1;
+          var day   = parseInt(parts[2], 10);
+
+          var dateObj = new Date(year, month, day);
+
+          var formattedDate = dateObj.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+
+          $('#pa-last-updated-date').text(formattedDate);
+        } else {
+          $('#pa-last-updated-date').text('Unknown');
         }
-      },
-      { data: 'Location' },        // visible display location
-      { data: 'State Province' },  // visible display state/province
-      {
-        // Region (still read from Country)
-        data: 'Country'
-      },
-      { data: 'Work Mode' },
-      { data: 'Job Level' },   // assumes this field exists in your JSON
-      {
-        // Date Pulled column with optional "New" badge on its own line
-        data: null,
-        render: function (data, type, row) {
-          var dateText = row['Date Pulled'] || '';
-          if (type !== 'display') {
-            // For sorting/searching, just use the raw date text
-            return dateText;
+
+        // Column indices:
+        // 0 Company
+        // 1 Title
+        // 2 Location
+        // 3 State / Province
+        // 4 Region (Country)
+        // 5 Work Mode
+        // 6 Job Level
+        // 7 Date Pulled (+ New badge)
+        // 8 Location Full (hidden)
+        // 9 State Province Full (hidden)
+
+        var workModeColumn     = api.column(5);
+        var regionColumn       = api.column(4);
+        var jobLevelColumn     = api.column(6);
+
+        var $wmContainer       = $('#filter-work-mode');
+        var $regionContainer   = $('#filter-region');
+        var $jobLevelContainer = $('#filter-job-level');
+        var $newOnlyCheckbox   = $('#pa-filter-new-only-checkbox');
+
+        // --- Work Mode filter options ---
+        var workModes = workModeColumn
+          .data()
+          .unique()
+          .toArray()
+          .filter(function (d) { return d && d.trim() !== ''; });
+
+        var workModePriority = ["On-site", "Hybrid", "Remote", "Unknown"];
+
+        var priorityModes = [];
+        var otherModes = [];
+
+        workModes.forEach(function (mode) {
+          if (workModePriority.indexOf(mode) !== -1) {
+            priorityModes.push(mode);
+          } else {
+            otherModes.push(mode);
           }
+        });
 
-          var isNew = row['New Flag'] === 'New';
-          var badgeHtml = isNew
-            ? '<div class="pa-badge-new">New</div>'
-            : '';
+        otherModes.sort();
 
-          return (
-            '<div class="pa-date-cell">' +
-              '<div class="pa-date-text">' + dateText + '</div>' +
-              badgeHtml +
-            '</div>'
+        var orderedWorkModes = workModePriority
+          .filter(function (m) { return priorityModes.indexOf(m) !== -1; })
+          .concat(otherModes);
+
+        orderedWorkModes.forEach(function (mode) {
+          var id = 'wm-' + mode.replace(/\W+/g, '-').toLowerCase();
+          var $label = $('<label>').append(
+            $('<input>', { type: 'checkbox', value: mode, id: id }),
+            $('<span>', { class: 'pa-filter-option-text', text: mode })
           );
+          $wmContainer.append($label);
+        });
+
+        // --- Region filter options ---
+        var allRegions = regionColumn
+          .data()
+          .unique()
+          .toArray()
+          .filter(function (d) { return d && d.trim() !== ''; });
+
+        var priorityOrder = ["United States", "Canada", "United Kingdom", "Australia"];
+
+        var priorityRegions = [];
+        var otherRegions = [];
+
+        allRegions.forEach(function (r) {
+          if (priorityOrder.indexOf(r) !== -1) {
+            priorityRegions.push(r);
+          } else {
+            otherRegions.push(r);
+          }
+        });
+
+        otherRegions.sort();
+
+        var orderedRegions = priorityOrder
+          .filter(function (r) { return priorityRegions.indexOf(r) !== -1; })
+          .concat(otherRegions);
+
+        orderedRegions.forEach(function (region) {
+          var id = 'region-' + region.replace(/\W+/g, '-').toLowerCase();
+          var $label = $('<label>').append(
+            $('<input>', { type: 'checkbox', value: region, id: id }),
+            $('<span>', { class: 'pa-filter-option-text', text: region })
+          );
+          $regionContainer.append($label);
+        });
+
+        // --- Job Level filter options ---
+        var rawLevels = jobLevelColumn
+          .data()
+          .unique()
+          .toArray()
+          .filter(function (d) { return d && d.trim() !== ''; });
+
+        var levelPriority = ["Intern", "Individual Contributor", "Manager", "Director+"];
+
+        var knownLevels = [];
+        var otherLevels = [];
+
+        rawLevels.forEach(function (lvl) {
+          if (levelPriority.indexOf(lvl) !== -1) {
+            knownLevels.push(lvl);
+          } else {
+            otherLevels.push(lvl);
+          }
+        });
+
+        otherLevels.sort();
+
+        var orderedLevels = levelPriority
+          .filter(function (l) { return knownLevels.indexOf(l) !== -1; })
+          .concat(otherLevels);
+
+        orderedLevels.forEach(function (lvl) {
+          var id = 'joblvl-' + lvl.replace(/\W+/g, '-').toLowerCase();
+          var $label = $('<label>').append(
+            $('<input>', { type: 'checkbox', value: lvl, id: id }),
+            $('<span>', { class: 'pa-filter-option-text', text: lvl })
+          );
+          $jobLevelContainer.append($label);
+        });
+
+        // Shared checkbox filtering logic
+        function applyCheckboxFilter(column, $container) {
+          var selected = [];
+          $container.find('input[type="checkbox"]:checked').each(function () {
+            selected.push($(this).val());
+          });
+
+          if (selected.length === 0) {
+            column.search('', true, false).draw();
+          } else {
+            var regex = selected.map(escapeRegex).join('|');
+            column.search(regex, true, false).draw();
+          }
         }
-      },
 
-      // 🔽 HIDDEN BUT SEARCHABLE COLUMNS 🔽
-      {
-        data: 'Location Full',   // full list of locations
-        visible: false,
-        searchable: true
-      },
-      {
-        data: 'State Province Full',  // full list of states/provinces
-        visible: false,
-        searchable: true
-      }
-    ],
-    pageLength: 100,
-    lengthMenu: [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
-    order: [[7, 'desc']],  // still Date Pulled (column index 7)
-    createdRow: function (row, data) {
-      // Only "new" rows bolded
-      if (data['New Flag'] === 'New') {
-        $(row).addClass('pa-new-row');
-      }
-    },
-    initComplete: function () {
-      var api = this.api();
+        $wmContainer.on('change', 'input[type="checkbox"]', function () {
+          applyCheckboxFilter(workModeColumn, $wmContainer);
+        });
 
-    // ---- Find and display latest Date Pulled (formatted) ----
-    var latestDate = null;
+        $regionContainer.on('change', 'input[type="checkbox"]', function () {
+          applyCheckboxFilter(regionColumn, $regionContainer);
+        });
 
-    api.rows().every(function () {
-      var row = this.data();
-      var dateStr = row['Date Pulled'];  // or 'date_pulled'
+        $jobLevelContainer.on('change', 'input[type="checkbox"]', function () {
+          applyCheckboxFilter(jobLevelColumn, $jobLevelContainer);
+        });
 
-      if (!dateStr) return;
+        // --- "Show only new listings" filter ---
+        $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+          if (settings.nTable !== api.table().node()) {
+            return true;
+          }
 
-      // Assumes incoming format is YYYY-MM-DD
-      if (!latestDate || dateStr > latestDate) {
-        latestDate = dateStr;
+          if (!$newOnlyCheckbox.is(':checked')) {
+            return true;
+          }
+
+          var rowData = api.row(dataIndex).data();
+          if (!rowData) return true;
+
+          return rowData['New Flag'] === 'New';
+        });
+
+        $newOnlyCheckbox.on('change', function () {
+          api.draw();
+        });
+
+        // --- Show number of entries AFTER filters ---
+        $('.dataTables_length label').each(function () {
+          var $label = $(this);
+          if ($label.find('.pa-entries-count').length === 0) {
+            $label.append(' <span class="pa-entries-count"></span>');
+          }
+        });
+
+        function updateEntriesCount() {
+          var filtered = api.rows({ filter: 'applied' }).count();
+          $('.pa-entries-count').text('(' + filtered + ' matching entries)');
+        }
+
+        updateEntriesCount();
+
+        api.on('draw', function () {
+          updateEntriesCount();
+        });
+
+        api.columns.adjust();
+
+        $(window).on('resize.paJobs', function () {
+          api.columns.adjust();
+        });
       }
     });
-
-    if (latestDate) {
-      if (latestDate) {
-        // latestDate is "YYYY-MM-DD"
-        var parts = latestDate.split('-');
-        var year  = parseInt(parts[0], 10);
-        var month = parseInt(parts[1], 10) - 1; // JS months are 0-based
-        var day   = parseInt(parts[2], 10);
-
-        // This creates a LOCAL date (no timezone shift from string parsing)
-        var dateObj = new Date(year, month, day);
-
-        var formattedDate = dateObj.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        });
-
-        $('#pa-last-updated-date').text(formattedDate);
-      } else {
-        $('#pa-last-updated-date').text('Unknown');
-      }
-
-      var formattedDate = dateObj.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-
-      $('#pa-last-updated-date').text(formattedDate);
-    } else {
-      $('#pa-last-updated-date').text('Unknown');
-    }
-
-
-      // Column indices:
-      // 0 Company
-      // 1 Title
-      // 2 Location
-      // 3 State / Province
-      // 4 Region (Country)
-      // 5 Work Mode
-      // 6 Job Level
-      // 7 Date Pulled (+ New badge)
-      // 8 Location Full (hidden)
-      // 9 State Province Full (hidden)
-
-      var workModeColumn     = api.column(5);
-      var regionColumn       = api.column(4);
-      var jobLevelColumn     = api.column(6);
-
-      var $wmContainer       = $('#filter-work-mode');
-      var $regionContainer   = $('#filter-region');
-      var $jobLevelContainer = $('#filter-job-level');
-      var $newOnlyCheckbox   = $('#pa-filter-new-only-checkbox');
-
-      // --- Work Mode filter options (On-site, Hybrid, Remote, Unknown, then others) ---
-      var workModes = workModeColumn
-        .data()
-        .unique()
-        .toArray()
-        .filter(function (d) { return d && d.trim() !== ''; });
-
-      var workModePriority = ["On-site", "Hybrid", "Remote", "Unknown"];
-
-      var priorityModes = [];
-      var otherModes = [];
-
-      workModes.forEach(function (mode) {
-        if (workModePriority.indexOf(mode) !== -1) {
-          priorityModes.push(mode);
-        } else {
-          otherModes.push(mode);
-        }
-      });
-
-      otherModes.sort();
-
-      var orderedWorkModes = workModePriority
-        .filter(function (m) { return priorityModes.indexOf(m) !== -1; })
-        .concat(otherModes);
-
-      orderedWorkModes.forEach(function (mode) {
-        var id = 'wm-' + mode.replace(/\W+/g, '-').toLowerCase();
-        var $label = $('<label>').append(
-          $('<input>', { type: 'checkbox', value: mode, id: id }),
-          $('<span>', { class: 'pa-filter-option-text', text: mode })
-        );
-        $wmContainer.append($label);
-      });
-
-      // --- Region filter options (United States, Canada, UK, AU first) ---
-      var allRegions = regionColumn
-        .data()
-        .unique()
-        .toArray()
-        .filter(function (d) { return d && d.trim() !== ''; });
-
-      var priorityOrder = ["United States", "Canada", "United Kingdom", "Australia"];
-
-      var priorityRegions = [];
-      var otherRegions = [];
-
-      allRegions.forEach(function (r) {
-        if (priorityOrder.indexOf(r) !== -1) {
-          priorityRegions.push(r);
-        } else {
-          otherRegions.push(r);
-        }
-      });
-
-      otherRegions.sort();
-
-      var orderedRegions = priorityOrder
-        .filter(function (r) { return priorityRegions.indexOf(r) !== -1; })
-        .concat(otherRegions);
-
-      orderedRegions.forEach(function (region) {
-        var id = 'region-' + region.replace(/\W+/g, '-').toLowerCase();
-        var $label = $('<label>').append(
-          $('<input>', { type: 'checkbox', value: region, id: id }),
-          $('<span>', { class: 'pa-filter-option-text', text: region })
-        );
-        $regionContainer.append($label);
-      });
-
-      // --- Job Level filter options (custom order) ---
-      var rawLevels = jobLevelColumn
-        .data()
-        .unique()
-        .toArray()
-        .filter(function (d) { return d && d.trim() !== ''; });
-
-      var levelPriority = ["Intern", "Individual Contributor", "Manager", "Director+"];
-
-      var knownLevels = [];
-      var otherLevels = [];
-
-      rawLevels.forEach(function (lvl) {
-        if (levelPriority.indexOf(lvl) !== -1) {
-          knownLevels.push(lvl);
-        } else {
-          otherLevels.push(lvl);
-        }
-      });
-
-      otherLevels.sort();
-
-      var orderedLevels = levelPriority
-        .filter(function (l) { return knownLevels.indexOf(l) !== -1; })
-        .concat(otherLevels);
-
-      orderedLevels.forEach(function (lvl) {
-        var id = 'joblvl-' + lvl.replace(/\W+/g, '-').toLowerCase();
-        var $label = $('<label>').append(
-          $('<input>', { type: 'checkbox', value: lvl, id: id }),
-          $('<span>', { class: 'pa-filter-option-text', text: lvl })
-        );
-        $jobLevelContainer.append($label);
-      });
-
-      // Shared checkbox filtering logic
-      function applyCheckboxFilter(column, $container) {
-        var selected = [];
-        $container.find('input[type="checkbox"]:checked').each(function () {
-          selected.push($(this).val());
-        });
-
-        if (selected.length === 0) {
-          column.search('', true, false).draw();
-        } else {
-          // Match if cell contains ANY of the selected values (regex OR)
-          var regex = selected.map(escapeRegex).join('|');
-          column.search(regex, true, false).draw();
-        }
-      }
-
-      // Hook up Work Mode / Region / Job Level checkbox events
-      $wmContainer.on('change', 'input[type="checkbox"]', function () {
-        applyCheckboxFilter(workModeColumn, $wmContainer);
-      });
-
-      $regionContainer.on('change', 'input[type="checkbox"]', function () {
-        applyCheckboxFilter(regionColumn, $regionContainer);
-      });
-
-      $jobLevelContainer.on('change', 'input[type="checkbox"]', function () {
-        applyCheckboxFilter(jobLevelColumn, $jobLevelContainer);
-      });
-
-      // --- "Show only new listings" filter ---
-      $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-        // Limit to this specific table
-        if (settings.nTable !== api.table().node()) {
-          return true;
-        }
-
-        if (!$newOnlyCheckbox.is(':checked')) {
-          return true;
-        }
-
-        var rowData = api.row(dataIndex).data();
-        if (!rowData) return true;
-
-        return rowData['New Flag'] === 'New';
-      });
-
-      $newOnlyCheckbox.on('change', function () {
-        api.draw();
-      });
-
-      // --- Show number of entries AFTER filters (not total) ---
-      // Add a span into the length label to hold the count
-      $('.dataTables_length label').each(function () {
-        var $label = $(this);
-        if ($label.find('.pa-entries-count').length === 0) {
-          $label.append(' <span class="pa-entries-count"></span>');
-        }
-      });
-
-      function updateEntriesCount() {
-        // Count of rows after filters/search
-        var filtered = api.rows({ filter: 'applied' }).count();
-        $('.pa-entries-count').text('(' + filtered + ' matching entries)');
-      }
-
-      // Initial count
-      updateEntriesCount();
-
-      // Update count on every draw (filters, search, paging, etc.)
-      api.on('draw', function () {
-        updateEntriesCount();
-      });
-
-      // 🔧 IMPORTANT: fix "cutoff" / width issues after init
-      api.columns.adjust();
-
-      // Also recalc on window resize in case layout changes
-      $(window).on('resize.paJobs', function () {
-        api.columns.adjust();
-      });
-    }
   });
-});
-
 </script>
+
 
 </body>
