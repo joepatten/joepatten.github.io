@@ -234,7 +234,8 @@ permalink: /people_analytics_jobs
 $(document).ready(function () {
   var table = $('#pa-jobs-table').DataTable({
     ajax: {
-      url: '/pages/blog/jl_output.json',   // your JSON path
+      // url: '/pages/blog/jl_output.json',   // your JSON path
+      url: 'https://raw.githubusercontent.com/joepatten/pa_data/refs/heads/main/jl_output.json',   // your JSON path
       dataSrc: function (json) {
         // Normalize Work Mode: fill blanks with "Unknown"
         json.forEach(function (row) {
