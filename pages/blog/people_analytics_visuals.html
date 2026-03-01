@@ -63,6 +63,21 @@ permalink: /people_analytics_trends
       display: block;
     }
 
+    .pa-plot-group {
+      background: rgba(30, 32, 43, 0.24);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .pa-plot-group + .pa-plot-group {
+      margin-top: 20px;
+    }
+
+    .pa-plot-group .pa-secondary-section {
+      margin-top: 10px;
+    }
+
     /* Controls panel — matches pa_jobs filter box style */
     #pa-controls {
       background: #1e202b;
@@ -422,6 +437,7 @@ permalink: /people_analytics_trends
     #pa-share-tt-date  { color: #CA4; margin-bottom: 3px; font-size: 0.72rem; }
     #pa-share-tt-total { color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 5px; }
     .pa-share-tt-row   { color: #cfcfcf; font-size: 0.74rem; }
+    .pa-share-tt-meta  { color: #767676; font-size: 0.68rem; margin-top: 4px; }
 
     @media (max-width: 680px) {
       .pa-controls-grid { gap: 14px; }
@@ -480,55 +496,57 @@ permalink: /people_analytics_trends
 <div id="pa-chart-app">
   <p id="pa-meta-line">loading...</p>
 
-  <div id="pa-main-layout">
+  <div class="pa-plot-group">
+    <div id="pa-main-layout">
 
-    <!-- Controls -->
-    <div id="pa-controls">
-      <div class="pa-filters-title">Filter Trends</div>
-      <div class="pa-controls-grid">
-        <div class="pa-ctrl-section">
-          <span class="pa-ctrl-label">Work Mode</span>
-          <div id="pa-workmode-list"></div>
+      <!-- Controls -->
+      <div id="pa-controls">
+        <div class="pa-filters-title">Filter Trends</div>
+        <div class="pa-controls-grid">
+          <div class="pa-ctrl-section">
+            <span class="pa-ctrl-label">Work Mode</span>
+            <div id="pa-workmode-list"></div>
+          </div>
+
+          <hr class="pa-ctrl-divider">
+
+          <div class="pa-ctrl-section">
+            <span class="pa-ctrl-label">Country</span>
+            <div class="pa-cb-list" id="pa-country-list"></div>
+          </div>
+
+          <hr class="pa-ctrl-divider">
+
+          <div class="pa-ctrl-section">
+            <span class="pa-ctrl-label">Job Level</span>
+            <div class="pa-cb-list" id="pa-level-list"></div>
+          </div>
+
+          <hr class="pa-ctrl-divider">
+
+          <div class="pa-ctrl-section">
+            <span class="pa-ctrl-label">Annotations</span>
+            <div id="pa-annotation-list"></div>
+          </div>
         </div>
+      </div>
 
-        <hr class="pa-ctrl-divider">
-
-        <div class="pa-ctrl-section">
-          <span class="pa-ctrl-label">Country</span>
-          <div class="pa-cb-list" id="pa-country-list"></div>
-        </div>
-
-        <hr class="pa-ctrl-divider">
-
-        <div class="pa-ctrl-section">
-          <span class="pa-ctrl-label">Job Level</span>
-          <div class="pa-cb-list" id="pa-level-list"></div>
-        </div>
-
-        <hr class="pa-ctrl-divider">
-
-        <div class="pa-ctrl-section">
-          <span class="pa-ctrl-label">Annotations</span>
-          <div id="pa-annotation-list"></div>
-        </div>
+      <!-- Chart -->
+      <div id="pa-chart-wrap">
+        <div class="pa-filters-title">Active Listings Over Time</div>
+        <div id="pa-chart-loading">loading trend data...</div>
       </div>
     </div>
 
-    <!-- Chart -->
-    <div id="pa-chart-wrap">
-      <div class="pa-filters-title">Active Listings Over Time</div>
-      <div id="pa-chart-loading">loading trend data...</div>
+    <div class="pa-secondary-section">
+      <div id="pa-weekday-wrap">
+        <div class="pa-filters-title">Average New Listings by Weekday</div>
+        <div id="pa-weekday-chart" class="pa-chart-slot"></div>
+      </div>
     </div>
   </div>
 
-  <div class="pa-secondary-section">
-    <div id="pa-weekday-wrap">
-      <div class="pa-filters-title">Average New Listings by Weekday</div>
-      <div id="pa-weekday-chart" class="pa-chart-slot"></div>
-    </div>
-  </div>
-
-  <div class="pa-secondary-section">
+  <div class="pa-plot-group">
     <div id="pa-share-layout">
       <div id="pa-share-controls">
         <div class="pa-filters-title">Composition Filters</div>
@@ -583,15 +601,15 @@ permalink: /people_analytics_trends
   const WEEKDAY_ORDER = [1, 2, 3, 4, 5, 6, 0];
   const WEEKDAY_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const WORK_MODE_COLORS = {
-    "Remote": "#CA4",
-    "Hybrid": "#4aa3a2",
-    "On-site": "#c96f3b",
+    "Remote": "#D4A72C",
+    "Hybrid": "#2FA7A0",
+    "On-site": "#D66A4A",
   };
   const LEVEL_COLORS = {
-    "Intern": "#8fbf8f",
-    "Individual Contributor": "#CA4",
-    "Manager": "#4aa3a2",
-    "Director+": "#c96f3b",
+    "Intern": "#7FB069",
+    "Individual Contributor": "#D4A72C",
+    "Manager": "#2FA7A0",
+    "Director+": "#D66A4A",
   };
 
   const state = {
@@ -1043,7 +1061,7 @@ permalink: /people_analytics_trends
       .style("opacity", 1);
 
     shareTtDate.textContent = formatDate(row.date);
-    shareTtTotal.textContent = `Total listings: ${row.total.toLocaleString()}`;
+    shareTtTotal.textContent = `Active Listings: ${row.total.toLocaleString()}`;
     shareTtBody.innerHTML = "";
 
     shareCategories.forEach(category => {
@@ -1052,6 +1070,11 @@ permalink: /people_analytics_trends
       line.textContent = `${category}: ${(row[category] * 100).toFixed(1)}%`;
       shareTtBody.appendChild(line);
     });
+
+    const summaryLine = document.createElement("div");
+    summaryLine.className = "pa-share-tt-meta";
+    summaryLine.textContent = getShareFilterSummary();
+    shareTtBody.appendChild(summaryLine);
 
     const pad = 16;
     const tw  = shareTooltip.offsetWidth || 200;
@@ -1149,7 +1172,15 @@ permalink: /people_analytics_trends
     if (state.selectedCountries.size > 0) parts.push([...state.selectedCountries].join(", "));
     if (state.selectedModes.size > 0)     parts.push([...state.selectedModes].join(", "));
     if (state.selectedLevels.size > 0)    parts.push([...state.selectedLevels].join(", "));
-    return parts.length > 0 ? parts.join(" • ") : "all jobs";
+    return parts.length > 0 ? parts.join(" • ") : "All Jobs";
+  }
+
+  function getShareFilterSummary() {
+    const viewLabel = shareState.dimension === "work_mode" ? "Work Mode" : "Job Level";
+    const countryLabel = shareState.selectedCountries.size > 0
+      ? [...shareState.selectedCountries].join(", ")
+      : "All Jobs";
+    return `${viewLabel} • ${countryLabel}`;
   }
 
   overlay.on("mousemove", function (event) {
@@ -1173,7 +1204,7 @@ permalink: /people_analytics_trends
     hoverDot.attr("cx", x).attr("cy", y).style("opacity", 1);
 
     ttDate.textContent    = formatDate(d.date);
-    ttCount.textContent   = `Active Jobs: ${d.count.toLocaleString()}`;
+    ttCount.textContent   = `Active Listings: ${d.count.toLocaleString()}`;
     ttFilters.textContent = getFilterSummary();
 
     const pad = 16;
