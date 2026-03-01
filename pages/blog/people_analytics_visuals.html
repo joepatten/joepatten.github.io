@@ -841,12 +841,25 @@ permalink: /people_analytics_trends
 
   function computeWeekdayData() {
     const passes = computeJobPasses();
+    const jobs = DATA.jobs;
     const includesIndia =
       state.selectedCountries.size === 0 ||
       state.selectedCountries.has("India");
     const includesIreland =
       state.selectedCountries.size === 0 ||
       state.selectedCountries.has("Ireland");
+    let effectiveStart = CHART_START;
+
+    if (includesIndia) {
+      const indiaStart = new Date(INDIA_ANNOTATION_DATE);
+      indiaStart.setDate(indiaStart.getDate() + 1);
+      if (indiaStart > effectiveStart) effectiveStart = indiaStart;
+    }
+    if (includesIreland && IRELAND_WEEKDAY_START_DATE > effectiveStart) {
+      effectiveStart = IRELAND_WEEKDAY_START_DATE;
+    }
+
+    const endDate = parseDate(DATA.meta.date_range.end);
     const buckets = Array.from({ length: 7 }, (_, idx) => ({
       dayIndex: idx,
       label: WEEKDAY_LABELS[idx],
@@ -854,23 +867,96 @@ permalink: /people_analytics_trends
       observations: 0,
     }));
 
-    Object.keys(DATA.daily).sort()
-      .filter(dateStr => parseDate(dateStr) >= CHART_START)
-      .forEach(dateStr => {
-        const day = DATA.daily[dateStr];
-        const date = parseDate(dateStr);
-        if (includesIndia && date.getTime() === INDIA_ANNOTATION_DATE.getTime()) return;
-        if (includesIreland && date < IRELAND_WEEKDAY_START_DATE) return;
-        const bucket = buckets[date.getDay()];
-        let count = 0;
+    function getJobPostedDate(job) {
+      const candidates = [
+        job.date_posted,
+        job.posted_date,
+        job.datePosted,
+        job.postedDate,
+        job.date_posted_iso,
+        job.date_posted_display,
+        job.posted_date_display,
+        job["Date Posted"],
+        job["Posted Date"],
+        job["date posted"],
+        job["posted date"],
+        job.date_pulled,
+        job.pulled_date,
+        job["Date Pulled"],
+        job["Pulled Date"],
+        job.first_seen_date,
+        job.firstSeenDate,
+      ];
 
-        for (const id of (day.new_job_ids || [])) {
-          count += passes[id];
+      for (const raw of candidates) {
+        if (!raw || typeof raw !== "string") continue;
+        const isoParsed = parseDate(raw.slice(0, 10));
+        if (isoParsed) return isoParsed;
+
+        const nativeParsed = new Date(raw);
+        if (!Number.isNaN(nativeParsed.getTime())) {
+          nativeParsed.setHours(0, 0, 0, 0);
+          return nativeParsed;
         }
+      }
 
-        bucket.total += count;
-        bucket.observations += 1;
+      const dynamicKeys = Object.keys(job).sort((a, b) => {
+        const aPosted = /posted/i.test(a) ? 1 : 0;
+        const bPosted = /posted/i.test(b) ? 1 : 0;
+        return bPosted - aPosted;
       });
+
+      for (const key of dynamicKeys) {
+        if (!/date|posted|seen|pulled/i.test(key)) continue;
+        const raw = job[key];
+        if (!raw || typeof raw !== "string") continue;
+
+        const isoParsed = parseDate(raw.slice(0, 10));
+        if (isoParsed) return isoParsed;
+
+        const nativeParsed = new Date(raw);
+        if (!Number.isNaN(nativeParsed.getTime())) {
+          nativeParsed.setHours(0, 0, 0, 0);
+          return nativeParsed;
+        }
+      }
+      return null;
+    }
+
+    let postedDateMatches = 0;
+
+    for (let i = 0; i < jobs.length; i++) {
+      if (!passes[i]) continue;
+      const postedDate = getJobPostedDate(jobs[i]);
+      if (!postedDate) continue;
+      if (postedDate < effectiveStart || postedDate > endDate) continue;
+      buckets[postedDate.getDay()].total += 1;
+      postedDateMatches += 1;
+    }
+
+    if (postedDateMatches === 0) {
+      Object.keys(DATA.daily).sort()
+        .filter(dateStr => parseDate(dateStr) >= effectiveStart)
+        .forEach(dateStr => {
+          const day = DATA.daily[dateStr];
+          const date = parseDate(dateStr);
+          if (date > endDate) return;
+
+          const bucket = buckets[date.getDay()];
+          let count = 0;
+
+          for (const id of (day.new_job_ids || [])) {
+            count += passes[id];
+          }
+
+          bucket.total += count;
+          bucket.observations += 1;
+        });
+    } else {
+      for (let current = new Date(effectiveStart); current <= endDate; current.setDate(current.getDate() + 1)) {
+        buckets[current.getDay()].observations += 1;
+      }
+    }
 
     return WEEKDAY_ORDER.map(dayIndex => {
       const bucket = buckets[dayIndex];
