@@ -1,0 +1,1367 @@
+---
+layout: jobboard_2
+title: PA Trends
+sidebar_link: true
+permalink: /people_analytics_trends
+---
+
+<head>
+  <meta charset="UTF-8">
+  <title>The People's People Analytics Trends</title>
+  <link rel="canonical" href="https://www.joepatten.com/people_analytics_trends">
+
+  <style>
+    /* ── PA Logo header (matches pa_jobs style) ─────────────────────────── */
+    .pa-logo-main {
+      font-size: 1.5rem !important;
+      font-weight: 650 !important;
+      color: #f9fafb !important;
+    }
+
+    .pa-filters-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: #CA4;
+    }
+
+    /* ── Button link ────────────────────────────────────────────────────── */
+    .pa-nav-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 7px 16px;
+      background: #1e202b;
+      color: #CA4 !important;
+      border: 1px solid #CA4;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none !important;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .pa-nav-btn:hover {
+      background: #CA4;
+      color: #1e202b !important;
+      text-decoration: none !important;
+    }
+
+    /* ── Trend chart section ────────────────────────────────────────────── */
+    #pa-chart-app {
+      margin-top: 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #pa-meta-line {
+      font-size: 0.78rem;
+      color: #767676;
+      margin-bottom: 14px;
+    }
+
+    #pa-main-layout {
+      display: block;
+    }
+
+    /* Controls panel — matches pa_jobs filter box style */
+    #pa-controls {
+      background: #1e202b;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 1px 3px rgba(15,23,42,0.2);
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+
+    #pa-controls .pa-filters-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    .pa-controls-grid {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      font-size: 0.9rem;
+    }
+
+    .pa-ctrl-section {
+      margin-bottom: 0;
+    }
+
+    .pa-ctrl-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #ffffff;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    /* View toggle buttons */
+    .pa-toggle-group {
+      display: flex;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .pa-toggle-btn {
+      flex: 1;
+      padding: 6px 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.78rem;
+      color: #a1a1a1;
+      transition: background 0.15s, color 0.15s;
+      line-height: 1.3;
+    }
+
+    .pa-toggle-btn:hover:not(.active) {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+    }
+
+    .pa-toggle-btn.active {
+      background: #CA4;
+      color: #1e202b;
+      font-weight: 700;
+    }
+
+    /* Checkbox items — matches pa_jobs filter label style */
+    .pa-cb-list {
+      max-height: 148px;
+      overflow-y: auto;
+    }
+
+    #pa-country-list {
+      max-height: none;
+      overflow: visible;
+    }
+
+    #pa-share-country-list {
+      max-height: none;
+      overflow: visible;
+    }
+
+    .pa-cb-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 2px 0;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: #a1a1a1;
+    }
+
+    .pa-cb-item input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+      accent-color: #CA4;
+      flex-shrink: 0;
+    }
+
+    .pa-cb-item input[type="checkbox"]:checked + span {
+      color: #ffffff;
+    }
+
+    .pa-ctrl-divider {
+      display: none;
+    }
+
+    /* Scrollbar */
+    .pa-cb-list::-webkit-scrollbar { width: 4px; }
+    .pa-cb-list::-webkit-scrollbar-track { background: #1e202b; }
+    .pa-cb-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+
+    /* Chart container */
+    #pa-chart-wrap {
+      background: #1e202b;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 1px 3px rgba(15,23,42,0.2);
+      padding: 16px 14px 12px 8px;
+      min-height: 380px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .pa-secondary-section {
+      margin-top: 18px;
+    }
+
+    #pa-weekday-wrap,
+    #pa-share-controls,
+    #pa-share-chart-wrap {
+      background: #1e202b;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 1px 3px rgba(15,23,42,0.2);
+      box-sizing: border-box;
+    }
+
+    #pa-weekday-wrap,
+    #pa-share-chart-wrap {
+      padding: 14px 14px 12px 8px;
+    }
+
+    #pa-share-layout {
+      display: block;
+    }
+
+    #pa-share-controls {
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+
+    #pa-weekday-wrap .pa-filters-title,
+    #pa-share-controls .pa-filters-title,
+    #pa-share-chart-wrap .pa-filters-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    #pa-chart-wrap .pa-filters-title,
+    #pa-weekday-wrap .pa-filters-title,
+    #pa-share-chart-wrap .pa-filters-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      margin-left: 8px;
+    }
+
+    .pa-chart-slot svg {
+      display: block;
+      width: 100%;
+    }
+
+    .pa-small-note {
+      font-size: 0.76rem;
+      color: #767676;
+      margin-top: 4px;
+      margin-bottom: 10px;
+    }
+
+    .pa-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-bottom: 8px;
+      margin-left: 8px;
+      font-size: 0.78rem;
+      color: #c9c9c9;
+    }
+
+    .pa-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pa-legend-swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* SVG axis styles */
+    #pa-chart-wrap .x-axis .domain { stroke: #2a2d3e; }
+    #pa-chart-wrap .y-axis .domain { stroke: none; }
+    #pa-chart-wrap .x-axis line    { stroke: #2a2d3e; }
+    #pa-chart-wrap .y-axis line    { stroke: none; }
+    #pa-chart-wrap .x-axis text,
+    #pa-chart-wrap .y-axis text    { fill: #767676; font-size: 10.5px; }
+
+    #pa-chart-wrap .y-grid line    { stroke: #1a1d27; }
+    #pa-chart-wrap .y-grid .domain { display: none; }
+
+    /* Gold line + area */
+    #pa-chart-wrap .area-path {
+      fill: #CA4;
+      fill-opacity: 0.07;
+    }
+
+    #pa-chart-wrap .line-path {
+      fill: none;
+      stroke: #CA4;
+      stroke-width: 2px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+
+    #pa-chart-wrap .hover-line {
+      stroke: #3a3d50;
+      stroke-width: 1px;
+      stroke-dasharray: 4 3;
+      pointer-events: none;
+    }
+
+    #pa-chart-wrap .hover-dot {
+      fill: #CA4;
+      stroke: #1e202b;
+      stroke-width: 2.5px;
+      pointer-events: none;
+    }
+
+    #pa-chart-wrap .annotation-line {
+      stroke: #d8b24a;
+      stroke-width: 1.5px;
+      marker-end: url(#pa-annotation-arrow);
+    }
+
+    #pa-chart-wrap .annotation-dot {
+      fill: #d8b24a;
+      stroke: #1e202b;
+      stroke-width: 2px;
+    }
+
+    #pa-chart-wrap .annotation-text {
+      fill: #f3e7bb;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    #pa-weekday-wrap .x-axis .domain,
+    #pa-weekday-wrap .x-axis line,
+    #pa-weekday-wrap .y-axis .domain,
+    #pa-weekday-wrap .y-axis line,
+    #pa-share-chart-wrap .x-axis .domain,
+    #pa-share-chart-wrap .x-axis line,
+    #pa-share-chart-wrap .y-axis .domain,
+    #pa-share-chart-wrap .y-axis line {
+      stroke: #2a2d3e;
+    }
+
+    #pa-weekday-wrap .x-axis text,
+    #pa-weekday-wrap .y-axis text,
+    #pa-share-chart-wrap .x-axis text,
+    #pa-share-chart-wrap .y-axis text {
+      fill: #767676;
+      font-size: 10.5px;
+    }
+
+    #pa-weekday-wrap .bar {
+      fill: #CA4;
+    }
+
+    #pa-weekday-wrap .bar-label {
+      fill: #e6e6e6;
+      font-size: 10px;
+      text-anchor: middle;
+    }
+
+    #pa-share-chart-wrap .share-layer {
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    #pa-share-chart-wrap .hover-line {
+      stroke: #3a3d50;
+      stroke-width: 1px;
+      stroke-dasharray: 4 3;
+      pointer-events: none;
+    }
+
+    /* Loading state */
+    #pa-chart-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-size: 0.85rem;
+      color: #767676;
+    }
+
+    /* Tooltip */
+    #pa-tooltip {
+      position: fixed;
+      background: #1e202b;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e5e5e5;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.1s;
+      z-index: 9999;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    #pa-tt-date    { color: #CA4; margin-bottom: 3px; font-size: 0.72rem; }
+    #pa-tt-count   { color: #ffffff; font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    #pa-tt-filters { color: #767676; font-size: 0.68rem; }
+
+    #pa-share-tooltip {
+      position: fixed;
+      background: #1e202b;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e5e5e5;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.1s;
+      z-index: 9999;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    #pa-share-tt-date  { color: #CA4; margin-bottom: 3px; font-size: 0.72rem; }
+    #pa-share-tt-total { color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 5px; }
+    .pa-share-tt-row   { color: #cfcfcf; font-size: 0.74rem; }
+
+    @media (max-width: 680px) {
+      .pa-controls-grid { gap: 14px; }
+      #pa-chart-wrap    { min-height: 280px; }
+    }
+
+    @media (max-width: 768px) {
+      body.jobboard .container,
+      body.jobboard main.container {
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+        padding: 2px !important;
+      }
+      #pa-chart-app   { width: 100%; }
+      #pa-main-layout { width: 100%; }
+    }
+  </style>
+</head>
+
+<header>
+  <div id="pa-jobs-page">
+    <div id="pa-jobs-filters" class="pa-filters-container">
+      <div class="pa-filters-title">The People's</div>
+      <div class="pa-logo-main">People Analytics Trends</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/assets/js/bracket-viz.js"></script>
+</header>
+
+<body>
+
+<section class="job-board-description">
+  <div class="jobs-page-disclaimer">
+    <a class="pa-nav-btn" href="/people_analytics_jobs">&larr; Job Listings</a>
+  </div>
+
+  <h4>About These Trends</h4>
+  <p>
+    These charts visualize hiring trends in the people analytics space, drawn from the same data that powers the <a href="/people_analytics_jobs">PA Job Listings</a>. Use the filters to explore active job counts over time by country, work mode, and job level.
+  </p>
+  <p>
+    The number of active listings shown here will not always match the total number of rows in the job table, and it is often lower. For trend aggregation, I combine postings that appear to represent the same role across multiple work arrangements. For example, if the same job is posted separately as remote and hybrid or on-site, I keep those as separate rows in the table but count them as one role in this chart.
+  </p>
+
+  <div class="jobs-page-disclaimer">
+    <p>
+      <strong>Disclaimer:</strong> <i>This page is a personal project created to
+      help the People Analytics community. I am not compensated by any company or
+      organization for maintaining this site. The content here is not affiliated
+      with, endorsed by, or representative of my employers or research
+      affiliations, including Workday or MIT.</i>
+    </p>
+  </div>
+</section>
+
+<div id="pa-chart-app">
+  <p id="pa-meta-line">loading...</p>
+
+  <div id="pa-main-layout">
+
+    <!-- Controls -->
+    <div id="pa-controls">
+      <div class="pa-filters-title">Filter Trends</div>
+      <div class="pa-controls-grid">
+        <div class="pa-ctrl-section">
+          <span class="pa-ctrl-label">Work Mode</span>
+          <div id="pa-workmode-list"></div>
+        </div>
+
+        <hr class="pa-ctrl-divider">
+
+        <div class="pa-ctrl-section">
+          <span class="pa-ctrl-label">Country</span>
+          <div class="pa-cb-list" id="pa-country-list"></div>
+        </div>
+
+        <hr class="pa-ctrl-divider">
+
+        <div class="pa-ctrl-section">
+          <span class="pa-ctrl-label">Job Level</span>
+          <div class="pa-cb-list" id="pa-level-list"></div>
+        </div>
+
+        <hr class="pa-ctrl-divider">
+
+        <div class="pa-ctrl-section">
+          <span class="pa-ctrl-label">Annotations</span>
+          <div id="pa-annotation-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart -->
+    <div id="pa-chart-wrap">
+      <div class="pa-filters-title">Active Listings Over Time</div>
+      <div id="pa-chart-loading">loading trend data...</div>
+    </div>
+  </div>
+
+  <div class="pa-secondary-section">
+    <div id="pa-weekday-wrap">
+      <div class="pa-filters-title">Average New Listings by Weekday</div>
+      <div id="pa-weekday-chart" class="pa-chart-slot"></div>
+    </div>
+  </div>
+
+  <div class="pa-secondary-section">
+    <div id="pa-share-layout">
+      <div id="pa-share-controls">
+        <div class="pa-filters-title">Composition Filters</div>
+        <div class="pa-controls-grid">
+          <div class="pa-ctrl-section">
+            <span class="pa-ctrl-label">View</span>
+            <div class="pa-toggle-group" id="pa-share-dimension-toggle">
+              <button class="pa-toggle-btn active" data-dimension="work_mode">Work Mode</button>
+              <button class="pa-toggle-btn" data-dimension="job_level">Job Level</button>
+            </div>
+          </div>
+
+          <hr class="pa-ctrl-divider">
+
+          <div class="pa-ctrl-section">
+            <span class="pa-ctrl-label">Country</span>
+            <div class="pa-cb-list" id="pa-share-country-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pa-share-chart-wrap">
+        <div class="pa-filters-title">Share of Active Listings Over Time</div>
+        <div id="pa-share-legend" class="pa-legend"></div>
+        <div id="pa-share-chart" class="pa-chart-slot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="pa-tooltip">
+  <div id="pa-tt-date"></div>
+  <div id="pa-tt-count"></div>
+  <div id="pa-tt-filters"></div>
+</div>
+
+<div id="pa-share-tooltip">
+  <div id="pa-share-tt-date"></div>
+  <div id="pa-share-tt-total"></div>
+  <div id="pa-share-tt-body"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script>
+(function () {
+
+  const DATA_URL    = "https://raw.githubusercontent.com/joepatten/pa_data/main/trend_data.json";
+  const CHART_START = new Date("2026-01-01");
+  const COUNTRY_PRIORITY = ["United States", "Canada", "United Kingdom", "Australia", "Netherlands"];
+  const LEVEL_PRIORITY = ["Intern", "Individual Contributor", "Manager", "Director+"];
+  const WORK_MODE_ORDER = ["Remote", "Hybrid", "On-site"];
+  const WEEKDAY_ORDER = [1, 2, 3, 4, 5, 6, 0];
+  const WEEKDAY_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const WORK_MODE_COLORS = {
+    "Remote": "#CA4",
+    "Hybrid": "#4aa3a2",
+    "On-site": "#c96f3b",
+  };
+  const LEVEL_COLORS = {
+    "Intern": "#8fbf8f",
+    "Individual Contributor": "#CA4",
+    "Manager": "#4aa3a2",
+    "Director+": "#c96f3b",
+  };
+
+  const state = {
+    showAnnotations: false,
+    selectedCountries: new Set(),
+    selectedModes:     new Set(),
+    selectedLevels:    new Set(),
+  };
+
+  const shareState = {
+    dimension: "work_mode",
+    selectedCountries: new Set(),
+  };
+
+  let DATA      = null;
+  let jobPasses = null;
+  let chartData = [];
+  let shareRows = [];
+  let shareCategories = [];
+
+  const MARGIN = { top: 18, right: 24, bottom: 48, left: 54 };
+  const WEEKDAY_MARGIN = { top: 12, right: 18, bottom: 38, left: 46 };
+  const SHARE_MARGIN = { top: 12, right: 24, bottom: 48, left: 54 };
+
+  const chartWrap = document.getElementById("pa-chart-wrap");
+  const weekdayChartHost = document.getElementById("pa-weekday-chart");
+  const shareChartHost = document.getElementById("pa-share-chart");
+  const shareLegend = document.getElementById("pa-share-legend");
+
+  const svg = d3.select(chartWrap).append("svg")
+    .style("display", "block")
+    .style("width", "100%");
+
+  const weekdaySvg = d3.select(weekdayChartHost).append("svg")
+    .style("display", "block")
+    .style("width", "100%");
+
+  const shareSvg = d3.select(shareChartHost).append("svg")
+    .style("display", "block")
+    .style("width", "100%");
+
+  const g = svg.append("g")
+    .attr("transform", `translate(${MARGIN.left},${MARGIN.top})`);
+
+  const defs = svg.append("defs");
+  defs.append("marker")
+    .attr("id", "pa-annotation-arrow")
+    .attr("viewBox", "0 0 10 10")
+    .attr("refX", 8)
+    .attr("refY", 5)
+    .attr("markerWidth", 5)
+    .attr("markerHeight", 5)
+    .attr("orient", "auto-start-reverse")
+    .append("path")
+    .attr("d", "M 0 0 L 10 5 L 0 10 z")
+    .attr("fill", "#d8b24a");
+
+  const xAxisG   = g.append("g").attr("class", "x-axis");
+  const yAxisG   = g.append("g").attr("class", "y-axis");
+  const yGridG   = g.append("g").attr("class", "y-grid");
+  const areaPath = g.append("path").attr("class", "area-path");
+  const linePath = g.append("path").attr("class", "line-path");
+  const annotationG = g.append("g").attr("class", "india-annotation").style("display", "none");
+  const annotationLine = annotationG.append("line").attr("class", "annotation-line");
+  const annotationDot = annotationG.append("circle").attr("class", "annotation-dot").attr("r", 4);
+  const annotationText = annotationG.append("text").attr("class", "annotation-text");
+  const hoverLine = g.append("line").attr("class", "hover-line").style("opacity", 0);
+  const hoverDot  = g.append("circle").attr("class", "hover-dot").attr("r", 4.5).style("opacity", 0);
+  const overlay   = g.append("rect").attr("fill", "none").attr("pointer-events", "all");
+
+  const weekdayG = weekdaySvg.append("g")
+    .attr("transform", `translate(${WEEKDAY_MARGIN.left},${WEEKDAY_MARGIN.top})`);
+  const weekdayXAxisG = weekdayG.append("g").attr("class", "x-axis");
+  const weekdayYAxisG = weekdayG.append("g").attr("class", "y-axis");
+
+  const shareG = shareSvg.append("g")
+    .attr("transform", `translate(${SHARE_MARGIN.left},${SHARE_MARGIN.top})`);
+  const shareXAxisG = shareG.append("g").attr("class", "x-axis");
+  const shareYAxisG = shareG.append("g").attr("class", "y-axis");
+  const shareHoverLine = shareG.append("line")
+    .attr("class", "hover-line")
+    .style("opacity", 0);
+  const shareOverlay = shareG.append("rect")
+    .attr("fill", "none")
+    .attr("pointer-events", "all");
+
+  const xScale = d3.scaleTime();
+  const yScale = d3.scaleLinear();
+  const weekdayXScale = d3.scaleBand().padding(0.18);
+  const weekdayYScale = d3.scaleLinear();
+  const shareXScale = d3.scaleTime();
+  const shareYScale = d3.scaleLinear();
+
+  const parseDate  = d3.timeParse("%Y-%m-%d");
+  const formatDate = d3.timeFormat("%b %d, %Y");
+  const INDIA_ANNOTATION_DATE = parseDate("2026-02-02");
+  const IRELAND_WEEKDAY_START_DATE = parseDate("2026-01-09");
+
+  let dims = { width: 600, height: 300 };
+  let weekdayDims = { width: 600, height: 220 };
+  let shareDims = { width: 600, height: 280 };
+
+  const lineGen = d3.line()
+    .x(d => xScale(d.date))
+    .y(d => yScale(d.count))
+    .curve(d3.curveMonotoneX);
+
+  const areaGen = d3.area()
+    .x(d => xScale(d.date))
+    .y0(() => dims.height)
+    .y1(d => yScale(d.count))
+    .curve(d3.curveMonotoneX);
+
+  const shareAreaGen = d3.area()
+    .x(d => shareXScale(d.data.date))
+    .y0(d => shareYScale(d[0]))
+    .y1(d => shareYScale(d[1]))
+    .curve(d3.curveMonotoneX);
+
+  const tooltip   = document.getElementById("pa-tooltip");
+  const ttDate    = document.getElementById("pa-tt-date");
+  const ttCount   = document.getElementById("pa-tt-count");
+  const ttFilters = document.getElementById("pa-tt-filters");
+  const shareTooltip = document.getElementById("pa-share-tooltip");
+  const shareTtDate = document.getElementById("pa-share-tt-date");
+  const shareTtTotal = document.getElementById("pa-share-tt-total");
+  const shareTtBody = document.getElementById("pa-share-tt-body");
+
+  function jobMatchesCountrySelection(job, selectedCountries) {
+    return selectedCountries.size === 0 ||
+      job.countries.some(country => selectedCountries.has(country));
+  }
+
+  function jobMatchesModeSelection(job, selectedModes) {
+    if (selectedModes.size === 0) return true;
+    const direct  = selectedModes.has(job.canonical_work_mode);
+    const reMatch = selectedModes.has("Remote") && job.remote_eligible;
+    return direct || reMatch;
+  }
+
+  function jobMatchesLevelSelection(job, selectedLevels) {
+    return selectedLevels.size === 0 || selectedLevels.has(job.job_level);
+  }
+
+  function computeJobPasses() {
+    const jobs = DATA.jobs;
+    const passes = new Uint8Array(jobs.length);
+    const { selectedCountries, selectedModes, selectedLevels } = state;
+
+    for (let i = 0; i < jobs.length; i++) {
+      const job = jobs[i];
+      let pass = true;
+
+      if (pass && !jobMatchesCountrySelection(job, selectedCountries)) pass = false;
+      if (pass && !jobMatchesModeSelection(job, selectedModes)) pass = false;
+      if (pass && !jobMatchesLevelSelection(job, selectedLevels)) pass = false;
+      passes[i] = pass ? 1 : 0;
+    }
+    return passes;
+  }
+
+  function computeChartData() {
+    jobPasses = computeJobPasses();
+    const daily = DATA.daily;
+
+    return Object.keys(daily).sort()
+      .filter(dateStr => parseDate(dateStr) >= CHART_START)
+      .map(dateStr => {
+        const day = daily[dateStr];
+        const ids = day.active_job_ids;
+        let count = 0;
+        for (const id of ids) count += jobPasses[id];
+        return { date: parseDate(dateStr), count };
+      });
+  }
+
+  function getInnerDims() {
+    const totalW = chartWrap.clientWidth || 640;
+    const totalH = Math.max(320, Math.min(520, window.innerHeight * 0.55));
+    return {
+      width:  Math.max(200, totalW - MARGIN.left - MARGIN.right - 4),
+      height: Math.max(200, totalH - MARGIN.top - MARGIN.bottom),
+    };
+  }
+
+  function updateChart(animate) {
+    if (animate === undefined) animate = true;
+    chartData = computeChartData();
+    dims = getInnerDims();
+    const { width, height } = dims;
+
+    svg.attr("height", height + MARGIN.top + MARGIN.bottom);
+    overlay.attr("width", width).attr("height", height);
+
+    xScale.domain(d3.extent(chartData, d => d.date)).range([0, width]);
+    const maxCount = d3.max(chartData, d => d.count) || 10;
+    yScale.domain([0, maxCount * 1.12]).range([height, 0]).nice();
+
+    xAxisG.attr("transform", `translate(0,${height})`)
+      .call(
+        d3.axisBottom(xScale)
+          .ticks(d3.timeMonth.every(1))
+          .tickFormat(d3.timeFormat("%b '%y"))
+      );
+    xAxisG.select(".domain").attr("stroke", "#2a2d3e");
+    xAxisG.selectAll("line").attr("stroke", "#2a2d3e");
+
+    yGridG.call(
+      d3.axisLeft(yScale).ticks(6).tickSize(-width).tickFormat("")
+    );
+    yGridG.selectAll("line").attr("stroke", "#1a1d27");
+    yGridG.select(".domain").remove();
+
+    const t = d3.transition().duration(animate ? 400 : 0).ease(d3.easeCubicOut);
+
+    yAxisG.transition(t).call(
+      d3.axisLeft(yScale)
+        .ticks(6)
+        .tickFormat(d => d >= 1000 ? d3.format(".1s")(d) : d)
+    );
+    yAxisG.select(".domain").remove();
+    yAxisG.selectAll("line").attr("stroke", "none");
+
+    areaPath.datum(chartData).transition(t).attr("d", areaGen);
+    linePath.datum(chartData).transition(t).attr("d", lineGen);
+    updateIndiaAnnotation();
+    updateWeekdayChart(animate);
+  }
+
+  function computeWeekdayData() {
+    const passes = computeJobPasses();
+    const includesIndia =
+      state.selectedCountries.size === 0 ||
+      state.selectedCountries.has("India");
+    const includesIreland =
+      state.selectedCountries.size === 0 ||
+      state.selectedCountries.has("Ireland");
+    const buckets = Array.from({ length: 7 }, (_, idx) => ({
+      dayIndex: idx,
+      label: WEEKDAY_LABELS[idx],
+      total: 0,
+      observations: 0,
+    }));
+
+    Object.keys(DATA.daily).sort()
+      .filter(dateStr => parseDate(dateStr) >= CHART_START)
+      .forEach(dateStr => {
+        const day = DATA.daily[dateStr];
+        const date = parseDate(dateStr);
+        if (includesIndia && date.getTime() === INDIA_ANNOTATION_DATE.getTime()) return;
+        if (includesIreland && date < IRELAND_WEEKDAY_START_DATE) return;
+        const bucket = buckets[date.getDay()];
+        let count = 0;
+
+        for (const id of (day.new_job_ids || [])) {
+          count += passes[id];
+        }
+
+        bucket.total += count;
+        bucket.observations += 1;
+      });
+
+    return WEEKDAY_ORDER.map(dayIndex => {
+      const bucket = buckets[dayIndex];
+      return {
+        label: bucket.label,
+        value: bucket.observations ? bucket.total / bucket.observations : 0,
+      };
+    });
+  }
+
+  function updateWeekdayChart(animate) {
+    if (animate === undefined) animate = true;
+    const weekdayData = computeWeekdayData();
+    weekdayDims = getWeekdayInnerDims();
+    const { width, height } = weekdayDims;
+
+    weekdaySvg.attr("height", height + WEEKDAY_MARGIN.top + WEEKDAY_MARGIN.bottom);
+
+    weekdayXScale
+      .domain(weekdayData.map(d => d.label))
+      .range([0, width]);
+
+    weekdayYScale
+      .domain([0, (d3.max(weekdayData, d => d.value) || 1) * 1.15])
+      .range([height, 0])
+      .nice();
+
+    weekdayXAxisG
+      .attr("transform", `translate(0,${height})`)
+      .call(d3.axisBottom(weekdayXScale));
+
+    weekdayYAxisG.call(
+      d3.axisLeft(weekdayYScale)
+        .ticks(5)
+        .tickFormat(d => (Number.isInteger(d) ? d : d.toFixed(1)))
+    );
+
+    const t = d3.transition().duration(animate ? 300 : 0).ease(d3.easeCubicOut);
+
+    weekdayG.selectAll(".bar")
+      .data(weekdayData)
+      .join("rect")
+      .attr("class", "bar")
+      .attr("x", d => weekdayXScale(d.label))
+      .attr("width", weekdayXScale.bandwidth())
+      .transition(t)
+      .attr("y", d => weekdayYScale(d.value))
+      .attr("height", d => Math.max(0, height - weekdayYScale(d.value)));
+
+    weekdayG.selectAll(".bar-label")
+      .data(weekdayData)
+      .join("text")
+      .attr("class", "bar-label")
+      .attr("x", d => weekdayXScale(d.label) + weekdayXScale.bandwidth() / 2)
+      .transition(t)
+      .attr("y", d => Math.max(12, weekdayYScale(d.value) - 6))
+      .text(d => d.value.toFixed(1));
+  }
+
+  function getShareCategories() {
+    if (shareState.dimension === "work_mode") return WORK_MODE_ORDER.slice();
+    return orderWithPriority(DATA.meta.filter_options.job_levels, LEVEL_PRIORITY);
+  }
+
+  function getShareColor(category) {
+    return WORK_MODE_COLORS[category] || LEVEL_COLORS[category] || "#8d8d8d";
+  }
+
+  function computeShareSeries() {
+    const categories = getShareCategories();
+    const rows = Object.keys(DATA.daily).sort()
+      .filter(dateStr => parseDate(dateStr) >= CHART_START)
+      .map(dateStr => {
+        const row = { date: parseDate(dateStr) };
+        const counts = {};
+        let total = 0;
+
+        categories.forEach(category => {
+          counts[category] = 0;
+        });
+
+        for (const id of DATA.daily[dateStr].active_job_ids) {
+          const job = DATA.jobs[id];
+          if (!jobMatchesCountrySelection(job, shareState.selectedCountries)) continue;
+
+          const category = shareState.dimension === "work_mode"
+            ? job.canonical_work_mode
+            : job.job_level;
+
+          if (!(category in counts)) continue;
+          counts[category] += 1;
+          total += 1;
+        }
+
+        categories.forEach(category => {
+          row[category] = total ? counts[category] / total : 0;
+        });
+
+        row.total = total;
+
+        return row;
+      });
+
+    return { categories, rows };
+  }
+
+  function renderShareLegend(categories) {
+    shareLegend.innerHTML = "";
+
+    categories.forEach(category => {
+      const item = document.createElement("span");
+      item.className = "pa-legend-item";
+
+      const swatch = document.createElement("span");
+      swatch.className = "pa-legend-swatch";
+      swatch.style.backgroundColor = getShareColor(category);
+
+      const label = document.createElement("span");
+      label.textContent = category;
+
+      item.appendChild(swatch);
+      item.appendChild(label);
+      shareLegend.appendChild(item);
+    });
+  }
+
+  function updateShareChart(animate) {
+    if (animate === undefined) animate = true;
+    const { categories, rows } = computeShareSeries();
+    shareCategories = categories;
+    shareRows = rows;
+    shareDims = getShareInnerDims();
+    const { width, height } = shareDims;
+
+    shareSvg.attr("height", height + SHARE_MARGIN.top + SHARE_MARGIN.bottom);
+    renderShareLegend(categories);
+    shareHoverLine
+      .attr("y1", 0)
+      .attr("y2", height);
+    shareOverlay.attr("width", width).attr("height", height);
+
+    shareXScale.domain(d3.extent(rows, d => d.date)).range([0, width]);
+    shareYScale.domain([0, 1]).range([height, 0]);
+
+    shareXAxisG
+      .attr("transform", `translate(0,${height})`)
+      .call(
+        d3.axisBottom(shareXScale)
+          .ticks(d3.timeMonth.every(1))
+          .tickFormat(d3.timeFormat("%b '%y"))
+      );
+
+    shareYAxisG.call(
+      d3.axisLeft(shareYScale)
+        .ticks(5)
+        .tickFormat(d3.format(".0%"))
+    );
+
+    const stack = d3.stack().keys(categories);
+    const series = stack(rows);
+    const t = d3.transition().duration(animate ? 350 : 0).ease(d3.easeCubicOut);
+
+    shareG.selectAll(".share-layer")
+      .data(series, d => d.key)
+      .join("path")
+      .attr("class", "share-layer")
+      .attr("fill", d => getShareColor(d.key))
+      .transition(t)
+      .attr("d", shareAreaGen);
+
+    shareOverlay.raise();
+  }
+
+  shareOverlay.on("mousemove", function (event) {
+    if (!shareRows.length) return;
+
+    const [mx] = d3.pointer(event);
+    const hoverDate = shareXScale.invert(mx);
+    const bisect = d3.bisector(d => d.date).center;
+    const idx = bisect(shareRows, hoverDate);
+    const row = shareRows[Math.max(0, Math.min(idx, shareRows.length - 1))];
+    if (!row) return;
+    const x = shareXScale(row.date);
+
+    shareHoverLine
+      .attr("x1", x)
+      .attr("x2", x)
+      .style("opacity", 1);
+
+    shareTtDate.textContent = formatDate(row.date);
+    shareTtTotal.textContent = `Total listings: ${row.total.toLocaleString()}`;
+    shareTtBody.innerHTML = "";
+
+    shareCategories.forEach(category => {
+      const line = document.createElement("div");
+      line.className = "pa-share-tt-row";
+      line.textContent = `${category}: ${(row[category] * 100).toFixed(1)}%`;
+      shareTtBody.appendChild(line);
+    });
+
+    const pad = 16;
+    const tw  = shareTooltip.offsetWidth || 200;
+    const th  = shareTooltip.offsetHeight || 90;
+    let tx = event.clientX + pad;
+    let ty = event.clientY - th / 2;
+    if (tx + tw > window.innerWidth  - pad) tx = event.clientX - tw - pad;
+    if (ty < pad)                            ty = pad;
+    if (ty + th > window.innerHeight - pad)  ty = window.innerHeight - th - pad;
+
+    shareTooltip.style.left = `${tx}px`;
+    shareTooltip.style.top = `${ty}px`;
+    shareTooltip.style.opacity = "1";
+  })
+  .on("mouseleave", function () {
+    shareHoverLine.style("opacity", 0);
+    shareTooltip.style.opacity = "0";
+  });
+
+  function getWeekdayInnerDims() {
+    const totalW = weekdayChartHost.clientWidth || 640;
+    const totalH = 250;
+    return {
+      width: Math.max(220, totalW - WEEKDAY_MARGIN.left - WEEKDAY_MARGIN.right - 4),
+      height: Math.max(170, totalH - WEEKDAY_MARGIN.top - WEEKDAY_MARGIN.bottom),
+    };
+  }
+
+  function getShareInnerDims() {
+    const totalW = shareChartHost.clientWidth || 640;
+    const totalH = Math.max(300, Math.min(420, window.innerHeight * 0.48));
+    return {
+      width: Math.max(220, totalW - SHARE_MARGIN.left - SHARE_MARGIN.right - 4),
+      height: Math.max(220, totalH - SHARE_MARGIN.top - SHARE_MARGIN.bottom),
+    };
+  }
+
+  function shouldShowIndiaAnnotation() {
+    return state.showAnnotations && (
+      state.selectedCountries.size === 0 ||
+      state.selectedCountries.has("India")
+    );
+  }
+
+  function updateIndiaAnnotation() {
+    if (!shouldShowIndiaAnnotation()) {
+      annotationG.style("display", "none");
+      return;
+    }
+
+    const point = chartData.find(d => d.date && d.date.getTime() === INDIA_ANNOTATION_DATE.getTime());
+    if (!point) {
+      annotationG.style("display", "none");
+      return;
+    }
+
+    const x = xScale(point.date);
+    const y = yScale(point.count);
+    const textMinX = 56;
+    const textMaxX = Math.max(textMinX, dims.width - 56);
+    const preferredTextX = x - 72;
+    const textX = Math.max(textMinX, Math.min(textMaxX, preferredTextX));
+    const textY = Math.max(20, y - 42);
+    const lineEndX = textX + 8;
+    const lineEndY = textY + 6;
+    const textAnchor = "end";
+
+    annotationG.style("display", null);
+    annotationDot.attr("cx", x).attr("cy", y);
+    annotationLine
+      .attr("x1", lineEndX)
+      .attr("y1", lineEndY)
+      .attr("x2", x)
+      .attr("y2", y);
+
+    annotationText
+      .attr("x", textX)
+      .attr("y", textY)
+      .attr("text-anchor", textAnchor)
+      .text("");
+
+    annotationText.append("tspan")
+      .attr("x", textX)
+      .attr("dy", 0)
+      .text("India added");
+
+    annotationText.append("tspan")
+      .attr("x", textX)
+      .attr("dy", 13)
+      .text("Feb 2, 2026");
+  }
+
+  function getFilterSummary() {
+    const parts = [];
+    if (state.selectedCountries.size > 0) parts.push([...state.selectedCountries].join(", "));
+    if (state.selectedModes.size > 0)     parts.push([...state.selectedModes].join(", "));
+    if (state.selectedLevels.size > 0)    parts.push([...state.selectedLevels].join(", "));
+    return parts.length > 0 ? parts.join(" • ") : "all jobs";
+  }
+
+  overlay.on("mousemove", function (event) {
+    if (!chartData.length) return;
+
+    const [mx] = d3.pointer(event);
+    const hoverDate = xScale.invert(mx);
+    const bisect = d3.bisector(d => d.date).center;
+    const idx = bisect(chartData, hoverDate);
+    const d = chartData[Math.max(0, Math.min(idx, chartData.length - 1))];
+    if (!d) return;
+
+    const x = xScale(d.date);
+    const y = yScale(d.count);
+
+    hoverLine
+      .attr("x1", x).attr("x2", x)
+      .attr("y1", 0).attr("y2", dims.height)
+      .style("opacity", 1);
+
+    hoverDot.attr("cx", x).attr("cy", y).style("opacity", 1);
+
+    ttDate.textContent    = formatDate(d.date);
+    ttCount.textContent   = `Active Jobs: ${d.count.toLocaleString()}`;
+    ttFilters.textContent = getFilterSummary();
+
+    const pad = 16;
+    const tw  = tooltip.offsetWidth  || 200;
+    const th  = tooltip.offsetHeight || 70;
+    let tx = event.clientX + pad;
+    let ty = event.clientY - th / 2;
+    if (tx + tw > window.innerWidth  - pad) tx = event.clientX - tw - pad;
+    if (ty < pad)                            ty = pad;
+    if (ty + th > window.innerHeight - pad)  ty = window.innerHeight - th - pad;
+
+    tooltip.style.left    = `${tx}px`;
+    tooltip.style.top     = `${ty}px`;
+    tooltip.style.opacity = "1";
+  })
+  .on("mouseleave", function () {
+    hoverLine.style("opacity", 0);
+    hoverDot.style("opacity", 0);
+    tooltip.style.opacity = "0";
+  });
+
+  function buildCheckboxList(containerId, items, targetState, stateKey, onChange) {
+    const el = document.getElementById(containerId);
+    el.innerHTML = "";
+
+    items.forEach(item => {
+      const label = document.createElement("label");
+      label.className = "pa-cb-item";
+
+      const cb = document.createElement("input");
+      cb.type    = "checkbox";
+      cb.value   = item;
+      cb.checked = false;
+
+      cb.addEventListener("change", () => {
+        const checked = new Set();
+        el.querySelectorAll("input[type=checkbox]").forEach(c => {
+          if (c.checked) checked.add(c.value);
+        });
+        targetState[stateKey] = (checked.size === 0 || checked.size === items.length)
+          ? new Set()
+          : checked;
+        onChange();
+      });
+
+      const span = document.createElement("span");
+      span.textContent = item;
+
+      label.appendChild(cb);
+      label.appendChild(span);
+      el.appendChild(label);
+    });
+  }
+
+  function orderWithPriority(items, priorityOrder) {
+    const priorityItems = [];
+    const otherItems = [];
+
+    items.forEach(item => {
+      if (priorityOrder.includes(item)) {
+        priorityItems.push(item);
+      } else {
+        otherItems.push(item);
+      }
+    });
+
+    otherItems.sort();
+
+    return priorityOrder
+      .filter(item => priorityItems.includes(item))
+      .concat(otherItems);
+  }
+
+  function buildControls() {
+    const opts = DATA.meta.filter_options;
+    const orderedCountries = orderWithPriority(
+      opts.countries,
+      COUNTRY_PRIORITY
+    );
+    const orderedModes = orderWithPriority(
+      WORK_MODE_ORDER,
+      WORK_MODE_ORDER
+    );
+    const orderedLevels = orderWithPriority(
+      opts.job_levels,
+      LEVEL_PRIORITY
+    );
+
+    buildCheckboxList("pa-country-list",  orderedCountries, state, "selectedCountries", () => updateChart());
+    buildCheckboxList("pa-workmode-list", orderedModes,     state, "selectedModes",     () => updateChart());
+    buildCheckboxList("pa-level-list",    orderedLevels,    state, "selectedLevels",    () => updateChart());
+    buildAnnotationControl();
+  }
+
+  function buildAnnotationControl() {
+    const el = document.getElementById("pa-annotation-list");
+    el.innerHTML = "";
+
+    const label = document.createElement("label");
+    label.className = "pa-cb-item";
+
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.checked = state.showAnnotations;
+    cb.addEventListener("change", () => {
+      state.showAnnotations = cb.checked;
+      updateChart(false);
+    });
+
+    const span = document.createElement("span");
+    span.textContent = "Show Annotations";
+
+    label.appendChild(cb);
+    label.appendChild(span);
+    el.appendChild(label);
+  }
+
+  function buildShareControls() {
+    const orderedCountries = orderWithPriority(
+      DATA.meta.filter_options.countries,
+      COUNTRY_PRIORITY
+    );
+
+    buildCheckboxList(
+      "pa-share-country-list",
+      orderedCountries,
+      shareState,
+      "selectedCountries",
+      () => updateShareChart()
+    );
+
+    document.querySelectorAll("#pa-share-dimension-toggle .pa-toggle-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#pa-share-dimension-toggle .pa-toggle-btn")
+          .forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        shareState.dimension = btn.dataset.dimension;
+        updateShareChart(false);
+      });
+    });
+  }
+
+  function formatLongDate(isoStr) {
+    const [year, month, day] = isoStr.slice(0, 10).split('-').map(Number);
+    return new Date(year, month - 1, day).toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+  }
+
+  function updateMetaLine() {
+    const m = DATA.meta;
+    const start = formatLongDate("2026-01-01");
+    const end   = formatLongDate(m.date_range.end);
+    document.getElementById("pa-meta-line").textContent =
+      `${m.total_unique_jobs.toLocaleString()} unique jobs · Showing ${start} to ${end}`;
+  }
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      updateChart(false);
+      updateShareChart(false);
+    }, 80);
+  });
+
+  async function init() {
+    try {
+      DATA = await d3.json(DATA_URL);
+    } catch (err) {
+      document.getElementById("pa-chart-loading").innerHTML =
+        `<span style="color:#ac4142">error: failed to load data — ${err.message}</span>`;
+      return;
+    }
+
+    const loading = document.getElementById("pa-chart-loading");
+    if (loading) loading.remove();
+
+    updateMetaLine();
+    buildControls();
+    buildShareControls();
+    updateChart(false);
+    updateShareChart(false);
+  }
+
+  init();
+
+})();
+</script>
+
+</body>
