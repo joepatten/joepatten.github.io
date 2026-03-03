@@ -329,19 +329,19 @@ permalink: /people_analytics_trends
     }
 
     #pa-chart-wrap .annotation-line {
-      stroke: #d8b24a;
+      stroke: #767676;
       stroke-width: 1.5px;
       marker-end: url(#pa-annotation-arrow);
     }
 
     #pa-chart-wrap .annotation-dot {
-      fill: #d8b24a;
+      fill: #767676;
       stroke: #1e202b;
       stroke-width: 2px;
     }
 
     #pa-chart-wrap .annotation-text {
-      fill: #f3e7bb;
+      fill: #ffffff;
       font-size: 11px;
       font-weight: 600;
     }
@@ -378,6 +378,13 @@ permalink: /people_analytics_trends
     #pa-share-chart-wrap .share-layer {
       opacity: 0.9;
       pointer-events: none;
+    }
+
+    #pa-share-chart-wrap .share-line {
+      fill: none;
+      stroke-width: 2px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
     }
 
     #pa-share-chart-wrap .hover-line {
@@ -542,6 +549,7 @@ permalink: /people_analytics_trends
       <div id="pa-weekday-wrap">
         <div class="pa-filters-title">Average New Listings by Weekday</div>
         <div id="pa-weekday-chart" class="pa-chart-slot"></div>
+        <div id="pa-weekday-filter-note" class="pa-small-note" style="color:#ffffff;text-align:center;"></div>
       </div>
     </div>
   </div>
@@ -557,6 +565,13 @@ permalink: /people_analytics_trends
               <button class="pa-toggle-btn active" data-dimension="work_mode">Work Mode</button>
               <button class="pa-toggle-btn" data-dimension="job_level">Job Level</button>
             </div>
+          </div>
+
+          <hr class="pa-ctrl-divider">
+
+          <div class="pa-ctrl-section" id="pa-share-category-section">
+            <span class="pa-ctrl-label" id="pa-share-category-label">Work Mode</span>
+            <div id="pa-share-category-list"></div>
           </div>
 
           <hr class="pa-ctrl-divider">
@@ -613,7 +628,7 @@ permalink: /people_analytics_trends
   };
 
   const state = {
-    showAnnotations: false,
+    showAnnotations: true,
     selectedCountries: new Set(),
     selectedModes:     new Set(),
     selectedLevels:    new Set(),
@@ -622,6 +637,7 @@ permalink: /people_analytics_trends
   const shareState = {
     dimension: "work_mode",
     selectedCountries: new Set(),
+    selectedCategories: new Set(),
   };
 
   let DATA      = null;
@@ -629,6 +645,7 @@ permalink: /people_analytics_trends
   let chartData = [];
   let shareRows = [];
   let shareCategories = [];
+  let visibleShareCategories = [];
 
   const MARGIN = { top: 18, right: 24, bottom: 48, left: 54 };
   const WEEKDAY_MARGIN = { top: 12, right: 18, bottom: 38, left: 46 };
@@ -665,7 +682,7 @@ permalink: /people_analytics_trends
     .attr("orient", "auto-start-reverse")
     .append("path")
     .attr("d", "M 0 0 L 10 5 L 0 10 z")
-    .attr("fill", "#d8b24a");
+    .attr("fill", "#767676");
 
   const xAxisG   = g.append("g").attr("class", "x-axis");
   const yAxisG   = g.append("g").attr("class", "y-axis");
@@ -1014,11 +1031,20 @@ permalink: /people_analytics_trends
       .transition(t)
       .attr("y", d => Math.max(12, weekdayYScale(d.value) - 6))
       .text(d => d.value.toFixed(1));
+
+    const noteEl = document.getElementById("pa-weekday-filter-note");
+    if (noteEl) noteEl.textContent = getFilterSummary();
   }
 
   function getShareCategories() {
     if (shareState.dimension === "work_mode") return WORK_MODE_ORDER.slice();
     return orderWithPriority(DATA.meta.filter_options.job_levels, LEVEL_PRIORITY);
+  }
+
+  function getVisibleShareCategories() {
+    const all = getShareCategories();
+    if (shareState.selectedCategories.size === 0) return all;
+    return all.filter(c => shareState.selectedCategories.has(c));
   }
 
   function getShareColor(category) {
@@ -1086,13 +1112,15 @@ permalink: /people_analytics_trends
   function updateShareChart(animate) {
     if (animate === undefined) animate = true;
     const { categories, rows } = computeShareSeries();
+    const visible = getVisibleShareCategories();
     shareCategories = categories;
+    visibleShareCategories = visible;
     shareRows = rows;
     shareDims = getShareInnerDims();
     const { width, height } = shareDims;
 
     shareSvg.attr("height", height + SHARE_MARGIN.top + SHARE_MARGIN.bottom);
-    renderShareLegend(categories);
+    renderShareLegend(visible);
     shareHoverLine
       .attr("y1", 0)
       .attr("y2", height);
@@ -1115,18 +1143,33 @@ permalink: /people_analytics_trends
         .tickFormat(d3.format(".0%"))
     );
 
-    const stack = d3.stack().keys(categories);
-    const series = stack(rows);
     const t = d3.transition().duration(animate ? 350 : 0).ease(d3.easeCubicOut);
 
-    shareG.selectAll(".share-layer")
-      .data(series, d => d.key)
+    shareG.selectAll(".share-line")
+      .data(visible, d => d)
       .join("path")
-      .attr("class", "share-layer")
-      .attr("fill", d => getShareColor(d.key))
+      .attr("class", "share-line")
+      .attr("stroke", d => getShareColor(d))
       .transition(t)
-      .attr("d", shareAreaGen);
+      .attr("d", category =>
+        d3.line()
+          .x(r => shareXScale(r.date))
+          .y(r => shareYScale(r[category]))
+          .curve(d3.curveMonotoneX)(rows)
+      );
 
+    shareG.selectAll(".share-hover-dot")
+      .data(visible, d => d)
+      .join("circle")
+      .attr("class", "share-hover-dot")
+      .attr("r", 4.5)
+      .attr("fill", d => getShareColor(d))
+      .attr("stroke", "#1e202b")
+      .attr("stroke-width", 2.5)
+      .style("pointer-events", "none")
+      .style("opacity", 0);
+
+    shareHoverLine.raise();
     shareOverlay.raise();
   }
 
@@ -1146,11 +1189,20 @@ permalink: /people_analytics_trends
       .attr("x2", x)
       .style("opacity", 1);
 
+    shareG.selectAll(".share-hover-dot").each(function(category) {
+      if (row[category] !== undefined) {
+        d3.select(this)
+          .attr("cx", x)
+          .attr("cy", shareYScale(row[category]))
+          .style("opacity", 1);
+      }
+    });
+
     shareTtDate.textContent = formatDate(row.date);
     shareTtTotal.textContent = `Active Listings: ${row.total.toLocaleString()}`;
     shareTtBody.innerHTML = "";
 
-    shareCategories.forEach(category => {
+    visibleShareCategories.forEach(category => {
       const line = document.createElement("div");
       line.className = "pa-share-tt-row";
       line.textContent = `${category}: ${(row[category] * 100).toFixed(1)}%`;
@@ -1177,6 +1229,7 @@ permalink: /people_analytics_trends
   })
   .on("mouseleave", function () {
     shareHoverLine.style("opacity", 0);
+    shareG.selectAll(".share-hover-dot").style("opacity", 0);
     shareTooltip.style.opacity = "0";
   });
 
@@ -1408,6 +1461,43 @@ permalink: /people_analytics_trends
     el.appendChild(label);
   }
 
+  function buildShareCategoryControls() {
+    const label = document.getElementById("pa-share-category-label");
+    const el = document.getElementById("pa-share-category-list");
+    const categories = getShareCategories();
+
+    label.textContent = shareState.dimension === "work_mode" ? "Work Mode" : "Job Level";
+    el.innerHTML = "";
+
+    categories.forEach(category => {
+      const itemLabel = document.createElement("label");
+      itemLabel.className = "pa-cb-item";
+
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.value = category;
+      cb.checked = true;
+
+      cb.addEventListener("change", () => {
+        const checked = new Set();
+        el.querySelectorAll("input[type=checkbox]").forEach(c => {
+          if (c.checked) checked.add(c.value);
+        });
+        shareState.selectedCategories = (checked.size === 0 || checked.size === categories.length)
+          ? new Set()
+          : checked;
+        updateShareChart();
+      });
+
+      const span = document.createElement("span");
+      span.textContent = category;
+
+      itemLabel.appendChild(cb);
+      itemLabel.appendChild(span);
+      el.appendChild(itemLabel);
+    });
+  }
+
   function buildShareControls() {
     const orderedCountries = orderWithPriority(
       DATA.meta.filter_options.countries,
@@ -1422,12 +1512,16 @@ permalink: /people_analytics_trends
       () => updateShareChart()
     );
 
+    buildShareCategoryControls();
+
     document.querySelectorAll("#pa-share-dimension-toggle .pa-toggle-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         document.querySelectorAll("#pa-share-dimension-toggle .pa-toggle-btn")
           .forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         shareState.dimension = btn.dataset.dimension;
+        shareState.selectedCategories = new Set();
+        buildShareCategoryControls();
         updateShareChart(false);
       });
     });
