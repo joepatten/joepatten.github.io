@@ -477,8 +477,9 @@ permalink: /people_analytics_trends
 <body>
 
 <section class="job-board-description">
-  <div class="jobs-page-disclaimer">
-    <a class="pa-nav-btn" href="/people_analytics_jobs">&larr; Job Listings</a>
+  <div class="jobs-page-disclaimer" style="display:flex;gap:8px;flex-wrap:wrap;">
+    <a class="pa-nav-btn" href="/people_analytics_jobs">Job Listings</a>
+    <a class="pa-nav-btn" href="/people_analytics_events">Calendar</a>
   </div>
 
   <h4>About These Trends</h4>
@@ -1127,7 +1128,8 @@ permalink: /people_analytics_trends
     shareOverlay.attr("width", width).attr("height", height);
 
     shareXScale.domain(d3.extent(rows, d => d.date)).range([0, width]);
-    shareYScale.domain([0, 1]).range([height, 0]);
+    const maxShare = d3.max(rows, r => d3.max(visible, cat => r[cat])) || 0.1;
+    shareYScale.domain([0, Math.min(1, maxShare * 1.12)]).range([height, 0]).nice();
 
     shareXAxisG
       .attr("transform", `translate(0,${height})`)

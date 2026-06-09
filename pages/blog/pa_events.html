@@ -1,0 +1,1066 @@
+---
+layout: jobboard_2
+title: PA Events
+sidebar_link: true
+permalink: /people_analytics_events
+---
+
+<head>
+  <meta charset="UTF-8">
+  <title>The People's People Analytics Events</title>
+  <link rel="canonical" href="https://www.joepatten.com/people_analytics_events">
+
+  <style>
+    /* ── PA Logo header ─────────────────────────────────────────────────── */
+    .pa-logo-main {
+      font-size: 1.5rem !important;
+      font-weight: 650 !important;
+      color: #f9fafb !important;
+    }
+
+    .pa-filters-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: #CA4;
+    }
+
+    /* ── Nav buttons ────────────────────────────────────────────────────── */
+    .pa-nav-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 7px 16px;
+      background: #1e202b;
+      color: #CA4 !important;
+      border: 1px solid #CA4;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none !important;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .pa-nav-btn:hover {
+      background: #CA4;
+      color: #1e202b !important;
+      text-decoration: none !important;
+    }
+
+    /* ── App container ──────────────────────────────────────────────────── */
+    #pa-events-app {
+      margin-top: 20px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Controls panel ─────────────────────────────────────────────────── */
+    #pa-events-controls {
+      background: #1e202b;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 1px 3px rgba(15,23,42,0.2);
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+
+    #pa-events-controls .pa-filters-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    .pa-controls-grid {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      font-size: 0.9rem;
+    }
+
+    .pa-ctrl-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #ffffff;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .pa-cb-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 2px 0;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: #a1a1a1;
+    }
+
+    .pa-cb-item input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+      accent-color: #CA4;
+      flex-shrink: 0;
+    }
+
+    .pa-cb-item input[type="checkbox"]:checked + span {
+      color: #ffffff;
+    }
+
+    /* ── Calendar wrapper ───────────────────────────────────────────────── */
+    #pa-calendar-wrap {
+      background: #1e202b;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 1px 3px rgba(15,23,42,0.2);
+      padding: 16px 14px 14px;
+      margin-bottom: 16px;
+    }
+
+    /* ── Month navigation ───────────────────────────────────────────────── */
+    #pa-cal-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    #pa-cal-month-label {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+    }
+
+    .pa-cal-nav-btn {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      color: #a1a1a1;
+      cursor: pointer;
+      font-size: 0.85rem;
+      padding: 5px 12px;
+      font-family: inherit;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+    }
+
+    .pa-cal-nav-btn:hover {
+      background: rgba(255,255,255,0.07);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    /* ── Calendar grid ──────────────────────────────────────────────────── */
+    #pa-cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+
+    .pa-cal-dow {
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #767676;
+      padding: 4px 0 8px;
+    }
+
+    .pa-cal-day {
+      height: 96px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: 6px 6px 5px;
+      cursor: default;
+      transition: border-color 0.12s, background 0.12s;
+      position: relative;
+    }
+
+    .pa-cal-day.has-events {
+      cursor: pointer;
+    }
+
+    .pa-cal-day.has-events:hover {
+      background: rgba(202,170,68,0.07);
+      border-color: rgba(202,170,68,0.3);
+    }
+
+    .pa-cal-day.selected {
+      border-color: #CA4 !important;
+      background: rgba(202,170,68,0.1) !important;
+    }
+
+    .pa-cal-day.today .pa-day-num {
+      background: rgba(202,170,68,0.18);
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pa-cal-day.empty {
+      background: transparent;
+      border-color: transparent;
+      cursor: default;
+    }
+
+    .pa-day-num {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #c9c9c9;
+      margin-bottom: 5px;
+      line-height: 1;
+      height: 22px;
+      display: flex;
+      align-items: center;
+    }
+
+    .pa-cal-day.today .pa-day-num {
+      color: #CA4;
+    }
+
+    .pa-day-chips {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      overflow: hidden;
+    }
+
+    .pa-event-chip {
+      display: block;
+      font-size: 0.64rem;
+      font-weight: 600;
+      line-height: 1.25;
+      padding: 2px 5px;
+      border-radius: 3px;
+      border-left: 2px solid;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+    }
+
+    .pa-chip-overflow {
+      font-size: 0.6rem;
+      color: #767676;
+      padding-left: 5px;
+      line-height: 1.4;
+    }
+
+    /* ── Day events panel ───────────────────────────────────────────────── */
+    #pa-day-events {
+      background: #1e202b;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 1px 3px rgba(15,23,42,0.2);
+      padding: 14px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    #pa-day-events.visible {
+      display: block;
+    }
+
+    #pa-day-events-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #CA4;
+      margin-bottom: 10px;
+    }
+
+    .pa-event-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+    }
+
+    .pa-event-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .pa-event-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .pa-event-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .pa-event-name a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .pa-event-name a:hover {
+      color: #CA4;
+      text-decoration: underline;
+    }
+
+    .pa-event-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .pa-event-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .pa-event-meta {
+      font-size: 0.78rem;
+      color: #a1a1a1;
+      margin-bottom: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+    }
+
+    .pa-event-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .pa-event-desc {
+      font-size: 0.82rem;
+      color: #767676;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .pa-event-featured-star {
+      color: #CA4;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    /* ── Legend ─────────────────────────────────────────────────────────── */
+    #pa-cal-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .pa-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      color: #a1a1a1;
+    }
+
+    .pa-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Submit event button ─────────────────────────────────────────────── */
+    #pa-submit-wrap {
+      margin-bottom: 16px;
+    }
+
+    /* ── Loading / empty states ─────────────────────────────────────────── */
+    #pa-cal-loading {
+      text-align: center;
+      color: #767676;
+      font-size: 0.85rem;
+      padding: 40px 0 20px;
+    }
+
+    /* ── Tooltip ────────────────────────────────────────────────────────── */
+    #pa-event-tooltip {
+      position: fixed;
+      background: #1e202b;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e5e5e5;
+      padding: 9px 13px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.1s;
+      z-index: 9999;
+      max-width: 220px;
+      white-space: normal;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    #pa-tt-name   { color: #ffffff; font-weight: 700; margin-bottom: 2px; }
+    #pa-tt-time   { color: #CA4; font-size: 0.72rem; }
+    #pa-tt-type   { color: #a1a1a1; font-size: 0.72rem; }
+
+    /* ── Responsive ─────────────────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .pa-controls-grid { gap: 14px; }
+      .pa-cal-day { height: 80px; padding: 4px; }
+      .pa-day-num { font-size: 0.7rem; }
+      .pa-event-dot { width: 6px; height: 6px; }
+    }
+
+    @media (max-width: 768px) {
+      body.jobboard .container,
+      body.jobboard main.container {
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+        padding: 2px !important;
+      }
+      #pa-events-app { width: 100%; }
+    }
+  </style>
+</head>
+
+<header>
+  <div id="pa-jobs-page">
+    <div id="pa-jobs-filters" class="pa-filters-container">
+      <div class="pa-filters-title">The People's</div>
+      <div class="pa-logo-main">People Analytics Events</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/assets/js/bracket-viz.js"></script>
+</header>
+
+<body>
+
+<section class="job-board-description">
+  <div class="jobs-page-disclaimer" style="display:flex;gap:8px;flex-wrap:wrap;">
+    <a class="pa-nav-btn" href="/people_analytics_jobs">Job Listings</a>
+    <a class="pa-nav-btn" href="/people_analytics_trends">Trends</a>
+  </div>
+
+  <h4>About This Calendar</h4>
+  <p>
+    A community-curated calendar of people analytics events — conferences, webinars, workshops, meetups, and summits. Use the filters to find events by region, type, or format. Click any highlighted day to see that day's events.
+  </p>
+
+  <div class="jobs-page-disclaimer">
+    <p>
+      <strong>Disclaimer:</strong> <i>This page is a personal project created to
+      help the People Analytics community. I am not compensated by any company or
+      organization for maintaining this site. The content here is not affiliated
+      with, endorsed by, or representative of my employers or research
+      affiliations, including Workday or MIT.</i>
+    </p>
+  </div>
+</section>
+
+<div id="pa-events-app">
+
+  <!-- Submit event button -->
+  <div id="pa-submit-wrap">
+    <a id="pa-submit-btn" class="pa-nav-btn" href="#" target="_blank" rel="noopener">
+      + Submit an Event
+    </a>
+  </div>
+
+  <!-- Filter controls -->
+  <div id="pa-events-controls">
+    <div class="pa-filters-title">Filter Events</div>
+    <div class="pa-controls-grid">
+      <div class="pa-ctrl-section">
+        <span class="pa-ctrl-label">Region</span>
+        <div id="pa-filter-region"></div>
+      </div>
+      <div class="pa-ctrl-section">
+        <span class="pa-ctrl-label">Type</span>
+        <div id="pa-filter-type"></div>
+      </div>
+      <div class="pa-ctrl-section">
+        <span class="pa-ctrl-label">Format</span>
+        <div id="pa-filter-format"></div>
+      </div>
+      <div class="pa-ctrl-section">
+        <span class="pa-ctrl-label">Cost</span>
+        <div id="pa-filter-cost"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calendar -->
+  <div id="pa-calendar-wrap">
+    <div id="pa-cal-nav">
+      <button class="pa-cal-nav-btn" id="pa-cal-prev">&larr; Prev</button>
+      <span id="pa-cal-month-label"></span>
+      <button class="pa-cal-nav-btn" id="pa-cal-next">Next &rarr;</button>
+    </div>
+    <div id="pa-cal-loading">Loading events...</div>
+    <div id="pa-cal-grid" style="display:none;"></div>
+    <div id="pa-cal-legend" style="display:none;"></div>
+  </div>
+
+  <!-- Selected day events -->
+  <div id="pa-day-events">
+    <div id="pa-day-events-title"></div>
+    <div id="pa-day-events-list"></div>
+  </div>
+
+
+</div>
+
+<!-- Tooltip -->
+<div id="pa-event-tooltip">
+  <div id="pa-tt-name"></div>
+  <div id="pa-tt-time"></div>
+  <div id="pa-tt-type"></div>
+</div>
+
+<script>
+(function () {
+
+  // ── Config ───────────────────────────────────────────────────────────────
+  // Replace with your deployed Apps Script Web App URL after deployment.
+  // See Code.gs for deployment instructions.
+  const EVENTS_API_URL  = "https://script.google.com/macros/s/AKfycbyPu3I_2eotHm3f0OOPCjAZcPS0xhYuFxZMZDQVfvZ_o7jh5z0oLTIWxXht5osi2-Tkag/exec";
+  const FORM_URL        = "https://docs.google.com/forms/d/e/1FAIpQLSemisCH51i92TH1zIhAu6wGAJ-Cm7gGFZFk4Q3LiwiT5xTSIw/viewform?usp=header";
+
+  const TYPE_COLORS = {
+    "Conference": "#D66A4A",
+    "Summit":     "#E8853A",
+    "Webinar":    "#2FA7A0",
+    "Workshop":   "#7FB069",
+    "Meetup":     "#a78bfa",
+  };
+
+  const REGION_ORDER = ["North America", "EMEA", "APAC", "Global"];
+  const TYPE_ORDER   = ["Conference", "Summit", "Webinar", "Workshop", "Meetup"];
+  const FORMAT_ORDER = ["In-Person", "Virtual", "Hybrid"];
+  const COST_ORDER   = ["Free", "Paid"];
+
+  const MONTH_NAMES = [
+    "January","February","March","April","May","June",
+    "July","August","September","October","November","December"
+  ];
+
+  // ── State ────────────────────────────────────────────────────────────────
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const state = {
+    events: [],
+    currentYear:  today.getFullYear(),
+    currentMonth: today.getMonth(),
+    selectedDate: null,
+    filters: {
+      regions: new Set(),
+      types:   new Set(),
+      formats: new Set(),
+      costs:   new Set(),
+    },
+  };
+
+  // ── DOM refs ─────────────────────────────────────────────────────────────
+  const calGrid      = document.getElementById("pa-cal-grid");
+  const calLoading   = document.getElementById("pa-cal-loading");
+  const calLegend    = document.getElementById("pa-cal-legend");
+  const monthLabel   = document.getElementById("pa-cal-month-label");
+  const dayEvents    = document.getElementById("pa-day-events");
+  const dayTitle     = document.getElementById("pa-day-events-title");
+  const dayList      = document.getElementById("pa-day-events-list");
+  const tooltip      = document.getElementById("pa-event-tooltip");
+  const ttName       = document.getElementById("pa-tt-name");
+  const ttTime       = document.getElementById("pa-tt-time");
+  const ttType       = document.getElementById("pa-tt-type");
+
+  // ── Set form URL ─────────────────────────────────────────────────────────
+  const submitBtn = document.getElementById("pa-submit-btn");
+  if (FORM_URL && FORM_URL !== "PASTE_YOUR_GOOGLE_FORM_URL_HERE") {
+    submitBtn.href = FORM_URL;
+  } else {
+    submitBtn.style.display = "none";
+  }
+
+  // ── Filtering ────────────────────────────────────────────────────────────
+  function eventPasses(ev) {
+    const { regions, types, formats, costs } = state.filters;
+    if (regions.size && !regions.has(ev.region))  return false;
+    if (types.size   && !types.has(ev.type))      return false;
+    if (formats.size && !formats.has(ev.format))  return false;
+    if (costs.size   && !costs.has(ev.cost))      return false;
+    return true;
+  }
+
+  function getFilteredEvents() {
+    return state.events.filter(eventPasses);
+  }
+
+  // Parse a YYYY-MM-DD string as a local (non-UTC) date
+  function parseLocalDate(str) {
+    const [y, m, d] = str.split("-").map(Number);
+    return new Date(y, m - 1, d);
+  }
+
+  // Format a Date object as YYYY-MM-DD key
+  function toDateKey(d) {
+    return d.getFullYear() + "-"
+      + String(d.getMonth() + 1).padStart(2, "0") + "-"
+      + String(d.getDate()).padStart(2, "0");
+  }
+
+  // Format a YYYY-MM-DD string for display (e.g. "Apr 29, 2026")
+  function formatDateDisplay(str) {
+    if (!str) return "";
+    const d = parseLocalDate(str);
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  }
+
+  // Group filtered events by YYYY-MM-DD string.
+  // Multi-day events (with end_date) are placed on every day in their range.
+  function getEventsByDate() {
+    const map = {};
+    for (const ev of getFilteredEvents()) {
+      if (!ev.date) continue;
+      const start = parseLocalDate(ev.date);
+      const end   = ev.end_date ? parseLocalDate(ev.end_date) : start;
+
+      for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+        const key = toDateKey(d);
+        if (!map[key]) map[key] = [];
+        if (!map[key].includes(ev)) map[key].push(ev);
+      }
+    }
+    return map;
+  }
+
+  // ── Calendar rendering ───────────────────────────────────────────────────
+  function buildCalendar() {
+    const yr = state.currentYear;
+    const mo = state.currentMonth;
+
+    monthLabel.textContent = MONTH_NAMES[mo] + " " + yr;
+
+    const firstDay = new Date(yr, mo, 1).getDay(); // 0=Sun
+    const daysInMonth = new Date(yr, mo + 1, 0).getDate();
+    const eventsByDate = getEventsByDate();
+
+    calGrid.innerHTML = "";
+
+    // Day-of-week headers
+    ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].forEach(d => {
+      const el = document.createElement("div");
+      el.className = "pa-cal-dow";
+      el.textContent = d;
+      calGrid.appendChild(el);
+    });
+
+    // Empty offset cells
+    for (let i = 0; i < firstDay; i++) {
+      const empty = document.createElement("div");
+      empty.className = "pa-cal-day empty";
+      calGrid.appendChild(empty);
+    }
+
+    // Day cells
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateStr = yr + "-"
+        + String(mo + 1).padStart(2, "0") + "-"
+        + String(day).padStart(2, "0");
+
+      const eventsOnDay = eventsByDate[dateStr] || [];
+      const isToday = (
+        yr === today.getFullYear() &&
+        mo === today.getMonth() &&
+        day === today.getDate()
+      );
+      const isSelected = state.selectedDate === dateStr;
+
+      const cell = document.createElement("div");
+      cell.className = "pa-cal-day"
+        + (eventsOnDay.length ? " has-events" : "")
+        + (isToday ? " today" : "")
+        + (isSelected ? " selected" : "");
+      cell.dataset.date = dateStr;
+
+      // Day number
+      const numEl = document.createElement("div");
+      numEl.className = "pa-day-num";
+      numEl.textContent = day;
+      cell.appendChild(numEl);
+
+      // Event name chips
+      if (eventsOnDay.length) {
+        const chipsEl = document.createElement("div");
+        chipsEl.className = "pa-day-chips";
+
+        const maxChips = 2;
+        const shown = eventsOnDay.slice(0, maxChips);
+        const extra = eventsOnDay.length - maxChips;
+
+        shown.forEach(ev => {
+          const chip = document.createElement("div");
+          chip.className = "pa-event-chip";
+          chip.textContent = ev.name;
+          const col = TYPE_COLORS[ev.type] || "#767676";
+          chip.style.backgroundColor = col + "1a";
+          chip.style.color = col;
+          chip.style.borderLeftColor = col;
+
+          // Tooltip on hover showing time/format/location details
+          chip.addEventListener("mouseenter", function(e) {
+            ttName.textContent = ev.name;
+            ttTime.textContent = ev.time
+              ? ev.time + (ev.timezone_submitted ? " " + ev.timezone_submitted : "")
+              : "";
+            ttType.textContent = [ev.type, ev.format, ev.location || ev.region].filter(Boolean).join(" · ");
+            tooltip.style.opacity = "1";
+            positionTooltip(e);
+          });
+          chip.addEventListener("mousemove", positionTooltip);
+          chip.addEventListener("mouseleave", function() {
+            tooltip.style.opacity = "0";
+          });
+
+          chipsEl.appendChild(chip);
+        });
+
+        if (extra > 0) {
+          const more = document.createElement("div");
+          more.className = "pa-chip-overflow";
+          more.textContent = "+" + extra + " more";
+          chipsEl.appendChild(more);
+        }
+
+        cell.appendChild(chipsEl);
+
+        cell.addEventListener("click", function() {
+          tooltip.style.opacity = "0";
+          state.selectedDate = dateStr;
+          buildCalendar(); // re-render to update selected state
+          renderDayEvents(dateStr, eventsOnDay);
+          dayEvents.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        });
+      }
+
+      calGrid.appendChild(cell);
+    }
+  }
+
+  function positionTooltip(e) {
+    const pad = 14;
+    const tw  = tooltip.offsetWidth  || 200;
+    const th  = tooltip.offsetHeight || 70;
+    let tx = e.clientX + pad;
+    let ty = e.clientY - th / 2;
+    if (tx + tw > window.innerWidth  - pad) tx = e.clientX - tw - pad;
+    if (ty < pad)                            ty = pad;
+    if (ty + th > window.innerHeight - pad)  ty = window.innerHeight - th - pad;
+    tooltip.style.left = tx + "px";
+    tooltip.style.top  = ty + "px";
+  }
+
+  // ── Day events panel ─────────────────────────────────────────────────────
+  function renderDayEvents(dateStr, events) {
+    const [yr, mo, dy] = dateStr.split("-").map(Number);
+    const dateObj = new Date(yr, mo - 1, dy);
+    const label = dateObj.toLocaleDateString("en-US", {
+      weekday: "long", year: "numeric", month: "long", day: "numeric"
+    });
+
+    dayTitle.textContent = label;
+    dayList.innerHTML = "";
+
+    // Sort featured first, then by time
+    const sorted = events.slice().sort((a, b) => {
+      if (a.featured && !b.featured) return -1;
+      if (!a.featured && b.featured) return 1;
+      return (a.time || "").localeCompare(b.time || "");
+    });
+
+    sorted.forEach(ev => {
+      const card = document.createElement("div");
+      card.className = "pa-event-card";
+
+      // Header row: name + badges
+      const header = document.createElement("div");
+      header.className = "pa-event-card-header";
+
+      const nameEl = document.createElement("div");
+      nameEl.className = "pa-event-name";
+      if (ev.url) {
+        const a = document.createElement("a");
+        a.href = ev.url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = ev.name;
+        if (ev.featured) {
+          const star = document.createElement("span");
+          star.className = "pa-event-featured-star";
+          star.textContent = " ★";
+          a.appendChild(star);
+        }
+        nameEl.appendChild(a);
+      } else {
+        nameEl.textContent = ev.name;
+        if (ev.featured) {
+          const star = document.createElement("span");
+          star.className = "pa-event-featured-star";
+          star.textContent = " ★";
+          nameEl.appendChild(star);
+        }
+      }
+
+      const badges = document.createElement("div");
+      badges.className = "pa-event-badges";
+
+      if (ev.type) {
+        const b = document.createElement("span");
+        b.className = "pa-event-badge";
+        b.textContent = ev.type;
+        const col = TYPE_COLORS[ev.type] || "#767676";
+        b.style.backgroundColor = col + "22";
+        b.style.color = col;
+        b.style.border = "1px solid " + col + "55";
+        badges.appendChild(b);
+      }
+
+      if (ev.format) {
+        const b = document.createElement("span");
+        b.className = "pa-event-badge";
+        b.textContent = ev.format;
+        b.style.backgroundColor = "rgba(255,255,255,0.06)";
+        b.style.color = "#a1a1a1";
+        b.style.border = "1px solid rgba(255,255,255,0.1)";
+        badges.appendChild(b);
+      }
+
+      if (ev.cost) {
+        const b = document.createElement("span");
+        b.className = "pa-event-badge";
+        b.textContent = ev.cost;
+        if (ev.cost === "Free") {
+          b.style.backgroundColor = "#7FB06922";
+          b.style.color = "#7FB069";
+          b.style.border = "1px solid #7FB06955";
+        } else {
+          b.style.backgroundColor = "rgba(255,255,255,0.06)";
+          b.style.color = "#a1a1a1";
+          b.style.border = "1px solid rgba(255,255,255,0.1)";
+        }
+        badges.appendChild(b);
+      }
+
+      header.appendChild(nameEl);
+      header.appendChild(badges);
+      card.appendChild(header);
+
+      // Meta row: date range, time, region
+      const meta = document.createElement("div");
+      meta.className = "pa-event-meta";
+
+      // Date range (shown in card — useful since the same event appears on multiple days)
+      if (ev.date) {
+        const item = document.createElement("span");
+        item.className = "pa-event-meta-item";
+        if (ev.end_date && ev.end_date !== ev.date) {
+          item.textContent = formatDateDisplay(ev.date) + " – " + formatDateDisplay(ev.end_date);
+        } else {
+          item.textContent = formatDateDisplay(ev.date);
+        }
+        meta.appendChild(item);
+      }
+
+      if (ev.time) {
+        const item = document.createElement("span");
+        item.className = "pa-event-meta-item";
+        item.textContent = ev.time + (ev.timezone_submitted ? " " + ev.timezone_submitted : "");
+        meta.appendChild(item);
+      }
+
+      if (ev.region) {
+        const item = document.createElement("span");
+        item.className = "pa-event-meta-item";
+        item.textContent = ev.region;
+        meta.appendChild(item);
+      }
+
+      if (ev.location) {
+        const item = document.createElement("span");
+        item.className = "pa-event-meta-item";
+        item.textContent = ev.location;
+        meta.appendChild(item);
+      }
+
+      if (meta.children.length) card.appendChild(meta);
+
+      // Description
+      if (ev.description) {
+        const desc = document.createElement("div");
+        desc.className = "pa-event-desc";
+        desc.textContent = ev.description;
+        card.appendChild(desc);
+      }
+
+      dayList.appendChild(card);
+    });
+
+    dayEvents.classList.add("visible");
+  }
+
+  // ── Legend ───────────────────────────────────────────────────────────────
+  function buildLegend() {
+    calLegend.innerHTML = "";
+    Object.entries(TYPE_COLORS).forEach(([type, color]) => {
+      const item = document.createElement("span");
+      item.className = "pa-legend-item";
+
+      const dot = document.createElement("span");
+      dot.className = "pa-legend-dot";
+      dot.style.backgroundColor = color;
+
+      const label = document.createElement("span");
+      label.textContent = type;
+
+      item.appendChild(dot);
+      item.appendChild(label);
+      calLegend.appendChild(item);
+    });
+    calLegend.style.display = "";
+  }
+
+  // ── Filter controls ──────────────────────────────────────────────────────
+  function buildCheckboxGroup(containerId, items, filterKey) {
+    const el = document.getElementById(containerId);
+    el.innerHTML = "";
+
+    items.forEach(item => {
+      const label = document.createElement("label");
+      label.className = "pa-cb-item";
+
+      const cb = document.createElement("input");
+      cb.type    = "checkbox";
+      cb.value   = item;
+      cb.checked = false;
+
+      cb.addEventListener("change", () => {
+        const checked = new Set();
+        el.querySelectorAll("input[type=checkbox]").forEach(c => {
+          if (c.checked) checked.add(c.value);
+        });
+        state.filters[filterKey] = (checked.size === 0 || checked.size === items.length)
+          ? new Set()
+          : checked;
+        buildCalendar();
+        // If a day is selected, re-render its events with new filters
+        if (state.selectedDate) {
+          const eventsOnDay = getEventsByDate()[state.selectedDate] || [];
+          if (eventsOnDay.length) {
+            renderDayEvents(state.selectedDate, eventsOnDay);
+          } else {
+            dayEvents.classList.remove("visible");
+          }
+        }
+      });
+
+      const span = document.createElement("span");
+      span.textContent = item;
+
+      label.appendChild(cb);
+      label.appendChild(span);
+      el.appendChild(label);
+    });
+  }
+
+  function buildFilters() {
+    buildCheckboxGroup("pa-filter-region", REGION_ORDER, "regions");
+    buildCheckboxGroup("pa-filter-type",   TYPE_ORDER,   "types");
+    buildCheckboxGroup("pa-filter-format", FORMAT_ORDER, "formats");
+    buildCheckboxGroup("pa-filter-cost",   COST_ORDER,   "costs");
+  }
+
+  // ── Navigation ───────────────────────────────────────────────────────────
+  document.getElementById("pa-cal-prev").addEventListener("click", () => {
+    state.currentMonth--;
+    if (state.currentMonth < 0) {
+      state.currentMonth = 11;
+      state.currentYear--;
+    }
+    state.selectedDate = null;
+    dayEvents.classList.remove("visible");
+    buildCalendar();
+  });
+
+  document.getElementById("pa-cal-next").addEventListener("click", () => {
+    state.currentMonth++;
+    if (state.currentMonth > 11) {
+      state.currentMonth = 0;
+      state.currentYear++;
+    }
+    state.selectedDate = null;
+    dayEvents.classList.remove("visible");
+    buildCalendar();
+  });
+
+  // ── Init ─────────────────────────────────────────────────────────────────
+  async function init() {
+    buildFilters();
+
+    if (EVENTS_API_URL === "PASTE_YOUR_WEB_APP_URL_HERE") {
+      calLoading.innerHTML =
+        '<span style="color:#D66A4A">Events API not configured yet. ' +
+        'Deploy Code.gs and set EVENTS_API_URL in this file.</span>';
+      calGrid.style.display = "";
+      buildCalendar();
+      buildLegend();
+      return;
+    }
+
+    try {
+      const res  = await fetch(EVENTS_API_URL + "?action=getEvents");
+      const data = await res.json();
+      if (!Array.isArray(data)) throw new Error("Unexpected response format");
+      state.events = data;
+    } catch (err) {
+      calLoading.innerHTML =
+        '<span style="color:#D66A4A">Failed to load events: ' + err.message + '</span>';
+      return;
+    }
+
+    calLoading.style.display = "none";
+    calGrid.style.display    = "";
+
+    // Auto-select today so its events are visible on load
+    const todayKey = toDateKey(today);
+    state.selectedDate = todayKey;
+    buildCalendar();
+    buildLegend();
+
+    const todayEvents = getEventsByDate()[todayKey] || [];
+    if (todayEvents.length) {
+      renderDayEvents(todayKey, todayEvents);
+    }
+  }
+
+  init();
+
+})();
+</script>
+
+</body>
